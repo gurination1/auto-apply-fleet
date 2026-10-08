@@ -942,6 +942,7 @@ def apply_lever(page, item):
     # 2. Fill Standard Lever Fields
     safe_fill_by_name = lambda name, val: page.locator(f'input[name="{name}"]').first.fill(str(val)) if page.locator(f'input[name="{name}"]').count() > 0 and page.locator(f'input[name="{name}"]').first.is_visible() else None
     
+    try:
         safe_fill_by_name("name", CANDIDATE["name"])
         safe_fill_by_name("email", CANDIDATE["email"])
         safe_fill_by_name("phone", CANDIDATE["phone"])
