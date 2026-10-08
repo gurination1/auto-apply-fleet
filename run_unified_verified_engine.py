@@ -872,6 +872,237 @@ def apply_greenhouse(page, item):
         mark_url_dead(url)
         return False
 
+def apply_lever(page, item):
+    company = re.sub('<[^<]+?>', '', item.get('company', '')).strip()
+    title = re.sub('<[^<]+?>', '', item.get('title') or item.get('role', '')).strip()
+    url = (item.get('applyUrl') or item.get('url', '')).replace('&amp;', '&')
+    app_type = "INTERNSHIP" if (item.get('is_internship') or item.get('category') == 'INTERNSHIP' or 'intern' in title.lower() or 'co-op' in title.lower()) else "JOB"
+    category = item.get('category', 'Engineering')
+    stipend_or_sal = item.get('stipend') or ("$5,000 / month" if app_type == "INTERNSHIP" else "$80,000 - $95,000 USD / year")
+
+    print(f"\n==================================================================")
+    print(f"[*] [LEVER] [{app_type}] [{category}] {company} - {title}")
+    print(f"[*] URL: {url}")
+    print(f"==================================================================")
+
+    if not url or check_dead_url(url):
+        return False
+
+    if is_already_confirmed(url, company, title):
+        print(f"[!] Already confirmed in DB: {url}")
+        return True
+
+    fit_score, critique_text = critique_application(company, title)
+    if fit_score < 70:
+        print(f"[-] SKIPPING {company} - {title} [Score: {fit_score}/100]: {critique_text}")
+        return False
+
+    if url.startswith('http://'):
+        url = 'https://' + url[7:]
+    base_url = url.split('?')[0].rstrip('/')
+    query_str = url.split('?')[1] if '?' in url else ''
+    apply_url = base_url if '/apply' in base_url else base_url + '/apply'
+    if query_str:
+        apply_url += '?' + query_str
+
+    try:
+        page.goto(apply_url, wait_until='domcontentloaded', timeout=10000)
+    except Exception:
+        try:
+            page.goto(apply_url, wait_until='load', timeout=10000)
+        except Exception as e:
+            print(f"[-] Lever navigation failed: {e}")
+            mark_url_dead(url)
+            return False
+
+    page.wait_for_timeout(2000)
+
+    page_txt = page.locator('body').inner_text().lower()
+    if any(k in page_txt for k in ['no longer available', 'job has been closed', 'posting not found', '404 not found']):
+        print(f"[-] Lever posting is closed or unavailable.")
+        mark_url_dead(url)
+        return False
+
+    if page.locator('input').count() == 0:
+        btn_apply = page.locator('a:has-text("Apply for this job"), button:has-text("Apply for this job"), .postings-btn').first
+        if btn_apply.count() > 0 and btn_apply.is_visible():
+            btn_apply.click()
+            page.wait_for_timeout(2500)
+
+    # 1. Attach Resume
+    res_input = page.locator('input[type="file"][name*="resume"], input[type="file"]').first
+    if res_input.count() > 0:
+        try:
+            res_input.set_input_files(RESUME_PATH, timeout=5000)
+            print("[+] Lever resume attached")
+            page.wait_for_timeout(1000)
+        except Exception as e:
+            print(f"[-] Lever resume attach note: {e}")
+
+    # 2. Fill Standard Lever Fields
+    safe_fill_by_name = lambda name, val: page.locator(f'input[name="{name}"]').first.fill(str(val)) if page.locator(f'input[name="{name}"]').count() > 0 and page.locator(f'input[name="{name}"]').first.is_visible() else None
+    
+    try:
+        safe_fill_by_name("name", CANDIDATE["name"])
+        safe_fill_by_name("email", CANDIDATE["email"])
+        safe_fill_by_name("phone", CANDIDATE["phone"])
+        safe_fill_by_name("org", "Self-Employed / Independent Builder")
+        safe_fill_by_name("urls[LinkedIn]", CANDIDATE["linkedin"])
+        safe_fill_by_name("urls[GitHub]", CANDIDATE["github"])
+        safe_fill_by_name("urls[Portfolio]", CANDIDATE["portfolio"])
+        safe_fill_by_name("urls[Other]", CANDIDATE["portfolio"])
+    except Exception as e:
+        print(f"[-] Lever standard fill notice: {e}")
+
+    # 3. Additional info / comments
+    comm = page.locator('textarea[name="comments"], textarea[name*="additional"]').first
+    if comm.count() > 0 and comm.is_visible():
+        try:
+            pitch = CANDIDATE["why_frontend"] if "front" in category.lower() else (CANDIDATE["why_intern"] if app_type == "INTERNSHIP" else CANDIDATE["why_automation"])
+            comm.fill(pitch)
+        except Exception:
+            pass
+
+    # 4. Fill custom questions
+    try:
+        for fld in page.locator('.application-question, .custom-question').all():
+            q_txt = fld.inner_text().lower()
+            sel = fld.locator('select').first
+            if sel.count() > 0 and sel.is_visible():
+                opts = sel.locator('option').all()
+                chosen_opt = None
+                for opt in opts:
+                    otxt = opt.inner_text().strip().lower()
+                    if any(k in q_txt for k in ['sponsorship', 'visa']):
+                        if 'no' in otxt or 'none' in otxt:
+                            chosen_opt = opt.get_attribute('value')
+                            break
+                    elif any(k in q_txt for k in ['authorized', 'legally']):
+                        if 'yes' in otxt:
+                            chosen_opt = opt.get_attribute('value')
+                            break
+                    elif any(k in q_txt for k in ['gender']):
+                        if 'male' in otxt and 'female' not in otxt:
+                            chosen_opt = opt.get_attribute('value')
+                            break
+                    elif any(k in q_txt for k in ['race', 'ethnicity']):
+                        if 'asian' in otxt and 'caucasian' not in otxt:
+                            chosen_opt = opt.get_attribute('value')
+                            break
+                    elif any(k in q_txt for k in ['veteran']):
+                        if 'not' in otxt or 'no' in otxt:
+                            chosen_opt = opt.get_attribute('value')
+                            break
+                    elif any(k in q_txt for k in ['disability']):
+                        if 'no' in otxt or 'do not' in otxt:
+                            chosen_opt = opt.get_attribute('value')
+                            break
+                if chosen_opt:
+                    sel.select_option(chosen_opt)
+                elif len(opts) > 1:
+                    sel.select_option(index=1)
+                continue
+
+            radios = fld.locator('input[type="radio"]').all()
+            if radios:
+                for rad in radios:
+                    rlab = rad.locator('xpath=ancestor::label | xpath=..').inner_text().lower()
+                    if any(k in q_txt for k in ['sponsorship', 'visa']) and ('no' in rlab or 'none' in rlab):
+                        rad.check()
+                        break
+                    elif any(k in q_txt for k in ['authorized', 'legally']) and 'yes' in rlab:
+                        rad.check()
+                        break
+                    elif any(k in q_txt for k in ['gender']) and ('male' in rlab and 'female' not in rlab):
+                        rad.check()
+                        break
+                    elif any(k in q_txt for k in ['race', 'ethnicity']) and ('asian' in rlab and 'caucasian' not in rlab):
+                        rad.check()
+                        break
+                    elif any(k in q_txt for k in ['veteran']) and ('not' in rlab or 'no' in rlab):
+                        rad.check()
+                        break
+                    elif any(k in q_txt for k in ['disability']) and ('no' in rlab or 'do not' in rlab):
+                        rad.check()
+                        break
+                    elif 'yes' in rlab or 'no' in rlab:
+                        rad.check()
+                        break
+                continue
+
+            cinp = fld.locator('input[type="text"]').first
+            if cinp.count() > 0 and cinp.is_visible() and not cinp.input_value():
+                if any(k in q_txt for k in ['school', 'university']):
+                    cinp.fill(CANDIDATE["school"])
+                elif any(k in q_txt for k in ['degree']):
+                    cinp.fill(CANDIDATE["degree"])
+                elif any(k in q_txt for k in ['major', 'discipline']):
+                    cinp.fill(CANDIDATE["discipline"])
+                elif any(k in q_txt for k in ['grad', 'graduation']):
+                    cinp.fill(CANDIDATE["grad_year"])
+                elif any(k in q_txt for k in ['year', 'experience', 'how many']):
+                    cinp.fill("2")
+                elif any(k in q_txt for k in ['compensation', 'salary', 'expectation', 'rate']):
+                    cinp.fill("$5,000 / month" if app_type == "INTERNSHIP" else "$85,000 USD / year")
+                else:
+                    cinp.fill("Yes")
+    except Exception as e:
+        print(f"[-] Lever custom fields note: {e}")
+
+    # Checkboxes (Consent / Policy)
+    for cb in page.locator('input[type="checkbox"]').all():
+        try:
+            if cb.is_visible() and not cb.is_checked():
+                cb.check()
+        except Exception:
+            pass
+
+    page.wait_for_timeout(1000)
+
+    solve_all_captchas(page)
+
+    btn = page.locator('#btn-submit, button[type="submit"], button:has-text("Submit application"), button:has-text("Submit")').first
+    if btn.count() == 0:
+        print("[-] No Lever submit button found")
+        mark_url_dead(url)
+        return False
+
+    btn.scroll_into_view_if_needed()
+    print("[*] Submitting Lever application...")
+    btn.click()
+    page.wait_for_timeout(5000)
+    solve_all_captchas(page)
+    page.wait_for_timeout(3000)
+
+    clean_slug = re.sub(r'[^a-zA-Z0-9_]', '_', f"{company}_{title}")[:35]
+    prefix = "intern" if app_type == "INTERNSHIP" else "job"
+    proof_path = f"{PROOF_DIR}/{prefix}_{clean_slug}_lever_confirmed.png"
+    page.screenshot(path=proof_path, full_page=True)
+
+    curr_url = page.url.lower()
+    page_text = page.locator('body').inner_text().lower()
+    is_confirmed = ('/thanks' in curr_url or any(m in page_text for m in [
+        'thank you for applying', 'application submitted', 'we have received your application',
+        'thanks for your interest', 'application was received', 'submitted successfully'
+    ]))
+
+    if is_confirmed:
+        print(f"🎉 CONFIRMED Lever submission for {company} - {title}!")
+        log_verified_application(
+            company=company,
+            role=title,
+            portal="lever",
+            url=url,
+            salary_or_stipend=stipend_or_sal,
+            proof_path=proof_path,
+            app_type=app_type,
+            notes=f"100% verified Lever submission. {category}"
+        )
+        return True
+    else:
+        print(f"[-] Lever submission not confirmed for {company} - {title} (URL: {curr_url})")
+        return False
+
 def apply_ashby(page, item):
     company = re.sub('<[^<]+?>', '', item.get('company', '')).strip()
     title = re.sub('<[^<]+?>', '', item.get('title') or item.get('role', '')).strip()
@@ -894,10 +1125,21 @@ def apply_ashby(page, item):
         print(f"[-] SKIPPING {company} - {title} [Score: {fit_score}/100]: {critique_text}")
         return False
 
-    clean_url = re.sub(r'\?embed=true.*', '', url)
-    if clean_url.startswith('http://'):
-        clean_url = 'https://' + clean_url[7:]
-    app_url = clean_url if '/application' in clean_url else clean_url.rstrip('/') + '/application'
+    if url.startswith('http://'):
+        url = 'https://' + url[7:]
+    base_url = url.split('?')[0].rstrip('/')
+    query_str = url.split('?')[1] if '?' in url else ''
+    
+    if '/application' in base_url:
+        app_url = base_url
+    else:
+        app_url = base_url + '/application'
+        
+    if query_str:
+        clean_query = re.sub(r'embed=true&?', '', query_str).rstrip('&')
+        if clean_query:
+            app_url += '?' + clean_query
+
     try:
         page.goto(app_url, wait_until='domcontentloaded', timeout=8000)
     except Exception:
@@ -1632,6 +1874,8 @@ def main():
                 url = (item.get('applyUrl') or item.get('url') or '').lower()
                 if 'greenhouse' in portal or 'greenhouse.io' in url:
                     res = apply_greenhouse(page, item)
+                elif 'lever' in portal or 'lever.co' in url:
+                    res = apply_lever(page, item)
                 else:
                     res = apply_ashby(page, item)
                 if res:
