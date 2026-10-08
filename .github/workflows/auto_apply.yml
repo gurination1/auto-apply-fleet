@@ -93,6 +93,7 @@ jobs:
       - name: Run Unified Verified Application Engine
         env:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           MODE="${{ github.event.inputs.mode || 'all' }}"
           LIMIT="${{ github.event.inputs.limit || '25' }}"

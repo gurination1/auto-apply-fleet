@@ -30,6 +30,7 @@ except Exception:
     pass
 from playwright.sync_api import sync_playwright
 from playwright_stealth import Stealth
+from gemini_captcha_solver import solve_all_captchas
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, "verified_job_applications.db")
@@ -735,6 +736,9 @@ def apply_greenhouse(page, item):
         mark_url_dead(url)
         return False
 
+    # Check & solve captchas (Turnstile / reCAPTCHA) with Gemini
+    solve_all_captchas(page)
+
     btn.scroll_into_view_if_needed()
     btn.click()
     page.wait_for_timeout(4500)
@@ -756,6 +760,7 @@ def apply_greenhouse(page, item):
             if verify_btn.count() > 0:
                 verify_btn.click()
             page.wait_for_timeout(5000)
+            solve_all_captchas(page)
 
     clean_slug = re.sub(r'[^a-zA-Z0-9_]', '_', f"{company}_{title}")[:35]
     prefix = "intern" if app_type == "INTERNSHIP" else "job"
@@ -1087,6 +1092,9 @@ def apply_ashby(page, item):
         page.mouse.wheel(0, random.choice([150, -100, 200, -80]))
         page.wait_for_timeout(random.randint(250, 450))
 
+    # Check & solve captchas (Turnstile / reCAPTCHA) with Gemini
+    solve_all_captchas(page)
+
     btn = page.locator('button:has-text("Submit Application"), .ashby-application-form-submit-button, button[type="submit"]').first
     if btn.count() == 0:
         print("[-] No submit button found")
@@ -1117,6 +1125,9 @@ def apply_ashby(page, item):
             pass
         if 'errors' in resp_json and resp_json['errors']:
             print(f"[-] Ashby server rejected with errors: {resp_json['errors']}")
+            if any('recaptcha' in str(e).lower() for e in resp_json['errors']):
+                print("[*] Ashby reCAPTCHA triggered, attempting Gemini solve...")
+                solve_all_captchas(page)
             submit_confirmed = False
         elif ('data' in resp_json and resp_json['data']) or resp.status in [200, 201, 204]:
             submit_confirmed = True
