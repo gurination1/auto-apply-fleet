@@ -175,11 +175,14 @@ for src in TARGET_SOURCES:
                     if (clean_c, clean_t) in applied_pairs:
                         continue
                     
+                    if 'lever.co' in u:
+                        continue
+
                     score, reason = critique_application(comp, title)
-                    if score < 60:
+                    if score < 80:
                         continue
                     
-                    portal = 'Greenhouse' if 'greenhouse.io' in u else ('Lever' if 'lever.co' in u else 'Ashby')
+                    portal = 'Greenhouse' if 'greenhouse.io' in u else 'Ashby'
                     if portal == 'Ashby' and not is_ashby_active(u):
                         seen_urls.add(u_norm)
                         seen_urls.add(u_base)
@@ -238,11 +241,14 @@ for src in TARGET_SOURCES:
                     if (clean_c, clean_t) in applied_pairs:
                         continue
                     
+                    if 'lever.co' in u:
+                        continue
+
                     score, reason = critique_application(comp, title)
-                    if score < 60:
+                    if score < 80:
                         continue
                     
-                    portal = 'Greenhouse' if 'greenhouse.io' in u else ('Lever' if 'lever.co' in u else 'Ashby')
+                    portal = 'Greenhouse' if 'greenhouse.io' in u else 'Ashby'
                     if portal == 'Ashby' and not is_ashby_active(u):
                         seen_urls.add(u_norm)
                         seen_urls.add(u_base)

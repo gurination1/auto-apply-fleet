@@ -135,46 +135,54 @@ def is_already_confirmed(url, company, title):
 def critique_application(company, title, category=""):
     title_lower = title.lower()
     
-    # 1. STRICT 100% PURGE OF MACHINE LEARNING, AI RESEARCH, DATA SCIENCE, EMBEDDED & SENIOR ROLES
+    # 1. STRICT PURGE OF MACHINE LEARNING, HARDWARE, LOW-LEVEL, C++, ROBOTICS & OVER-SENIORITY
     banned = [
-        # AI / ML Research / Theoretical Math
+        # AI / ML Research / Theoretical Math / Data Science
         'machine learning', 'ml ', '/ml', 'deep learning', 'ai research', 'research intern', 'research engineer',
         'researcher', 'scientist', 'foundation model', 'reinforcement learning', 'robot learning', 'computer vision',
         'nlp research', 'computational', 'plasma', 'physics', 'algorithmic research', 'ai intern', 'ai evaluation',
-        'applied ai', 'ai engineer', 'ai developer', 'mlops', 'llmops', 'aiops', 'llm',
-        # Data & Analytics
-        'data engineer', 'data science', 'data scientist', 'analyst', 'analytics', 'bi engineer', 'data infra',
-        'data platform', 'data pipeline', 'analytics engineer', 'enterprise data',
+        'applied ai', 'ai engineer', 'ai developer', 'mlops', 'llmops', 'aiops', 'llm', 'data engineer',
+        'data science', 'data scientist', 'analyst', 'analytics', 'bi engineer', 'data infra', 'data platform',
+        'data pipeline', 'analytics engineer', 'enterprise data',
         # Security / Cyber
         'security', 'infosec', 'cyber', 'secops', 'vulnerability', 'soc ', 'penetration',
-        # Hardware / Electrical / Embedded / Robotics / Aerospace
+        # Hardware / Electrical / Embedded / Robotics / Aerospace / Autonomous Systems
         'hardware', 'firmware', 'silicon', 'dft', 'fpga', 'asic', 'analog', 'ic design', 'electronics', 'embedded',
         'pcb', 'circuit', 'electrical', 'controls', 'vehicle', 'automotive', 'battery', 'chemical', 'chemistry',
         'metallurgy', 'mechanical', 'thermal', 'propulsion', 'avionics', 'onboard', 'kernel', 'cuda', 'compiler',
         'robotics', 'robot ', 'robot,', 'robotic', 'nuclear', 'reactor', 'motion planning', 'flight software',
-        'sensors', 'sensor ', 'sensor,', 'guidance', 'aerospace',
+        'sensors', 'sensor ', 'sensor,', 'guidance', 'aerospace', 'autonomy', 'autonomous', 'ate ', 'ate engineer',
+        'test equipment', 'semiconductor', 'calibration', 'middleware', 'over-the-air', 'ota ', 'perception',
+        'localization', 'planning', 'powertrain', 'chassis', 'radar', 'lidar', 'rf engineer',
+        # Low-level languages / Unaligned Infrastructure stacks
+        'c++', 'c/c++', 'cpp', 'rust', 'kafka', 'distributed systems', 'low latency', 'graphics engine',
+        'rendering engine', 'game engine', 'unreal', 'unity engine',
         # Business / Operations / Finance / PM
         'business development', 'bizdev', 'operations', 'revops', 'user operations', 'product management',
         'product manager', 'pm intern', 'product intern', 'product strategy', 'compensation partner', 'sales',
         'pre-sales', 'representative', 'consultant', 'strategist', 'account executive', 'sdr', 'bdr', 'recruiter',
-        'recruiting', 'coordinator', 'marketing', 'finance', 'private equity', 'trading', 'quant', 'banking', 'investment', 'talent',
-        'human resources', 'people', 'legal', 'compliance', 'tax', 'accounting', 'fellow',
+        'recruiting', 'coordinator', 'marketing', 'finance', 'private equity', 'trading', 'quant', 'banking',
+        'investment', 'talent', 'human resources', 'people', 'legal', 'compliance', 'tax', 'accounting', 'fellow',
         # Over-seniority (strictly junior, lower-mid, mid, intern)
         'senior', 'sr.', 'sr ', 'principal', 'staff', 'architect', 'director', 'vp', 'head of', 'manager',
+        'lead', 'expert', 'specialist ii', 'engineer iii', 'engineer iv',
         # Geographic, Citizenship & Format Knockouts
         ' - tor', ' (tor)', 'toronto', ' - van', 'vancouver', ' - montreal', 'waterloo university',
         'us citizen', 'security clearance', 'ts/sci', 'clearance', 'uk only', 'canada only', 'onsite only',
         'in-office only', 'hybrid', 'on-site', 'onsite', 'in-person', 'relocation required', 'london', 'uk office',
-        'office only', 'office)', 'in-office',
-        'phd', 'postdoc', 'graduate intern'
+        'office only', 'office)', 'in-office', 'phd', 'postdoc', 'graduate intern'
     ]
     for b in banned:
         if b in title_lower:
-            return 30, f'Low conversion / Domain Mismatch: Title contains banned term "{b}". Candidate targets strictly Software, Web, Frontend, and Cloud Automation.'
+            return 30, f'Brutally Purged / Domain or Stack Mismatch: Title contains banned term "{b}". Candidate strictly targets Frontend, Full-Stack, Web, Python, and Cloud Automation.'
 
-    # Check for word-bounded "lead" or "sr" or "phd" or "ml"
-    if re.search(r'\b(lead|sr|director|vp|chief|head|phd|ml)\b', title_lower):
-        return 30, 'Low conversion / Banned Domain or Over-seniority: Title contains ML or leadership/senior keyword. Candidate targets Junior, Associate, Mid, and Intern Software Engineering.'
+    # Check for word-bounded leadership / senior / level keywords
+    if re.search(r'\b(lead|sr|director|vp|chief|head|phd|ml|iii|iv|staff|principal|architect)\b', title_lower):
+        return 30, 'Over-seniority Knockout: Title exceeds entry/mid bar. Candidate targets Junior, Associate, Mid, and Intern Software Engineering.'
+
+    # Systems Engineer without software/cloud/web context
+    if 'systems engineer' in title_lower and not any(k in title_lower for k in ['software', 'web', 'cloud', 'automation', 'application']):
+        return 30, 'Domain Mismatch: Systems Engineering without Web/Software/Cloud context is low conversion.'
 
     # 2. REJECTION COOLDOWN / BLACKLIST CHECK
     REJECTED_COMPANIES_COOLDOWN = {
@@ -184,53 +192,38 @@ def critique_application(company, title, category=""):
     if company.lower() in REJECTED_COMPANIES_COOLDOWN:
         return 10, f'Company Cooldown: {company} recently sent a formal rejection. Skipping reapplication.'
 
-    # 3. SUB-DOMAIN PURGE FOR UNFAVORABLE LOW-LEVEL / SPECIALIZED BACKEND
-    banned_subdomains = [
-        'mta', 'kernel', 'distributed systems', 'database engine', 'storage engine',
-        'storage backend', 'compiler', 'network protocol', 'low latency c++',
-        'graphics engine', 'rendering engine', 'driver', 'firmware'
-    ]
-    for b in banned_subdomains:
-        if b in title_lower:
-            return 30, f'Low conversion / Low-level Infrastructure mismatch: Title contains specialized backend term "{b}". Candidate targets Frontend, Full-Stack, Web, and Cloud Automation.'
-
-    # 4. PURE BACKEND PENALTY (Candidate sweet-spot is Frontend, Full-Stack, Web, Intern)
+    # 3. PURE BACKEND PENALTY
     is_pure_backend = any(b in title_lower for b in ['backend', 'back-end', 'back end']) and not any(f in title_lower for f in ['front', 'web', 'full stack', 'fullstack', 'full-stack', 'intern', 'co-op', 'node', 'product', 'application', 'developer experience', 'dx'])
     if is_pure_backend:
-        return 45, 'Low conversion: Pure backend roles without Web/Product/Full-Stack/Node context have low conversion for candidate Frontend/Full-Stack profile.'
+        return 45, 'Low conversion: Pure backend roles without Web/Product/Full-Stack/Node context have low conversion.'
 
-    # 5. MANDATORY SOFTWARE BUILDER RELEVANCE CHECK
+    # 4. MANDATORY SOFTWARE BUILDER RELEVANCE CHECK
     valid_titles = [
         'software', 'developer', 'frontend', 'front-end', 'front end', 'web', 'full stack', 'full-stack',
-        'fullstack', 'react', 'application', 'automation', 'platform', 'systems', 'cloud', 'qa', 'test',
+        'fullstack', 'react', 'application', 'automation', 'platform', 'cloud', 'qa', 'test',
         'engineer', 'agent', 'voice', 'builder', 'coder'
     ]
     has_valid_title = any(v in title_lower for v in valid_titles) or bool(re.search(r'\b(ui|ux)\b', title_lower))
     if not has_valid_title:
-        return 20, 'Low conversion: Title lacks Software / Web / Frontend / Automation engineering keywords.'
+        return 20, 'Title lacks Software / Web / Frontend / Automation engineering keywords.'
 
-    score = 80
+    score = 70
     strengths = []
-    # 6. SWEET-SPOT SCORING ALIGNED WITH CANDIDATE EXPERIENCE & 99.5 ATS RESUME
+    # 5. CANDIDATE SWEET-SPOT CALIBRATION (B.Sc. Software Systems & Automation, React/TypeScript/Python/Node)
     if any(k in title_lower for k in ['front', 'react', 'next', 'ui', 'ux', 'web', 'full stack', 'full-stack', 'fullstack', 'product engineer', 'dx', 'developer experience']):
         score = 98
-        strengths.append('Sweet-spot match: Master resume is custom-optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score).')
-    elif any(k in title_lower for k in ['intern', 'co-op', 'apprentice', 'campus', 'junior', 'associate']):
+        strengths.append('Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score).')
+    elif any(k in title_lower for k in ['intern', 'co-op', 'apprentice', 'campus', 'junior', 'associate', 'early career', 'software engineer i', 'new grad']):
         score = 96
-        strengths.append('Optimal career level: Junior/Intern software role with high conversion and $1,500 - $9,000/mo compensation.')
+        strengths.append('Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate.')
     elif any(k in title_lower for k in ['agent', 'automation', 'cloud', 'qa', 'workflow', 'voice', 'realtime']):
         score = 92
-        strengths.append('Proven builder fit: Background in Playwright automation, Docker, WebSockets, and GitHub Actions CI/CD.')
+        strengths.append('Builder fit: Proven Playwright automation, Docker, WebSockets, and GitHub Actions CI/CD.')
+    elif any(k in title_lower for k in ['software engineer', 'software developer', 'application engineer']):
+        score = 85
+        strengths.append('General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.')
     else:
-        score = 80
-        strengths.append('Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.')
-        
-    if any(k in title_lower for k in ['intern', 'co-op', 'junior', 'associate']):
-        score += 5
-        strengths.append('Calibrated for 2nd-year undergraduate software systems candidate.')
-    else:
-        score += 2
-        strengths.append('Mid-level role evaluated on GitHub code velocity.')
+        score = 65
 
     return min(score, 99), ' | '.join(strengths)
 
@@ -475,7 +468,7 @@ def apply_greenhouse(page, item):
         return True
 
     fit_score, critique_text = critique_application(company, title)
-    if fit_score < 70:
+    if fit_score < 80:
         print(f"[-] SKIPPING {company} - {title} [Score: {fit_score}/100]: {critique_text}")
         return False
 
@@ -1225,7 +1218,7 @@ def apply_ashby(page, item):
         return True
 
     fit_score, critique_text = critique_application(company, title)
-    if fit_score < 70:
+    if fit_score < 80:
         print(f"[-] SKIPPING {company} - {title} [Score: {fit_score}/100]: {critique_text}")
         return False
 
@@ -1812,7 +1805,7 @@ def main():
                                 if not is_int:
                                     continue
                                 score, _ = critique_application(comp, tit)
-                                if score < 60:
+                                if score < 80:
                                     continue
                                 seen_urls.add(u)
                                 item_copy = dict(it)
@@ -1851,7 +1844,7 @@ def main():
                                 if is_int:
                                     continue
                                 score, _ = critique_application(comp, tit)
-                                if score < 60:
+                                if score < 80:
                                     continue
                                 seen_job_urls.add(u)
                                 item_copy = dict(it)
