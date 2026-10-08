@@ -1006,7 +1006,15 @@ def apply_lever(page, item):
             radios = fld.locator('input[type="radio"]').all()
             if radios:
                 for rad in radios:
-                    rlab = rad.locator('xpath=ancestor::label | xpath=..').inner_text().lower()
+                    try:
+                        rlab = rad.locator('xpath=..').inner_text().lower()
+                    except Exception:
+                        rlab = ''
+                    if not rlab:
+                        try:
+                            rlab = rad.locator('xpath=ancestor::label').inner_text().lower()
+                        except Exception:
+                            rlab = ''
                     if any(k in q_txt for k in ['sponsorship', 'visa']) and ('no' in rlab or 'none' in rlab):
                         rad.check()
                         break
@@ -1025,9 +1033,15 @@ def apply_lever(page, item):
                     elif any(k in q_txt for k in ['disability']) and ('no' in rlab or 'do not' in rlab):
                         rad.check()
                         break
-                    elif 'yes' in rlab or 'no' in rlab:
+                    elif 'yes' in rlab:
                         rad.check()
                         break
+                else:
+                    if len(radios) > 0:
+                        try:
+                            radios[0].check()
+                        except Exception:
+                            pass
                 continue
 
             cinp = fld.locator('input[type="text"]').first
@@ -1049,6 +1063,21 @@ def apply_lever(page, item):
     except Exception as e:
         print(f"[-] Lever custom fields note: {e}")
 
+    # Fallback sweeper for any remaining required radio groups
+    try:
+        checked_names = set()
+        for r_chk in page.locator('input[type="radio"]:checked').all():
+            nm = r_chk.get_attribute('name')
+            if nm:
+                checked_names.add(nm)
+        for r_req in page.locator('input[type="radio"]').all():
+            nm = r_req.get_attribute('name')
+            if nm and nm not in checked_names:
+                r_req.check()
+                checked_names.add(nm)
+    except Exception:
+        pass
+
     # Checkboxes (Consent / Policy)
     for cb in page.locator('input[type="checkbox"]').all():
         try:
@@ -1061,15 +1090,26 @@ def apply_lever(page, item):
 
     solve_all_captchas(page)
 
-    btn = page.locator('#btn-submit, button[type="submit"], button:has-text("Submit application"), button:has-text("Submit")').first
+    btn = page.locator('#btn-submit, button[data-qa="btn-submit"], .template-btn-submit:not(.hidden)').first
+    if btn.count() == 0 or not btn.is_visible():
+        btn = page.locator('button:has-text("Submit application"):not(.hidden), button:has-text("Submit"):not(.hidden)').first
     if btn.count() == 0:
         print("[-] No Lever submit button found")
         mark_url_dead(url)
         return False
 
-    btn.scroll_into_view_if_needed()
+    try:
+        btn.scroll_into_view_if_needed(timeout=3000)
+    except Exception:
+        pass
     print("[*] Submitting Lever application...")
-    btn.click()
+    try:
+        btn.click(timeout=5000)
+    except Exception:
+        try:
+            btn.evaluate('el => el.click()')
+        except Exception as e:
+            print(f"[-] Lever submit click failed: {e}")
     page.wait_for_timeout(5000)
     solve_all_captchas(page)
     page.wait_for_timeout(3000)
@@ -1680,8 +1720,8 @@ def main():
 
     if args.mode in ['internships', 'all']:
         intern_sources = [
-            os.path.join(BASE_DIR, 'live_fresh_verified_roles.json'),
             os.path.join(BASE_DIR, 'github_verified_internships.json'),
+            os.path.join(BASE_DIR, 'live_fresh_verified_roles.json'),
             os.path.join(BASE_DIR, 'queue_500_paid_internships.json'),
             os.path.join(BASE_DIR, 'high_paying_viable_internships.json'),
             os.path.join(BASE_DIR, 'curated_viable_internships.json'),
@@ -1722,8 +1762,8 @@ def main():
 
     if args.mode in ['jobs', 'all']:
         job_sources = [
-            os.path.join(BASE_DIR, 'live_fresh_verified_roles.json'),
             os.path.join(BASE_DIR, 'github_verified_jobs.json'),
+            os.path.join(BASE_DIR, 'live_fresh_verified_roles.json'),
             os.path.join(BASE_DIR, 'vetted_global_boutique_roles.json'),
             os.path.join(BASE_DIR, 'clean_vetted_remote_jobs.json'),
             os.path.join(BASE_DIR, 'pure_global_boutique_roles.json'),
