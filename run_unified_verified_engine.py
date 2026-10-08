@@ -19,8 +19,8 @@ import argparse
 import random
 import imaplib
 import email
-import signal
 from email.header import decode_header
+import sys
 import asyncio
 os.environ["UV_THREADPOOL_SIZE"] = "1"
 try:
