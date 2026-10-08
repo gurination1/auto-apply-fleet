@@ -72,6 +72,21 @@ TARGET_SOURCES = [
         "is_internship": True,
         "default_stipend": "$4,500 - $8,000 / mo USD"
     },
+    {
+        "url": "https://raw.githubusercontent.com/SimplifyJobs/Summer2026-Internships/dev/README-Off-Season.md",
+        "is_internship": True,
+        "default_stipend": "$5,000 - $8,500 / mo USD"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/SimplifyJobs/Summer2025-Internships/dev/README.md",
+        "is_internship": True,
+        "default_stipend": "$5,000 - $8,500 / mo USD"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/pittcsc/Summer2025-Internships/master/README.md",
+        "is_internship": True,
+        "default_stipend": "$5,000 - $8,000 / mo USD"
+    },
     # --- FULL-TIME TECH JOBS (NEW GRAD & EARLY-CAREER SWE) ---
     {
         "url": "https://raw.githubusercontent.com/speedyapply/2026-SWE-College-Jobs/main/README.md",
@@ -90,6 +105,11 @@ TARGET_SOURCES = [
     },
     {
         "url": "https://raw.githubusercontent.com/vanshb03/New-Grad-2027/main/README.md",
+        "is_internship": False,
+        "default_stipend": "$85,000 - $125,000 USD / year"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/vanshb03/New-Grad-2025/main/README.md",
         "is_internship": False,
         "default_stipend": "$85,000 - $125,000 USD / year"
     },
