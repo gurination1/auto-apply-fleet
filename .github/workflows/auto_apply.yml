@@ -1,0 +1,159 @@
+name: Autonomous Job & Internship Cloud Fleet
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Submission mode'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - internships
+          - jobs
+      limit:
+        description: 'Max applications per run'
+        required: true
+        default: '25'
+        type: string
+      use_warp:
+        description: 'Route traffic through Cloudflare WARP SOCKS5 proxy'
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  run-fleet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install playwright playwright-stealth beautifulsoup4 "requests[socks]" pysocks
+
+      - name: Install Playwright Browsers & OS Dependencies
+        run: |
+          playwright install chromium --with-deps
+
+      - name: Install & Configure Cloudflare WARP Tunnel
+        if: ${{ github.event.inputs.use_warp != 'false' }}
+        run: |
+          echo "[*] Setting up Cloudflare WARP Tunnel..."
+          curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg \
+            | gpg --yes --dearmor \
+            -o cloudflare-warp-archive-keyring.gpg
+          sudo mv cloudflare-warp-archive-keyring.gpg /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+          echo "deb [arch=amd64 signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] \
+            https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" \
+            | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
+          sudo apt-get update && sudo apt-get install -y cloudflare-warp
+          warp-cli --accept-tos mode proxy
+          warp-cli --accept-tos proxy port 40000
+          warp-cli --accept-tos registration new || true
+          warp-cli --accept-tos connect
+          sleep 6
+          warp-cli --accept-tos status
+          TRACE=$(curl -x socks5h://127.0.0.1:40000 -s --max-time 10 https://cloudflare.com/cdn-cgi/trace || true)
+          echo "Cloudflare Trace Output:"
+          echo "$TRACE"
+          if echo "$TRACE" | grep -q "warp=on"; then
+            echo "WARP_ACTIVE=1" >> $GITHUB_ENV
+            echo "PROXY_ARG=--proxy socks5://127.0.0.1:40000" >> $GITHUB_ENV
+            echo "[+] Cloudflare WARP proxy active on port 40000!"
+          else
+            echo "WARP_ACTIVE=0" >> $GITHUB_ENV
+            echo "PROXY_ARG=" >> $GITHUB_ENV
+            echo "[!] WARP inactive; running direct connection."
+          fi
+
+      - name: Refresh Fresh Role Queues
+        run: |
+          python3 harvest_github_internships.py
+
+      - name: Run Unified Verified Application Engine
+        env:
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: |
+          MODE="${{ github.event.inputs.mode || 'all' }}"
+          LIMIT="${{ github.event.inputs.limit || '25' }}"
+          echo "[*] Executing verified submission engine: mode=$MODE limit=$LIMIT $PROXY_ARG"
+          python3 -u run_unified_verified_engine.py --mode "$MODE" --limit "$LIMIT" $PROXY_ARG
+
+      - name: Audit Conversion Performance via IMAP Confirmation Receipts
+        env:
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: |
+          python3 sync_all_receipts.py
+          python3 generate_dashboard.py
+          python3 -c "
+import os, sqlite3
+
+db = 'verified_job_applications.db'
+if os.path.exists(db):
+    conn = sqlite3.connect(db)
+    c = conn.cursor()
+    tot = c.execute('SELECT count(*) FROM verified_applications').fetchone()[0]
+    jobs = c.execute(\"SELECT count(*) FROM verified_applications WHERE application_type='JOB'\").fetchone()[0]
+    interns = c.execute(\"SELECT count(*) FROM verified_applications WHERE application_type='INTERNSHIP'\").fetchone()[0]
+    emails = c.execute('SELECT count(*) FROM verified_applications WHERE email_verified=1').fetchone()[0]
+    recent = c.execute('SELECT company, role, application_type, applied_at, email_verified FROM verified_applications ORDER BY id DESC LIMIT 10').fetchall()
+    conn.close()
+
+    summary_file = os.environ.get('GITHUB_STEP_SUMMARY')
+    if summary_file:
+        with open(summary_file, 'a') as f:
+            f.write(f'## 📊 Cloud Fleet Performance Audit\n\n')
+            f.write(f'| Fleet Metric | Count | 2,000 Milestone | Status |\n')
+            f.write(f'| :--- | :---: | :---: | :---: |\n')
+            f.write(f'| **Total Confirmed** | **{tot}** | 2,000 | **{tot/20:.1f}%** |\n')
+            f.write(f'| **Remote Tech Jobs** | **{jobs}** | 1,000 | **{jobs/10:.1f}%** |\n')
+            f.write(f'| **Paid Internships** | **{interns}** | 1,000 | **{interns/10:.1f}%** |\n')
+            f.write(f'| **IMAP Verified Receipts** | **{emails}** | - | **{emails/tot*100:.1f}%** Verified Rate |\n\n')
+            f.write('### 🎯 Latest 10 Submissions:\n\n')
+            f.write('| Company | Role | Type | Applied At | Email Receipt |\n')
+            f.write('| :--- | :--- | :---: | :--- | :---: |\n')
+            for r in recent:
+                verified_icon = '✅ Confirmed' if r[4] else '⏳ Pending / Delivered'
+                f.write(f'| **{r[0]}** | {r[1]} | `{r[2]}` | {r[3]} | {verified_icon} |\n')
+"
+
+      - name: Upload Run Screenshot Proofs
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: submission-proofs
+          path: submission_proofs/
+          retention-days: 14
+
+      - name: Commit & Push Updated DB & Dashboard
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add verified_job_applications.db live_dashboard.html *.json
+          if git diff --staged --quiet; then
+            echo "No database changes to commit."
+          else
+            git commit -m "chore(fleet): sync verified applications and receipts [skip ci]"
+            git pull --rebase origin main || true
+            git push origin main
+          fi
