@@ -265,10 +265,20 @@ USED_OTPS = set()
 
 def fetch_greenhouse_otp(max_wait=35):
     print("[*] Checking Gmail IMAP for fresh Greenhouse security OTP...")
+    gmail_pwd = os.environ.get('GMAIL_APP_PASSWORD')
+    if not gmail_pwd and os.path.exists('/root/local_env.sh'):
+        try:
+            with open('/root/local_env.sh') as f:
+                for line in f:
+                    if 'GMAIL_APP_PASSWORD=' in line and not '_ACC_' in line:
+                        gmail_pwd = line.split('=', 1)[1].strip().strip('"').strip("'")
+                        break
+        except Exception:
+            pass
     for attempt in range(max_wait // 3):
         try:
             mail = imaplib.IMAP4_SSL('imap.gmail.com')
-            mail.login('gurination1@gmail.com', 'jpqlkxcqkrpoortj')
+            mail.login('gurination1@gmail.com', gmail_pwd or '')
             mail.select('inbox')
             status, messages = mail.search(None, '(FROM "no-reply@us.greenhouse-mail.io")')
             if not messages[0]:
@@ -1205,6 +1215,7 @@ def main():
     if args.mode in ['jobs', 'all']:
         job_sources = [
             os.path.join(BASE_DIR, 'live_fresh_verified_roles.json'),
+            os.path.join(BASE_DIR, 'github_verified_jobs.json'),
             os.path.join(BASE_DIR, 'vetted_global_boutique_roles.json'),
             os.path.join(BASE_DIR, 'clean_vetted_remote_jobs.json'),
             os.path.join(BASE_DIR, 'pure_global_boutique_roles.json'),

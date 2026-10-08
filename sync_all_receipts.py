@@ -22,8 +22,17 @@ def normalize(text):
 def sync_receipts():
     try:
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
-        pwd = os.environ.get('GMAIL_APP_PASSWORD', 'jpqlkxcqkrpoortj')
-        mail.login('gurination1@gmail.com', pwd)
+        pwd = os.environ.get('GMAIL_APP_PASSWORD')
+        if not pwd and os.path.exists('/root/local_env.sh'):
+            try:
+                with open('/root/local_env.sh') as f:
+                    for line in f:
+                        if 'GMAIL_APP_PASSWORD=' in line and not '_ACC_' in line:
+                            pwd = line.split('=', 1)[1].strip().strip('"').strip("'")
+                            break
+            except Exception:
+                pass
+        mail.login('gurination1@gmail.com', pwd or '')
         mail.select('inbox')
 
         status, m1 = mail.search(None, '(SINCE "01-Oct-2026" (OR (FROM "ashbyhq.com") (FROM "greenhouse-mail.io")))')
