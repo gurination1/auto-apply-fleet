@@ -1,0 +1,209 @@
+[
+  {
+    "company": "Whippy",
+    "title": "Software Engineer: Backend",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/whippy/cb194715-61e9-4c5f-b8ac-ca1ca962cc4a/application",
+    "location": "Remote - Worldwide",
+    "category": "Full-Stack & Backend Systems",
+    "salary": "0,000 - 0,000 USD"
+  },
+  {
+    "company": "Bland AI",
+    "title": "Enterprise Solutions Engineer",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/bland/ea532833-f3d8-4dad-b5b2-f9bbeaa1a1a5/application",
+    "location": "Remote",
+    "category": "Voice AI & Conversational Automation",
+    "salary": "10,000 - 60,000 USD"
+  },
+  {
+    "company": "Tavus",
+    "title": "Software Engineer, Infrastructure",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/tavus/2cdc9932-1140-42d6-9fce-ee7e26192b15/application",
+    "location": "Remote",
+    "category": "Media AI & Video Infrastructure",
+    "salary": "Competitive + Equity"
+  },
+  {
+    "company": "Deepnote",
+    "title": "Senior Full Stack Engineer",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/deepnote/7f49b6e5-9135-4087-83ce-b6de767de479/application",
+    "location": "Remote",
+    "category": "Frontend & Full-Stack Web",
+    "salary": "0,000 - 40,000 USD"
+  },
+  {
+    "company": "Sticker Mule",
+    "title": "Software Engineer",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/stickermule/6db27241-e2d4-4f35-a2c4-b58d84621843/application",
+    "location": "Remote",
+    "category": "Full-Stack Systems & Web",
+    "salary": "00,000 - 50,000 USD"
+  },
+  {
+    "company": "Railway",
+    "title": "Infrastructure Engineer",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/railway/b8072f95-043f-404d-a313-f0bdf8dd3c81/application",
+    "location": "Global Remote",
+    "category": "Cloud Platforms & Automation",
+    "salary": "20,000 - 70,000 USD"
+  },
+  {
+    "company": "Supabase",
+    "title": "Software Engineer - Auth",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/supabase/e569b7f7-fa8f-4139-86f6-4f52b456882d/application",
+    "location": "Remote, Global",
+    "category": "Full-Stack Web & Auth Systems",
+    "salary": "10,000 - 60,000 USD"
+  },
+  {
+    "company": "Supabase",
+    "title": "Product Lead, Infrastructure",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/supabase/47bcfdb8-b954-423e-8a9e-85256434575c/application",
+    "location": "Remote, Global",
+    "category": "Developer Platform & Cloud",
+    "salary": "30,000 - 80,000 USD"
+  },
+  {
+    "company": "Decagon",
+    "title": "Strategic Solutions Engineer",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/decagon/6431a6f9-2ebe-4b68-beb6-200b42aeeca8/application",
+    "location": "Remote",
+    "category": "AI Integrations & Workflows",
+    "salary": "20,000 - 60,000 USD"
+  },
+  {
+    "company": "Resend",
+    "title": "Software Engineer, Developer Tools",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/resend/53d3710a-2d55-42ac-ba90-cdfd306bf560/application",
+    "location": "Remote",
+    "category": "Next.js & Frontend Developer Tools",
+    "salary": "10,000 - 50,000 USD"
+  },
+  {
+    "company": "LangChain",
+    "title": "Senior Frontend Platform Engineer, Design Systems",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/langchain/1b125fc4-be24-422f-a180-30b7431fc6cf/application",
+    "location": "Remote",
+    "category": "Frontend Web Development & UI Systems",
+    "salary": "30,000 - 80,000 USD"
+  },
+  {
+    "company": "Soulside AI",
+    "title": "Frontend Engineer",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/soulside",
+    "location": "India / Remote",
+    "category": "Frontend Web Development (React)",
+    "salary": "Competitive + Equity"
+  },
+  {
+    "company": "Outmarket AI",
+    "title": "Front End AI Engineer",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/outmarket",
+    "location": "Remote (India/Global)",
+    "category": "Frontend & AI Workflows",
+    "salary": "0,000 - 0,000 USD"
+  },
+  {
+    "company": "Outmarket AI",
+    "title": "Full Stack AI Engineer",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/outmarket",
+    "location": "Remote (India/Global)",
+    "category": "Full-Stack & Autonomous AI",
+    "salary": "0,000 - 0,000 USD"
+  },
+  {
+    "company": "Cartesia",
+    "title": "Forward Deployed Engineer (India)",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/cartesia/6d860f5a-b9d9-4df2-b5e5-b12ac80632a4/application",
+    "location": "Bangalore / Remote India",
+    "category": "Voice AI & Telephony Automation",
+    "salary": "0,000 - 40,000 USD"
+  },
+  {
+    "company": "Fal.ai",
+    "title": "Software Engineer, Platform",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/fal-ai/0bea333c-687c-43e0-a6c8-73d16ed2a37e/application",
+    "location": "Remote - Global",
+    "category": "Generative Media AI Infrastructure",
+    "salary": "20,000 - 80,000 USD"
+  },
+  {
+    "company": "Fal.ai",
+    "title": "Software Engineer, Distributed Systems",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/fal-ai/0acf2909-a4c4-4ad5-a0fb-61fba66eb89e/application",
+    "location": "Remote - Global",
+    "category": "Distributed Systems & Automation",
+    "salary": "20,000 - 80,000 USD"
+  },
+  {
+    "company": "Fal.ai",
+    "title": "Machine Learning Engineer, Reliability",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/fal-ai/1d9325cf-28da-4b78-af0d-eb0abe7b501d/application",
+    "location": "Remote - APAC (India eligible)",
+    "category": "AI Infrastructure & Quality Gates",
+    "salary": "10,000 - 60,000 USD"
+  },
+  {
+    "company": "PostHog",
+    "title": "Product Engineer",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/posthog/20ab9628-20ff-4ae3-bd6a-46ae7e9dc6b8/application",
+    "location": "Remote",
+    "category": "Frontend & Full-Stack Web (React/TS)",
+    "salary": "30,000 - 70,000 USD"
+  },
+  {
+    "company": "PostHog",
+    "title": "ClickHouse Operations Engineer",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/posthog/43dbf072-0fc1-48c9-8c1e-7416db7d4a14/application",
+    "location": "Remote",
+    "category": "High-Throughput Data Infrastructure",
+    "salary": "30,000 - 70,000 USD"
+  },
+  {
+    "company": "RunPod",
+    "title": "Forward Deployed Engineer APAC",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/runpod/25e7d414-e338-42dc-a206-ca4727f3f98f/application",
+    "location": "Remote - APAC (India eligible)",
+    "category": "Cloud Platforms & AI Workflows",
+    "salary": "0,000 - 40,000 USD"
+  },
+  {
+    "company": "Hyperbolic",
+    "title": "Technical Support Engineer",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/hyperbolic/cc5c9238-ff86-4e67-9bed-f15a3e423600/application",
+    "location": "Remote",
+    "category": "AI Inference & Developer Support",
+    "salary": "0,000 - 10,000 USD"
+  },
+  {
+    "company": "Decagon",
+    "title": "Strategic Solutions Engineer, West",
+    "type": "ashby",
+    "url": "https://jobs.ashbyhq.com/decagon/78745829-74ee-41cb-836c-480ca7bf9edc/application",
+    "location": "Remote",
+    "category": "Voice AI & Conversational Automation",
+    "salary": "20,000 - 60,000 USD"
+  }
+]

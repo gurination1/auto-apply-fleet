@@ -1,0 +1,354 @@
+[
+  {
+    "prio": 1,
+    "company": "vapi",
+    "title": "Customer Support Engineer",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/vapi/85f2aa22-98e7-4610-965d-4366bb9757fa/application",
+    "job_id": "85f2aa22-98e7-4610-965d-4366bb9757fa"
+  },
+  {
+    "prio": 1,
+    "company": "vapi",
+    "title": "Customer Support Engineer, Senior Manager",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/vapi/189dd65d-ec0b-4e66-844c-f18a68047f49/application",
+    "job_id": "189dd65d-ec0b-4e66-844c-f18a68047f49"
+  },
+  {
+    "prio": 1,
+    "company": "vapi",
+    "title": "Engineering Manager, Trust & Safety",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/vapi/c0431a81-0640-483a-8605-f5cbf1fc45e7/application",
+    "job_id": "c0431a81-0640-483a-8605-f5cbf1fc45e7"
+  },
+  {
+    "prio": 1,
+    "company": "vapi",
+    "title": "Solutions Engineer - NY",
+    "location": "New York",
+    "url": "https://jobs.ashbyhq.com/vapi/03532365-7180-4999-b534-24595884aeb9/application",
+    "job_id": "03532365-7180-4999-b534-24595884aeb9"
+  },
+  {
+    "prio": 1,
+    "company": "vapi",
+    "title": "Solutions Engineer - SF",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/vapi/e7f4cc7d-1d49-4767-9556-175d8f0069fd/application",
+    "job_id": "e7f4cc7d-1d49-4767-9556-175d8f0069fd"
+  },
+  {
+    "prio": 2,
+    "company": "fireworks",
+    "title": "AI Deployment Strategist",
+    "location": "San Mateo",
+    "url": "https://jobs.ashbyhq.com/fireworks/782b8fec-ec75-486d-a6fa-69f737f45e58/application",
+    "job_id": "782b8fec-ec75-486d-a6fa-69f737f45e58"
+  },
+  {
+    "prio": 2,
+    "company": "fireworks",
+    "title": "AI Deployment Strategist (EMEA)",
+    "location": "London",
+    "url": "https://jobs.ashbyhq.com/fireworks/ee05e8a5-a7b8-41bf-9e7b-fdb1dc6e6bcb/application",
+    "job_id": "ee05e8a5-a7b8-41bf-9e7b-fdb1dc6e6bcb"
+  },
+  {
+    "prio": 2,
+    "company": "fireworks",
+    "title": "AI Factory Partnerships Lead - OEM & Infrastructure Alliances",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/fireworks/0db73dd8-3ade-4da8-9a87-16ded8efe589/application",
+    "job_id": "0db73dd8-3ade-4da8-9a87-16ded8efe589"
+  },
+  {
+    "prio": 2,
+    "company": "fireworks",
+    "title": "AI Field Engineer - AI Natives",
+    "location": "San Mateo",
+    "url": "https://jobs.ashbyhq.com/fireworks/7730b5a4-0b58-46c7-bcff-61a929a3d1bd/application",
+    "job_id": "7730b5a4-0b58-46c7-bcff-61a929a3d1bd"
+  },
+  {
+    "prio": 2,
+    "company": "fireworks",
+    "title": "AI Field Engineer - Enterprise",
+    "location": "San Mateo",
+    "url": "https://jobs.ashbyhq.com/fireworks/69739e4f-1ca5-45db-8a70-4309d961c0b7/application",
+    "job_id": "69739e4f-1ca5-45db-8a70-4309d961c0b7"
+  },
+  {
+    "prio": 2,
+    "company": "fireworks",
+    "title": "AI Field Engineer - Strategic Partnerships",
+    "location": "San Mateo",
+    "url": "https://jobs.ashbyhq.com/fireworks/4a5dbfe4-b0d5-4394-a94b-42345fb425b4/application",
+    "job_id": "4a5dbfe4-b0d5-4394-a94b-42345fb425b4"
+  },
+  {
+    "prio": 2,
+    "company": "fireworks",
+    "title": "AI Field Engineer, EMEA",
+    "location": "London",
+    "url": "https://jobs.ashbyhq.com/fireworks/504591e5-fccd-4a7f-a9ca-81b51d2a5a12/application",
+    "job_id": "504591e5-fccd-4a7f-a9ca-81b51d2a5a12"
+  },
+  {
+    "prio": 2,
+    "company": "fireworks",
+    "title": "Applied Machine Learning Engineer",
+    "location": "San Mateo",
+    "url": "https://jobs.ashbyhq.com/fireworks/fc3845e6-e8ba-4756-a03e-654f14ce605b/application",
+    "job_id": "fc3845e6-e8ba-4756-a03e-654f14ce605b"
+  },
+  {
+    "prio": 2,
+    "company": "fireworks",
+    "title": "Applied Machine Learning Engineer, EMEA",
+    "location": "London",
+    "url": "https://jobs.ashbyhq.com/fireworks/e5a9746e-49ac-407f-b953-5cf3c08a7802/application",
+    "job_id": "e5a9746e-49ac-407f-b953-5cf3c08a7802"
+  },
+  {
+    "prio": 2,
+    "company": "fireworks",
+    "title": "Data Analytics Engineer",
+    "location": "San Mateo",
+    "url": "https://jobs.ashbyhq.com/fireworks/85486dc8-023f-4a82-9cdb-8394bbfcf1ab/application",
+    "job_id": "85486dc8-023f-4a82-9cdb-8394bbfcf1ab"
+  },
+  {
+    "prio": 2,
+    "company": "fireworks",
+    "title": "Developer Advocate",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/fireworks/7a9c5827-cbeb-4397-b364-b7a5177b9f62/application",
+    "job_id": "7a9c5827-cbeb-4397-b364-b7a5177b9f62"
+  },
+  {
+    "prio": 2,
+    "company": "fireworks",
+    "title": "GTM Engineer",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/fireworks/01166f87-1b1f-4e2e-8b7d-be6708566434/application",
+    "job_id": "01166f87-1b1f-4e2e-8b7d-be6708566434"
+  },
+  {
+    "prio": 2,
+    "company": "fireworks",
+    "title": "IT DevOps Engineer",
+    "location": "San Mateo",
+    "url": "https://jobs.ashbyhq.com/fireworks/a83a980e-9e31-489b-964c-abd6cd11dff2/application",
+    "job_id": "a83a980e-9e31-489b-964c-abd6cd11dff2"
+  },
+  {
+    "prio": 2,
+    "company": "fireworks",
+    "title": "Manager, Field Engineering",
+    "location": "San Mateo",
+    "url": "https://jobs.ashbyhq.com/fireworks/d56d136d-2bcd-4331-bb0e-7dd6876570ad/application",
+    "job_id": "d56d136d-2bcd-4331-bb0e-7dd6876570ad"
+  },
+  {
+    "prio": 2,
+    "company": "fireworks",
+    "title": "Product Manager, Platform",
+    "location": "San Mateo",
+    "url": "https://jobs.ashbyhq.com/fireworks/51aa1cdc-945e-4077-b5c7-c9ab37b420be/application",
+    "job_id": "51aa1cdc-945e-4077-b5c7-c9ab37b420be"
+  },
+  {
+    "prio": 2,
+    "company": "fireworks",
+    "title": "Product Manager, Training",
+    "location": "San Mateo",
+    "url": "https://jobs.ashbyhq.com/fireworks/17394579-2c5f-4b43-91cb-e531700b8a26/application",
+    "job_id": "17394579-2c5f-4b43-91cb-e531700b8a26"
+  },
+  {
+    "prio": 2,
+    "company": "fireworks",
+    "title": "Senior Paid Growth Marketer",
+    "location": "San Mateo",
+    "url": "https://jobs.ashbyhq.com/fireworks/58083381-6c71-4d58-9014-bd2bcb3e1e85/application",
+    "job_id": "58083381-6c71-4d58-9014-bd2bcb3e1e85"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "AI Engineer",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/b13ec426-d09d-4122-8112-cf25adbd7d60/application",
+    "job_id": "b13ec426-d09d-4122-8112-cf25adbd7d60"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "AI Engineer",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/64181d8a-960d-4aa4-8d98-3cb22b1e0616/application",
+    "job_id": "64181d8a-960d-4aa4-8d98-3cb22b1e0616"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "AI Inference Engineer",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/db6477fc-111a-4340-bf00-525fe023e6f3/application",
+    "job_id": "db6477fc-111a-4340-bf00-525fe023e6f3"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "Cloud Platform Engineer",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/916e9d62-492a-4562-971f-3e97e3868392/application",
+    "job_id": "916e9d62-492a-4562-971f-3e97e3868392"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "Data Engineer",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/c2ba6c50-d282-4478-98e9-668f94facde8/application",
+    "job_id": "c2ba6c50-d282-4478-98e9-668f94facde8"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "Engineering Manager, Cloud Platform",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/0870ed34-7365-4b9f-a50a-481783b8c266/application",
+    "job_id": "0870ed34-7365-4b9f-a50a-481783b8c266"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "Engineering Manager, Runtime Fabric",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/aae72bd3-6f75-4238-9741-95fec11facb9/application",
+    "job_id": "aae72bd3-6f75-4238-9741-95fec11facb9"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "Forward Deployed Engineer",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/84c1801c-1a65-49fb-aaaa-beeafd530e7e/application",
+    "job_id": "84c1801c-1a65-49fb-aaaa-beeafd530e7e"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "Forward Deployed Engineer (Training)",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/11ab2593-6648-4943-ab4a-284fe7e89720/application",
+    "job_id": "11ab2593-6648-4943-ab4a-284fe7e89720"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "GTM Engineer",
+    "location": "New York",
+    "url": "https://jobs.ashbyhq.com/baseten/5cd2f489-b9ee-428b-b252-94e83d55f107/application",
+    "job_id": "5cd2f489-b9ee-428b-b252-94e83d55f107"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "GTM Systems Manager",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/7a999a4e-5e04-4432-a7fe-86ad1151e061/application",
+    "job_id": "7a999a4e-5e04-4432-a7fe-86ad1151e061"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "IT Support / Operations Engineer",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/c07eb44f-b5fa-4808-90b7-03b265d97836/application",
+    "job_id": "c07eb44f-b5fa-4808-90b7-03b265d97836"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "IT/Support Operations Engineer (NY)",
+    "location": "New York",
+    "url": "https://jobs.ashbyhq.com/baseten/4dcdf587-38f3-4363-8033-a453f54b38b0/application",
+    "job_id": "4dcdf587-38f3-4363-8033-a453f54b38b0"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "Post-Training Research Engineer",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/68328a94-f785-463b-a3d7-b0dfc11839b5/application",
+    "job_id": "68328a94-f785-463b-a3d7-b0dfc11839b5"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "Product Manager, Developer Experience",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/2d78fdcf-53e1-45d3-a047-2aefb5ad3153/application",
+    "job_id": "2d78fdcf-53e1-45d3-a047-2aefb5ad3153"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "Product Manager, Inference Platform",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/3027e0bc-731f-4fef-b081-2031590766fd/application",
+    "job_id": "3027e0bc-731f-4fef-b081-2031590766fd"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "Security Engineer",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/b85e4b1d-6531-46b5-bc8a-238f3761a50e/application",
+    "job_id": "b85e4b1d-6531-46b5-bc8a-238f3761a50e"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "Site Reliability Engineer",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/ff008b8e-b38d-4941-b24f-9a48c970e7fb/application",
+    "job_id": "ff008b8e-b38d-4941-b24f-9a48c970e7fb"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "Software Engineer - AI Developer Productivity",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/e71e97a8-6367-4050-b6a9-42ce62ec78f1/application",
+    "job_id": "e71e97a8-6367-4050-b6a9-42ce62ec78f1"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "Software Engineer - Baseten Inference Stack",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/c8701794-bdc1-4932-bffa-a444ce57ed73/application",
+    "job_id": "c8701794-bdc1-4932-bffa-a444ce57ed73"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "Software Engineer - Capacity",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/902a7ddb-c21f-4272-aaab-879680697986/application",
+    "job_id": "902a7ddb-c21f-4272-aaab-879680697986"
+  },
+  {
+    "prio": 3,
+    "company": "baseten",
+    "title": "Software Engineer - Continuous Delivery",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/fb886b59-fdc3-4315-a9b3-c49808bcd2ce/application",
+    "job_id": "fb886b59-fdc3-4315-a9b3-c49808bcd2ce"
+  }
+]

@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+*.log
+supervisor.log
+continuous_fleet.log
+*.tmp
+.DS_Store
+/*.png
+submission_proofs/
+real_proofs/
+real_submit_proofs/
+scratch/
+job_applications.db

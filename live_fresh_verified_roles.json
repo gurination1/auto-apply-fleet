@@ -1,0 +1,5732 @@
+[
+  {
+    "company": "Canonical",
+    "title": "Alliances Field Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/3433732",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Associate Linux Support Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/6448444",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 97
+  },
+  {
+    "company": "Canonical",
+    "title": "C, Golang Software Engineer working on dqlite, a Raft extension for SQLite",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/4124053",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Cloud Field Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/6132532",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Canonical",
+    "title": "Cloud Support Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/2456563",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Canonical",
+    "title": "Cloud Support Engineer (London UK office)",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/8023546",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Canonical",
+    "title": "Containerization & Virtualisation Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/5172247",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "C++/Rust Graphics and Windowing System Software Engineer - Mir",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/4439935",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Dedicated Linux Desktop & Devices Support Engineer, Singapore",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/7569126",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Developer Relations Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/5143011",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Distributed Systems Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/4581200",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Distributed Systems Testing Software Engineer, Python / Go",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/2969042",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Go (Golang) Software Engineer, Developer Tooling and Containers",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/4857458",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Golang Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/5146709",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Golang Software Engineer, Commercial Systems",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/4827747",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Golang System Software Engineer - Containers / Virtualisation",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/4960407",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/8249005",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "IoT Field Engineer - China & Region",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/2169848",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Juju Software Engineer (Go)",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/6426388",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Junior Ubuntu Software Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/6707669",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 97
+  },
+  {
+    "company": "Canonical",
+    "title": "Linux Desktop Support Engineer (London UK office)",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/7569101",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Linux Devices Software Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/5140562",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Linux devices software engineer - snapd",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/4394058",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Microservices Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/5191982",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "MLOps Field Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/6783943",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Performance Engineer - Open Source",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/5792361",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Python Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/5143074",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Python Software Engineer, Commercial Systems",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/6401160",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Site Reliability Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/4468036",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Site Reliability / Gitops Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/1747487",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Developer (Backend SaaS)",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/4647417",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Developer in Observability",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/2166631",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Engineer - App Stores",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/3159992",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Engineer, Ceph & Distributed Storage",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/1861978",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Engineer - Cloud Images",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/4398031",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Engineer, Cloud - Sustaining Engineering",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/3062022",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Engineer - Cross-platform C++ - Multipass",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/4348657",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Engineer - Edge AI",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/2614095",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Engineer - L3 Support",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/6635671",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Engineer - OpenStack",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/2579550",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Engineer - Python and K8s",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/3752633",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Engineer - Python - Cloud - graduate level",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/3257589",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Engineer - Python - Container Images",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/6222476",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Engineer - Python/Golang - Kubernetes",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/2928962",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Engineer (Python/Linux/Packaging)",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/2413329",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Engineer - Secure Container Images",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/8130859",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Engineer - Solutions Engineering",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/3290946",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Engineer, Sustaining Engineering",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/3326693",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Engineer, Ubuntu Commercial Computers",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/5560784",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Engineer - Ubuntu Server Certification",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/4272811",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Maintenance Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/6635681",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Quality Assurance Engineer - Linux, PC, IoT",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/8248986",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Quality Assurance Engineer - Linux, PC, IoT",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/7975990",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Software Support Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/6635593",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Telco Cloud Field Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/3748266",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Canonical",
+    "title": "Ubuntu Core Software Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/3182672",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Ubuntu Enablement Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/5560823",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Ubuntu Enablement Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/7102393",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Ubuntu Software Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/6707824",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "Usability Engineer - User Science",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/7528952",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Canonical",
+    "title": "UX Designer - Design systems",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/7043028",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Canonical",
+    "title": "UX Designer - Developer experience",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/7043026",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Canonical",
+    "title": "UX Designer - Infrastructure",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/6072086",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Canonical",
+    "title": "Web Developer",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/2804965",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Canonical",
+    "title": "Web Frontend Engineer - JS, CSS, React, Flutter",
+    "applyUrl": "https://job-boards.greenhouse.io/canonical/jobs/5150422",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Gitlab",
+    "title": "Customer Success Engineer, LATAM (Spanish, Portugese)",
+    "applyUrl": "https://job-boards.greenhouse.io/gitlab/jobs/8637426002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Gitlab",
+    "title": "Distinguished Engineer, Core DevOps",
+    "applyUrl": "https://job-boards.greenhouse.io/gitlab/jobs/8831350002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Gitlab",
+    "title": "Forward Deployed Engineer - EMEA",
+    "applyUrl": "https://job-boards.greenhouse.io/gitlab/jobs/8522265002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Gitlab",
+    "title": "Intermediate Backend Engineer, India",
+    "applyUrl": "https://job-boards.greenhouse.io/gitlab/jobs/8775507002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Gitlab",
+    "title": "Intermediate Support Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/gitlab/jobs/8687026002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Gitlab",
+    "title": "Intermediate Support Engineer (SHIFT)",
+    "applyUrl": "https://job-boards.greenhouse.io/gitlab/jobs/8684061002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Gitlab",
+    "title": "Migration Engineer - GitLab Dedicated",
+    "applyUrl": "https://job-boards.greenhouse.io/gitlab/jobs/8710061002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Gitlab",
+    "title": "Support Engineer (AMER)",
+    "applyUrl": "https://job-boards.greenhouse.io/gitlab/jobs/8654230002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Gitlab",
+    "title": "Support Engineer, U.S. Government Support",
+    "applyUrl": "https://job-boards.greenhouse.io/gitlab/jobs/8859063002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Vercel",
+    "title": "Design Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/6129441004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Vercel",
+    "title": "DevRel Engineer, Agentic Infrastructure",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/6122437004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Vercel",
+    "title": "Forward-Deployed Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/5752684004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Vercel",
+    "title": "IT Ops Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/6179794004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Vercel",
+    "title": "IT Systems Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/6218743004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Vercel",
+    "title": "Partner Solutions Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/6201179004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Vercel",
+    "title": "Partner Solutions Engineer, EMEA",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/6132416004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Vercel",
+    "title": "Site Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/5732855004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Vercel",
+    "title": "Software Engineer, Agentic Infrastructure",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/6199608004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Vercel",
+    "title": "Software Engineer, AI Gateway",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/5798406004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Vercel",
+    "title": "Software Engineer, CDN",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/5179639004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Vercel",
+    "title": "Software Engineer, CDN Content",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/6105394004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Vercel",
+    "title": "Software Engineer, Compute",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/6113157004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Vercel",
+    "title": "Software Engineer, eve",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/6098390004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Vercel",
+    "title": "Software Engineer - Next.js",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/6137958004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Vercel",
+    "title": "Software Engineer, Observability",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/5428982004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Vercel",
+    "title": "Software Engineer, Platform",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/6195280004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Vercel",
+    "title": "Software Engineer, Scheduled Tasks",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/6207796004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Vercel",
+    "title": "Software Engineer, Trust & Safety",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/5649459004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Vercel",
+    "title": "Workday Integrations Developer",
+    "applyUrl": "https://job-boards.greenhouse.io/vercel/jobs/6137983004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Elastic",
+    "title": "Okta Identity Engineer",
+    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8093275&gh_jid=8093275",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Elastic",
+    "title": "Software Engineer I - AI Observability",
+    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8260766&gh_jid=8260766",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Elastic",
+    "title": "Software Engineer I - AI Observability",
+    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8260767&gh_jid=8260767",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Elastic",
+    "title": "Software Engineer I - AI Observability",
+    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8245844&gh_jid=8245844",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Application Engineer",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8143980",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Associate Technical Services Engineer II",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8044218",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 97
+  },
+  {
+    "company": "Mongodb",
+    "title": "Associate Technical Services Engineer II (Cloud)",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8239148",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Mongodb",
+    "title": "Associate Technical Services Engineer II (Cloud)",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8223199",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Mongodb",
+    "title": "Consulting Engineer",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8181144",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Engineer 3 - Business Systems",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8122751",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Engineer 3 - GTM Tech",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=7943868",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Forward Deployed Engineer, Industry Solutions",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8153137",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Forward Deployed Engineer, Industry Solutions",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8153125",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Site Reliability Engineer 3",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=7821316",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8065483",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 2",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=7613695",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 3",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8083366",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 3",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8083761",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 3",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8092317",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 3",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8208074",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 3",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=7613665",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 3",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8239047",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 3",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=7993984",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 3",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=7597723",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 3, AI Builder Experience",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8111979",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 3, AI Framework Integrations",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8127772",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 3, Atlas Clusters Platform",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8089859",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 3, Atlas Growth 2",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8064448",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 3, Atlas Search Systems",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=7523920",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 3, Atlas Vector Search",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=7523911",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 3, Networking & Observability",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8119843",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 3, Networking & Observability",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8119841",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 3, Search Systems Replication & Routing",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=7235322",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Software Engineer 3, Server Programmability",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8249278",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Technical Services Engineer",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8170628",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Technical Services Engineer",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8055356",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Technical Services Engineer",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8114235",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Technical Services Engineer",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=7947090",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Technical Services Engineer",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=7948529",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Technical Services Engineer",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8043909",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Technical Services Engineer, Infrastructure",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8194603",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Technical Services Engineer, Infrastructure - Weekend",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=7460019",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mongodb",
+    "title": "Technical Services Engineer - Partners",
+    "applyUrl": "https://www.mongodb.com/careers/job/?gh_jid=8053152",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Customer Engineer, Korea",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8140643?gh_jid=8140643",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Customer Engineer, Turkish Speaking",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8158994?gh_jid=8158994",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Customer Solutions Engineer",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8220770?gh_jid=8220770",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "DCSC Automation Specialist",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8163023?gh_jid=8163023",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Digital Customer Engineer - Swedish or Russian Speaker",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8232806?gh_jid=8232806",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Enterprise Systems Developer- Order to Cash",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8224347?gh_jid=8224347",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Forward Deployed Engineer (FDE)",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7572075?gh_jid=7572075",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Forward Deployed Engineer, Professional Services",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8043339?gh_jid=8043339",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Forward Deployed Engineer, Professional Services",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8043305?gh_jid=8043305",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Forward Deployed Engineer, Professional Services",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8043287?gh_jid=8043287",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Full Stack Engineer - Internal Audit",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8014902?gh_jid=8014902",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Cloudflare",
+    "title": "GRC Engineer",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8045914?gh_jid=8045914",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Infrastructure Network & Supply Engineer",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8188468?gh_jid=8188468",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Insider Threat Engineer",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8064055?gh_jid=8064055",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Network Deployment Engineer",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8099671?gh_jid=8099671",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Network Deployment Engineer - APJC",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8088046?gh_jid=8088046",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Partner Engineer, Spain",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8185854?gh_jid=8185854",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Response Engineer - Cloudflare Managed Defense Center (CMDC)",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8222732?gh_jid=8222732",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Software Engineer",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8212060?gh_jid=8212060",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Software Engineer, AI Agents",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7831810?gh_jid=7831810",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Software Engineer, CDN Configuration Group",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8188899?gh_jid=8188899",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Software Engineer, Cloudflare Network Interconnect",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8088751?gh_jid=8088751",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Software Engineer, Deploy at Scale",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7302931?gh_jid=7302931",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Software Engineer - Egress (Go/Rust)",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8195746?gh_jid=8195746",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Software Engineer, FL",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8158920?gh_jid=8158920",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Software Engineer Intern (2027)",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8245211?gh_jid=8245211",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Software Engineer Intern (2027)",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8245197?gh_jid=8245197",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Software Engineer Intern (2027) - Austin, TX",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8199958?gh_jid=8199958",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Software Engineer, Mobile SDK",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8248635?gh_jid=8248635",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Software Engineer, Network Performance & Reliability (Argo)",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7446310?gh_jid=7446310",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Software Engineer - Platforms & Productivity",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8168623?gh_jid=8168623",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Software Engineer - Platforms & Productivity",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/6972536?gh_jid=6972536",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Software Engineer, R2 Gateway",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8155463?gh_jid=8155463",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Software Engineer, Rulesets",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8159348?gh_jid=8159348",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Software Engineer, Workers Deploy & Config",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7377424?gh_jid=7377424",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "System Engineer, Behavioral Analysis",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8241822?gh_jid=8241822",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "System Engineer - Network Systems",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8207864?gh_jid=8207864",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Systems Engineer",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8071056?gh_jid=8071056",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Systems Engineer - Database Platform",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8158016?gh_jid=8158016",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Systems Engineer, Growth Engineering",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8175620?gh_jid=8175620",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Systems Engineering, Metrics and Alerting",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8119184?gh_jid=8119184",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Systems Engineer, MCP Portals",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8207326?gh_jid=8207326",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Systems Engineer, Network Automation",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8142261?gh_jid=8142261",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Systems Engineer, Network Protocols & Distributed Systems",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8187404?gh_jid=8187404",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Systems Engineer, Product Platform Tools",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8089031?gh_jid=8089031",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Systems Engineer, SSL/TLS Team",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8130936?gh_jid=8130936",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Technical Support Engineer, Application Performance",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8164649?gh_jid=8164649",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Technical Support Engineer - Developer Platform",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8245501?gh_jid=8245501",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Technical Support Engineer, Zero Trust",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8229998?gh_jid=8229998",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Threat Intelligence Software Engineer, Cloudforce One",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7309174?gh_jid=7309174",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Cloudflare",
+    "title": "Vice President, Cloudflare One GTM",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8172411?gh_jid=8172411",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Cloudflare",
+    "title": "VoidZero Developer Relations Engineer",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8190563?gh_jid=8190563",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cloudflare",
+    "title": "VoidZero Engineer",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8114069?gh_jid=8114069",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Android Engineer, Terminal OS Platform",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7557403",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Backend/API Engineer, Money as a Service (Product)",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7369543",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Backend Engineer, Developer & End-user Experience Platform",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7292520",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Backend Engineer, Developer & End-user Experience Platform",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7476555",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Backend Engineer, Developer SDKs",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7557899",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Backend Engineer, Link",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8131144",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Backend Engineer, Payments & Risk",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8260985",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Backend Engineer, Privy",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7235875",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Design Engineer, Expansion",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8212314",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Stripe",
+    "title": "Designer, Web Presence & Platform",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130913",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Stripe",
+    "title": "Designer, Web Presence & Platform",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7977745",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Stripe",
+    "title": "EMEA Demand Generation, Platforms",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8209626",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Financial Connections TechOps Integration Reliability Engineer",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8004223",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Forward Deployed Engineer, Privy",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7230452",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Frontend Engineer, Data Product Experiences",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8194604",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Stripe",
+    "title": "Frontend Engineer, Expansion",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7644950",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Stripe",
+    "title": "Full Stack Engineer, Billing",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6786324",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Full Stack Engineer, Bridge",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8142764",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Full Stack Engineer, Developer & End User Experience Platform",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6567104",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Full Stack Engineer, Enterprise & Ecosystem",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8118929",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Full Stack Engineer, Enterprise Engineering",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8214616",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Full Stack Engineer, Enterprise Engineering",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8214618",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Full Stack Engineer, Growth",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7964956",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Full Stack Engineer, Link",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8062305",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Full Stack Engineer, Money as a Service",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6606581",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Full Stack Engineer, Money Movement",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8226261",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Full Stack Engineer, Revenue",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8234357",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Full Stack Engineer, Support Experience (Greater China Support)",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8039548",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Full Stack Engineer, Web Presence and Platform",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7436086",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Stripe",
+    "title": "High School Internship, Software Engineering (Summer 2027)",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8241260",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Stripe",
+    "title": "Infrastructure Engineer, Privy",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7462961",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Integration Engineer",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8203975",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Integration Engineer (Chicago)",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7819426",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Integration Engineer (Metronome)",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8175647",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Integration Engineer, Metronome",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8080454",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Integration Engineer, Metronome",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8171222",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Integration Engineer, Professional Services",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8075570",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Integration Engineer, Professional Services",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8203973",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Integration Engineer, Professional Services",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8075577",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Integration Engineer, SEA/GCN",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8053417",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Integration Reliability Engineer, Payments",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8054241",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Internal Product Engineer, Developer Productivity AI",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7896151",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Stripe",
+    "title": "Mobile Engineer, Treasury",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7978915",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Partner Solutions Engineer, Ecosystem",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8227563",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Product Designer, Design Systems",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7983076",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8249901",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8137972",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Backend",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8198280",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Bridge",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7277110",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Core Infrastructure",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7975725",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Data Orchestration",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7230670",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Early Career \u2014 Immediate Start",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8212508",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Early Career \u2014 Immediate Start",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8212517",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, High Availability and Disaster Recovery",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8197135",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Intern",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8031833",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Intern",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130867",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Intern",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130883",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Intern",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130807",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Internal Identity",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8263356",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Internal Systems",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7543868",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Intern (Summer or Winter)",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130805",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Intern (Summer or Winter)",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8097801",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Intern (Summer or Winter)",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8128745",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Metronome Infrastructure",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8231439",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Money Movement",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7208537",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, New Grad",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8128744",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, New Grad",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130930",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, New Grad",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8157838",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, New Grad",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130922",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, New Grad",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130881",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, New Grad",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8160776",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, New Grad - Frontend",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130927",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Online Database Infrastructure",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8197891",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Payins Card Networks",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8198207",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Payments and Risk",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6717520",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Revenue and Financial Automation",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8127182",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Revenue and Financial Automation",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8076616",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer, Secrets Infrastructure",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7396679",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Engineer - Smart Contract, Bridge",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7507904",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Software Quality Assurance Engineer",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8153331",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Technical Solutions Engineer",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7377101",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Technical Solutions Engineer",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8039948",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Technical Support Engineer (EMEA), Metronome",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7737248",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Stripe",
+    "title": "Technical Support Engineer, Metronome",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8171220",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Datadog",
+    "title": "Developer Advocate - Service Management",
+    "applyUrl": "https://careers.datadoghq.com/detail/8139662/?gh_jid=8139662",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Datadog",
+    "title": "Developer Advocate - Service Management EMEA",
+    "applyUrl": "https://careers.datadoghq.com/detail/8161455/?gh_jid=8161455",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Datadog",
+    "title": "Software Engineering Intern",
+    "applyUrl": "https://careers.datadoghq.com/detail/8114186/?gh_jid=8114186",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Datadog",
+    "title": "Software Engineering Intern",
+    "applyUrl": "https://careers.datadoghq.com/detail/8114161/?gh_jid=8114161",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Datadog",
+    "title": "Software Engineering Intern (Summer)",
+    "applyUrl": "https://careers.datadoghq.com/detail/8052118/?gh_jid=8052118",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Datadog",
+    "title": "Technical Escalations Engineer 2 (Revenue and Cost Management) - US-East",
+    "applyUrl": "https://careers.datadoghq.com/detail/8154643/?gh_jid=8154643",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Datadog",
+    "title": "Technical Escalations Engineer II (Revenue and Cost Management) - APJ",
+    "applyUrl": "https://careers.datadoghq.com/detail/8095826/?gh_jid=8095826",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Datadog",
+    "title": "Technical Escalations Engineer II (RUM) - APJ",
+    "applyUrl": "https://careers.datadoghq.com/detail/8138482/?gh_jid=8138482",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Datadog",
+    "title": "Technical Support Engineer 2, Premier - NYC (Japanese Speaking)",
+    "applyUrl": "https://careers.datadoghq.com/detail/8109441/?gh_jid=8109441",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Datadog",
+    "title": "Technical Support Engineer 2, Premier - Sao Paulo",
+    "applyUrl": "https://careers.datadoghq.com/detail/8096181/?gh_jid=8096181",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Datadog",
+    "title": "Technical Support Engineer 3, Premier - Sao Paulo",
+    "applyUrl": "https://careers.datadoghq.com/detail/8097533/?gh_jid=8097533",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Datadog",
+    "title": "Technical Support Engineer II",
+    "applyUrl": "https://careers.datadoghq.com/detail/6759702/?gh_jid=6759702",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Datadog",
+    "title": "Technical Support Engineer II",
+    "applyUrl": "https://careers.datadoghq.com/detail/6761448/?gh_jid=6761448",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Reddit",
+    "title": "Android Software Engineer, Consumer Engineering",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8263406",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Reddit",
+    "title": "Front End Software Engineer, Consumer Engineering",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8147559",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Reddit",
+    "title": "Front End Software Engineer, Media Player",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8198102",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Reddit",
+    "title": "iOS Software Engineer, Consumer Engineering",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8250125",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Reddit",
+    "title": "Software Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8243443",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Reddit",
+    "title": "Software Engineer, Ads",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/6512458",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Reddit",
+    "title": "Software Engineer, Ads",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/6469397",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Reddit",
+    "title": "Software Engineer, Consumer Engineering",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8172457",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Reddit",
+    "title": "Software Engineer, Content Platform",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8139781",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Reddit",
+    "title": "Software Engineer, Ingestion Platform",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8214910",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Pinterest",
+    "title": "Administrative Business Partner I - Engineering, Product and Design",
+    "applyUrl": "https://www.pinterestcareers.com/jobs/?gh_jid=8103612",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Pinterest",
+    "title": "Site Reliability Engineer II, tvScientific",
+    "applyUrl": "https://www.pinterestcareers.com/jobs/?gh_jid=7782538",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Pinterest",
+    "title": "Software Engineer II, EPD Ads",
+    "applyUrl": "https://www.pinterestcareers.com/jobs/?gh_jid=8227344",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Pinterest",
+    "title": "Software Engineer II, Full Stack",
+    "applyUrl": "https://www.pinterestcareers.com/jobs/?gh_jid=5459622",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Pinterest",
+    "title": "Software Engineer II, Web",
+    "applyUrl": "https://www.pinterestcareers.com/jobs/?gh_jid=8024883",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Pinterest",
+    "title": "Software Engineering Intern 2027 (Dublin)",
+    "applyUrl": "https://www.pinterestcareers.com/jobs/?gh_jid=8138034",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Pinterest",
+    "title": "Software Engineering Intern 2027 (Zurich)",
+    "applyUrl": "https://www.pinterestcareers.com/jobs/?gh_jid=8214745",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Pinterest",
+    "title": "Software Engineer Intern 2027 (USA)",
+    "applyUrl": "https://www.pinterestcareers.com/jobs/?gh_jid=7838577",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Pinterest",
+    "title": "Software Engineer, iOS",
+    "applyUrl": "https://www.pinterestcareers.com/jobs/?gh_jid=6922682",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Pinterest",
+    "title": "University Grad Software Engineer 2027 (USA)",
+    "applyUrl": "https://www.pinterestcareers.com/jobs/?gh_jid=7838591",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Dropbox",
+    "title": "Infrastructure Software Engineer",
+    "applyUrl": "https://jobs.dropbox.com/listing/6330377?gh_jid=6330377",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Twitch",
+    "title": "Software Engineer I, Payments",
+    "applyUrl": "https://job-boards.greenhouse.io/twitch/jobs/8700578002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Discord",
+    "title": "IT Ops Engineer - Lisbon",
+    "applyUrl": "https://job-boards.greenhouse.io/discord/jobs/8796132002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Discord",
+    "title": "QA/DevOps Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/discord/jobs/8703614002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Discord",
+    "title": "Software Engineer, Consumer Revenue",
+    "applyUrl": "https://job-boards.greenhouse.io/discord/jobs/8846732002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Discord",
+    "title": "Software Engineer, Distributed Systems",
+    "applyUrl": "https://job-boards.greenhouse.io/discord/jobs/8806163002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Discord",
+    "title": "Software Engineer, Notifications",
+    "applyUrl": "https://job-boards.greenhouse.io/discord/jobs/8642213002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Discord",
+    "title": "Software Engineer, Safety Processing",
+    "applyUrl": "https://job-boards.greenhouse.io/discord/jobs/8823881002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Figma",
+    "title": "Forward Deployed Engineer",
+    "applyUrl": "https://boards.greenhouse.io/figma/jobs/6158162004?gh_jid=6158162004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Figma",
+    "title": "IT Engineer, Internal AI Infrastructure",
+    "applyUrl": "https://boards.greenhouse.io/figma/jobs/6164379004?gh_jid=6164379004",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Figma",
+    "title": "Software Engineer - AI Platforms",
+    "applyUrl": "https://boards.greenhouse.io/figma/jobs/5691886004?gh_jid=5691886004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Figma",
+    "title": "Software Engineer - AI Product",
+    "applyUrl": "https://boards.greenhouse.io/figma/jobs/5551730004?gh_jid=5551730004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Figma",
+    "title": "Software Engineer - AI Product (London, United Kingdom)",
+    "applyUrl": "https://boards.greenhouse.io/figma/jobs/5551697004?gh_jid=5551697004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Figma",
+    "title": "Software Engineer - Application Platform",
+    "applyUrl": "https://boards.greenhouse.io/figma/jobs/6142506004?gh_jid=6142506004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Figma",
+    "title": "Software Engineer - C++",
+    "applyUrl": "https://boards.greenhouse.io/figma/jobs/5552530004?gh_jid=5552530004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Figma",
+    "title": "Software Engineer - Developer Experience",
+    "applyUrl": "https://boards.greenhouse.io/figma/jobs/5790627004?gh_jid=5790627004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Figma",
+    "title": "Software Engineer - Distributed Systems",
+    "applyUrl": "https://boards.greenhouse.io/figma/jobs/5552549004?gh_jid=5552549004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Figma",
+    "title": "Software Engineer - Figma Weave (Tel Aviv, Israel)",
+    "applyUrl": "https://boards.greenhouse.io/figma/jobs/6073106004?gh_jid=6073106004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Figma",
+    "title": "Software Engineer - Full Stack",
+    "applyUrl": "https://boards.greenhouse.io/figma/jobs/5691911004?gh_jid=5691911004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Figma",
+    "title": "Software Engineer - Growth & Monetization",
+    "applyUrl": "https://boards.greenhouse.io/figma/jobs/5552560004?gh_jid=5552560004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Figma",
+    "title": "Software Engineer Intern (London, United Kingdom) (Summer 2027)",
+    "applyUrl": "https://boards.greenhouse.io/figma/jobs/6152695004?gh_jid=6152695004",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Figma",
+    "title": "Software Engineer Intern (Summer 2027)",
+    "applyUrl": "https://boards.greenhouse.io/figma/jobs/6143238004?gh_jid=6143238004",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Figma",
+    "title": "Software Engineer - Mobile Web",
+    "applyUrl": "https://boards.greenhouse.io/figma/jobs/6100023004?gh_jid=6100023004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Figma",
+    "title": "Support Engineer, AI Infrastructure & Tooling",
+    "applyUrl": "https://boards.greenhouse.io/figma/jobs/5802956004?gh_jid=5802956004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Airbnb",
+    "title": "Early Career Mobile Software Engineer, Quality Platform",
+    "applyUrl": "https://careers.airbnb.com/positions/8257855?gh_jid=8257855",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Airbnb",
+    "title": "Early Career Software Engineer, Quality Engineering",
+    "applyUrl": "https://careers.airbnb.com/positions/8154749?gh_jid=8154749",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Airbnb",
+    "title": "Mobile Software Engineer, Tech Foundations",
+    "applyUrl": "https://careers.airbnb.com/positions/8189374?gh_jid=8189374",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Airbnb",
+    "title": "Software Engineer, Passport & Commerce, Android",
+    "applyUrl": "https://careers.airbnb.com/positions/8247303?gh_jid=8247303",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Airbnb",
+    "title": "Software Engineer, Passport & Commerce, iOS",
+    "applyUrl": "https://careers.airbnb.com/positions/8239985?gh_jid=8239985",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Instacart",
+    "title": "iOS Developer",
+    "applyUrl": "https://instacart.careers/job/?gh_jid=8154479",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Instacart",
+    "title": "Software Engineer II, - Ads",
+    "applyUrl": "https://instacart.careers/job/?gh_jid=8188987",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Instacart",
+    "title": "Software Engineer II, Advertiser Optimization",
+    "applyUrl": "https://instacart.careers/job/?gh_jid=8233716",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Instacart",
+    "title": "Software Engineer II, CRM & SEO",
+    "applyUrl": "https://instacart.careers/job/?gh_jid=8244914",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Robinhood",
+    "title": "Android Engineer, Government Products",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/6669758?t=gh_src=&gh_jid=6669758",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Robinhood",
+    "title": "Android Engineer, Money Experience",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/7350823?t=gh_src=&gh_jid=7350823",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Robinhood",
+    "title": "Android Engineer, Social",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/8202874?t=gh_src=&gh_jid=8202874",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Robinhood",
+    "title": "iOS Developer, International",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/8246088?t=gh_src=&gh_jid=8246088",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Robinhood",
+    "title": "iOS Engineer, Government Products",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/6674980?t=gh_src=&gh_jid=6674980",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Robinhood",
+    "title": "iOS Engineer, Money Experience",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/7794027?t=gh_src=&gh_jid=7794027",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Robinhood",
+    "title": "Software Developer Intern, Backend (Summer 2027)",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/8142930?t=gh_src=&gh_jid=8142930",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Robinhood",
+    "title": "Software Developer Intern/Co-op, Backend (Winter 2027)",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/8194428?t=gh_src=&gh_jid=8194428",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Robinhood",
+    "title": "Software Developer Intern, iOS (Summer 2027)",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/8199729?t=gh_src=&gh_jid=8199729",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Robinhood",
+    "title": "Software Developer Intern, Web (Summer 2027)",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/8199744?t=gh_src=&gh_jid=8199744",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 99
+  },
+  {
+    "company": "Robinhood",
+    "title": "Software Developer, Ops Platform and Fraud Investigations",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/7737164?t=gh_src=&gh_jid=7737164",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Robinhood",
+    "title": "Software Engineer, Backend",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/7263592?t=gh_src=&gh_jid=7263592",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Robinhood",
+    "title": "Software Engineering Intern, Android (Summer 2027)",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/8142961?t=gh_src=&gh_jid=8142961",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Robinhood",
+    "title": "Software Engineering Intern, Backend (Summer 2027)",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/8123225?t=gh_src=&gh_jid=8123225",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Robinhood",
+    "title": "Software Engineering Intern, iOS (Summer 2027)",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/8142959?t=gh_src=&gh_jid=8142959",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Robinhood",
+    "title": "Software Engineering Intern, Web (Summer 2027)",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/8142963?t=gh_src=&gh_jid=8142963",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 99
+  },
+  {
+    "company": "Robinhood",
+    "title": "Software Engineer, Tokenization",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/8189005?t=gh_src=&gh_jid=8189005",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Robinhood",
+    "title": "Software Engineer, Tokenization",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/8189007?t=gh_src=&gh_jid=8189007",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Robinhood",
+    "title": "Software Engineer, Web3 Backend",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/8258305?t=gh_src=&gh_jid=8258305",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Robinhood",
+    "title": "Software Engineer, Web3 Backend",
+    "applyUrl": "https://boards.greenhouse.io/robinhood/jobs/8258307?t=gh_src=&gh_jid=8258307",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Coinbase",
+    "title": "IT Support Engineer",
+    "applyUrl": "https://www.coinbase.com/careers/positions/8234137?gh_jid=8234137",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Coinbase",
+    "title": "Software Engineer",
+    "applyUrl": "https://www.coinbase.com/careers/positions/8207374?gh_jid=8207374",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Coinbase",
+    "title": "Software Engineer",
+    "applyUrl": "https://www.coinbase.com/careers/positions/8003605?gh_jid=8003605",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Coinbase",
+    "title": "Software Engineer, Blockchain Platform Nodes",
+    "applyUrl": "https://www.coinbase.com/careers/positions/8105437?gh_jid=8105437",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Coinbase",
+    "title": "Software Engineer, CDP - Foundations",
+    "applyUrl": "https://www.coinbase.com/careers/positions/8241522?gh_jid=8241522",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Coinbase",
+    "title": "Software Engineer, CDP - Payment Acceptance",
+    "applyUrl": "https://www.coinbase.com/careers/positions/8164730?gh_jid=8164730",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Coinbase",
+    "title": "Software Engineer, CDP - Stablecoin",
+    "applyUrl": "https://www.coinbase.com/careers/positions/8234278?gh_jid=8234278",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Coinbase",
+    "title": "Software Engineer, EAA",
+    "applyUrl": "https://www.coinbase.com/careers/positions/8100066?gh_jid=8100066",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Coinbase",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://www.coinbase.com/careers/positions/8168315?gh_jid=8168315",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Coinbase",
+    "title": "Software Engineer- Money Movement",
+    "applyUrl": "https://www.coinbase.com/careers/positions/8177946?gh_jid=8177946",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Coinbase",
+    "title": "Threat Intelligence Platform Engineer",
+    "applyUrl": "https://www.coinbase.com/careers/positions/8177619?gh_jid=8177619",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mozilla",
+    "title": "Contract Software Engineer - DOM Core Firefox/Gecko",
+    "applyUrl": "https://job-boards.greenhouse.io/mozilla/jobs/8223520",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Mozilla",
+    "title": "Contract Software Engineer - WebCompat Tooling (Dashboards and Reporting), Firefox",
+    "applyUrl": "https://job-boards.greenhouse.io/mozilla/jobs/8223398",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Cockroachlabs",
+    "title": "Value Engineer, Solutions Engineering",
+    "applyUrl": "https://www.cockroachlabs.com/careers/job/?gh_jid=7982583",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Checkr",
+    "title": "Software Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/checkr/jobs/6917810",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Gusto",
+    "title": "Software Engineer, Payments",
+    "applyUrl": "https://job-boards.greenhouse.io/gusto/jobs/8104213",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Brex",
+    "title": "Developer Support Specialist",
+    "applyUrl": "https://www.brex.com/careers/8829338002?gh_jid=8829338002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Brex",
+    "title": "Software Engineer, Forward Deployed Agent Builder",
+    "applyUrl": "https://www.brex.com/careers/8523177002?gh_jid=8523177002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Brex",
+    "title": "Software Engineer, Forward Deployed Agent Builder",
+    "applyUrl": "https://www.brex.com/careers/8523203002?gh_jid=8523203002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Brex",
+    "title": "Software Engineer II, Backend",
+    "applyUrl": "https://www.brex.com/careers/8815438002?gh_jid=8815438002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Brex",
+    "title": "Software Engineer II, Backend",
+    "applyUrl": "https://www.brex.com/careers/8815443002?gh_jid=8815443002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Brex",
+    "title": "Software Engineer II, Backend",
+    "applyUrl": "https://www.brex.com/careers/8815512002?gh_jid=8815512002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Brex",
+    "title": "Software Engineer II, Identity and Access Management",
+    "applyUrl": "https://www.brex.com/careers/8860822002?gh_jid=8860822002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Brex",
+    "title": "Software Engineer II, Product",
+    "applyUrl": "https://www.brex.com/careers/8815246002?gh_jid=8815246002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Chime",
+    "title": "Full-Stack Engineer, Human Agent Tooling",
+    "applyUrl": "https://boards.greenhouse.io/chime/jobs/8606649002?gh_jid=8606649002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Chime",
+    "title": "Software Engineer, AI Enablement",
+    "applyUrl": "https://boards.greenhouse.io/chime/jobs/8578967002?gh_jid=8578967002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Chime",
+    "title": "Software Engineer, Communication Platform",
+    "applyUrl": "https://boards.greenhouse.io/chime/jobs/8681191002?gh_jid=8681191002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Chime",
+    "title": "Software Engineer, Financial Platform",
+    "applyUrl": "https://boards.greenhouse.io/chime/jobs/8594959002?gh_jid=8594959002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Chime",
+    "title": "Software Engineer, Growth",
+    "applyUrl": "https://boards.greenhouse.io/chime/jobs/8782503002?gh_jid=8782503002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Chime",
+    "title": "Software Engineer, Infrastructure",
+    "applyUrl": "https://boards.greenhouse.io/chime/jobs/8616359002?gh_jid=8616359002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Chime",
+    "title": "Software Engineer, Infrastructure Platform",
+    "applyUrl": "https://boards.greenhouse.io/chime/jobs/8859182002?gh_jid=8859182002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Chime",
+    "title": "Software Engineer, Lending",
+    "applyUrl": "https://boards.greenhouse.io/chime/jobs/8657011002?gh_jid=8657011002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Chime",
+    "title": "Software Engineer, Membership",
+    "applyUrl": "https://boards.greenhouse.io/chime/jobs/8614188002?gh_jid=8614188002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Chime",
+    "title": "Software Engineer, Support Foundations",
+    "applyUrl": "https://boards.greenhouse.io/chime/jobs/8607195002?gh_jid=8607195002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Chime",
+    "title": "Software Engineer, Trust & Safety",
+    "applyUrl": "https://boards.greenhouse.io/chime/jobs/8875663002?gh_jid=8875663002",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Algolia",
+    "title": "Channel Solutions Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/algolia/jobs/6008981004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Algolia",
+    "title": "Customer Success Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/algolia/jobs/6001113004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Algolia",
+    "title": "Site Reliability Engineer, AI Platform",
+    "applyUrl": "https://job-boards.greenhouse.io/algolia/jobs/6200292004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Algolia",
+    "title": "Site Reliability Engineer, IaaS",
+    "applyUrl": "https://job-boards.greenhouse.io/algolia/jobs/6194397004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Algolia",
+    "title": "Solutions Engineer - Italian Speaking",
+    "applyUrl": "https://job-boards.greenhouse.io/algolia/jobs/6115415004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Algolia",
+    "title": "Solutions Engineer - Portuguese Speaker",
+    "applyUrl": "https://job-boards.greenhouse.io/algolia/jobs/6008431004",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Affirm",
+    "title": "Software Engineer, Early Career (NYC)",
+    "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/8008649003",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Affirm",
+    "title": "Software Engineer, Early Career (SF)",
+    "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/8010617003",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Affirm",
+    "title": "Software Engineer I, Backend (Collections)",
+    "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/7807508003",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Affirm",
+    "title": "Software Engineer I, Backend (Collections)",
+    "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/7807506003",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Affirm",
+    "title": "Software Engineer II",
+    "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/7981805003",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Affirm",
+    "title": "Software Engineer II, Backend (Decisions Orchestration)",
+    "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/8003018003",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Affirm",
+    "title": "Software Engineer II, Backend (Decisions Orchestration)",
+    "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/8003016003",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Affirm",
+    "title": "Software Engineer II , Backend, (Furnishing Platform)",
+    "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/7799346003",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Affirm",
+    "title": "Software Engineer II, Backend (Furnishing Platform)",
+    "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/7799348003",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Affirm",
+    "title": "Software Engineer II, Backend (Identity Decisioning)",
+    "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/7985860003",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Affirm",
+    "title": "Software Engineer II, Backend (Identity Decisioning)",
+    "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/7985862003",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Affirm",
+    "title": "Software Engineer II, Backend (Post-Transaction)",
+    "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/7981803003",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Affirm",
+    "title": "Software Engineer II, Backend (Streaming)",
+    "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/8003020003",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Affirm",
+    "title": "Software Engineer II, Backend (Streaming)",
+    "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/8003022003",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Affirm",
+    "title": "Software Engineer II, Backend (Test Infra)",
+    "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/7727322003",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Affirm",
+    "title": "Software Engineer II, Backend (Test Infra)",
+    "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/7727320003",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$85,000 - $160,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Affirm",
+    "title": "Software Engineer Intern (Summer 2027)",
+    "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/8011590003",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$4,000 - $8,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Posthog",
+    "title": "Product Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/posthog/20ab9628-20ff-4ae3-bd6a-46ae7e9dc6b8",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Posthog",
+    "title": "Site Reliability Engineer (US - Pacific time)",
+    "applyUrl": "https://jobs.ashbyhq.com/posthog/1464036f-94d5-4dbd-aef8-fe99246a26d4",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Supabase",
+    "title": "AI Platform Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/supabase/3b5d54ca-741b-45ac-bd3f-31605a0d3541",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Supabase",
+    "title": "Developer Relations Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/supabase/a1320bbf-bfae-49a8-a1b7-12eeccaf39ca",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Supabase",
+    "title": "Platform Engineer:Data",
+    "applyUrl": "https://jobs.ashbyhq.com/supabase/48950725-e0d9-4025-92d9-f75e1b60ce45",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Supabase",
+    "title": "Software Engineer - Functions (Compute)",
+    "applyUrl": "https://jobs.ashbyhq.com/supabase/3ab0b926-c9b5-4197-aff2-88d5bf009e13",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Modal",
+    "title": "Forward Deployed Engineer - ML",
+    "applyUrl": "https://jobs.ashbyhq.com/modal/9fadb51f-ce11-41b1-84d5-470e66cc8ee9",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Modal",
+    "title": "Forward Deployed Engineer - Systems",
+    "applyUrl": "https://jobs.ashbyhq.com/modal/cbbbee50-3d3b-4873-8ae8-ff4b885b8e54",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Modal",
+    "title": "Developer Relations Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/modal/546c9eb1-aaf7-47ba-8e9d-0bcd443b3e94",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Modal",
+    "title": "Detection and Response Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/modal/e1915603-d9de-4760-b445-c266a1080499",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Modal",
+    "title": "Documentation Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/modal/f3b0e8e8-d7f5-441c-9a83-d7711543f541",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cartesia",
+    "title": "Inference Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/cartesia/bd9d6688-5486-470f-a273-20874a44f107",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cartesia",
+    "title": "Enterprise Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/cartesia/84231d95-3bf2-480a-ab2b-fd958f97cf0b",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cartesia",
+    "title": "Product Support Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/cartesia/ed9f2176-a2a6-4ebe-9154-b7dff0f9c415",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cartesia",
+    "title": "Product Support Engineer, India",
+    "applyUrl": "https://jobs.ashbyhq.com/cartesia/980ee31c-9dd7-476c-b3bc-bc8c26eb94b2",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Resend",
+    "title": "Customer Success Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/resend/01e6eb42-142b-4f33-9944-ca153bd3ae86",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Resend",
+    "title": "Backend Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/resend/df2fe05d-87ca-4e87-a66d-50bb2c9c4859",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Resend",
+    "title": "Backend Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/resend/6589bee8-3ec9-4620-90b6-890b23464c4d",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, Growth",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/0ec39ed7-a5dc-4551-bb26-b7f4f9fb4a74",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, Infrastructure",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/6d576a09-f30d-4e5e-bb58-5d7ef56cb511",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, Core Services",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/77bf35db-119c-4533-8187-1e8d5ae08c45",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, Client Infrastructure",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/e08262e8-c089-488d-9b59-9e21f7702b64",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, Generalist",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/36e69353-0452-4bf6-9f35-b1e7307959a7",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, Enterprise",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/54a9cfcd-570a-4e9c-b52c-bd2336c60991",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, Product",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/3551cdaa-cf08-4c04-adbe-a968185bc769",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, Agent Harness",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/6e6f5bc2-eb32-40e2-bba9-cfa56479600d",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, Bugbot",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/88d47f97-0bea-448c-9abb-4720e4acf17a",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, Enterprise Platform",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/b6807f07-c4b7-4435-8c4c-0bef35865ad7",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, Developer Productivity",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/010063bd-6083-4fc0-a455-e6f0193b5347",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Technical Support Engineering Leader, Singapore, Australia, New Zealand, Indonesia",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/0cf937d6-ed98-42fa-a737-bb3f9f9b8aed",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, Model Routing & Inference",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/45c815b0-5100-4934-8558-0e750b8aed79",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, Billing",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/47994d20-cc6a-436b-8da0-2eceabfd413e",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Forward Deployed Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/34cecd0c-c392-4454-8ef5-261310541011",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, Agent Evaluation and Quality",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/2bbe9f02-83a5-4173-98be-9085d1cb5693",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Cursor",
+    "title": "Field Engineer - ANZ",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/c4be0272-542c-4bf1-b890-8785d3044bed",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Forward Deployed Engineer - EMEA",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/0a82f564-de1b-4c72-9ba4-10cf2b63c483",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Field Engineer - ASEAN",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/e57836e8-c864-4817-aaa2-1b1263f0a352",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Field Engineering - Japan",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/175cb50f-063c-4d02-8954-568a9c3821bf",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, Storage",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/299ce422-0281-4282-aadd-bc22553be0b5",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, Services Platform",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/6eef7144-f2cc-48a8-b065-01f04e4c70ff",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Field Engineer - India",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/a6c00f7f-2288-4461-a64d-0f1cd9878909",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "GTM Applications Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/9d7c8f36-eeb7-4e9f-acbe-d959f6280e46",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Forward Deployed Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/44264403-5674-40b7-8b8d-e60b0a86e9ec",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Product Education Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/c5bbeeb2-1af0-4bde-9e32-55d46c313767",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, Pretraining",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/0320a8db-cb1b-407b-bd62-b23734b83330",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, RL Data",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/9a175381-45e2-42b6-bd64-6c84532365f9",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, New Grad 2027",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/d0e5b41d-84ab-4887-bd3a-55589b11dd7b",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Software Engineer, RL Environments",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/c68b3d8f-360d-41f0-84fd-1cb225b19e23",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Forward Deployed Engineer - India",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/166c3951-1d2a-4e61-b79b-bedefe96073b",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Cursor",
+    "title": "Field Engineer - South Korea",
+    "applyUrl": "https://jobs.ashbyhq.com/cursor/066afe7d-e580-4f13-88d9-828a50bea894",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Tldraw",
+    "title": "Design Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/tldraw/c52007ee-bac0-4176-a5f0-48fe6e1fe854",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Elevenlabs",
+    "title": "Full-Stack Engineer (Backend Leaning) - Creative Agents",
+    "applyUrl": "https://jobs.ashbyhq.com/elevenlabs/35813150-a851-4821-b732-a037b4e6c4fe",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Elevenlabs",
+    "title": "Full-stack Engineer - Creative Agents",
+    "applyUrl": "https://jobs.ashbyhq.com/elevenlabs/0b3a97d4-193c-4b47-9888-7ef5803ed945",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Elevenlabs",
+    "title": "Full-Stack Engineer (Backend Leaning) - CreativeVoices",
+    "applyUrl": "https://jobs.ashbyhq.com/elevenlabs/77f23be6-16c0-40c5-87b6-29dc2ee752ab",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 97
+  },
+  {
+    "company": "Firecrawl",
+    "title": "Forward Deployed Engineer - Revenue",
+    "applyUrl": "https://jobs.ashbyhq.com/firecrawl/bda40f47-a69b-44d4-ac1a-3f86f20d802d",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Firecrawl",
+    "title": "Product Engineer - Scrape",
+    "applyUrl": "https://jobs.ashbyhq.com/firecrawl/83249105-3b1e-41fc-a991-4fd41670ffca",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Firecrawl",
+    "title": "Backend Infrastructure Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/firecrawl/6840bbee-aae5-4846-97a2-ec2e764ee75b",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Firecrawl",
+    "title": "Growth Engineer - Product Growth",
+    "applyUrl": "https://jobs.ashbyhq.com/firecrawl/61f134a9-d91f-4b7b-a35d-14c60916454e",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Firecrawl",
+    "title": "Search Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/firecrawl/762b4426-b4aa-4377-96d3-51f40c59cbf7",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Firecrawl",
+    "title": "Success Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/firecrawl/f2e1fa1b-8186-49be-848a-20b1216820ab",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Firecrawl",
+    "title": "Product Engineer - Alexandria",
+    "applyUrl": "https://jobs.ashbyhq.com/firecrawl/5dd71524-6f88-453a-94a0-9521351981ab",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Firecrawl",
+    "title": "Cloud DevOps Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/firecrawl/fe538f2b-7dd5-4d8d-941e-f8014a911652",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Firecrawl",
+    "title": "Product Engineer - Parse",
+    "applyUrl": "https://jobs.ashbyhq.com/firecrawl/4fed8a26-d8e1-47b1-9283-59e547e6e02a",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Firecrawl",
+    "title": "Enterprise Solutions Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/firecrawl/30856716-e88c-48ba-8d55-efaec9c0713a",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Firecrawl",
+    "title": "Product Engineer - Agent",
+    "applyUrl": "https://jobs.ashbyhq.com/firecrawl/84c209e5-d65c-4b27-b42f-c53507461acd",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Firecrawl",
+    "title": "Agent Experience Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/firecrawl/a81209e5-5e75-4ac8-905a-0df49891d61b",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Firecrawl",
+    "title": "Open Source Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/firecrawl/095c7ce7-5b17-432a-9ec6-83a7ca0060d1",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Firecrawl",
+    "title": "Web Automation Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/firecrawl/5a7ce67e-0b71-428a-b774-e7c05e7841b6",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 99
+  },
+  {
+    "company": "Firecrawl",
+    "title": "Support Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/firecrawl/4e19ece9-6a33-4ff0-bf02-f846eb910c0c",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Temporal",
+    "title": "Software Engineer II, Cloud Enablement",
+    "applyUrl": "https://jobs.ashbyhq.com/temporal/7b63cf37-2bdb-462c-858c-473167563623",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 98
+  },
+  {
+    "company": "Sentry",
+    "title": "Technical Support Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/sentry/889f98a2-07dd-4e7c-9682-3f137c57dc88",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Ramp",
+    "title": "Backend Engineer, Ops Engineering",
+    "applyUrl": "https://jobs.ashbyhq.com/ramp/7bfa613e-151c-469b-9973-c89ee3d14838",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Ramp",
+    "title": "Software Engineering Intern, Backend",
+    "applyUrl": "https://jobs.ashbyhq.com/ramp/acf6b28d-767f-483f-8ff2-114620cd7e04",
+    "portal_type": "Ashby",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Notion",
+    "title": "Software Engineer, Developer Platform",
+    "applyUrl": "https://jobs.ashbyhq.com/notion/1fc309c8-da20-4ff2-84c7-8b863ece2b0a",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Notion",
+    "title": "Forward Deployed Engineer, GTM, AMER",
+    "applyUrl": "https://jobs.ashbyhq.com/notion/10437426-14c8-4c45-8075-67959ce80393",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Notion",
+    "title": "Software Engineer, Infrastructure",
+    "applyUrl": "https://jobs.ashbyhq.com/notion/42f18ccd-c4c8-4a85-8c1f-de12c575fe87",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Notion",
+    "title": "Forward Deployed Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/notion/4bc0802c-b5e0-411c-be01-daaea2bc3ae0",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Notion",
+    "title": "Software Engineer, Developer Experience",
+    "applyUrl": "https://jobs.ashbyhq.com/notion/49bdf081-6e20-4323-8c73-6d6b19544ff5",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Notion",
+    "title": "Software Engineer, Collections Experience",
+    "applyUrl": "https://jobs.ashbyhq.com/notion/5d8c1ec6-e9ea-416b-9715-880bf5037abc",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Notion",
+    "title": "Enterprise Technical Support Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/notion/15f37b73-d217-469a-adfc-2e50cc9e2374",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Notion",
+    "title": "Software Engineer, Early Career (AI)",
+    "applyUrl": "https://jobs.ashbyhq.com/notion/85947779-6b87-466a-98bc-30a640448c28",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Notion",
+    "title": "Developer Advocate",
+    "applyUrl": "https://jobs.ashbyhq.com/notion/0cc39c60-4c89-4213-954e-d77ced4cb7e7",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Notion",
+    "title": "Software Engineer, Early Career",
+    "applyUrl": "https://jobs.ashbyhq.com/notion/297b4ece-765f-4eea-b1b8-46057cb6501f",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Notion",
+    "title": "Software Engineer, Product Infrastructure",
+    "applyUrl": "https://jobs.ashbyhq.com/notion/ca74504a-9b91-4ce3-b0df-97919b46e749",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Notion",
+    "title": "Software Engineer Intern (Winter 2027)",
+    "applyUrl": "https://jobs.ashbyhq.com/notion/e66c6658-9e65-4c58-8db2-844628b6e8f8",
+    "portal_type": "Ashby",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,500 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Notion",
+    "title": "Software Engineer, New Grad (Dec 2026)",
+    "applyUrl": "https://jobs.ashbyhq.com/notion/e32799d2-8ef8-4803-8189-c72514afa816",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Notion",
+    "title": "Forward Deployed Engineer, India",
+    "applyUrl": "https://jobs.ashbyhq.com/notion/79c18580-c927-456c-9d5f-72efbc6c43cb",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Notion",
+    "title": "Software Engineer, User Database Infrastructure",
+    "applyUrl": "https://jobs.ashbyhq.com/notion/ead663e3-3eb2-4e0e-97e5-86820062dd68",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Notion",
+    "title": "Software Engineer, Mobile Platform (iOS)",
+    "applyUrl": "https://jobs.ashbyhq.com/notion/95800771-37a4-4226-b03f-d4fc6ea88f65",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Notion",
+    "title": "Software Engineer, Model Capabilities",
+    "applyUrl": "https://jobs.ashbyhq.com/notion/ab383335-1dd5-4d6a-971f-439cebf48a9d",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Notion",
+    "title": "Software Engineer, Mobile Core (Android)",
+    "applyUrl": "https://jobs.ashbyhq.com/notion/d82a0b31-59b8-4699-ae8d-6fb3fe47518c",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "Hex",
+    "title": "Customer Engineer",
+    "applyUrl": "https://jobs.ashbyhq.com/hex/977eca81-fdff-40f5-93df-8a0a1ffd56a8",
+    "portal_type": "Ashby",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $165,000 USD / year",
+    "fit_score": 94
+  },
+  {
+    "company": "State Affairs",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/stateaffairs/jobs/4437430009?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Sigma Computing",
+    "title": "Software Engineer Intern - Summer 2027",
+    "applyUrl": "https://job-boards.greenhouse.io/sigmacomputing/jobs/7850795003?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Sigma Computing",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/sigmacomputing/jobs/8001295003?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Courier Health",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/courierhealth/jobs/5258913007?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Niantic Spatial",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://jobs.ashbyhq.com/niantic-spatial/898b2da7-03cd-486e-96e3-3430a148c8fd/application?embed=true&utm_source=Simplify&ref=Simplify",
+    "portal_type": "Ashby",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Pure Storage",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/purestorage/jobs/8249749?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Signifyd",
+    "title": "Engineering Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/signifyd95/jobs/8240551?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Databricks",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://boards.greenhouse.io/embed/job_app?token=8847738002&utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Affirm",
+    "title": "Software Engineer Intern - Summer 2027",
+    "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/8011590003?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "xAI",
+    "title": "Software Engineer Intern/Co-op",
+    "applyUrl": "https://job-boards.greenhouse.io/xai/jobs/5255111007?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Walleye Capital",
+    "title": "Special Projects Developer Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/walleyecapital-external-students/jobs/4716166006?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Riot Games",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/riotgamesup/jobs/8222015?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Glean",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/gleanwork/jobs/4595665005?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Dandy",
+    "title": "Software Engineering Intern \ud83c\udf93",
+    "applyUrl": "https://jobs.ashbyhq.com/dandy/d43558e9-8e51-4980-b00d-39275063f099/application?embed=true&utm_source=Simplify&ref=Simplify",
+    "portal_type": "Ashby",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "AMCA",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/amca/jobs/4425120009?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Astranis",
+    "title": "Network Software Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/astranis/jobs/4705597006?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Astranis",
+    "title": "Backend Software Engineer Intern - Summer 2027",
+    "applyUrl": "https://job-boards.greenhouse.io/astranis/jobs/4705214006?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Persona",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://jobs.ashbyhq.com/persona/eb77c97c-fa9d-4bf0-9566-e5ba4453b7d3/application?embed=true&utm_source=Simplify&ref=Simplify",
+    "portal_type": "Ashby",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Relay",
+    "title": "Software Engineer Intern - Device Team",
+    "applyUrl": "https://job-boards.greenhouse.io/relaypro/jobs/8180836?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "National Information Solutions Cooperative",
+    "title": "Software Development Intern - AI Development",
+    "applyUrl": "https://job-boards.greenhouse.io/nisc/jobs/8204086?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "National Information Solutions Cooperative",
+    "title": "Software Development Intern - AI Development",
+    "applyUrl": "https://job-boards.greenhouse.io/testnisc/jobs/8204156?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "DoorDash",
+    "title": "Software Engineer Intern - Summer 2027",
+    "applyUrl": "https://job-boards.greenhouse.io/doordashusa/jobs/8171041?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "National Life",
+    "title": "IT Application Development Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/nationallifeinsurancecompany/jobs/4402184009?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Klaviyo",
+    "title": "Software Engineer Intern - Summer 2027",
+    "applyUrl": "https://job-boards.greenhouse.io/klaviyocampus/jobs/7989364003?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "DV Trading",
+    "title": "Software Developer Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/dvtrading/jobs/4733138005?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Veeam Software",
+    "title": "Software Engineer Intern - Summer 2027",
+    "applyUrl": "https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4955293101?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Veeam Software",
+    "title": "Policy Engineering Intern",
+    "applyUrl": "https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4955482101?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Veeam Software",
+    "title": "Engineering Intern \ud83c\udf93",
+    "applyUrl": "https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4951792101?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Veeam Software",
+    "title": "AI & Automation Engineering Intern - Summer 2027",
+    "applyUrl": "https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4955296101?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 99
+  },
+  {
+    "company": "Perpay",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/perpay/jobs/4076988007?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "K2 Space",
+    "title": "Simulation Software Engineering Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/k2spacecorporation/jobs/5418727008?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Coinbase",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://boards.greenhouse.io/embed/job_app?token=8168315&utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "National Information Solutions Cooperative",
+    "title": "Software Development Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/nisc/jobs/8092699?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "National Information Solutions Cooperative",
+    "title": "Software Development Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/testnisc/jobs/8174096?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "National Information Solutions Cooperative",
+    "title": "Software Development Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/testnisc/jobs/8174090?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "National Information Solutions Cooperative",
+    "title": "Software Development Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/testnisc/jobs/8174088?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Maven Securities",
+    "title": "Software Developer Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/mavensecuritiesholdingltd/jobs/7806987?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "HP IQ",
+    "title": "Software Engineer Intern - Cloud Services - Summer 2027 \ud83c\udf93",
+    "applyUrl": "https://job-boards.greenhouse.io/hpiq/jobs/6111955004?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 99
+  },
+  {
+    "company": "HP IQ",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/hpiq/jobs/6114912004?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "IMC Trading",
+    "title": "Performance Engineer Intern",
+    "applyUrl": "https://job-boards.eu.greenhouse.io/imc/jobs/4842595101?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Compeer Financial",
+    "title": "Engineering Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/compeerfinancial/jobs/5404850008?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Compeer Financial",
+    "title": "Engineering Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/compeerfinancial/jobs/5405050008?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Compeer Financial",
+    "title": "Engineering Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/compeerfinancial/jobs/5405015008?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Compeer Financial",
+    "title": "Engineering Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/compeerfinancial/jobs/5404994008?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "General Matter",
+    "title": "Software Engineering Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/generalmatter/jobs/5377118008?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "DV Trading",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/dvtrading/jobs/4719119005?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "DV Trading",
+    "title": "Software Engineer Intern - DV Commodities",
+    "applyUrl": "https://job-boards.greenhouse.io/dvtrading/jobs/4719125005?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "National Information Solutions Cooperative",
+    "title": "Software Development Intern - AI Development",
+    "applyUrl": "https://job-boards.greenhouse.io/testnisc/jobs/8204161?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "HP IQ",
+    "title": "Software Engineer Intern - Product & Developer Productivity - Summer 2027",
+    "applyUrl": "https://job-boards.greenhouse.io/hpiq/jobs/6114890004?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Rivet Industries",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://jobs.ashbyhq.com/rivet/03fcb078-7371-4cfd-89a9-368e5b60d914/application?embed=true&utm_source=Simplify&ref=Simplify",
+    "portal_type": "Ashby",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Muon Space",
+    "title": "Flight Software Engineer Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/muonspace/jobs/5247725007?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Astranis",
+    "title": "Flight Software Intern - Summer 2027",
+    "applyUrl": "https://job-boards.greenhouse.io/astranis/jobs/4704598006?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "HP IQ",
+    "title": "Software Engineer Intern - Connectivity",
+    "applyUrl": "https://job-boards.greenhouse.io/hpiq/jobs/6176783004?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "K2 Space",
+    "title": "Software Engineer Intern - Summer 2027",
+    "applyUrl": "https://job-boards.greenhouse.io/k2spacecorporation/jobs/5411920008?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "GlossGenius",
+    "title": "Engineering Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/glossgenius/jobs/7978666003?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "GlossGenius",
+    "title": "Engineering Intern - Summer 2027",
+    "applyUrl": "https://job-boards.greenhouse.io/glossgenius/jobs/7978739003?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Zip",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://jobs.ashbyhq.com/zip/249837b3-106f-4751-a4f2-03a2c5df5faf/application?embed=true&utm_source=Simplify&ref=Simplify",
+    "portal_type": "Ashby",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "BTI360",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/bti36021/jobs/8155152?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Chicago Trading Company",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/chicagotradingcampus/jobs/4716932005?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Virtu Financial",
+    "title": "Frontend Developer Internship",
+    "applyUrl": "https://job-boards.greenhouse.io/virtu/jobs/8657500002?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 99
+  },
+  {
+    "company": "Appian",
+    "title": "Software Engineer Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/appian/jobs/8041237?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "The Trade Desk",
+    "title": "Software Engineering Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/thetradedesk/jobs/5187605007?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  },
+  {
+    "company": "Northwood Space",
+    "title": "RF Engineer Intern - Summer Internship",
+    "applyUrl": "https://jobs.ashbyhq.com/NorthwoodSpace/f086c92a-7e4b-4799-8f2a-2ad8b13111ca/application?embed=true&utm_source=Simplify&ref=Simplify",
+    "portal_type": "Ashby",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 97
+  }
+]

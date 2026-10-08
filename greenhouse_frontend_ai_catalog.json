@@ -1,0 +1,2480 @@
+{
+  "affirm": [
+    {
+      "id": 8010489003,
+      "title": "Analyst II, Full Stack",
+      "location": "Remote Spain",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/8010489003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7916080003,
+      "title": "Analytics Engineer II, Full Stack (Revenue Analytics)",
+      "location": "Remote Spain",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7916080003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7813362003,
+      "title": "Analytics Engineer II, Full Stack (Revenue Analytics)",
+      "location": "Remote Poland",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7813362003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 8003170003,
+      "title": "Analytics Lead, Full Stack",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/8003170003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7799329003,
+      "title": "Analytics Lead, Full Stack",
+      "location": "Remote UK",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7799329003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7872398003,
+      "title": "Analytics Lead, Full Stack",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7872398003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7979912003,
+      "title": "Analytics Lead, Full Stack (Collections & Recoveries)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7979912003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7871456003,
+      "title": "Analytics Lead, Full Stack (Strategic Revenue Insights)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7871456003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7871458003,
+      "title": "Analytics Lead, Full Stack (Strategic Revenue Insights)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7871458003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7799164003,
+      "title": "Director, Platform Accounts Management",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7799164003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7822387003,
+      "title": "Machine Learning Engineer II (Underwriting ML)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7822387003",
+      "category": "AI Automation & Agents",
+      "company": "affirm"
+    },
+    {
+      "id": 7822389003,
+      "title": "Machine Learning Engineer II (Underwriting ML)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7822389003",
+      "category": "AI Automation & Agents",
+      "company": "affirm"
+    },
+    {
+      "id": 7775353003,
+      "title": "Model Risk Management Lead, Machine Learning",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7775353003",
+      "category": "AI Automation & Agents",
+      "company": "affirm"
+    },
+    {
+      "id": 7775355003,
+      "title": "Model Risk Management Lead, Machine Learning",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7775355003",
+      "category": "AI Automation & Agents",
+      "company": "affirm"
+    },
+    {
+      "id": 7671388003,
+      "title": "Senior CIAM Software Engineer",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7671388003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7671390003,
+      "title": "Senior CIAM Software Engineer",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7671390003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7806920003,
+      "title": "Senior Machine Learning Engineer (Fraud)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7806920003",
+      "category": "AI Automation & Agents",
+      "company": "affirm"
+    },
+    {
+      "id": 7983769003,
+      "title": "Senior Manager, Financial Systems",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7983769003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7983767003,
+      "title": "Senior Manager, Financial Systems",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7983767003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 8005077003,
+      "title": "Senior Software Engineer",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/8005077003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7812982003,
+      "title": "Senior Software Engineer, Affirm Bank",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7812982003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7819891003,
+      "title": "Senior Software Engineer, Backend (Authentication Experience)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7819891003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7785812003,
+      "title": "Senior Software Engineer, Backend (Batch Infrastructure)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7785812003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7785814003,
+      "title": "Senior Software Engineer, Backend (Batch Infrastructure)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7785814003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7820448003,
+      "title": "Senior Software Engineer, Backend (Card)",
+      "location": "Remote Poland",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7820448003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7820446003,
+      "title": "Senior Software Engineer, Backend (Card)",
+      "location": "Remote Spain",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7820446003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7822383003,
+      "title": "Senior Software Engineer, Backend (Card Acquisition)",
+      "location": "Remote Spain",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7822383003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7822385003,
+      "title": "Senior Software Engineer, Backend (Card Acquisition)",
+      "location": "Remote Poland",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7822385003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7980264003,
+      "title": "Senior Software Engineer, Backend (Card Ledger & Money Movement)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7980264003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 8005075003,
+      "title": "Senior Software Engineer, Backend (Card Loan Platform)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/8005075003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7994795003,
+      "title": "Senior Software Engineer, Backend (Consumer Authentication Platform)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7994795003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7989061003,
+      "title": "Senior Software Engineer, Backend (Consumer Data Platform)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7989061003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7806679003,
+      "title": "Senior Software Engineer, Back-end (Fraud)",
+      "location": "Remote Spain",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7806679003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7806681003,
+      "title": "Senior Software Engineer, Back-end (Fraud)",
+      "location": "Remote Poland",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7806681003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7801373003,
+      "title": "Senior Software Engineer, Backend (Identity International)",
+      "location": "Remote Spain",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7801373003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7801371003,
+      "title": "Senior Software Engineer, Backend (Identity International)",
+      "location": "Remote Poland",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7801371003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 8000364003,
+      "title": "Senior Software Engineer, Backend (Identity International)",
+      "location": "Remote UK",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/8000364003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7799633003,
+      "title": "Senior Software Engineer, Backend (Lake Analytics Platform)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7799633003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7799631003,
+      "title": "Senior Software Engineer, Backend (Lake Analytics Platform)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7799631003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7906337003,
+      "title": "Senior Software Engineer, Backend (Loan Origination and Reporting)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7906337003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7806924003,
+      "title": "Senior Software Engineer, Backend (ML Feature Platform)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7806924003",
+      "category": "AI Automation & Agents",
+      "company": "affirm"
+    },
+    {
+      "id": 8009368003,
+      "title": "Senior Software Engineer, backend (Online Storage)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/8009368003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 8009366003,
+      "title": "Senior Software Engineer, Backend (Online Storage)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/8009366003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7832324003,
+      "title": "Senior Software Engineer, Backend (Partner Merchant Interface)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7832324003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7832326003,
+      "title": "Senior Software Engineer, Backend (Partner Merchant Interface)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7832326003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7808384003,
+      "title": "Senior Software Engineer, Backend (PBA - Growth)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7808384003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7808386003,
+      "title": "Senior Software Engineer, Backend (PBA - Growth)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7808386003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7118739003,
+      "title": "Senior Software Engineer, Backend (Post - Purchase International)",
+      "location": "Remote Spain",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7118739003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7118737003,
+      "title": "Senior Software Engineer, Backend (Post-Purchase International)",
+      "location": "Remote Poland",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7118737003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7820306003,
+      "title": "Senior Software Engineer, Backend (Reliability Platform)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7820306003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7820308003,
+      "title": "Senior Software Engineer, Backend (Reliability Platform)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7820308003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7806685003,
+      "title": "Senior Software Engineer, Back-end, (Repayment Scheduling)",
+      "location": "Remote Poland",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7806685003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7806683003,
+      "title": "Senior Software Engineer, Back-end, (Repayment Scheduling)",
+      "location": "Remote Spain",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7806683003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7927799003,
+      "title": "Senior Software Engineer, Frontend (App Experience)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7927799003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7984716003,
+      "title": "Senior Software Engineer, Frontend (Auth Experiences)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7984716003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7984714003,
+      "title": "Senior Software Engineer, Frontend (Auth Experiences)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7984714003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7663434003,
+      "title": "Senior Software Engineer, Fullstack (Consumer Engineering)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7663434003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7663436003,
+      "title": "Senior Software Engineer, Fullstack (Consumer Engineering)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7663436003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7827039003,
+      "title": "Senior Software Engineer, Fullstack (International)",
+      "location": "Remote UK",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7827039003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7799935003,
+      "title": "Senior Software Engineer, Mobile (Repayment UX)",
+      "location": "Remote Spain",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7799935003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7799933003,
+      "title": "Senior Software Engineer, Mobile (Repayment UX)",
+      "location": "Remote Poland",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7799933003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7978722003,
+      "title": "Senior Staff Software Engineer, Fullstack (Marketplace and Consumer Experiences)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7978722003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7807506003,
+      "title": "Software Engineer I, Backend (Collections)",
+      "location": "Remote Spain",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7807506003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7807508003,
+      "title": "Software Engineer I, Backend (Collections)",
+      "location": "Remote Poland",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7807508003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7985907003,
+      "title": "Software Engineer I, Frontend (Upfunnel)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7985907003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7981805003,
+      "title": "Software Engineer II",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7981805003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7799346003,
+      "title": "Software Engineer II , Backend, (Furnishing Platform)",
+      "location": "Remote Spain",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7799346003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7799348003,
+      "title": "Software Engineer II, Backend (Furnishing Platform)",
+      "location": "Remote Poland",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7799348003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7985862003,
+      "title": "Software Engineer II, Backend (Identity Decisioning)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7985862003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7985860003,
+      "title": "Software Engineer II, Backend (Identity Decisioning)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7985860003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7981803003,
+      "title": "Software Engineer II, Backend (Post-Transaction)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7981803003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 8003022003,
+      "title": "Software Engineer II, Backend (Streaming)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/8003022003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 8003020003,
+      "title": "Software Engineer II, Backend (Streaming)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/8003020003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7727320003,
+      "title": "Software Engineer II, Backend (Test Infra)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7727320003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7727322003,
+      "title": "Software Engineer II, Backend (Test Infra)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7727322003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7819447003,
+      "title": "Software Engineer II, Fullstack (App Experience)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7819447003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7819445003,
+      "title": "Software Engineer II, Fullstack (App Experience)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7819445003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7819654003,
+      "title": "Software Engineer II, Fullstack (Card Acquisition)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7819654003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7819656003,
+      "title": "Software Engineer II, Fullstack (Card Acquisition)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7819656003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7854835003,
+      "title": "Software Engineer II, Fullstack (International)",
+      "location": "Remote UK",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7854835003",
+      "category": "Frontend & Web Development",
+      "company": "affirm"
+    },
+    {
+      "id": 7779962003,
+      "title": "Software Engineer II (Money Movement & Card Ledger)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7779962003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7819449003,
+      "title": "Staff CIAM Software Engineer",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7819449003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7819451003,
+      "title": "Staff CIAM Software Engineer",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7819451003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 8008483003,
+      "title": "Staff Product Manager, Comms Platform",
+      "location": "Remote UK",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/8008483003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7994555003,
+      "title": "Staff Security Engineer, Enterprise AI",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7994555003",
+      "category": "AI Automation & Agents",
+      "company": "affirm"
+    },
+    {
+      "id": 7994553003,
+      "title": "Staff Security Engineer, Enterprise AI",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7994553003",
+      "category": "AI Automation & Agents",
+      "company": "affirm"
+    },
+    {
+      "id": 7813107003,
+      "title": "Staff Software Engineer, Affirm Bank",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7813107003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7719649003,
+      "title": "Staff Software Engineer, Backend (Capacity Modeling)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7719649003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7719647003,
+      "title": "Staff Software Engineer, Backend (Capacity Modeling)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7719647003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7820453003,
+      "title": "Staff Software Engineer, Backend (Card)",
+      "location": "Remote Poland",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7820453003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7820451003,
+      "title": "Staff Software Engineer, Backend (Card)",
+      "location": "Remote Spain",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7820451003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7999344003,
+      "title": "Staff Software Engineer, Backend (Continuous Integration)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7999344003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7821440003,
+      "title": "Staff Software Engineer, Backend (Cost Engineering)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7821440003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7637823003,
+      "title": "Staff Software Engineer, Backend (Deal reporting)",
+      "location": "Remote Poland",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7637823003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7637825003,
+      "title": "Staff Software Engineer, Backend (Deal Reporting)",
+      "location": "Remote Spain",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7637825003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 8003801003,
+      "title": "Staff Software Engineer, Backend (Identity Decisioning)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/8003801003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 8003799003,
+      "title": "Staff Software Engineer, Backend (Identity Decisioning)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/8003799003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7979134003,
+      "title": "Staff Software Engineer, Backend (Identity International)",
+      "location": "Remote UK",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7979134003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7931494003,
+      "title": "Staff Software Engineer, Backend (Identity International)",
+      "location": "Remote Spain",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7931494003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7931496003,
+      "title": "Staff Software Engineer, Backend (Identity International)",
+      "location": "Remote Poland",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7931496003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7800319003,
+      "title": "Staff Software Engineer, Backend (Ledger Engineering)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7800319003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7800317003,
+      "title": "Staff Software Engineer, Backend (Ledger Engineering)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7800317003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7833952003,
+      "title": "Staff Software Engineer, Backend (Online Storage)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7833952003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7833950003,
+      "title": "Staff Software Engineer, Backend (Online Storage)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7833950003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7819704003,
+      "title": "Staff Software Engineer, Backend (Order Platform)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7819704003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 8005406003,
+      "title": "Staff Software Engineer, Backend (Search)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/8005406003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 8005408003,
+      "title": "Staff Software Engineer, Backend (Search)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/8005408003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7993030003,
+      "title": "Staff Software Engineer, Backend (Trust and Safety)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7993030003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7993032003,
+      "title": "Staff Software Engineer, Backend (Trust and Safety)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7993032003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7749580003,
+      "title": "Staff Software Engineer (Continuous Integration)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7749580003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7829427003,
+      "title": "Staff Software Engineer, Mobile (App Infrastructure)",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7829427003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7829429003,
+      "title": "Staff Software Engineer, Mobile (App Infrastructure)",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7829429003",
+      "category": "Systems & Software Engineering",
+      "company": "affirm"
+    },
+    {
+      "id": 7822286003,
+      "title": "Underwriting/Credit Model Risk Senior Manager - Machine Learning",
+      "location": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7822286003",
+      "category": "AI Automation & Agents",
+      "company": "affirm"
+    },
+    {
+      "id": 7822288003,
+      "title": "Underwriting/Credit Model Risk Senior Manager - Machine Learning",
+      "location": "Remote Canada",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7822288003",
+      "category": "AI Automation & Agents",
+      "company": "affirm"
+    }
+  ],
+  "gitlab": [
+    {
+      "id": 8638232002,
+      "title": "AI Transformation Owner, CRO",
+      "location": "Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8638232002",
+      "category": "AI Automation & Agents",
+      "company": "gitlab"
+    },
+    {
+      "id": 8716179002,
+      "title": "AI Transformation Owner, Product & Design",
+      "location": "Remote, Canada; Remote, United Kingdom; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8716179002",
+      "category": "AI Automation & Agents",
+      "company": "gitlab"
+    },
+    {
+      "id": 8698314002,
+      "title": "Backend Engineer, AI Engineering: Duo Chat",
+      "location": "Remote, Canada; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8698314002",
+      "category": "AI Automation & Agents",
+      "company": "gitlab"
+    },
+    {
+      "id": 8843512002,
+      "title": "Backend Engineer, Create: Repository Management",
+      "location": "Remote, United Kingdom",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8843512002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8687926002,
+      "title": "Backend Engineer, Create: Source Code Experience (Ruby)",
+      "location": "Remote, Canada",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8687926002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8704363002,
+      "title": "Backend Engineer (Python),AI Engineering: Agent Foundations",
+      "location": "Remote, Canada; Remote, Poland; Remote, United Kingdom",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8704363002",
+      "category": "AI Automation & Agents",
+      "company": "gitlab"
+    },
+    {
+      "id": 8620720002,
+      "title": "Backend Engineer (Ruby), AI Engineering: Agent Foundations",
+      "location": "Remote, Canada; Remote, Poland; Remote, United Kingdom",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8620720002",
+      "category": "AI Automation & Agents",
+      "company": "gitlab"
+    },
+    {
+      "id": 8626772002,
+      "title": "Director, Engineering, Platform Operations & Productivity",
+      "location": "Bangalore, India",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8626772002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8759592002,
+      "title": "Engineering Manager, Agent Foundations: Agent Execution",
+      "location": "Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8759592002",
+      "category": "AI Automation & Agents",
+      "company": "gitlab"
+    },
+    {
+      "id": 8517171002,
+      "title": "Forward Deployed Engineer, AI and Agentic SDLC",
+      "location": "Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8517171002",
+      "category": "AI Automation & Agents",
+      "company": "gitlab"
+    },
+    {
+      "id": 8698330002,
+      "title": "Fullstack Engineer (TypeScript), AI Engineering: Duo Client SDK",
+      "location": "Remote, Canada; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8698330002",
+      "category": "Frontend & Web Development",
+      "company": "gitlab"
+    },
+    {
+      "id": 8773006002,
+      "title": "Intermediate Backend Engineer, AMER",
+      "location": "Remote, Canada; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8773006002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8722304002,
+      "title": "Intermediate Backend Engineer - Database Change Management",
+      "location": "Bangalore, India",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8722304002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8775507002,
+      "title": "Intermediate Backend Engineer, India",
+      "location": "Bangalore, India",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8775507002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8749950002,
+      "title": "Intermediate-Senior Backend Engineer (Ruby), Plan: Spec-Driven Development",
+      "location": "Remote, Poland",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8749950002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8682860002,
+      "title": "Intermediate-Senior Backend Engineer (Ruby), Plan: Spec-Driven Development",
+      "location": "Remote, United Kingdom",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8682860002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8688078002,
+      "title": "Intermediate Software Engineer, Security Factory: Vulnerability Management",
+      "location": "Remote, Canada; Remote, Israel; Remote, United Kingdom",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8688078002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8786095002,
+      "title": "Principal Engineer, Duo Agent Platform",
+      "location": "Remote, Canada; Remote, Poland; Remote, United Kingdom; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8786095002",
+      "category": "AI Automation & Agents",
+      "company": "gitlab"
+    },
+    {
+      "id": 8658878002,
+      "title": "Principal Product Manager, AI Software Factory",
+      "location": "Remote, Canada; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8658878002",
+      "category": "AI Automation & Agents",
+      "company": "gitlab"
+    },
+    {
+      "id": 8623592002,
+      "title": "Principal Site Reliability Engineer, Platform Engineering: Dedicated",
+      "location": "Remote, Canada; Remote, United Kingdom; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8623592002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8565469002,
+      "title": "Senior AI Engineer",
+      "location": "Remote, US",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8565469002",
+      "category": "AI Automation & Agents",
+      "company": "gitlab"
+    },
+    {
+      "id": 8621733002,
+      "title": "Senior Backend Engineer, AI Engineering: Chat",
+      "location": "Remote, Canada; Remote, United Kingdom",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8621733002",
+      "category": "AI Automation & Agents",
+      "company": "gitlab"
+    },
+    {
+      "id": 8646556002,
+      "title": "Senior Backend Engineer, Architecture Engineering: Nonlinear Productivity",
+      "location": "Remote, Canada; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8646556002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8778943002,
+      "title": "Senior Backend Engineer, Database Excellence (Ruby)",
+      "location": "Remote, United Kingdom",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8778943002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8636713002,
+      "title": "Senior Backend Engineer, Deployment Environments",
+      "location": "Remote, Canada; Remote, United Kingdom",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8636713002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8749951002,
+      "title": "Senior Backend Engineer (Go), Tenant Scale: Gitaly",
+      "location": "Remote, Poland",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8749951002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8729451002,
+      "title": "Senior Backend Engineer (Go), Tenant Scale: Gitaly",
+      "location": "Remote, Canada; Remote, United Kingdom",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8729451002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8716143002,
+      "title": "Senior Backend Engineer, India",
+      "location": "Bangalore, India",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8716143002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8750842002,
+      "title": "Senior Backend Engineer, Platform Enablement",
+      "location": "Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8750842002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8644572002,
+      "title": "Senior Backend Engineer, Platform Readiness",
+      "location": "Remote, Canada; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8644572002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8760233002,
+      "title": "Senior Backend Engineer, Trusted Agentic Development",
+      "location": "Remote, Poland",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8760233002",
+      "category": "AI Automation & Agents",
+      "company": "gitlab"
+    },
+    {
+      "id": 8838202002,
+      "title": "Senior Developer Advocate",
+      "location": "Remote, Canada; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8838202002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8826920002,
+      "title": "Senior Frontend Engineer",
+      "location": "Bangalore, India",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8826920002",
+      "category": "Frontend & Web Development",
+      "company": "gitlab"
+    },
+    {
+      "id": 8636539002,
+      "title": "Senior Frontend Engineer (Vue), Create:  Repository Management",
+      "location": "Remote, United Kingdom",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8636539002",
+      "category": "Frontend & Web Development",
+      "company": "gitlab"
+    },
+    {
+      "id": 8697493002,
+      "title": "Senior Fullstack Engineer, Marketing",
+      "location": "Remote, United Kingdom",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8697493002",
+      "category": "Frontend & Web Development",
+      "company": "gitlab"
+    },
+    {
+      "id": 8771527002,
+      "title": "Senior Platform Engineer, GitLab Orbit",
+      "location": "Remote, Canada; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8771527002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8855883002,
+      "title": "Senior Product Manager, CRM & GTM Systems",
+      "location": "Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8855883002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8687246002,
+      "title": "Senior Program Manager, Enterprise Technology and AI",
+      "location": "Remote, United Kingdom",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8687246002",
+      "category": "AI Automation & Agents",
+      "company": "gitlab"
+    },
+    {
+      "id": 8614945002,
+      "title": "Senior Software Engineer (RoR/Go), SSCS: Authentication",
+      "location": "Remote, Canada; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8614945002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8738225002,
+      "title": "Senior Software Engineer (Ruby), Security Platform: Authorization",
+      "location": "Remote, Canada; Remote, Israel; Remote, United Kingdom; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8738225002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8646544002,
+      "title": "Staff Backend Engineer, Architecture Engineering: Nonlinear Productivity",
+      "location": "Remote, Canada; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8646544002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8689236002,
+      "title": "Staff Backend Engineer, Core DevOps",
+      "location": "Remote, Canada; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8689236002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8770702002,
+      "title": "Staff Backend Engineer, Database Automation (Go)",
+      "location": "Remote, Canada; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8770702002",
+      "category": "AI Automation & Agents",
+      "company": "gitlab"
+    },
+    {
+      "id": 8716271002,
+      "title": "Staff Backend Engineer - Database Change Management",
+      "location": "Bangalore, India",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8716271002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8490477002,
+      "title": "Staff Backend Engineer, Developer Experience",
+      "location": "Remote, Canada; Remote, United Kingdom; Remote, US",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8490477002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8775136002,
+      "title": "Staff Backend Engineer, India",
+      "location": "Bangalore, India",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8775136002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8646573002,
+      "title": "Staff Backend Engineer (Ruby), AI Engineering: DAP Repository Flows",
+      "location": "Remote, Canada; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8646573002",
+      "category": "AI Automation & Agents",
+      "company": "gitlab"
+    },
+    {
+      "id": 8826965002,
+      "title": "Staff Frontend Engineer",
+      "location": "Bangalore, India",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8826965002",
+      "category": "Frontend & Web Development",
+      "company": "gitlab"
+    },
+    {
+      "id": 8845277002,
+      "title": "Staff Fullstack Engineer, Data Products (Golang / Node)",
+      "location": "Remote, Canada; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8845277002",
+      "category": "Frontend & Web Development",
+      "company": "gitlab"
+    },
+    {
+      "id": 8739391002,
+      "title": "Staff Fullstack Engineer (Ruby/Vue.js) Monetization Engineering: Purchase",
+      "location": "Remote, Canada; Remote, United States",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8739391002",
+      "category": "Frontend & Web Development",
+      "company": "gitlab"
+    },
+    {
+      "id": 8612937002,
+      "title": "Staff Product Manager,  RevOps & Finance Systems",
+      "location": "Remote, US",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8612937002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8781299002,
+      "title": "Staff Software Engineer - NLP",
+      "location": "Bangalore, India",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8781299002",
+      "category": "Systems & Software Engineering",
+      "company": "gitlab"
+    },
+    {
+      "id": 8604630002,
+      "title": "Strategic Account Executive, AI - San Francisco",
+      "location": "Remote, US",
+      "url": "https://job-boards.greenhouse.io/gitlab/jobs/8604630002",
+      "category": "AI Automation & Agents",
+      "company": "gitlab"
+    }
+  ],
+  "togetherai": [
+    {
+      "id": 5180155007,
+      "title": "AI Infrastructure System Engineer Bangalore",
+      "location": "Bangalore, India",
+      "url": "https://job-boards.greenhouse.io/togetherai/jobs/5180155007",
+      "category": "AI Automation & Agents",
+      "company": "togetherai"
+    },
+    {
+      "id": 5213325007,
+      "title": "Junior/Senior or Staff Software Engineer, Inference / Compute Infrastructure Engineering",
+      "location": "India ",
+      "url": "https://job-boards.greenhouse.io/togetherai/jobs/5213325007",
+      "category": "Systems & Software Engineering",
+      "company": "togetherai"
+    },
+    {
+      "id": 5217063007,
+      "title": "Senior Software Engineer \u2014 Infra Agent Systems Remote India",
+      "location": "India",
+      "url": "https://job-boards.greenhouse.io/togetherai/jobs/5217063007",
+      "category": "AI Automation & Agents",
+      "company": "togetherai"
+    },
+    {
+      "id": 5226095007,
+      "title": "Staff Engineer, Distributed Storage and HPC & AI Infrastructure",
+      "location": "Bangalore India",
+      "url": "https://job-boards.greenhouse.io/togetherai/jobs/5226095007",
+      "category": "AI Automation & Agents",
+      "company": "togetherai"
+    }
+  ],
+  "reddit": [
+    {
+      "id": 7792848,
+      "title": "Ads Conversion Modeling, Machine Learning Engineering Manager",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/7792848",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8189317,
+      "title": "Backend Engineer, IAM",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8189317",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8095476,
+      "title": "Engineering Manager, Notifications Platform",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8095476",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8194576,
+      "title": "Frontend Engineer, Ads",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8194576",
+      "category": "Frontend & Web Development",
+      "company": "reddit"
+    },
+    {
+      "id": 8240716,
+      "title": "Frontend Engineer, Ads Campaign Manager",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8240716",
+      "category": "Frontend & Web Development",
+      "company": "reddit"
+    },
+    {
+      "id": 8147559,
+      "title": "Front End Software Engineer, Consumer Engineering",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8147559",
+      "category": "Frontend & Web Development",
+      "company": "reddit"
+    },
+    {
+      "id": 8198102,
+      "title": "Front End Software Engineer, Media Player",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8198102",
+      "category": "Frontend & Web Development",
+      "company": "reddit"
+    },
+    {
+      "id": 8250125,
+      "title": "iOS Software Engineer, Consumer Engineering",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8250125",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8095009,
+      "title": "Machine Learning Manager, Feed Ecosystems",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8095009",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8094985,
+      "title": "Machine Learning Manager, Feed Relevance (Retrieval)",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8094985",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8128860,
+      "title": "Senior Backend Engineer, Compliance Engineering",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8128860",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8044767,
+      "title": "Senior Backend Engineer, IAM",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8044767",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8093006,
+      "title": "Senior Backend Engineer, Safety",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8093006",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8074860,
+      "title": "Senior, Business Risk & AI Automation",
+      "location": "Remote - British Columbia, Canada",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8074860",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8074846,
+      "title": "Senior, Business Risk & AI Automation",
+      "location": "Remote - Ontario, Canada",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8074846",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8175520,
+      "title": "Senior Frontend Engineer, Ads Creative",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8175520",
+      "category": "Frontend & Web Development",
+      "company": "reddit"
+    },
+    {
+      "id": 8147617,
+      "title": "Senior Frontend Software Engineer, Consumer Engineering",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8147617",
+      "category": "Frontend & Web Development",
+      "company": "reddit"
+    },
+    {
+      "id": 6960831,
+      "title": "Senior Machine Learning Engineer",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/6960831",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 6960833,
+      "title": "Senior Machine Learning Engineer",
+      "location": "Remote - Ontario, Canada",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/6960833",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8029120,
+      "title": "Senior Machine Learning Engineer, Ads Optimization",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8029120",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8125507,
+      "title": "Senior Machine Learning Manager, Video Ranking",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8125507",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 7731772,
+      "title": "Senior Machine Learning Systems Engineer",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/7731772",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 6909091,
+      "title": "Senior Software Engineer, Ads",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/6909091",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 6909093,
+      "title": "Senior Software Engineer, Ads",
+      "location": "Remote - Ontario, Canada",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/6909093",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 7980795,
+      "title": "Senior Software Engineer, Agentic Ads Experience",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/7980795",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8187247,
+      "title": "Senior Software Engineer, Consumer Engineering",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8187247",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8022441,
+      "title": "Senior Software Engineer, Core Platform",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8022441",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 7950520,
+      "title": "Senior Software Engineer - DevX",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/7950520",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 7976852,
+      "title": "Senior Software Engineer - Full Stack Internal Tooling (Build and Deployment Platform)",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/7976852",
+      "category": "Frontend & Web Development",
+      "company": "reddit"
+    },
+    {
+      "id": 8155661,
+      "title": "Senior Software Engineer, Home Experience",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8155661",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8100220,
+      "title": "Senior Software Engineer, Media Creation",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8100220",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8106246,
+      "title": "Senior Software Engineer - Messaging",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8106246",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 7511679,
+      "title": "Senior Software Engineer, Storage",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/7511679",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8201359,
+      "title": "Senior Staff Machine Learning Engineer, Ads Ranking",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8201359",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8122606,
+      "title": "Senior Staff Machine Learning Engineer, Feed Relevance",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8122606",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 7772274,
+      "title": "Senior Staff Machine Learning Engineer, GenAI Platform",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/7772274",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8243010,
+      "title": "Senior Staff Machine Learning Engineer, ML Understanding",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8243010",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8157275,
+      "title": "Senior Staff Machine Learning Systems Engineer, Ads ML Platform",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8157275",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8060775,
+      "title": "Senior Staff Software Engineer, Client Architecture",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8060775",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 6469397,
+      "title": "Software Engineer, Ads",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/6469397",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 6512458,
+      "title": "Software Engineer, Ads",
+      "location": "Remote - Ontario, Canada",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/6512458",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8172457,
+      "title": "Software Engineer, Consumer Engineering",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8172457",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8139781,
+      "title": "Software Engineer, Content Platform",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8139781",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8214910,
+      "title": "Software Engineer, Ingestion Platform",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8214910",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8250389,
+      "title": "Staff Machine Learning Engineer, Ads Creative Effectiveness",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8250389",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8018517,
+      "title": "Staff Machine Learning Engineer, Ads Foundational Representations",
+      "location": "Remote - The Netherlands",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8018517",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8018513,
+      "title": "Staff Machine Learning Engineer, Ads Foundational Representations",
+      "location": "Remote - United Kingdom",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8018513",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8247280,
+      "title": "Staff Machine Learning Engineer, Ads ML Efficiency",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8247280",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8203478,
+      "title": "Staff Machine Learning Engineer, AI Security",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8203478",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8187652,
+      "title": "Staff Machine Learning Engineer, App Ads Modeling",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8187652",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 7747244,
+      "title": "Staff Machine Learning Engineer, Consumer",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/7747244",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8178085,
+      "title": "Staff Machine Learning Engineer, Retrieval",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8178085",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 7731788,
+      "title": "Staff Machine Learning Systems Engineer",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/7731788",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    },
+    {
+      "id": 8205702,
+      "title": "Staff Software Engineer, Consumer Engineering",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8205702",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8049901,
+      "title": "Staff Software Engineer, DevPlatform",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8049901",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8031491,
+      "title": "Staff Software Engineer, Identity & Access Management",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8031491",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8205402,
+      "title": "Staff Software Engineer - Ingestion Platform",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8205402",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8048988,
+      "title": "Staff Software Engineer, Media Experience",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8048988",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8029641,
+      "title": "Staff Software Engineer, Media Foundations",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8029641",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8131228,
+      "title": "Staff Software Engineer , Observability",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8131228",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 7961154,
+      "title": "Staff Software Engineer, Onboarding",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/7961154",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 8175131,
+      "title": "Staff Software Engineer - Site Defense",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/8175131",
+      "category": "Systems & Software Engineering",
+      "company": "reddit"
+    },
+    {
+      "id": 7954001,
+      "title": "Staff Technical Product Manager, Ads ML Platform",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/reddit/jobs/7954001",
+      "category": "AI Automation & Agents",
+      "company": "reddit"
+    }
+  ],
+  "vercel": [
+    {
+      "id": 5430088004,
+      "title": "Software Engineer, Backend",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/vercel/jobs/5430088004",
+      "category": "Systems & Software Engineering",
+      "company": "vercel"
+    },
+    {
+      "id": 6188400004,
+      "title": "Software Engineer - Data Platform",
+      "location": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/vercel/jobs/6188400004",
+      "category": "Systems & Software Engineering",
+      "company": "vercel"
+    }
+  ],
+  "scaleai": [
+    {
+      "id": 4684808005,
+      "title": "SME, Support Systems Specialist",
+      "location": "India",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4684808005",
+      "category": "Systems & Software Engineering",
+      "company": "scaleai"
+    }
+  ],
+  "anthropic": [
+    {
+      "id": 5183044008,
+      "title": "Anthropic Fellows Program, AI Safety & Security",
+      "location": "London, UK; Ontario, CAN; Remote-Friendly, United States; San Francisco, CA",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5183044008",
+      "category": "AI Automation & Agents",
+      "company": "anthropic"
+    },
+    {
+      "id": 5183051008,
+      "title": "Anthropic Fellows Program, ML Systems & Reinforcement Learning",
+      "location": "London, UK; Ontario, CAN; Remote-Friendly, United States; San Francisco, CA",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5183051008",
+      "category": "AI Automation & Agents",
+      "company": "anthropic"
+    },
+    {
+      "id": 5390746008,
+      "title": "Applied AI Architect",
+      "location": "Bangalore, India",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5390746008",
+      "category": "AI Automation & Agents",
+      "company": "anthropic"
+    },
+    {
+      "id": 5424310008,
+      "title": "Applied AI Architect",
+      "location": "Mumbai, India",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5424310008",
+      "category": "AI Automation & Agents",
+      "company": "anthropic"
+    },
+    {
+      "id": 5390750008,
+      "title": "Applied AI Architect, Partnerships",
+      "location": "Bangalore, India",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5390750008",
+      "category": "AI Automation & Agents",
+      "company": "anthropic"
+    },
+    {
+      "id": 5396384008,
+      "title": "IT Systems Engineer, Mobile Client Platform Engineer",
+      "location": "Boston, MA; Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY; Washington, DC",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5396384008",
+      "category": "Systems & Software Engineering",
+      "company": "anthropic"
+    },
+    {
+      "id": 5198108008,
+      "title": "Research Engineer, Machine Learning (RL Velocity)",
+      "location": "Remote-Friendly (Travel-Required) | San Francisco, CA | New York City, NY",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5198108008",
+      "category": "AI Automation & Agents",
+      "company": "anthropic"
+    },
+    {
+      "id": 5434691008,
+      "title": "Staff / Senior Physical Security Systems Engineer",
+      "location": "Remote-Friendly (Travel Required) | San Francisco, CA",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5434691008",
+      "category": "Systems & Software Engineering",
+      "company": "anthropic"
+    },
+    {
+      "id": 5114768008,
+      "title": "Staff+ Software Engineer, Data Infrastructure",
+      "location": "Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5114768008",
+      "category": "Systems & Software Engineering",
+      "company": "anthropic"
+    },
+    {
+      "id": 5390966008,
+      "title": "Staff Software Engineer, GTM AI Engineering",
+      "location": "Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5390966008",
+      "category": "AI Automation & Agents",
+      "company": "anthropic"
+    },
+    {
+      "id": 5257650008,
+      "title": "Staff+ Software Engineer, Inference Velocity",
+      "location": "Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5257650008",
+      "category": "Systems & Software Engineering",
+      "company": "anthropic"
+    },
+    {
+      "id": 5119468008,
+      "title": "Staff+ Software Engineer, People Products",
+      "location": "Remote-Friendly (Travel Required) | San Francisco, CA",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5119468008",
+      "category": "Systems & Software Engineering",
+      "company": "anthropic"
+    },
+    {
+      "id": 5383114008,
+      "title": "Staff+ Software Engineer, Privacy",
+      "location": "Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5383114008",
+      "category": "Systems & Software Engineering",
+      "company": "anthropic"
+    },
+    {
+      "id": 5205704008,
+      "title": "Staff+ Software Engineer, Public Sector",
+      "location": "Remote-Friendly, United States; San Francisco, CA | New York City, NY | Washington, DC",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5205704008",
+      "category": "Systems & Software Engineering",
+      "company": "anthropic"
+    }
+  ],
+  "canonical": [
+    {
+      "id": 4124053,
+      "title": "C, Golang Software Engineer working on dqlite, a Raft extension for SQLite",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/4124053",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 4439935,
+      "title": "C++/Rust Graphics and Windowing System Software Engineer - Mir",
+      "location": "Home Based - APAC; Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/4439935",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 5143011,
+      "title": "Developer Relations Engineer",
+      "location": "Home Based - APAC; Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/5143011",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 2969042,
+      "title": "Distributed Systems Testing Software Engineer, Python / Go",
+      "location": "Home Based - Americas; Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/2969042",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 7646454,
+      "title": "Engineering Director - Commercial Systems",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/7646454",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 3657756,
+      "title": "Engineering Manager, Commercial Systems",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/3657756",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 8179506,
+      "title": "Engineering Manager - Distributed Systems, Python / Go",
+      "location": "Home Based - Americas; Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/8179506",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 4754075,
+      "title": "Engineering Manager - Web",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/4754075",
+      "category": "Frontend & Web Development",
+      "company": "canonical"
+    },
+    {
+      "id": 4857458,
+      "title": "Go (Golang) Software Engineer, Developer Tooling and Containers",
+      "location": "Home Based - APAC",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/4857458",
+      "category": "AI Automation & Agents",
+      "company": "canonical"
+    },
+    {
+      "id": 5692058,
+      "title": "Golang Engineering Manager, Commercial Systems",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/5692058",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 4827747,
+      "title": "Golang Software Engineer, Commercial Systems",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/4827747",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 4960407,
+      "title": "Golang System Software Engineer - Containers / Virtualisation",
+      "location": "Home Based - Americas; Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/4960407",
+      "category": "AI Automation & Agents",
+      "company": "canonical"
+    },
+    {
+      "id": 4551832,
+      "title": "Information Systems - Open Source Technical Architect",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/4551832",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 6426388,
+      "title": "Juju Software Engineer (Go)",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/6426388",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 7334725,
+      "title": "Kernel Build Automation Engineer - Ubuntu Linux",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/7334725",
+      "category": "Frontend & Web Development",
+      "company": "canonical"
+    },
+    {
+      "id": 4394058,
+      "title": "Linux devices software engineer - snapd",
+      "location": "Home Based - Americas; Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/4394058",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 7432750,
+      "title": "Linux Software Engineer - Ubuntu for Next-Gen Silicon (multiple roles and seniority levels)",
+      "location": "Home Based - Americas; Home Based - APAC; Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/7432750",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 5660661,
+      "title": "Open Source Networking Software Engineer - ToR Switch / SmartNIC / DPU",
+      "location": "Home Based - Americas; Home Based - APAC; Office Based - Beijing, China; Office Based - Taipei, Taiwan",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/5660661",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 6643476,
+      "title": "Product Manager - AI",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/6643476",
+      "category": "AI Automation & Agents",
+      "company": "canonical"
+    },
+    {
+      "id": 4953222,
+      "title": "Project Manager - Ubuntu Embedded Systems",
+      "location": "Home Based - APAC",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/4953222",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 2808065,
+      "title": "Project Manager - Ubuntu Embedded Systems",
+      "location": "Home Based - Americas; Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/2808065",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 5692059,
+      "title": "Python Engineering Manager, Commercial Systems",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/5692059",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 6401160,
+      "title": "Python Software Engineer, Commercial Systems",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/6401160",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 3658005,
+      "title": "Python Software Engineer - Ubuntu Hardware Certification Team",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/3658005",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 4582078,
+      "title": "Salesforce/NetSuite Engineering Manager, Commercial Systems",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/4582078",
+      "category": "Frontend & Web Development",
+      "company": "canonical"
+    },
+    {
+      "id": 5566674,
+      "title": "Senior Juju Software Engineer (Go)",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/5566674",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 5223805,
+      "title": "Senior Marketing Automation Manager",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/5223805",
+      "category": "AI Automation & Agents",
+      "company": "canonical"
+    },
+    {
+      "id": 3142044,
+      "title": "Senior Software Engineer (Backend)",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/3142044",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 3003389,
+      "title": "Senior Software Engineer - MAAS",
+      "location": "Home Based - Americas; Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/3003389",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 7774649,
+      "title": "Senior Software Engineer - Python/Golang - Kubernetes",
+      "location": "Home Based - Americas; Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/7774649",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 5937947,
+      "title": "Senior Software Engineer - Python/MongoDB",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/5937947",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 4417916,
+      "title": "Senior Web Engineer",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/4417916",
+      "category": "Frontend & Web Development",
+      "company": "canonical"
+    },
+    {
+      "id": 4647417,
+      "title": "Software Developer (Backend SaaS)",
+      "location": "Home Based - Americas",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/4647417",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 2166631,
+      "title": "Software Developer in Observability",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/2166631",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 7785136,
+      "title": "Software Engineer, Automotive and Industrial Architecture",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/7785136",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 1861978,
+      "title": "Software Engineer, Ceph & Distributed Storage",
+      "location": "Home Based - Americas; Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/1861978",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 4398031,
+      "title": "Software Engineer - Cloud Images",
+      "location": "Home Based - Americas; Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/4398031",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 4348657,
+      "title": "Software Engineer - Cross-platform C++ - Multipass",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/4348657",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 3014391,
+      "title": "Software Engineer - Data Infrastructure",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/3014391",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 5218601,
+      "title": "Software Engineer - Data Infrastructure - Kafka",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/5218601",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 5002072,
+      "title": "Software Engineer - Data Infrastructure - OpenSearch/ElasticSearch",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/5002072",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 2614095,
+      "title": "Software Engineer - Edge AI",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/2614095",
+      "category": "AI Automation & Agents",
+      "company": "canonical"
+    },
+    {
+      "id": 4283003,
+      "title": "Software Engineering Manager (Backend SaaS)",
+      "location": "Home Based - Americas",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/4283003",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 2579550,
+      "title": "Software Engineer - OpenStack",
+      "location": "Home Based - Americas; Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/2579550",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 3257589,
+      "title": "Software Engineer - Python - Cloud - graduate level",
+      "location": "Home Based - Americas",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/3257589",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 6222476,
+      "title": "Software Engineer - Python - Container Images",
+      "location": "Home Based - Americas; Home Based - APAC; Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/6222476",
+      "category": "AI Automation & Agents",
+      "company": "canonical"
+    },
+    {
+      "id": 2928962,
+      "title": "Software Engineer - Python/Golang - Kubernetes",
+      "location": "Home Based - Americas; Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/2928962",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 2413329,
+      "title": "Software Engineer (Python/Linux/Packaging)",
+      "location": "Home Based - Americas",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/2413329",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 8130859,
+      "title": "Software Engineer - Secure Container Images",
+      "location": "Home Based - Americas; Home Based - APAC; Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/8130859",
+      "category": "AI Automation & Agents",
+      "company": "canonical"
+    },
+    {
+      "id": 4272811,
+      "title": "Software Engineer - Ubuntu Server Certification",
+      "location": "Home Based - Americas",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/4272811",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 3880952,
+      "title": "Staff Software Engineer for Identity Management (Go/Golang)",
+      "location": "Home Based - Americas; Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/3880952",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 7612825,
+      "title": "System Software Engineer - GCC/LLVM compiler, tooling, and ecosystem",
+      "location": "Home Based - Americas",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/7612825",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 3182672,
+      "title": "Ubuntu Core Software Engineer",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/3182672",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 7043028,
+      "title": "UX Designer - Design systems",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/7043028",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 7043026,
+      "title": "UX Designer - Developer experience",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/7043026",
+      "category": "Systems & Software Engineering",
+      "company": "canonical"
+    },
+    {
+      "id": 2804965,
+      "title": "Web Developer",
+      "location": "Home based - EMEA",
+      "url": "https://job-boards.greenhouse.io/canonical/jobs/2804965",
+      "category": "Frontend & Web Development",
+      "company": "canonical"
+    }
+  ],
+  "brex": [],
+  "carta": [],
+  "checkr": [],
+  "pagerduty": [],
+  "figma": [],
+  "cockroachlabs": []
+}
