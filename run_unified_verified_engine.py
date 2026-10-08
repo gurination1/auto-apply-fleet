@@ -147,11 +147,12 @@ def critique_application(company, title, category=""):
         'data platform', 'data pipeline', 'analytics engineer', 'enterprise data',
         # Security / Cyber
         'security', 'infosec', 'cyber', 'secops', 'vulnerability', 'soc ', 'penetration',
-        # Hardware / Electrical / Embedded / Robotics
+        # Hardware / Electrical / Embedded / Robotics / Aerospace
         'hardware', 'firmware', 'silicon', 'dft', 'fpga', 'asic', 'analog', 'ic design', 'electronics', 'embedded',
         'pcb', 'circuit', 'electrical', 'controls', 'vehicle', 'automotive', 'battery', 'chemical', 'chemistry',
         'metallurgy', 'mechanical', 'thermal', 'propulsion', 'avionics', 'onboard', 'kernel', 'cuda', 'compiler',
-        'robotics', 'robot ', 'robot,', 'robotic', 'nuclear', 'reactor',
+        'robotics', 'robot ', 'robot,', 'robotic', 'nuclear', 'reactor', 'motion planning', 'flight software',
+        'sensors', 'sensor ', 'sensor,', 'guidance', 'aerospace',
         # Business / Operations / Finance / PM
         'business development', 'bizdev', 'operations', 'revops', 'user operations', 'product management',
         'product manager', 'pm intern', 'product intern', 'product strategy', 'compensation partner', 'sales',
