@@ -885,7 +885,7 @@ def apply_lever(page, item):
     print(f"[*] URL: {url}")
     print(f"==================================================================")
 
-    if not url or url in DEAD_URLS:
+    if not url:
         return False
 
     if is_already_confirmed(url, company, title):
@@ -1858,6 +1858,30 @@ def main():
                 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"
             ]
             chosen_ua = random.choice(uas)
+            
+            u_check = (item.get('applyUrl') or item.get('url') or '').strip()
+            c_check = (item.get('company') or '').strip()
+            t_check = (item.get('title') or '').strip()
+            if not u_check or is_already_confirmed(u_check, c_check, t_check):
+                print(f"[!] Already confirmed or dead in DB: {c_check} - {t_check}")
+                continue
+
+            # Rapid pre-check: check if Ashby job posting is closed via appData without wasting 15s in Playwright
+            if 'ashbyhq.com' in u_check:
+                try:
+                    import urllib.request
+                    req = urllib.request.Request(u_check, headers={'User-Agent': chosen_ua})
+                    h_txt = urllib.request.urlopen(req, timeout=4).read().decode('utf-8', errors='ignore')
+                    if 'window.__appData' in h_txt:
+                        m_app = re.search(r'window\.__appData\s*=\s*(\{.*?\});', h_txt)
+                        if m_app:
+                            d_app = json.loads(m_app.group(1))
+                            if d_app.get('posting') is None:
+                                print(f"[-] Ashby posting is confirmed closed: {u_check}")
+                                mark_url_dead(u_check)
+                                continue
+                except Exception:
+                    pass
             try:
                 if not browser.is_connected():
                     browser = launch_browser()

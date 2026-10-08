@@ -30,6 +30,18 @@ conn.close()
 
 from run_unified_verified_engine import critique_application
 
+def is_ashby_active(url):
+    try:
+        r = requests.get(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}, timeout=4)
+        if 'window.__appData' in r.text:
+            m = re.search(r'window\.__appData\s*=\s*(\{.*?\});', r.text)
+            if m:
+                data = json.loads(m.group(1))
+                return data.get('posting') is not None
+        return True
+    except Exception:
+        return True
+
 seen_urls = set()
 for u in applied_urls:
     seen_urls.add(u.lower().rstrip('/'))
@@ -62,9 +74,19 @@ TARGET_SOURCES = [
     },
     # --- FULL-TIME TECH JOBS (NEW GRAD & EARLY-CAREER SWE) ---
     {
+        "url": "https://raw.githubusercontent.com/speedyapply/2026-SWE-College-Jobs/main/README.md",
+        "is_internship": False,
+        "default_stipend": "$85,000 - $130,000 USD / year"
+    },
+    {
         "url": "https://raw.githubusercontent.com/SimplifyJobs/New-Grad-Positions/dev/README.md",
         "is_internship": False,
         "default_stipend": "$80,000 - $130,000 USD / year"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/vanshb03/New-Grad-2026/main/README.md",
+        "is_internship": False,
+        "default_stipend": "$85,000 - $125,000 USD / year"
     },
     {
         "url": "https://raw.githubusercontent.com/vanshb03/New-Grad-2027/main/README.md",
@@ -118,11 +140,11 @@ for src in TARGET_SOURCES:
                             if h and 'simplify.jobs' not in h:
                                 links.append(h)
                     
-                    gh_or_ashby = [l for l in links if 'greenhouse.io' in l or 'ashbyhq.com' in l]
-                    if not gh_or_ashby:
+                    matching_links = [l for l in links if ('greenhouse.io' in l or 'ashbyhq.com' in l or 'lever.co' in l) and 'simplify.jobs' not in l]
+                    if not matching_links:
                         continue
                     
-                    u = gh_or_ashby[0].strip().replace('&amp;', '&')
+                    u = matching_links[0].strip().replace('&amp;', '&')
                     u_norm = u.lower().rstrip('/')
                     u_base = u.split('?')[0].lower().rstrip('/')
                     if u_norm in seen_urls or u_base in seen_urls:
@@ -137,9 +159,14 @@ for src in TARGET_SOURCES:
                     if score < 60:
                         continue
                     
+                    portal = 'Greenhouse' if 'greenhouse.io' in u else ('Lever' if 'lever.co' in u else 'Ashby')
+                    if portal == 'Ashby' and not is_ashby_active(u):
+                        seen_urls.add(u_norm)
+                        seen_urls.add(u_base)
+                        continue
+                    
                     seen_urls.add(u_norm)
                     seen_urls.add(u_base)
-                    portal = 'Greenhouse' if 'greenhouse.io' in u else 'Ashby'
                     
                     item = {
                         'company': comp,
@@ -165,18 +192,22 @@ for src in TARGET_SOURCES:
                 parts = [p.strip() for p in line_s.split('|')[1:-1]]
                 if len(parts) >= 3:
                     raw_comp = parts[0].replace('**', '').replace('✓', '').replace('🔥', '').strip()
+                    raw_comp = re.sub(r'<[^>]+>', '', raw_comp)
+                    raw_comp = re.sub(r'\[([^\]]+)\]\([^\)]+\)', r'\1', raw_comp).strip()
                     if raw_comp:
                         last_comp = raw_comp
                     comp = last_comp
-                    title = parts[1].replace('**', '').replace('🆕', '').strip()
+                    raw_title = parts[1].replace('**', '').replace('🆕', '').strip()
+                    raw_title = re.sub(r'<[^>]+>', '', raw_title)
+                    title = re.sub(r'\[([^\]]+)\]\([^\)]+\)', r'\1', raw_title).strip()
                     
                     all_text = ' '.join(parts[2:])
                     links = re.findall(r'href=[\"\']([^\"\']+)[\"\']', all_text) + re.findall(r'\[.*?\]\((https?://[^\)]+)\)', all_text)
-                    gh_or_ashby = [l for l in links if ('greenhouse.io' in l or 'ashbyhq.com' in l) and 'simplify.jobs' not in l]
-                    if not gh_or_ashby:
+                    matching_links = [l for l in links if ('greenhouse.io' in l or 'ashbyhq.com' in l or 'lever.co' in l) and 'simplify.jobs' not in l]
+                    if not matching_links:
                         continue
                     
-                    u = gh_or_ashby[0].strip().replace('&amp;', '&')
+                    u = matching_links[0].strip().replace('&amp;', '&')
                     u_norm = u.lower().rstrip('/')
                     u_base = u.split('?')[0].lower().rstrip('/')
                     if u_norm in seen_urls or u_base in seen_urls:
@@ -191,9 +222,14 @@ for src in TARGET_SOURCES:
                     if score < 60:
                         continue
                     
+                    portal = 'Greenhouse' if 'greenhouse.io' in u else ('Lever' if 'lever.co' in u else 'Ashby')
+                    if portal == 'Ashby' and not is_ashby_active(u):
+                        seen_urls.add(u_norm)
+                        seen_urls.add(u_base)
+                        continue
+                    
                     seen_urls.add(u_norm)
                     seen_urls.add(u_base)
-                    portal = 'Greenhouse' if 'greenhouse.io' in u else 'Ashby'
                     
                     item = {
                         'company': comp,
