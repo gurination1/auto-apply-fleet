@@ -942,15 +942,21 @@ def apply_lever(page, item):
     # 2. Fill Standard Lever Fields
     safe_fill_by_name = lambda name, val: page.locator(f'input[name="{name}"]').first.fill(str(val)) if page.locator(f'input[name="{name}"]').count() > 0 and page.locator(f'input[name="{name}"]').first.is_visible() else None
     
-    try:
         safe_fill_by_name("name", CANDIDATE["name"])
         safe_fill_by_name("email", CANDIDATE["email"])
         safe_fill_by_name("phone", CANDIDATE["phone"])
+        safe_fill_by_name("location", CANDIDATE["location"])
         safe_fill_by_name("org", "Self-Employed / Independent Builder")
         safe_fill_by_name("urls[LinkedIn]", CANDIDATE["linkedin"])
         safe_fill_by_name("urls[GitHub]", CANDIDATE["github"])
         safe_fill_by_name("urls[Portfolio]", CANDIDATE["portfolio"])
         safe_fill_by_name("urls[Other]", CANDIDATE["portfolio"])
+        loc_inp = page.locator('input.location-input, #location-input, input[name="location"]').first
+        if loc_inp.count() > 0 and loc_inp.is_visible() and not loc_inp.input_value():
+            try:
+                loc_inp.fill(CANDIDATE["location"])
+            except Exception:
+                pass
     except Exception as e:
         print(f"[-] Lever standard fill notice: {e}")
 
@@ -1078,6 +1084,34 @@ def apply_lever(page, item):
     except Exception:
         pass
 
+    # Universal sweeper for all remaining required inputs / textareas
+    try:
+        for req_inp in page.locator('input[required]:not([type="radio"]):not([type="checkbox"]):not([type="hidden"]), textarea[required]').all():
+            if req_inp.is_visible() and not req_inp.input_value():
+                nm = (req_inp.get_attribute('name') or req_inp.get_attribute('id') or '').lower()
+                if any(k in nm for k in ['loc', 'city', 'country', 'state']):
+                    req_inp.fill(CANDIDATE["location"])
+                elif 'phone' in nm:
+                    req_inp.fill(CANDIDATE["phone"])
+                elif 'mail' in nm:
+                    req_inp.fill(CANDIDATE["email"])
+                elif 'name' in nm:
+                    req_inp.fill(CANDIDATE["name"])
+                elif any(k in nm for k in ['linkedin', 'url', 'link', 'portfolio', 'site']):
+                    req_inp.fill(CANDIDATE["linkedin"])
+                elif any(k in nm for k in ['salary', 'compensation', 'pay', 'stipend', 'rate']):
+                    req_inp.fill("$5,000 / month" if app_type == "INTERNSHIP" else "$85,000 USD / year")
+                elif any(k in nm for k in ['school', 'university', 'college']):
+                    req_inp.fill(CANDIDATE["school"])
+                elif any(k in nm for k in ['degree']):
+                    req_inp.fill(CANDIDATE["degree"])
+                elif any(k in nm for k in ['discipline', 'major']):
+                    req_inp.fill(CANDIDATE["discipline"])
+                else:
+                    req_inp.fill("Yes")
+    except Exception as e:
+        print(f"[-] Lever required fields note: {e}")
+
     # Checkboxes (Consent / Policy)
     for cb in page.locator('input[type="checkbox"]').all():
         try:
@@ -1112,6 +1146,18 @@ def apply_lever(page, item):
             print(f"[-] Lever submit click failed: {e}")
     page.wait_for_timeout(5000)
     solve_all_captchas(page)
+
+    # If hidden hcaptcha submit button exists, trigger as fallback if hcaptcha solved
+    try:
+        h_resp = page.locator('#hcaptchaResponseInput').get_attribute('value')
+        h_btn = page.locator('#hcaptchaSubmitBtn').first
+        if h_btn.count() > 0 and h_resp:
+            print("[+] Triggering verified hCaptcha submit button...")
+            h_btn.evaluate('el => el.click()')
+            page.wait_for_timeout(4000)
+    except Exception:
+        pass
+
     page.wait_for_timeout(3000)
 
     clean_slug = re.sub(r'[^a-zA-Z0-9_]', '_', f"{company}_{title}")[:35]
