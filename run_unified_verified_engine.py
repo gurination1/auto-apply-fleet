@@ -1711,6 +1711,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--mode', choices=['jobs', 'internships', 'all'], default='all')
     parser.add_argument('--limit', type=int, default=150)
+    parser.add_argument('--worker-id', type=int, default=1, help='Worker shard index (1-based)')
+    parser.add_argument('--total-workers', type=int, default=1, help='Total parallel workers')
     parser.add_argument('--proxy', type=str, default=None, help='Proxy server URL (e.g. socks5://127.0.0.1:40000)')
     args = parser.parse_args()
 
@@ -1833,6 +1835,10 @@ def main():
             if idx < len(other_items):
                 balanced.append(other_items[idx])
         items = balanced[:args.limit]
+    
+    if args.total_workers > 1:
+        items = [it for idx, it in enumerate(items) if idx % args.total_workers == (args.worker_id - 1)]
+        print(f"[*] Sharded queue for Worker {args.worker_id}/{args.total_workers}: {len(items)} items assigned.")
 
     ashby_count = sum(1 for it in items if 'ashbyhq' in (it.get('applyUrl') or it.get('url') or ''))
     other_count = len(items) - ashby_count
