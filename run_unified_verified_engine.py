@@ -764,11 +764,13 @@ def apply_greenhouse(page, item):
 
     current_url = page.url.lower()
     page_text = page.locator('body').inner_text().lower()
-    submit_confirmed = any(m in current_url for m in ['confirmation', 'submitted', 'thank_you']) or any(m in page_text for m in [
+    submit_confirmed = any(m in current_url for m in ['confirmation', 'submitted', 'thank_you', 'thanks', 'success']) or any(m in page_text for m in [
         'thank you for applying', 'your application has been received', 'application received', 
         'we have received your application', 'we’ve received your application', 'application submitted',
-        'submitted successfully'
-    ])
+        'submitted successfully', 'thank you for your interest', 'application was submitted',
+        'thanks for applying', 'we will be in touch', 'we’ll be in touch', 'submission complete',
+        'application has been submitted', 'application was received'
+    ]) or page.locator('#application_confirmation, .application-confirmation, div:has-text("Thank you for applying")').count() > 0
 
     if submit_confirmed:
         print(f"🎉 CONFIRMED Greenhouse submission for {company} - {title}!")
@@ -1327,22 +1329,43 @@ def main():
             except Exception:
                 pass
 
+            # Rotate browser instance every 6 applications to prevent reCAPTCHA v3 fingerprint decay
+            if i > 0 and i % 6 == 0:
+                try:
+                    browser.close()
+                except Exception:
+                    pass
+                browser = launch_browser()
+
             print(f"\n[{i+1}/{len(items)}] Processing {item['company']} - {item['title']}...")
             context = None
+            vps = [
+                {"width": 1280, "height": 900},
+                {"width": 1366, "height": 768},
+                {"width": 1440, "height": 900},
+                {"width": 1536, "height": 864}
+            ]
+            chosen_vp = random.choice(vps)
+            uas = [
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"
+            ]
+            chosen_ua = random.choice(uas)
             try:
                 if not browser.is_connected():
                     browser = launch_browser()
                 context = browser.new_context(
-                    user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
-                    viewport={"width": 1280, "height": 900},
+                    user_agent=chosen_ua,
+                    viewport=chosen_vp,
                     locale="en-US"
                 )
             except Exception:
                 try:
                     browser = launch_browser()
                     context = browser.new_context(
-                        user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
-                        viewport={"width": 1280, "height": 900},
+                        user_agent=chosen_ua,
+                        viewport=chosen_vp,
                         locale="en-US"
                     )
                 except Exception as e:
