@@ -138,10 +138,29 @@ def solve_recaptcha_v2_if_present(page):
         print(f"[-] reCAPTCHA solver notice: {e}")
     return False
 
+def solve_hcaptcha_if_present(page):
+    """
+    Detects and clicks hCaptcha checkboxes organically.
+    """
+    try:
+        hframe = page.frame_locator('iframe[src*="hcaptcha.com"], iframe[data-hcaptcha-widget-id]').first
+        chk = hframe.locator('#checkbox, [aria-haspopup="dialog"]').first
+        if chk.count() > 0 and chk.is_visible():
+            aria_checked = chk.get_attribute('aria-checked')
+            if aria_checked != 'true':
+                print("[*] hCaptcha checkbox detected. Clicking organically...")
+                chk.click()
+                page.wait_for_timeout(2500)
+                return True
+    except Exception:
+        pass
+    return False
+
 def solve_all_captchas(page):
     """
-    Master handler: checks and solves Turnstile and reCAPTCHA if present.
+    Master handler: checks and solves Turnstile, reCAPTCHA, and hCaptcha if present.
     """
     solved_turnstile = solve_turnstile_if_present(page)
     solved_recaptcha = solve_recaptcha_v2_if_present(page)
-    return solved_turnstile or solved_recaptcha
+    solved_hcaptcha = solve_hcaptcha_if_present(page)
+    return solved_turnstile or solved_recaptcha or solved_hcaptcha
