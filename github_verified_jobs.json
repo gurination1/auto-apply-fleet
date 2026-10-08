@@ -385,17 +385,6 @@
     "critique_reason": "Optimal career level: Junior/Intern software role with high conversion and $1,500 - $9,000/mo compensation. | Calibrated for 2nd-year undergraduate software systems candidate."
   },
   {
-    "company": "Firetiger",
-    "title": "Product Engineer New Grad",
-    "applyUrl": "https://jobs.ashbyhq.com/firetiger/a65c30a8-6bdb-4258-9d6a-5e6e90ff86e6/application?embed=true&utm_source=Simplify&ref=Simplify",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $130,000 USD / year",
-    "fit_score": 99,
-    "critique_reason": "Sweet-spot match: Master resume is custom-optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score). | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
     "company": "Freedom Technology Solutions Group",
     "title": "Junior Software Engineer",
     "applyUrl": "https://job-boards.greenhouse.io/freedomconsulting/jobs/5190737007?utm_source=Simplify&ref=Simplify",
@@ -407,98 +396,10 @@
     "critique_reason": "Optimal career level: Junior/Intern software role with high conversion and $1,500 - $9,000/mo compensation. | Calibrated for 2nd-year undergraduate software systems candidate."
   },
   {
-    "company": "Cybernetic Labs",
-    "title": "Software Engineer New Grad - Agent Platform",
-    "applyUrl": "https://jobs.ashbyhq.com/netic/d9bcb6a2-0e54-4cb3-baec-43f2d74db18f/application?embed=true&utm_source=Simplify&ref=Simplify",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $130,000 USD / year",
-    "fit_score": 94,
-    "critique_reason": "Proven builder fit: Background in Playwright automation, Docker, WebSockets, and GitHub Actions CI/CD. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Cybernetic Labs",
-    "title": "Full-Stack Software Engineer New Grad - Product",
-    "applyUrl": "https://jobs.ashbyhq.com/netic/bab5d1e5-e31b-42f0-9cef-334b1f17fed3/application?embed=true&utm_source=Simplify&ref=Simplify",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $130,000 USD / year",
-    "fit_score": 99,
-    "critique_reason": "Sweet-spot match: Master resume is custom-optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score). | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Faros AI",
-    "title": "Software Engineer New Grad",
-    "applyUrl": "https://jobs.ashbyhq.com/faros-ai/622e1f1e-4a39-4e7c-8526-1189ca588066/application?embed=true&utm_source=Simplify&ref=Simplify",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $130,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
     "company": "InstaLILY",
     "title": "Software Engineer 1 - General",
     "applyUrl": "https://job-boards.greenhouse.io/instalilyai/jobs/4271757009?utm_source=Simplify&ref=Simplify",
     "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $130,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Pylon",
-    "title": "Software Engineer New Grad",
-    "applyUrl": "https://jobs.ashbyhq.com/pylon-labs/38814ce7-217b-40f2-9ba5-8a7733a5691d/application?utm_source=Simplify&ref=Simplify",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $130,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Notion",
-    "title": "Software Engineer \u2013 Early Career",
-    "applyUrl": "https://jobs.ashbyhq.com/notion/297b4ece-765f-4eea-b1b8-46057cb6501f/application?utm_source=Simplify&ref=Simplify",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $130,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Cylake",
-    "title": "Software Engineer \u2013 University Grad",
-    "applyUrl": "https://jobs.ashbyhq.com/cylake-inc/1d1ac42e-299c-42af-bd7c-b8c5fb07f735/application?utm_source=Simplify&ref=Simplify",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $130,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "People Culture Talent",
-    "title": "Full-Stack Engineer \ud83d\udec2",
-    "applyUrl": "https://jobs.ashbyhq.com/people-culture-talent/c1049c49-aea6-4862-a711-a4c78cf6e959?utm_source=Simplify&ref=Simplify",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $130,000 USD / year",
-    "fit_score": 99,
-    "critique_reason": "Sweet-spot match: Master resume is custom-optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score). | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Julius AI",
-    "title": "Refresh Software Engineer New Grad - Product",
-    "applyUrl": "https://jobs.ashbyhq.com/julius/5e0b677a-f677-44de-93c6-f7848ab5a8e6/application?utm_source=Simplify&ref=Simplify",
-    "portal_type": "Ashby",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$80,000 - $130,000 USD / year",
@@ -539,28 +440,6 @@
     "critique_reason": "Sweet-spot match: Master resume is custom-optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score). | Mid-level role evaluated on GitHub code velocity."
   },
   {
-    "company": "Ellipsis Labs",
-    "title": "Software Engineer \u2013 New Grads - Multiple Teams",
-    "applyUrl": "https://jobs.ashbyhq.com/ellipsislabs/256c2ec2-01c8-4ff6-9ad0-b926fe40472d/application?utm_source=Simplify&ref=Simplify",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $130,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Automat",
-    "title": "Software Engineer - Junior/Intermediate",
-    "applyUrl": "https://jobs.ashbyhq.com/automat/a4172515-0353-47ec-9c71-631a294aa137/application?embed=true&utm_source=Simplify&ref=Simplify",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $130,000 USD / year",
-    "fit_score": 99,
-    "critique_reason": "Optimal career level: Junior/Intern software role with high conversion and $1,500 - $9,000/mo compensation. | Calibrated for 2nd-year undergraduate software systems candidate."
-  },
-  {
     "company": "Uare.ai",
     "title": "Software Engineer \u2013 Early Career",
     "applyUrl": "https://job-boards.greenhouse.io/uareai/jobs/4036519009?utm_source=Simplify&ref=Simplify",
@@ -581,17 +460,6 @@
     "stipend": "$80,000 - $130,000 USD / year",
     "fit_score": 99,
     "critique_reason": "Optimal career level: Junior/Intern software role with high conversion and $1,500 - $9,000/mo compensation. | Calibrated for 2nd-year undergraduate software systems candidate."
-  },
-  {
-    "company": "Backbone Systems",
-    "title": "Founding Engineer - Applied Research",
-    "applyUrl": "https://jobs.ashbyhq.com/backbone/cbfce5dc-e2c7-452e-bb23-2dac1198df7d/application?embed=true&utm_source=Simplify&ref=Simplify",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $130,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
   },
   {
     "company": "Mach Industries",
@@ -697,39 +565,6 @@
     "title": "Software Engineer New Grad",
     "applyUrl": "https://job-boards.greenhouse.io/freeformfuturecorp/jobs/7826634003?utm_source=Simplify&ref=Simplify",
     "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $130,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Morse Micro",
-    "title": "Product Quality Engineer 1",
-    "applyUrl": "https://jobs.ashbyhq.com/morse-micro/ca01644b-bb2f-4dda-8ea3-b3c3085e62fc/application?embed=true&utm_source=Simplify&ref=Simplify",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $130,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Cerebras",
-    "title": "Software Engineer New Grad",
-    "applyUrl": "https://jobs.ashbyhq.com/cerebras/987d7f64-c957-4c8f-b89d-2f9d64738507/application?utm_source=Simplify&ref=Simplify",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $130,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Icon",
-    "title": "Founding Engineer",
-    "applyUrl": "https://jobs.ashbyhq.com/icon/8de569c7-814f-4ffe-9c21-a92d7b806be2/application?utm_source=Simplify&ref=Simplify",
-    "portal_type": "Ashby",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$80,000 - $130,000 USD / year",
