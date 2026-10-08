@@ -1083,8 +1083,8 @@ def apply_ashby(page, item):
     btn.scroll_into_view_if_needed()
     box = btn.bounding_box()
     if box:
-        page.mouse.move(box['x'] + box['width']/2, box['y'] + box['height']/2, steps=10)
-        page.wait_for_timeout(500)
+        page.mouse.move(box['x'] + box['width']/2, box['y'] + box['height']/2, steps=12)
+        page.wait_for_timeout(random.randint(600, 1000))
 
     print(f"[*] Submitting application...")
     submit_confirmed = False
@@ -1093,7 +1093,10 @@ def apply_ashby(page, item):
             lambda r: r.request.method == 'POST' and any(k in r.url.lower() for k in ['apisubmitsingleapplicationformaction', 'apisubmitmultipleformsaction', 'non-user-graphql', 'posting-api', 'submit', 'application']),
             timeout=12000
         ) as submit_info:
-            btn.click()
+            if box:
+                page.mouse.click(box['x'] + box['width']/2, box['y'] + box['height']/2)
+            else:
+                btn.click()
         resp = submit_info.value
         resp_json = {}
         try:
