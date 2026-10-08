@@ -105,37 +105,7 @@ jobs:
         run: |
           python3 sync_all_receipts.py
           python3 generate_dashboard.py
-          python3 -c "
-import os, sqlite3
-
-db = 'verified_job_applications.db'
-if os.path.exists(db):
-    conn = sqlite3.connect(db)
-    c = conn.cursor()
-    tot = c.execute('SELECT count(*) FROM verified_applications').fetchone()[0]
-    jobs = c.execute(\"SELECT count(*) FROM verified_applications WHERE application_type='JOB'\").fetchone()[0]
-    interns = c.execute(\"SELECT count(*) FROM verified_applications WHERE application_type='INTERNSHIP'\").fetchone()[0]
-    emails = c.execute('SELECT count(*) FROM verified_applications WHERE email_verified=1').fetchone()[0]
-    recent = c.execute('SELECT company, role, application_type, applied_at, email_verified FROM verified_applications ORDER BY id DESC LIMIT 10').fetchall()
-    conn.close()
-
-    summary_file = os.environ.get('GITHUB_STEP_SUMMARY')
-    if summary_file:
-        with open(summary_file, 'a') as f:
-            f.write(f'## 📊 Cloud Fleet Performance Audit\n\n')
-            f.write(f'| Fleet Metric | Count | 2,000 Milestone | Status |\n')
-            f.write(f'| :--- | :---: | :---: | :---: |\n')
-            f.write(f'| **Total Confirmed** | **{tot}** | 2,000 | **{tot/20:.1f}%** |\n')
-            f.write(f'| **Remote Tech Jobs** | **{jobs}** | 1,000 | **{jobs/10:.1f}%** |\n')
-            f.write(f'| **Paid Internships** | **{interns}** | 1,000 | **{interns/10:.1f}%** |\n')
-            f.write(f'| **IMAP Verified Receipts** | **{emails}** | - | **{emails/tot*100:.1f}%** Verified Rate |\n\n')
-            f.write('### 🎯 Latest 10 Submissions:\n\n')
-            f.write('| Company | Role | Type | Applied At | Email Receipt |\n')
-            f.write('| :--- | :--- | :---: | :--- | :---: |\n')
-            for r in recent:
-                verified_icon = '✅ Confirmed' if r[4] else '⏳ Pending / Delivered'
-                f.write(f'| **{r[0]}** | {r[1]} | `{r[2]}` | {r[3]} | {verified_icon} |\n')
-"
+          python3 audit_fleet_performance.py
 
       - name: Upload Run Screenshot Proofs
         uses: actions/upload-artifact@v4
