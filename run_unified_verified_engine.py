@@ -265,10 +265,10 @@ def log_verified_application(company, role, portal, url, salary_or_stipend, proo
 
 USED_OTPS = set()
 
-def fetch_greenhouse_otp(company_name=None, min_timestamp=None, max_wait=40):
+def fetch_greenhouse_otp(company_name=None, min_timestamp=None, max_wait=12):
     print(f"[*] Checking Gmail IMAP for fresh Greenhouse security OTP (Target: {company_name or 'Any'})...")
     if min_timestamp is None:
-        min_timestamp = time.time() - 120
+        min_timestamp = time.time() - 60
 
     gmail_pwd = os.environ.get('GMAIL_APP_PASSWORD')
     if not gmail_pwd and os.path.exists('/root/local_env.sh'):
@@ -801,16 +801,23 @@ def apply_greenhouse(page, item):
     # Check & solve captchas (Turnstile / reCAPTCHA) with Gemini
     solve_all_captchas(page)
 
-    btn.scroll_into_view_if_needed()
-    btn.click()
-    page.wait_for_timeout(4500)
+    try:
+        btn.scroll_into_view_if_needed(timeout=3000)
+        btn.click(timeout=4000)
+    except Exception as e:
+        print(f"[-] Greenhouse submit click note: {e}")
+        try:
+            btn.evaluate('el => el.click()')
+        except Exception:
+            pass
+    page.wait_for_timeout(3000)
 
     # 8. Check for OTP / Security Code
     otp_container = page.locator('#email-verification, input[id*="security_code"], input[name*="security_code"], #security-input-0')
     if otp_container.count() > 0 and otp_container.first.is_visible():
         print(f"[!] Email security verification triggered for {company}! Fetching code via Gmail IMAP...")
-        for otp_attempt in range(2):
-            code = fetch_greenhouse_otp(company_name=company, min_timestamp=time.time() - 90)
+        for otp_attempt in range(1):
+            code = fetch_greenhouse_otp(company_name=company, min_timestamp=time.time() - 60, max_wait=12)
             if code:
                 for idx, ch in enumerate(code):
                     inp = page.locator(f'#security-input-{idx}')
@@ -1996,7 +2003,11 @@ def main():
                     continue
 
             stealth.apply_stealth_sync(context)
+            context.set_default_timeout(4000)
+            context.set_default_navigation_timeout(8000)
             page = context.new_page()
+            page.set_default_timeout(4000)
+            page.set_default_navigation_timeout(8000)
             try:
                 portal = (item.get('portal_type') or '').lower()
                 url = (item.get('applyUrl') or item.get('url') or '').lower()

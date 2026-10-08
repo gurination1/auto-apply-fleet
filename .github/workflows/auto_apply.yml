@@ -35,7 +35,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        worker: [1, 2, 3, 4]
+        worker: [1, 2, 3, 4, 5, 6, 7, 8]
 
     steps:
       - name: Checkout Repository
@@ -101,8 +101,8 @@ jobs:
         run: |
           MODE="${{ github.event.inputs.mode || 'all' }}"
           LIMIT="${{ github.event.inputs.limit || '25' }}"
-          echo "[*] Executing verified submission engine: mode=$MODE limit=$LIMIT worker=${{ matrix.worker }}/4 $PROXY_ARG"
-          python3 -u run_unified_verified_engine.py --mode "$MODE" --limit "$LIMIT" --worker-id ${{ matrix.worker }} --total-workers 4 $PROXY_ARG
+          echo "[*] Executing verified submission engine: mode=$MODE limit=$LIMIT worker=${{ matrix.worker }}/8 $PROXY_ARG"
+          python3 -u run_unified_verified_engine.py --mode "$MODE" --limit "$LIMIT" --worker-id ${{ matrix.worker }} --total-workers 8 $PROXY_ARG
 
       - name: Audit Conversion Performance via IMAP Confirmation Receipts
         env:
