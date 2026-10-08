@@ -572,28 +572,6 @@
     "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
   },
   {
-    "company": "Northwood Space",
-    "title": "Software Engineer \u2013 New grad / early career",
-    "applyUrl": "https://jobs.ashbyhq.com/NorthwoodSpace/b960b661-e1cc-40d0-bde3-290cd1b58ede/application?utm_source=Simplify&ref=Simplify",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $130,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Quora",
-    "title": "New Grad: Software Engineer",
-    "applyUrl": "https://jobs.ashbyhq.com/quora/452afc2e-0c79-41f8-8201-1aab7df775db?utm_source=vansh",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $125,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
     "company": "Chicago Trading Company",
     "title": "New Grad 2027: Associate Engineer",
     "applyUrl": "https://job-boards.greenhouse.io/ctccampusboard/jobs/4709991005?utm_source=vansh",
@@ -609,17 +587,6 @@
     "title": "Software Engineer I",
     "applyUrl": "https://job-boards.greenhouse.io/simplisafe/jobs/8049515?utm_source=vansh",
     "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $125,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Notion",
-    "title": "New Grad: Software Engineer",
-    "applyUrl": "https://jobs.ashbyhq.com/notion/a6311f97-4850-4674-a5f3-d9fe5f6f2555?utm_source=vansh",
-    "portal_type": "Ashby",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $125,000 USD / year",
@@ -649,76 +616,10 @@
     "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
   },
   {
-    "company": "Ramp",
-    "title": "Design Engineer, Design Systems",
-    "applyUrl": "https://jobs.ashbyhq.com/ramp/6b9108d1-128d-4fd3-8465-fb514ea0e4c4?utm_source=vansh",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $125,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Zip",
-    "title": "New Grad 2026: Software Engineer",
-    "applyUrl": "https://jobs.ashbyhq.com/zip/19f459ee-4907-4883-9d70-35eb96f62082?utm_source=vansh",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $125,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
     "company": "StubHub",
     "title": "New Grad: Software Engineer I",
     "applyUrl": "https://job-boards.eu.greenhouse.io/stubhubinc/jobs/4749965101?utm_source=vansh",
     "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $125,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Sierra",
-    "title": "New Grad: Software Engineer, Agent",
-    "applyUrl": "https://jobs.ashbyhq.com/Sierra/ce2ae656-714c-4a6c-a020-fe418f868075?utm_source=vansh",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $125,000 USD / year",
-    "fit_score": 94,
-    "critique_reason": "Proven builder fit: Background in Playwright automation, Docker, WebSockets, and GitHub Actions CI/CD. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Sierra",
-    "title": "New Grad: Software Engineer, Agent",
-    "applyUrl": "https://jobs.ashbyhq.com/Sierra/6a75b530-b7bb-4439-bb67-37b4f2b75b96?utm_source=vansh",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $125,000 USD / year",
-    "fit_score": 94,
-    "critique_reason": "Proven builder fit: Background in Playwright automation, Docker, WebSockets, and GitHub Actions CI/CD. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Replit",
-    "title": "Software Engineer - New Grad (Summer 2026)",
-    "applyUrl": "https://jobs.ashbyhq.com/replit/b5e81eae-06f9-4798-8988-2d06ca936dbc?utm_source=vansh",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $125,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Citizen Health",
-    "title": "Software Engineer",
-    "applyUrl": "https://jobs.ashbyhq.com/Citizen%20Health/ab0cc0c1-7122-4ca2-8ac9-84d1812b22d4/application?utm_source=vansh",
-    "portal_type": "Ashby",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $125,000 USD / year",
@@ -746,72 +647,6 @@
     "stipend": "$85,000 - $125,000 USD / year",
     "fit_score": 99,
     "critique_reason": "Sweet-spot match: Master resume is custom-optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score). | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Zip",
-    "title": "New Grad 2026: Software Engineer",
-    "applyUrl": "https://jobs.ashbyhq.com/zip/bec203f9-7919-479a-b021-c7871b7757e2?utm_source=vansh",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $125,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Citizen Health",
-    "title": "Software Engineer",
-    "applyUrl": "https://jobs.ashbyhq.com/Citizen%20Health/0f4048fa-da35-4112-9166-123440a2cb57?utm_source=vansh",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $125,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Zapier",
-    "title": "Software Engineer, Backend-leaning Full Stack or Backend",
-    "applyUrl": "https://jobs.ashbyhq.com/zapier/63b14a57-064a-4617-bb8c-4a67c860e1e6?utm_source=vansh",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $125,000 USD / year",
-    "fit_score": 99,
-    "critique_reason": "Sweet-spot match: Master resume is custom-optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score). | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "ElevenLabs",
-    "title": "Growth Engineer - Mobile",
-    "applyUrl": "https://jobs.ashbyhq.com/elevenlabs/bed47ac1-9c5c-44ae-8965-3a4312706328?utm_source=vansh",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $125,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Lambda",
-    "title": "Cloud Support Engineer I (Support Response) \ud83d\udec2",
-    "applyUrl": "https://jobs.ashbyhq.com/lambda/1b1cac37-a29c-46b2-ad1a-a946d1e87d41?utm_source=vansh",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $125,000 USD / year",
-    "fit_score": 94,
-    "critique_reason": "Proven builder fit: Background in Playwright automation, Docker, WebSockets, and GitHub Actions CI/CD. | Mid-level role evaluated on GitHub code velocity."
-  },
-  {
-    "company": "Anyscale",
-    "title": "New Grad 2026: Software Engineer",
-    "applyUrl": "https://jobs.ashbyhq.com/anyscale/31d09081-f5e7-45e4-b561-1c53d0ca9200?utm_source=vansh",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $125,000 USD / year",
-    "fit_score": 82,
-    "critique_reason": "Software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub. | Mid-level role evaluated on GitHub code velocity."
   },
   {
     "company": "Persona",
