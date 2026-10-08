@@ -19,6 +19,7 @@ import argparse
 import random
 import imaplib
 import email
+import email.utils
 from email.header import decode_header
 import sys
 import asyncio
@@ -264,8 +265,11 @@ def log_verified_application(company, role, portal, url, salary_or_stipend, proo
 
 USED_OTPS = set()
 
-def fetch_greenhouse_otp(max_wait=35):
-    print("[*] Checking Gmail IMAP for fresh Greenhouse security OTP...")
+def fetch_greenhouse_otp(company_name=None, min_timestamp=None, max_wait=40):
+    print(f"[*] Checking Gmail IMAP for fresh Greenhouse security OTP (Target: {company_name or 'Any'})...")
+    if min_timestamp is None:
+        min_timestamp = time.time() - 120
+
     gmail_pwd = os.environ.get('GMAIL_APP_PASSWORD')
     if not gmail_pwd and os.path.exists('/root/local_env.sh'):
         try:
@@ -276,6 +280,11 @@ def fetch_greenhouse_otp(max_wait=35):
                         break
         except Exception:
             pass
+
+    co_keyword = ""
+    if company_name:
+        co_keyword = re.sub(r'[^a-zA-Z0-9]', '', company_name.split()[0]).lower()
+
     for attempt in range(max_wait // 3):
         try:
             mail = imaplib.IMAP4_SSL('imap.gmail.com')
@@ -286,18 +295,38 @@ def fetch_greenhouse_otp(max_wait=35):
                 status, messages = mail.search(None, 'ALL')
             msg_ids = messages[0].split()
             code = None
-            for mid in reversed(msg_ids[-10:]):
+            for mid in reversed(msg_ids[-15:]):
                 _, data = mail.fetch(mid, '(RFC822)')
                 msg = email.message_from_bytes(data[0][1])
+
+                date_str = msg.get('Date')
+                msg_time = 0
+                if date_str:
+                    try:
+                        msg_time = email.utils.parsedate_to_datetime(date_str).timestamp()
+                    except Exception:
+                        pass
+
+                # Strictly discard stale OTPs from before this submission started
+                if msg_time and msg_time < (min_timestamp - 30):
+                    continue
+
                 subj, enc = decode_header(msg.get('Subject', ''))[0]
                 if isinstance(subj, bytes):
                     subj = subj.decode(enc or 'utf-8', errors='ignore')
-                if 'security code' in subj.lower():
+                subj_lower = subj.lower()
+
+                if 'security code' in subj_lower:
                     body = ''
                     for part in msg.walk():
                         if part.get_content_type() in ['text/html', 'text/plain']:
                             body += part.get_payload(decode=True).decode(errors='ignore')
                     clean_text = re.sub('<[^<]+?>', ' ', body)
+
+                    if co_keyword and len(co_keyword) > 2:
+                        if co_keyword not in subj_lower and co_keyword not in clean_text.lower():
+                            continue
+
                     m = re.search(r'security code field on your application:\s*([A-Za-z0-9]{8})', clean_text)
                     if m and m.group(1) not in USED_OTPS:
                         code = m.group(1)
@@ -637,9 +666,19 @@ def apply_greenhouse(page, item):
                     el.fill("Online Job Board / Direct Application")
                 elif any(k in flabel_l for k in ['computer', 'mac', 'linux', 'pc', 'os', 'operating system', 'device']):
                     el.fill("Linux / Mac")
+                elif any(k in flabel_l for k in ['start date year', 'start year']):
+                    el.fill("2023")
+                elif any(k in flabel_l for k in ['end date year', 'end year']):
+                    el.fill("2024")
+                elif any(k in flabel_l for k in ['company name', 'employer', 'current company', 'previous company']):
+                    el.fill("Independent Builder / Self-Employed")
+                elif any(k in flabel_l for k in ['job title', 'title', 'position']):
+                    el.fill("Software Engineer")
                 elif any(k in flabel_l for k in ['start', 'able to start', 'available', 'begin', 'earliest', 'notice']):
                     if ftype == 'date':
                         el.fill("2026-10-15")
+                    elif 'year' in flabel_l or ftype == 'number':
+                        el.fill("2023")
                     else:
                         el.fill(CANDIDATE["join_date"])
                 elif any(k in flabel_l for k in ['years', 'how many', 'experience']):
@@ -726,6 +765,29 @@ def apply_greenhouse(page, item):
             except Exception:
                 pass
 
+    # Sweep any empty required inputs on Greenhouse
+    for empty_req in page.locator('input[required], input[aria-required="true"], .required input').all():
+        try:
+            if empty_req.is_visible() and not empty_req.input_value():
+                ph = (empty_req.get_attribute('placeholder') or '').lower()
+                name_attr = (empty_req.get_attribute('name') or '').lower()
+                id_attr = (empty_req.get_attribute('id') or '').lower()
+                ctx = f"{ph} {name_attr} {id_attr}"
+                if any(k in ctx for k in ['company', 'employer']):
+                    empty_req.fill("Independent Builder / Self-Employed")
+                elif any(k in ctx for k in ['title', 'role', 'position']):
+                    empty_req.fill("Software Engineer")
+                elif any(k in ctx for k in ['year']):
+                    empty_req.fill("2023")
+                elif any(k in ctx for k in ['date']):
+                    empty_req.fill("2026-10-15")
+                elif any(k in ctx for k in ['url', 'link', 'portfolio']):
+                    empty_req.fill(CANDIDATE["portfolio"])
+                else:
+                    empty_req.fill("Yes")
+        except Exception:
+            pass
+
     # Re-verify all basic inputs right before submit (critical safety net)
     ensure_greenhouse_basics()
 
@@ -744,23 +806,38 @@ def apply_greenhouse(page, item):
     page.wait_for_timeout(4500)
 
     # 8. Check for OTP / Security Code
-    if page.locator('#email-verification, input[id*="security_code"], input[name*="security_code"]').count() > 0:
-        print("[!] Email security verification triggered! Fetching code via Gmail IMAP...")
-        code = fetch_greenhouse_otp()
-        if code:
-            for idx, ch in enumerate(code):
-                inp = page.locator(f'#security-input-{idx}')
-                if inp.count() > 0:
-                    inp.fill(ch)
-            sec_in = page.locator('input[id*="security_code"], input[name*="security_code"]').first
-            if sec_in.count() > 0:
-                sec_in.fill(code)
-            page.wait_for_timeout(800)
-            verify_btn = page.locator('#submit_app, button[type="submit"], button:has-text("Verify"), button:has-text("Submit")').first
-            if verify_btn.count() > 0:
-                verify_btn.click()
-            page.wait_for_timeout(5000)
-            solve_all_captchas(page)
+    otp_container = page.locator('#email-verification, input[id*="security_code"], input[name*="security_code"], #security-input-0')
+    if otp_container.count() > 0 and otp_container.first.is_visible():
+        print(f"[!] Email security verification triggered for {company}! Fetching code via Gmail IMAP...")
+        for otp_attempt in range(2):
+            code = fetch_greenhouse_otp(company_name=company, min_timestamp=time.time() - 90)
+            if code:
+                for idx, ch in enumerate(code):
+                    inp = page.locator(f'#security-input-{idx}')
+                    if inp.count() > 0:
+                        inp.fill(ch)
+                sec_in = page.locator('input[id*="security_code"], input[name*="security_code"]').first
+                if sec_in.count() > 0:
+                    sec_in.fill(code)
+                page.wait_for_timeout(800)
+                verify_btn = page.locator('#submit_app, button[type="submit"], button:has-text("Submit application"), button:has-text("Verify"), button:has-text("Submit"), button:has-text("Confirm"), button:has-text("Continue"), button:has-text("Enter")').first
+                if verify_btn.count() > 0 and verify_btn.is_visible():
+                    verify_btn.click()
+                else:
+                    try:
+                        page.keyboard.press("Enter")
+                    except Exception:
+                        pass
+                page.wait_for_timeout(5000)
+                solve_all_captchas(page)
+
+                err_code = page.locator('div:has-text("Incorrect security code"), span:has-text("Incorrect security code"), p:has-text("Incorrect security code")')
+                if err_code.count() > 0 and err_code.first.is_visible():
+                    print("[-] Incorrect security code flagged! Waiting 6s for newest OTP and retrying...")
+                    time.sleep(6)
+                    continue
+                else:
+                    break
 
     clean_slug = re.sub(r'[^a-zA-Z0-9_]', '_', f"{company}_{title}")[:35]
     prefix = "intern" if app_type == "INTERNSHIP" else "job"
@@ -775,7 +852,7 @@ def apply_greenhouse(page, item):
         'submitted successfully', 'thank you for your interest', 'application was submitted',
         'thanks for applying', 'we will be in touch', 'we’ll be in touch', 'submission complete',
         'application has been submitted', 'application was received'
-    ]) or page.locator('#application_confirmation, .application-confirmation, div:has-text("Thank you for applying")').count() > 0
+    ]) or page.locator('#application_confirmation, .application-confirmation, div:has-text("Thank you for applying"), div:has-text("Application Received"), div:has-text("Application Submitted")').count() > 0
 
     if submit_confirmed:
         print(f"🎉 CONFIRMED Greenhouse submission for {company} - {title}!")
@@ -876,6 +953,13 @@ def apply_ashby(page, item):
                 if not digits or int(digits) < 10:
                     digits = "5000" if app_type == "INTERNSHIP" else "85000"
                 el.fill(digits)
+            elif len(str(val)) < 40 and random.random() < 0.5:
+                try:
+                    el.click()
+                    el.fill('')
+                    el.press_sequentially(str(val), delay=random.randint(15, 35))
+                except Exception:
+                    el.fill(str(val))
             else:
                 el.fill(str(val))
             return True
@@ -996,33 +1080,151 @@ def apply_ashby(page, item):
         except Exception:
             pass
 
-    # Solve all radio groups dynamically
+    # Solve all radio groups dynamically with question context awareness
     try:
         radio_names = set(page.locator('input[type="radio"]').evaluate_all('els => els.map(e => e.name)'))
         for rname in radio_names:
             r_group = page.locator(f'input[type="radio"][name="{rname}"]').all()
+            if not r_group:
+                continue
+            
+            # Detect question context from parent container
+            q_text = ""
+            try:
+                first_rad = r_group[0]
+                q_cont = first_rad.locator('xpath=ancestor::div[contains(@class, "field") or contains(@class, "question") or contains(@class, "group")][1]').first
+                if q_cont.count() > 0:
+                    q_text = q_cont.inner_text().lower()
+            except Exception:
+                pass
+
             chosen = None
             for rad in r_group:
                 rid = rad.get_attribute('id')
-                rlab = page.locator(f'label[for="{rid}"]').first
-                rtxt = rlab.inner_text().strip().lower() if rlab.count() > 0 else ''
-                if any(k in rtxt for k in ['asian (not hispanic or latino)', 'asian', 'i am not a protected veteran', 'male', 'decline to self-identify', '2028', 'spring 2027', 'fall 2026', 'san francisco', 'remote', 'javascript', 'frontend', 'friend', 'careers page', 'no', 'yes']):
+                rlab = page.locator(f'label[for="{rid}"]').first if rid else None
+                if not rlab or rlab.count() == 0:
+                    rlab = rad.locator('xpath=ancestor::label | xpath=..').first
+                rtxt = rlab.inner_text().strip().lower() if (rlab and rlab.count() > 0) else ''
+
+                if any(k in q_text for k in ['race', 'ethnicity', 'demographic']):
+                    if 'asian' in rtxt and 'caucasian' not in rtxt:
+                        chosen = rad
+                        break
+                elif any(k in q_text for k in ['sponsorship', 'visa', 'require sponsorship', 'require visa']):
+                    if any(k in rtxt for k in ['none', 'no', 'will not']):
+                        chosen = rad
+                        break
+                elif any(k in q_text for k in ['authorized', 'legally authorized', 'work in the united states']):
+                    if 'yes' in rtxt:
+                        chosen = rad
+                        break
+                elif any(k in q_text for k in ['relocate', 'commute', 'anchor days', 'in-person', 'in office']):
+                    if 'yes' in rtxt:
+                        chosen = rad
+                        break
+                elif any(k in q_text for k in ['gender', 'sex']):
+                    if 'male' in rtxt and 'female' not in rtxt:
+                        chosen = rad
+                        break
+                elif any(k in q_text for k in ['veteran']):
+                    if any(k in rtxt for k in ['not a protected veteran', 'i am not a veteran', 'no']):
+                        chosen = rad
+                        break
+                elif any(k in q_text for k in ['disability']):
+                    if any(k in rtxt for k in ['do not have', 'no']):
+                        chosen = rad
+                        break
+                elif any(k in rtxt for k in ['asian (not hispanic or latino)', 'asian', 'i am not a protected veteran', 'male', 'decline to self-identify', '2028', 'spring 2027', 'fall 2026', 'san francisco', 'remote', 'javascript', 'frontend', 'friend', 'careers page', 'no', 'yes']):
                     chosen = rad
                     break
+
             if not chosen and len(r_group) > 0:
-                chosen = r_group[0]
+                if any(k in q_text for k in ['race', 'ethnicity']):
+                    for rad in r_group:
+                        rlab = rad.locator('xpath=ancestor::label | xpath=..').first
+                        if 'decline' in rlab.inner_text().lower() or 'asian' in rlab.inner_text().lower():
+                            chosen = rad
+                            break
+                if not chosen:
+                    chosen = r_group[0]
             if chosen:
                 chosen.check()
     except Exception:
         pass
 
-    # Checkboxes
-    for cb in page.locator('input[type="checkbox"]').all():
-        try:
-            if cb.is_visible() and not cb.is_checked():
-                cb.check()
-        except Exception:
-            pass
+    # Intelligent Checkbox Handler: Never check contradictory options blindly!
+    try:
+        checkboxes = page.locator('input[type="checkbox"]').all()
+        handled_groups = set()
+        for cb in checkboxes:
+            if not cb.is_visible():
+                continue
+            cb_id = cb.get_attribute('id') or ''
+            cb_name = cb.get_attribute('name') or ''
+            lab = page.locator(f'label[for="{cb_id}"]').first if cb_id else None
+            txt = lab.inner_text().strip().lower() if (lab and lab.count() > 0) else ''
+            if not txt:
+                parent = cb.locator('xpath=ancestor::label | xpath=ancestor::div[contains(@class, "checkbox") or contains(@class, "field") or contains(@class, "option")]').first
+                if parent.count() > 0:
+                    txt = parent.inner_text().strip().lower()
+
+            # 1. Degree Type: Check only Bachelor's/Undergraduate
+            if any(k in txt for k in ['bachelor', 'undergraduate']):
+                if not cb.is_checked():
+                    cb.check()
+                continue
+            elif any(k in txt for k in ['master', 'phd', 'mba', 'doctorate', 'high school', 'other']):
+                continue
+
+            # 2. How did you hear: Select only ONE (LinkedIn or Careers Page)
+            if any(k in txt for k in ['linkedin', 'glassdoor', 'notion blog', 'notion employee', 'notion website', 'billboard', 'conference', 'hear about', 'source']):
+                group_key = cb_name or "hear_group"
+                if group_key not in handled_groups:
+                    if 'linkedin' in txt or 'website' in txt or 'job board' in txt:
+                        if not cb.is_checked():
+                            cb.check()
+                        handled_groups.add(group_key)
+                continue
+
+            # 3. Role preferences: Check only primary match
+            if any(k in txt for k in ['full stack', 'backend', 'frontend']):
+                group_key = cb_name or "role_pref_group"
+                if group_key not in handled_groups:
+                    if 'full stack' in txt or 'frontend' in txt:
+                        if not cb.is_checked():
+                            cb.check()
+                        handled_groups.add(group_key)
+                continue
+
+            # 4. Mandatory consents / terms / legal authorization / age verification
+            if any(k in txt for k in ['agree', 'consent', 'terms', 'privacy', 'acknowledge', 'authorized', 'certify', 'understand', '18', 'policy', 'declaration']):
+                if not cb.is_checked():
+                    cb.check()
+            elif cb_name and cb_name not in handled_groups:
+                if not cb.is_checked():
+                    cb.check()
+                handled_groups.add(cb_name)
+    except Exception as e:
+        print(f"[-] Checkbox handling notice: {e}")
+
+    # Ashby Date Picker handling (e.g. Graduation Date "Pick date...")
+    try:
+        date_triggers = page.locator('button:has-text("Pick date"), div[role="button"]:has-text("Pick date"), [placeholder*="Pick date"], input[id*="gradDate"], input[name*="gradDate"]').all()
+        for dt in date_triggers:
+            if dt.is_visible():
+                dt.click()
+                page.wait_for_timeout(400)
+                yr = page.locator('button:has-text("2027"), div:has-text("2027"), [data-year="2027"]').first
+                if yr.count() > 0 and yr.is_visible():
+                    yr.click()
+                    page.wait_for_timeout(300)
+                mo = page.locator('button:has-text("May"), div:has-text("May"), [data-month="4"]').first
+                if mo.count() > 0 and mo.is_visible():
+                    mo.click()
+                    page.wait_for_timeout(300)
+                page.keyboard.press("Escape")
+    except Exception:
+        pass
 
     # Generic sweep for basic fields if not already filled
     try:
@@ -1101,10 +1303,26 @@ def apply_ashby(page, item):
         return False
 
     btn.scroll_into_view_if_needed()
-    box = btn.bounding_box()
-    if box:
-        page.mouse.move(box['x'] + box['width']/2, box['y'] + box['height']/2, steps=12)
-        page.wait_for_timeout(random.randint(600, 1000))
+    def organic_bezier_move_and_click(p, target_el):
+        bx = target_el.bounding_box()
+        if not bx:
+            target_el.click()
+            return
+        tx = bx['x'] + bx['width'] * random.uniform(0.35, 0.65)
+        ty = bx['y'] + bx['height'] * random.uniform(0.35, 0.65)
+        sx = random.randint(150, 500)
+        sy = random.randint(200, 450)
+        cx = (sx + tx) / 2 + random.randint(-60, 60)
+        cy = (sy + ty) / 2 + random.randint(-60, 60)
+        stps = random.randint(18, 28)
+        for s in range(stps):
+            t = s / stps
+            curx = (1 - t)**2 * sx + 2 * (1 - t) * t * cx + t**2 * tx + random.uniform(-1.0, 1.0)
+            cury = (1 - t)**2 * sy + 2 * (1 - t) * t * cy + t**2 * ty + random.uniform(-1.0, 1.0)
+            p.mouse.move(curx, cury)
+            time.sleep(random.uniform(0.007, 0.018))
+        p.wait_for_timeout(random.randint(600, 1000))
+        p.mouse.click(tx, ty)
 
     print(f"[*] Submitting application...")
     submit_confirmed = False
@@ -1113,10 +1331,7 @@ def apply_ashby(page, item):
             lambda r: r.request.method == 'POST' and any(k in r.url.lower() for k in ['apisubmitsingleapplicationformaction', 'apisubmitmultipleformsaction', 'non-user-graphql', 'posting-api', 'submit', 'application']),
             timeout=12000
         ) as submit_info:
-            if box:
-                page.mouse.click(box['x'] + box['width']/2, box['y'] + box['height']/2)
-            else:
-                btn.click()
+            organic_bezier_move_and_click(page, btn)
         resp = submit_info.value
         resp_json = {}
         try:
@@ -1126,9 +1341,36 @@ def apply_ashby(page, item):
         if 'errors' in resp_json and resp_json['errors']:
             print(f"[-] Ashby server rejected with errors: {resp_json['errors']}")
             if any('recaptcha' in str(e).lower() for e in resp_json['errors']):
-                print("[*] Ashby reCAPTCHA triggered, attempting Gemini solve...")
+                print("[*] Ashby reCAPTCHA flagged! Attempting organic remediation & retry...")
                 solve_all_captchas(page)
-            submit_confirmed = False
+                page.wait_for_timeout(random.randint(3000, 5000))
+                for _ in range(4):
+                    rx, ry = random.randint(200, 600), random.randint(200, 500)
+                    page.mouse.move(rx, ry, steps=random.randint(6, 12))
+                    time.sleep(random.uniform(0.05, 0.15))
+                try:
+                    with page.expect_response(
+                        lambda r: r.request.method == 'POST' and any(k in r.url.lower() for k in ['apisubmitsingleapplicationformaction', 'apisubmitmultipleformsaction', 'non-user-graphql', 'posting-api', 'submit', 'application']),
+                        timeout=12000
+                    ) as retry_info:
+                        organic_bezier_move_and_click(page, btn)
+                    r_resp = retry_info.value
+                    r_json = {}
+                    try:
+                        r_json = r_resp.json()
+                    except Exception:
+                        pass
+                    if ('data' in r_json and r_json['data']) or r_resp.status in [200, 201, 204]:
+                        submit_confirmed = True
+                        print("[+] Ashby RETRY succeeded! Verified SUCCESS payload!")
+                    else:
+                        print(f"[-] Ashby retry errors: {r_json.get('errors')}")
+                        submit_confirmed = False
+                except Exception as e_ret:
+                    print(f"[-] Ashby retry notice: {e_ret}")
+                    submit_confirmed = False
+            else:
+                submit_confirmed = False
         elif ('data' in resp_json and resp_json['data']) or resp.status in [200, 201, 204]:
             submit_confirmed = True
             print("[+] Ashby server returned verified SUCCESS payload!")
