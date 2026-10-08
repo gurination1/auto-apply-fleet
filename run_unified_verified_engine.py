@@ -296,6 +296,7 @@ def fetch_greenhouse_otp(company_name=None, min_timestamp=None, max_wait=12):
                 status, messages = mail.search(None, 'ALL')
             msg_ids = messages[0].split()
             code = None
+            latest_fallback = None
             for mid in reversed(msg_ids[-15:]):
                 _, data = mail.fetch(mid, '(RFC822)')
                 msg = email.message_from_bytes(data[0][1])
@@ -324,27 +325,35 @@ def fetch_greenhouse_otp(company_name=None, min_timestamp=None, max_wait=12):
                             body += part.get_payload(decode=True).decode(errors='ignore')
                     clean_text = re.sub('<[^<]+?>', ' ', body)
 
-                    if co_keyword and len(co_keyword) > 2:
-                        if co_keyword not in subj_lower and co_keyword not in clean_text.lower():
-                            continue
-
+                    extracted_code = None
                     m = re.search(r'security code field on your application:\s*([A-Za-z0-9]{8})', clean_text)
                     if m and m.group(1) not in USED_OTPS:
-                        code = m.group(1)
-                        break
-                    m2 = re.findall(r'\b[A-Za-z0-9]{8}\b', clean_text)
-                    for c in m2:
-                        if any(ch.isdigit() for ch in c) and any(ch.isupper() for ch in c) and c not in USED_OTPS:
-                            code = c
+                        extracted_code = m.group(1)
+                    else:
+                        m2 = re.findall(r'\b[A-Za-z0-9]{8}\b', clean_text)
+                        for c in m2:
+                            if any(ch.isdigit() for ch in c) and any(ch.isupper() for ch in c) and c not in USED_OTPS:
+                                extracted_code = c
+                                break
+
+                    if extracted_code:
+                        if not latest_fallback:
+                            latest_fallback = extracted_code
+                        if co_keyword and len(co_keyword) > 2:
+                            if co_keyword in subj_lower or co_keyword in clean_text.lower():
+                                code = extracted_code
+                                break
+                        else:
+                            code = extracted_code
                             break
-                    if code:
-                        break
+
             mail.close()
             mail.logout()
-            if code and code not in USED_OTPS:
-                USED_OTPS.add(code)
-                print(f"[+] Found fresh Greenhouse security code: {code}")
-                return code
+            final_code = code or latest_fallback
+            if final_code and final_code not in USED_OTPS:
+                USED_OTPS.add(final_code)
+                print(f"[+] Found fresh Greenhouse security code: {final_code}")
+                return final_code
         except Exception:
             pass
         time.sleep(3)
@@ -1856,41 +1865,54 @@ def main():
                     print(f"[-] Could not load {src}: {e}")
         all_unapplied.extend(unapplied_jobs)
 
-    # Build queue prioritizing Ashby roles then Greenhouse roles
+    # Purge Lever entirely (0% cloud conversion due to hCaptcha blocks)
+    all_unapplied = [it for it in all_unapplied if 'lever.co' not in (it.get('applyUrl') or it.get('url') or '')]
+    unapplied_jobs = [it for it in unapplied_jobs if 'lever.co' not in (it.get('applyUrl') or it.get('url') or '')]
+    unapplied_interns = [it for it in unapplied_interns if 'lever.co' not in (it.get('applyUrl') or it.get('url') or '')]
+
+    # Prioritize Greenhouse (95.6% confirmation rate) and Ashby (76.9% confirmation rate)
+    greenhouse_jobs = [it for it in unapplied_jobs if 'greenhouse.io' in (it.get('applyUrl') or it.get('url') or '')]
     ashby_jobs = [it for it in unapplied_jobs if 'ashbyhq' in (it.get('applyUrl') or it.get('url') or '')]
+    greenhouse_interns = [it for it in unapplied_interns if 'greenhouse.io' in (it.get('applyUrl') or it.get('url') or '')]
     ashby_interns = [it for it in unapplied_interns if 'ashbyhq' in (it.get('applyUrl') or it.get('url') or '')]
 
     if args.mode == 'internships':
-        # Interleave Greenhouse and Ashby: Greenhouse triggers instant email confirmations, Ashby targets high-velocity startups
-        ashby_list = ashby_interns
-        other_list = [it for it in unapplied_interns if 'ashbyhq' not in (it.get('applyUrl') or it.get('url') or '')]
         interleaved = []
-        for idx in range(max(len(ashby_list), len(other_list))):
-            if idx < len(ashby_list):
-                interleaved.append(ashby_list[idx])
-            if idx < len(other_list):
-                interleaved.append(other_list[idx])
+        for idx in range(max(len(greenhouse_interns), len(ashby_interns))):
+            if idx < len(greenhouse_interns):
+                interleaved.append(greenhouse_interns[idx])
+            if idx < len(ashby_interns):
+                interleaved.append(ashby_interns[idx])
         items = interleaved[:args.limit]
     elif args.mode == 'jobs':
-        ashby_list = ashby_jobs
-        other_list = [it for it in unapplied_jobs if 'ashbyhq' not in (it.get('applyUrl') or it.get('url') or '')]
-        items = (ashby_list + other_list)[:args.limit]
+        interleaved = []
+        for idx in range(max(len(greenhouse_jobs), len(ashby_jobs))):
+            if idx < len(greenhouse_jobs):
+                interleaved.append(greenhouse_jobs[idx])
+            if idx < len(ashby_jobs):
+                interleaved.append(ashby_jobs[idx])
+        items = interleaved[:args.limit]
     else:
-        interleaved_ashby = []
+        all_gh = []
+        for idx in range(max(len(greenhouse_jobs), len(greenhouse_interns))):
+            if idx < len(greenhouse_jobs):
+                all_gh.append(greenhouse_jobs[idx])
+            if idx < len(greenhouse_interns):
+                all_gh.append(greenhouse_interns[idx])
+        all_ash = []
         for idx in range(max(len(ashby_jobs), len(ashby_interns))):
             if idx < len(ashby_jobs):
-                interleaved_ashby.append(ashby_jobs[idx])
+                all_ash.append(ashby_jobs[idx])
             if idx < len(ashby_interns):
-                interleaved_ashby.append(ashby_interns[idx])
-        other_items = [it for it in all_unapplied if 'ashbyhq' not in (it.get('applyUrl') or it.get('url') or '')]
+                all_ash.append(ashby_interns[idx])
         balanced = []
-        for idx in range(max(len(interleaved_ashby), len(other_items))):
-            if idx < len(interleaved_ashby):
-                balanced.append(interleaved_ashby[idx])
-            if idx < len(other_items):
-                balanced.append(other_items[idx])
+        for idx in range(max(len(all_gh), len(all_ash))):
+            if idx < len(all_gh):
+                balanced.append(all_gh[idx])
+            if idx < len(all_ash):
+                balanced.append(all_ash[idx])
         items = balanced[:args.limit]
-    
+
     if args.total_workers > 1:
         items = [it for idx, it in enumerate(items) if idx % args.total_workers == (args.worker_id - 1)]
         print(f"[*] Sharded queue for Worker {args.worker_id}/{args.total_workers}: {len(items)} items assigned.")

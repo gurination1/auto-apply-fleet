@@ -61,23 +61,25 @@ jobs:
 
       - name: Install & Configure Cloudflare WARP Tunnel
         if: ${{ github.event.inputs.use_warp != 'false' }}
+        timeout-minutes: 2
+        continue-on-error: true
         run: |
           echo "[*] Setting up Cloudflare WARP Tunnel..."
-          curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg \
+          set -e
+          curl -fsSL --max-time 10 https://pkg.cloudflareclient.com/pubkey.gpg \
             | gpg --yes --dearmor \
-            -o cloudflare-warp-archive-keyring.gpg
-          sudo mv cloudflare-warp-archive-keyring.gpg /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+            -o cloudflare-warp-archive-keyring.gpg || true
+          sudo mv cloudflare-warp-archive-keyring.gpg /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg || true
           echo "deb [arch=amd64 signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] \
             https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" \
             | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
-          sudo apt-get update && sudo apt-get install -y cloudflare-warp
-          warp-cli --accept-tos mode proxy
-          warp-cli --accept-tos proxy port 40000
-          warp-cli --accept-tos registration new || true
-          warp-cli --accept-tos connect
-          sleep 6
-          warp-cli --accept-tos status
-          TRACE=$(curl -x socks5h://127.0.0.1:40000 -s --max-time 10 https://cloudflare.com/cdn-cgi/trace || true)
+          timeout 45 sudo apt-get update -o Acquire::Retries=1 && timeout 45 sudo apt-get install -y cloudflare-warp || true
+          timeout 10 warp-cli --accept-tos mode proxy || true
+          timeout 10 warp-cli --accept-tos proxy port 40000 || true
+          timeout 10 warp-cli --accept-tos registration new || true
+          timeout 10 warp-cli --accept-tos connect || true
+          sleep 4
+          TRACE=$(curl -x socks5h://127.0.0.1:40000 -s --max-time 5 https://cloudflare.com/cdn-cgi/trace || true)
           echo "Cloudflare Trace Output:"
           echo "$TRACE"
           if echo "$TRACE" | grep -q "warp=on"; then
