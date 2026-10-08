@@ -278,6 +278,140 @@ for src in TARGET_SOURCES:
     except Exception as e:
         print(f"[-] Error processing {src_url}: {e}")
 
+# --- 3. DIRECT ATS API HARVESTING (GREENHOUSE & ASHBY PUBLIC APIS) ---
+print("\n=== STARTING DIRECT ATS API HARVEST (GREENHOUSE & ASHBY) ===")
+from concurrent.futures import ThreadPoolExecutor
+
+gh_slugs = set()
+ashby_slugs = set()
+try:
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
+    for url, comp in c.execute('SELECT job_url, company FROM verified_applications'):
+        if not url: continue
+        m_gh = re.search(r'boards\.greenhouse\.io/([^/?#]+)', url) or re.search(r'greenhouse\.io/embed/job_board\?for=([^&]+)', url) or re.search(r'job-boards\.greenhouse\.io/([^/?#]+)', url)
+        if m_gh: gh_slugs.add(m_gh.group(1).lower())
+        m_ash = re.search(r'jobs\.ashbyhq\.com/([^/?#]+)', url)
+        if m_ash: ashby_slugs.add(m_ash.group(1).lower())
+    conn.close()
+except Exception:
+    pass
+
+gh_slugs.update([
+    'figma', 'stripe', 'scale', 'retool', 'affirm', 'postman', 'cloudflare', 'gitlab', 'databricks',
+    'brex', 'ramp', 'notion', 'airbyte', 'benchling', 'andurilindustries', 'gusto', 'instacart',
+    'coinbase', 'roblox', 'snapchat', 'pinterest', 'box', 'dropbox', 'github', 'reddit', 'mongodb',
+    'elastic', 'datadog', 'pagerduty', 'twilio', 'hashicorp', 'splunk', 'okta', 'hubspot', 'toast',
+    'duolingo', 'coursera', 'asana', 'airtable', 'spacex', 'tesla', 'plaid', 'wealthfront',
+    'robinhood', 'samsara', 'checkr', 'blend', 'lattice', 'ironclad', 'gusto', 'ripple'
+])
+
+ashby_slugs.update([
+    'linear', 'sentry', 'supabase', 'vercel', 'modal', 'neon', 'temporal', 'togetherai', 'elevenlabs',
+    'perplexity', 'resend', 'clerk', 'posthog', 'raycast', 'calcom', 'dub', 'prisma', 'triggerdotdev',
+    'inngest', 'langchain', 'llamaindex', 'qdrant', 'weaviate', 'pinecone', 'deepgram', 'assemblyai',
+    'cursor', 'anysphere', 'codeium', 'replit', 'midjourney', 'runpod', 'flyio', 'baseten', 'replicate',
+    'retool', 'writer', 'tavily', 'brave', 'synthesia', 'groq', 'modal-labs'
+])
+
+print(f"[*] Querying {len(gh_slugs)} Greenhouse boards and {len(ashby_slugs)} Ashby boards...")
+
+def fetch_gh(slug):
+    try:
+        r = requests.get(f'https://boards-api.greenhouse.io/v1/boards/{slug}/jobs', timeout=4)
+        if r.status_code == 200:
+            for j in r.json().get('jobs', []):
+                t = j.get('title', '')
+                u = j.get('absolute_url', '')
+                if not u: continue
+                u_norm = u.lower().rstrip('/')
+                u_base = u.split('?')[0].lower().rstrip('/')
+                if u_norm in seen_urls or u_base in seen_urls: continue
+                c_name = slug.capitalize()
+                clean_c = re.sub(r'<[^>]+>', '', c_name).strip().lower()
+                clean_t = re.sub(r'<[^>]+>', '', t).strip().lower()
+                if (clean_c, clean_t) in applied_pairs: continue
+
+                score, reason = critique_application(c_name, t)
+                if score < 80: continue
+
+                is_intern = bool(re.search(r'\b(intern|internship|co-op|coop|apprentice)\b', t.lower()))
+                seen_urls.add(u_norm)
+                seen_urls.add(u_base)
+                item = {
+                    'company': c_name,
+                    'title': t,
+                    'applyUrl': u,
+                    'portal_type': 'Greenhouse',
+                    'is_internship': is_intern,
+                    'category': 'INTERNSHIP' if is_intern else 'JOB',
+                    'stipend': '$5,000 - $9,000 / mo USD' if is_intern else '$85,000 - $130,000 USD / year',
+                    'fit_score': score,
+                    'critique_reason': reason
+                }
+                if is_intern:
+                    harvested_interns.append(item)
+                else:
+                    harvested_jobs.append(item)
+    except Exception:
+        pass
+
+def fetch_ash(slug):
+    query = '''
+    query ApiJobBoardWithTeams($organizationHostedJobsPageName: String!) {
+      jobBoard: jobBoardWithTeams(organizationHostedJobsPageName: $organizationHostedJobsPageName) {
+        jobPostings { id title locationName }
+      }
+    }'''
+    try:
+        r = requests.post(
+            'https://jobs.ashbyhq.com/api/non-user-graphql?op=ApiJobBoardWithTeams',
+            json={'operationName': 'ApiJobBoardWithTeams', 'variables': {'organizationHostedJobsPageName': slug}, 'query': query},
+            headers={'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0'},
+            timeout=4
+        )
+        if r.status_code == 200:
+            for p in r.json().get('data', {}).get('jobBoard', {}).get('jobPostings', []):
+                t = p.get('title', '')
+                j_id = p.get('id', '')
+                u = f'https://jobs.ashbyhq.com/{slug}/{j_id}'
+                if not u: continue
+                u_norm = u.lower().rstrip('/')
+                u_base = u.split('?')[0].lower().rstrip('/')
+                if u_norm in seen_urls or u_base in seen_urls: continue
+                c_name = slug.capitalize()
+                clean_c = re.sub(r'<[^>]+>', '', c_name).strip().lower()
+                clean_t = re.sub(r'<[^>]+>', '', t).strip().lower()
+                if (clean_c, clean_t) in applied_pairs: continue
+
+                score, reason = critique_application(c_name, t)
+                if score < 80: continue
+
+                is_intern = bool(re.search(r'\b(intern|internship|co-op|coop|apprentice)\b', t.lower()))
+                seen_urls.add(u_norm)
+                seen_urls.add(u_base)
+                item = {
+                    'company': c_name,
+                    'title': t,
+                    'applyUrl': u,
+                    'portal_type': 'Ashby',
+                    'is_internship': is_intern,
+                    'category': 'INTERNSHIP' if is_intern else 'JOB',
+                    'stipend': '$5,000 - $9,000 / mo USD' if is_intern else '$85,000 - $130,000 USD / year',
+                    'fit_score': score,
+                    'critique_reason': reason
+                }
+                if is_intern:
+                    harvested_interns.append(item)
+                else:
+                    harvested_jobs.append(item)
+    except Exception:
+        pass
+
+with ThreadPoolExecutor(max_workers=25) as ex:
+    ex.map(fetch_gh, list(gh_slugs))
+    ex.map(fetch_ash, list(ashby_slugs))
+
 print(f"\n[+] Total New Harvested: {len(harvested_interns)} Internships, {len(harvested_jobs)} Jobs.")
 
 # 1. Save specific queues

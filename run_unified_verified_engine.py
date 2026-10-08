@@ -144,6 +144,9 @@ def critique_application(company, title, category=""):
         'applied ai', 'ai engineer', 'ai developer', 'mlops', 'llmops', 'aiops', 'llm', 'data engineer',
         'data science', 'data scientist', 'analyst', 'analytics', 'bi engineer', 'data infra', 'data platform',
         'data pipeline', 'analytics engineer', 'enterprise data',
+        # IT Support / Helpdesk / Sysadmin
+        'it support', 'it specialist', 'it engineer', 'help desk', 'helpdesk', 'desktop support', 'sysadmin',
+        'systems administrator', 'network engineer', 'database administrator', 'dba ',
         # Security / Cyber
         'security', 'infosec', 'cyber', 'secops', 'vulnerability', 'soc ', 'penetration',
         # Hardware / Electrical / Embedded / Robotics / Aerospace / Autonomous Systems
@@ -176,8 +179,8 @@ def critique_application(company, title, category=""):
         if b in title_lower:
             return 30, f'Brutally Purged / Domain or Stack Mismatch: Title contains banned term "{b}". Candidate strictly targets Frontend, Full-Stack, Web, Python, and Cloud Automation.'
 
-    # Check for word-bounded leadership / senior / level keywords
-    if re.search(r'\b(lead|sr|director|vp|chief|head|phd|ml|iii|iv|staff|principal|architect)\b', title_lower):
+    # Check for word-bounded leadership / senior / level / IT keywords
+    if re.search(r'\b(lead|sr|director|vp|chief|head|phd|ml|iii|iv|staff|principal|architect|sysadmin)\b', title_lower):
         return 30, 'Over-seniority Knockout: Title exceeds entry/mid bar. Candidate targets Junior, Associate, Mid, and Intern Software Engineering.'
 
     # Systems Engineer without software/cloud/web context
@@ -210,10 +213,10 @@ def critique_application(company, title, category=""):
     score = 70
     strengths = []
     # 5. CANDIDATE SWEET-SPOT CALIBRATION (B.Sc. Software Systems & Automation, React/TypeScript/Python/Node)
-    if any(k in title_lower for k in ['front', 'react', 'next', 'ui', 'ux', 'web', 'full stack', 'full-stack', 'fullstack', 'product engineer', 'dx', 'developer experience']):
+    if re.search(r'\b(ui|ux|frontend|react|next\.js)\b', title_lower) or any(k in title_lower for k in ['front end', 'front-end', 'web developer', 'full stack', 'full-stack', 'fullstack', 'product engineer', 'dx', 'developer experience']):
         score = 98
         strengths.append('Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score).')
-    elif any(k in title_lower for k in ['intern', 'co-op', 'apprentice', 'campus', 'junior', 'associate', 'early career', 'software engineer i', 'new grad']):
+    elif re.search(r'\b(intern|internship|co-op|coop|apprentice|campus|junior|jr|associate|early career|software engineer i|new grad|entry level)\b', title_lower):
         score = 96
         strengths.append('Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate.')
     elif any(k in title_lower for k in ['agent', 'automation', 'cloud', 'qa', 'workflow', 'voice', 'realtime']):
@@ -1876,7 +1879,7 @@ def main():
                 interleaved.append(greenhouse_interns[idx])
             if idx < len(ashby_interns):
                 interleaved.append(ashby_interns[idx])
-        items = interleaved[:args.limit]
+        items = interleaved
     elif args.mode == 'jobs':
         interleaved = []
         for idx in range(max(len(greenhouse_jobs), len(ashby_jobs))):
@@ -1884,7 +1887,7 @@ def main():
                 interleaved.append(greenhouse_jobs[idx])
             if idx < len(ashby_jobs):
                 interleaved.append(ashby_jobs[idx])
-        items = interleaved[:args.limit]
+        items = interleaved
     else:
         all_gh = []
         for idx in range(max(len(greenhouse_jobs), len(greenhouse_interns))):
@@ -1904,11 +1907,13 @@ def main():
                 balanced.append(all_gh[idx])
             if idx < len(all_ash):
                 balanced.append(all_ash[idx])
-        items = balanced[:args.limit]
+        items = balanced
 
     if args.total_workers > 1:
         items = [it for idx, it in enumerate(items) if idx % args.total_workers == (args.worker_id - 1)]
         print(f"[*] Sharded queue for Worker {args.worker_id}/{args.total_workers}: {len(items)} items assigned.")
+
+    items = items[:args.limit]
 
     ashby_count = sum(1 for it in items if 'ashbyhq' in (it.get('applyUrl') or it.get('url') or ''))
     other_count = len(items) - ashby_count
@@ -1945,8 +1950,8 @@ def main():
                 cur_jobs = conn_chk.cursor().execute("SELECT count(*) FROM verified_applications WHERE application_type='JOB'").fetchone()[0]
                 cur_interns = conn_chk.cursor().execute("SELECT count(*) FROM verified_applications WHERE application_type='INTERNSHIP'").fetchone()[0]
                 conn_chk.close()
-                if cur_jobs >= 1000 and cur_interns >= 1000:
-                    print(f"\n🎉 2,000 GRAND MILESTONE HIT! Total verified in DB: {cur_tot} (Jobs: {cur_jobs}, Interns: {cur_interns})")
+                if cur_jobs >= 3000 and cur_interns >= 3000:
+                    print(f"\n🎉 6,000 GRAND MILESTONE HIT! Total verified in DB: {cur_tot} (Jobs: {cur_jobs}, Interns: {cur_interns})")
                     break
             except Exception:
                 pass
@@ -2070,9 +2075,9 @@ def main():
                 with open(step_summary, 'a') as f:
                     f.write(f"\n## 🚀 Autonomous Cloud Application Run Report\n\n")
                     f.write(f"- **New Submissions in this Run**: `{success_count}` verified\n")
-                    f.write(f"- **Total Confirmed in DB**: `{t_tot}` / 2,000\n")
-                    f.write(f"  - **Remote Tech Jobs**: `{t_jobs}` / 1,000\n")
-                    f.write(f"  - **Paid Tech Internships**: `{t_interns}` / 1,000\n")
+                    f.write(f"- **Total Confirmed in DB**: `{t_tot}` / 6,000\n")
+                    f.write(f"  - **Remote Tech Jobs**: `{t_jobs}` / 3,000\n")
+                    f.write(f"  - **Paid Tech Internships**: `{t_interns}` / 3,000\n")
                     f.write(f"- **Verified Email Receipts**: `{t_receipts}` mapped via IMAP\n")
                     f.write(f"- **Exit Proxy**: `{args.proxy or 'Direct'}`\n\n")
             except Exception as e:

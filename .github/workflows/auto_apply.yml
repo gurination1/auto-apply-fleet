@@ -17,7 +17,7 @@ on:
       limit:
         description: 'Max applications per run'
         required: true
-        default: '25'
+        default: '50'
         type: string
       use_warp:
         description: 'Route traffic through Cloudflare WARP SOCKS5 proxy'
@@ -102,7 +102,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           MODE="${{ github.event.inputs.mode || 'all' }}"
-          LIMIT="${{ github.event.inputs.limit || '25' }}"
+          LIMIT="${{ github.event.inputs.limit || '50' }}"
           echo "[*] Executing verified submission engine: mode=$MODE limit=$LIMIT worker=${{ matrix.worker }}/8 $PROXY_ARG"
           python3 -u run_unified_verified_engine.py --mode "$MODE" --limit "$LIMIT" --worker-id ${{ matrix.worker }} --total-workers 8 $PROXY_ARG
 
