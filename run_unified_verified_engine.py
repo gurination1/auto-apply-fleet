@@ -885,7 +885,7 @@ def apply_lever(page, item):
     print(f"[*] URL: {url}")
     print(f"==================================================================")
 
-    if not url or check_dead_url(url):
+    if not url or url in DEAD_URLS:
         return False
 
     if is_already_confirmed(url, company, title):
@@ -1150,9 +1150,9 @@ def apply_ashby(page, item):
             mark_url_dead(url)
             return False
 
-    # Wait for Ashby GraphQL schema and input elements to render
+    # Wait for Ashby React SPA and GraphQL schema to hydrate
     try:
-        page.wait_for_selector('input[type="file"], input[name*="name"], input[id*="name"], input[type="email"]', timeout=3500)
+        page.wait_for_selector('input[type="file"], input[name*="name"], input[id*="name"], input[type="email"], input[placeholder*="name"]', timeout=8000)
     except Exception:
         pass
 
@@ -1163,15 +1163,26 @@ def apply_ashby(page, item):
             if apply_btn.count() > 0 and apply_btn.is_visible():
                 apply_btn.click()
                 try:
-                    page.wait_for_selector('input[type="file"], input[name*="name"], input[id*="name"], input[type="email"]', timeout=3500)
+                    page.wait_for_selector('input[type="file"], input[name*="name"], input[id*="name"], input[type="email"]', timeout=6000)
                 except Exception:
                     pass
         except Exception:
             pass
 
-    # Early check: is there a form or is this an expired/closed job?
+    # Check if job is explicitly closed or redirected
+    page_txt = page.locator('body').inner_text().lower()
+    page_title = page.title().lower()
+    if any(k in page_txt for k in ['this job has been closed', 'no longer accepting applications', 'posting not found', '404 not found']) or (page_title == 'jobs' and '/application' not in page.url):
+        print(f"[-] Job confirmed closed or redirected on Ashby.")
+        mark_url_dead(url)
+        return False
+
+    # Grace period for proxy latency before declaring dead
     if page.locator('input').count() == 0:
-        print(f"[-] No form inputs found (job closed or expired)")
+        page.wait_for_timeout(3500)
+
+    if page.locator('input').count() == 0:
+        print(f"[-] No form inputs found after hydration wait (job closed or expired)")
         mark_url_dead(url)
         return False
 
