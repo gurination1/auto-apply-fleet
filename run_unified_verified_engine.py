@@ -77,6 +77,36 @@ CANDIDATE = {
 
 CONFIRMED_CACHE = None
 
+def clean_norm_url(u):
+    if not u: return ''
+    try:
+        from urllib.parse import urlparse
+        p = urlparse(u)
+        clean = f'{p.scheme}://{p.netloc}{p.path}'.rstrip('/')
+        if clean.endswith('/application'):
+            clean = clean[:-12]
+        return clean.lower()
+    except Exception:
+        return (u or '').split('?')[0].lower().rstrip('/')
+
+def clean_norm_company(c):
+    c = re.sub(r'<[^>]+>', '', c or '').lower()
+    c = re.sub(r'[^a-z0-9]', '', c)
+    for suf in ['inc', 'llc', 'corp', 'corporation', 'technologies', 'technology', 'tech', 'software', 'labs', 'hq']:
+        if c.endswith(suf) and len(c) > len(suf) + 2:
+            c = c[:-len(suf)]
+    return c
+
+def clean_norm_role(r):
+    r = re.sub(r'<[^>]+>', '', r or '').lower()
+    return re.sub(r'[^a-z0-9]', '', r)
+
+def get_role_tokens(r):
+    r = re.sub(r'[^a-zA-Z0-9\s]', ' ', (r or '').lower())
+    words = set(r.split())
+    noise = {'junior', 'jr', 'entry', 'level', 'associate', 'developer', 'engineer', 'role', 'position', 'remote', 'fulltime', 'full', 'time', '2026', '2027', 'ii', 'i', 'the', 'and', 'for', 'at'}
+    return words - noise
+
 def get_confirmed_cache():
     global CONFIRMED_CACHE
     if CONFIRMED_CACHE is None:
@@ -96,39 +126,51 @@ def get_confirmed_cache():
             # 1. Block ALL URLs previously processed (regardless of status)
             for r in c.execute('SELECT job_url FROM verified_applications'):
                 if r[0]:
-                    urls.add(r[0].lower().rstrip('/'))
-                    urls.add(r[0].split('?')[0].lower().rstrip('/'))
+                    nu = clean_norm_url(r[0])
+                    if nu: urls.add(nu)
             for r in c.execute('SELECT url FROM checked_dead_urls'):
                 if r[0]:
-                    urls.add(r[0].lower().rstrip('/'))
-                    urls.add(r[0].split('?')[0].lower().rstrip('/'))
+                    nu = clean_norm_url(r[0])
+                    if nu: urls.add(nu)
+
             roles = set()
+            company_internships = set()
+            company_jobs = {} # comp -> list of token sets
             # 2. Block ALL (company, role) pairs previously processed
             for r in c.execute('SELECT company, role FROM verified_applications'):
-                clean_c = re.sub(r'<[^>]+>', '', r[0] or '').strip().lower()
-                clean_r = re.sub(r'<[^>]+>', '', r[1] or '').strip().lower()
-                roles.add((clean_c, clean_r))
+                ck = clean_norm_company(r[0])
+                rk = clean_norm_role(r[1])
+                if ck and rk:
+                    roles.add((ck, rk))
+                    if 'intern' in rk or 'coop' in rk or 'placement' in rk:
+                        company_internships.add(ck)
+                    else:
+                        if ck not in company_jobs:
+                            company_jobs[ck] = []
+                        company_jobs[ck].append(get_role_tokens(r[1]))
             
             # 3. Block ALL companies that sent rejections or are on blacklist
             blacklisted_companies = set()
             for r in c.execute('SELECT company FROM company_blacklist'):
                 if r[0]:
-                    blacklisted_companies.add(r[0].strip().lower())
+                    ck = clean_norm_company(r[0])
+                    if ck: blacklisted_companies.add(ck)
             for r in c.execute('SELECT DISTINCT company FROM verified_applications WHERE status = "REJECTED_BY_COMPANY"'):
                 if r[0]:
-                    blacklisted_companies.add(r[0].strip().lower())
+                    ck = clean_norm_company(r[0])
+                    if ck: blacklisted_companies.add(ck)
 
             conn.close()
-            CONFIRMED_CACHE = (urls, roles, blacklisted_companies)
+            CONFIRMED_CACHE = (urls, roles, company_internships, company_jobs, blacklisted_companies)
         except Exception:
-            CONFIRMED_CACHE = (set(), set(), set())
+            CONFIRMED_CACHE = (set(), set(), set(), {}, set())
     return CONFIRMED_CACHE
 
 def mark_url_dead(url):
-    urls, roles, blacklisted_companies = get_confirmed_cache()
+    urls, roles, company_internships, company_jobs, blacklisted_companies = get_confirmed_cache()
     if url:
-        urls.add(url.lower().rstrip('/'))
-        urls.add(url.split('?')[0].lower().rstrip('/'))
+        nu = clean_norm_url(url)
+        if nu: urls.add(nu)
     try:
         conn = sqlite3.connect(DB_PATH)
         conn.cursor().execute('INSERT OR IGNORE INTO checked_dead_urls (url) VALUES (?)', (url,))
@@ -138,31 +180,40 @@ def mark_url_dead(url):
         pass
 
 def is_already_confirmed(url, company, title):
-    urls, roles, blacklisted_companies = get_confirmed_cache()
-    u_norm = (url or '').lower().rstrip('/')
-    u_base = (url or '').split('?')[0].lower().rstrip('/')
-    if u_norm in urls or u_base in urls:
+    urls, roles, company_internships, company_jobs, blacklisted_companies = get_confirmed_cache()
+    nu = clean_norm_url(url)
+    if nu and nu in urls:
         return True
-    clean_c = re.sub(r'<[^>]+>', '', company or '').strip().lower()
-    clean_t = re.sub(r'<[^>]+>', '', title or '').strip().lower()
-    if (clean_c, clean_t) in roles:
+
+    ck = clean_norm_company(company)
+    rk = clean_norm_role(title)
+    if not ck:
+        return False
+
+    # 1. Blacklist check
+    if ck in blacklisted_companies or any(b == ck for b in blacklisted_companies):
         return True
-    # Fuzzy duplicate check: if candidate already applied to this company for a similar role
-    norm_t = re.sub(r'[^a-z0-9]', '', clean_t)
-    for rc, rt in roles:
-        if rc == clean_c:
-            if re.sub(r'[^a-z0-9]', '', rt) == norm_t:
-                return True
-            t1_words = set(w for w in clean_t.split() if len(w) > 3)
-            t2_words = set(w for w in rt.split() if len(w) > 3)
-            if t1_words and t2_words and (t1_words == t2_words or len(t1_words.intersection(t2_words)) >= 2):
-                return True
-    # Check blacklist: if company or core company name is blacklisted
-    if clean_c in blacklisted_companies:
+
+    # 2. Exact (company, role) match
+    if (ck, rk) in roles:
         return True
-    c_tokens = [tok for tok in clean_c.split() if len(tok) > 3 and tok not in {'labs', 'inc', 'tech', 'technologies', 'software', 'systems'}]
-    if any(tok in blacklisted_companies for tok in c_tokens):
+
+    # 3. Single internship policy: only 1 internship application per company
+    is_intern = 'intern' in rk or 'coop' in rk or 'placement' in rk
+    if is_intern and ck in company_internships:
         return True
+
+    # 4. Fuzzy token check for full-time jobs at same company
+    if not is_intern and ck in company_jobs:
+        rt = get_role_tokens(title)
+        if rt:
+            for prev_tokens in company_jobs[ck]:
+                if prev_tokens:
+                    overlap = len(rt.intersection(prev_tokens))
+                    denom = max(len(rt), len(prev_tokens))
+                    if rt == prev_tokens or (denom > 0 and overlap / denom >= 0.75):
+                        return True
+
     return False
 
 def critique_application(company, title, category=""):
@@ -225,15 +276,12 @@ def critique_application(company, title, category=""):
         return 30, 'Domain Mismatch: Systems Engineering without Web/Software/Cloud context is low conversion.'
 
     # 2. REJECTION COOLDOWN / BLACKLIST CHECK
-    urls, roles, blacklisted_companies = get_confirmed_cache()
-    c_clean = re.sub(r'<[^>]+>', '', company or '').strip().lower()
-    clean_t = re.sub(r'<[^>]+>', '', title or '').strip().lower()
+    urls, roles, company_internships, company_jobs, blacklisted_companies = get_confirmed_cache()
+    c_clean = clean_norm_company(company)
+    clean_t = clean_norm_role(title)
     if (c_clean, clean_t) in roles:
         return 10, f'Duplicate Application: Already applied to {company} for {title}.'
-    if c_clean in blacklisted_companies:
-        return 10, f'Company Blacklist/Rejection: {company} sent a formal rejection email. Skipping reapplication.'
-    c_tokens = [tok for tok in c_clean.split() if len(tok) > 3 and tok not in {'labs', 'inc', 'tech', 'technologies', 'software', 'systems'}]
-    if any(tok in blacklisted_companies for tok in c_tokens):
+    if c_clean in blacklisted_companies or any(b == c_clean for b in blacklisted_companies):
         return 10, f'Company Blacklist/Rejection: {company} sent a formal rejection email. Skipping reapplication.'
 
     # 3. PURE BACKEND PENALTY

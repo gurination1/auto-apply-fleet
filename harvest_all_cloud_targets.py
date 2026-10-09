@@ -23,12 +23,9 @@ c.execute('''CREATE TABLE IF NOT EXISTS checked_dead_urls (
     url TEXT PRIMARY KEY,
     checked_at DATETIME DEFAULT CURRENT_TIMESTAMP
 )''')
-applied_urls = set(r[0] for r in c.execute('SELECT job_url FROM verified_applications').fetchall() if r[0])
-applied_pairs = set((r[0].lower(), r[1].lower()) for r in c.execute('SELECT company, role FROM verified_applications').fetchall() if r[0] and r[1])
-dead_urls = set(r[0] for r in c.execute('SELECT url FROM checked_dead_urls').fetchall() if r[0])
 conn.close()
 
-from run_unified_verified_engine import critique_application, is_already_confirmed
+from run_unified_verified_engine import critique_application, is_already_confirmed, clean_norm_url, clean_norm_company, clean_norm_role
 
 def is_ashby_active(url):
     try:
@@ -43,12 +40,8 @@ def is_ashby_active(url):
         return True
 
 seen_urls = set()
-for u in applied_urls:
-    seen_urls.add(u.lower().rstrip('/'))
-    seen_urls.add(u.split('?')[0].lower().rstrip('/'))
-for u in dead_urls:
-    seen_urls.add(u.lower().rstrip('/'))
-    seen_urls.add(u.split('?')[0].lower().rstrip('/'))
+seen_company_interns = set()
+seen_company_jobs = set()
 
 TARGET_SOURCES = [
     # --- INTERNSHIPS ---
@@ -165,14 +158,12 @@ for src in TARGET_SOURCES:
                         continue
                     
                     u = matching_links[0].strip().replace('&amp;', '&')
-                    u_norm = u.lower().rstrip('/')
-                    u_base = u.split('?')[0].lower().rstrip('/')
-                    if u_norm in seen_urls or u_base in seen_urls:
+                    nu = clean_norm_url(u)
+                    if not nu or nu in seen_urls:
                         continue
                     
-                    clean_c = re.sub(r'<[^>]+>', '', comp).strip().lower()
-                    clean_t = re.sub(r'<[^>]+>', '', title).strip().lower()
-                    if (clean_c, clean_t) in applied_pairs:
+                    if is_already_confirmed(u, comp, title):
+                        seen_urls.add(nu)
                         continue
                     
                     if 'lever.co' in u:
@@ -184,12 +175,10 @@ for src in TARGET_SOURCES:
                     
                     portal = 'Greenhouse' if 'greenhouse.io' in u else 'Ashby'
                     if portal == 'Ashby' and not is_ashby_active(u):
-                        seen_urls.add(u_norm)
-                        seen_urls.add(u_base)
+                        seen_urls.add(nu)
                         continue
                     
-                    seen_urls.add(u_norm)
-                    seen_urls.add(u_base)
+                    seen_urls.add(nu)
                     
                     item = {
                         'company': comp,
@@ -231,14 +220,12 @@ for src in TARGET_SOURCES:
                         continue
                     
                     u = matching_links[0].strip().replace('&amp;', '&')
-                    u_norm = u.lower().rstrip('/')
-                    u_base = u.split('?')[0].lower().rstrip('/')
-                    if u_norm in seen_urls or u_base in seen_urls:
+                    nu = clean_norm_url(u)
+                    if not nu or nu in seen_urls:
                         continue
                     
-                    clean_c = re.sub(r'<[^>]+>', '', comp).strip().lower()
-                    clean_t = re.sub(r'<[^>]+>', '', title).strip().lower()
-                    if (clean_c, clean_t) in applied_pairs:
+                    if is_already_confirmed(u, comp, title):
+                        seen_urls.add(nu)
                         continue
                     
                     if 'lever.co' in u:
@@ -250,12 +237,10 @@ for src in TARGET_SOURCES:
                     
                     portal = 'Greenhouse' if 'greenhouse.io' in u else 'Ashby'
                     if portal == 'Ashby' and not is_ashby_active(u):
-                        seen_urls.add(u_norm)
-                        seen_urls.add(u_base)
+                        seen_urls.add(nu)
                         continue
                     
-                    seen_urls.add(u_norm)
-                    seen_urls.add(u_base)
+                    seen_urls.add(nu)
                     
                     item = {
                         'company': comp,
@@ -332,20 +317,18 @@ def fetch_gh(slug):
                 t = j.get('title', '')
                 u = j.get('absolute_url', '')
                 if not u: continue
-                u_norm = u.lower().rstrip('/')
-                u_base = u.split('?')[0].lower().rstrip('/')
-                if u_norm in seen_urls or u_base in seen_urls: continue
+                nu = clean_norm_url(u)
+                if not nu or nu in seen_urls: continue
                 c_name = slug.capitalize()
-                clean_c = re.sub(r'<[^>]+>', '', c_name).strip().lower()
-                clean_t = re.sub(r'<[^>]+>', '', t).strip().lower()
-                if (clean_c, clean_t) in applied_pairs: continue
+                if is_already_confirmed(u, c_name, t):
+                    seen_urls.add(nu)
+                    continue
 
                 score, reason = critique_application(c_name, t)
                 if score < 80: continue
 
                 is_intern = bool(re.search(r'\b(intern|internship|co-op|coop|apprentice)\b', t.lower()))
-                seen_urls.add(u_norm)
-                seen_urls.add(u_base)
+                seen_urls.add(nu)
                 item = {
                     'company': c_name,
                     'title': t,
@@ -384,20 +367,18 @@ def fetch_ash(slug):
                 j_id = p.get('id', '')
                 u = f'https://jobs.ashbyhq.com/{slug}/{j_id}'
                 if not u: continue
-                u_norm = u.lower().rstrip('/')
-                u_base = u.split('?')[0].lower().rstrip('/')
-                if u_norm in seen_urls or u_base in seen_urls: continue
+                nu = clean_norm_url(u)
+                if not nu or nu in seen_urls: continue
                 c_name = slug.capitalize()
-                clean_c = re.sub(r'<[^>]+>', '', c_name).strip().lower()
-                clean_t = re.sub(r'<[^>]+>', '', t).strip().lower()
-                if (clean_c, clean_t) in applied_pairs: continue
+                if is_already_confirmed(u, c_name, t):
+                    seen_urls.add(nu)
+                    continue
 
                 score, reason = critique_application(c_name, t)
                 if score < 80: continue
 
                 is_intern = bool(re.search(r'\b(intern|internship|co-op|coop|apprentice)\b', t.lower()))
-                seen_urls.add(u_norm)
-                seen_urls.add(u_base)
+                seen_urls.add(nu)
                 item = {
                     'company': c_name,
                     'title': t,
