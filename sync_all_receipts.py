@@ -11,6 +11,8 @@ import re
 from email.header import decode_header
 
 import os
+import socket
+socket.setdefaulttimeout(15)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, 'verified_job_applications.db')
@@ -46,10 +48,13 @@ def sync_receipts():
         id_list = list(all_mids)
 
         receipts = []
-        for i in range(0, len(id_list), 50):
-            chunk = id_list[i:i+50]
+        for i in range(0, len(id_list), 25):
+            chunk = id_list[i:i+25]
             id_str = b','.join(chunk).decode('ascii')
-            status, data = mail.fetch(id_str, '(BODY.PEEK[HEADER.FIELDS (SUBJECT FROM DATE)])')
+            try:
+                status, data = mail.fetch(id_str, '(BODY.PEEK[HEADER.FIELDS (SUBJECT FROM DATE)])')
+            except Exception:
+                continue
             for item in data:
                 if isinstance(item, tuple):
                     msg = email.message_from_bytes(item[1])

@@ -398,7 +398,7 @@ def fetch_greenhouse_otp(company_name=None, min_timestamp=None, max_wait=12):
                 mail.select('"[Gmail]/All Mail"')
             except Exception:
                 mail.select('inbox')
-            status, messages = mail.search(None, '(OR (FROM "no-reply@us.greenhouse-mail.io") (SUBJECT "security code"))')
+            status, messages = mail.search(None, '(OR (FROM "greenhouse-mail.io") (OR (SUBJECT "security code") (OR (SUBJECT "verification") (SUBJECT "verify your"))))')
             if not messages[0]:
                 status, messages = mail.search(None, 'ALL')
             msg_ids = messages[0].split()
@@ -425,7 +425,7 @@ def fetch_greenhouse_otp(company_name=None, min_timestamp=None, max_wait=12):
                     subj = subj.decode(enc or 'utf-8', errors='ignore')
                 subj_lower = subj.lower()
 
-                if 'security code' in subj_lower:
+                if any(k in subj_lower for k in ['security code', 'verification', 'verify your', 'code required']):
                     body = ''
                     for part in msg.walk():
                         if part.get_content_type() in ['text/html', 'text/plain']:
@@ -433,11 +433,14 @@ def fetch_greenhouse_otp(company_name=None, min_timestamp=None, max_wait=12):
                     clean_text = re.sub('<[^<]+?>', ' ', body)
 
                     extracted_code = None
-                    m = re.search(r'security code field on your application:\s*([A-Za-z0-9]{6,8})', clean_text)
-                    if m and m.group(1) not in USED_OTPS:
-                        extracted_code = m.group(1)
+                    m_clinch = re.search(r'code required to complete your form[^A-Za-z0-9]*([A-Za-z0-9]{5,8})', clean_text, re.IGNORECASE)
+                    m_gh = re.search(r'security code field on your application:\s*([A-Za-z0-9]{5,8})', clean_text, re.IGNORECASE)
+                    if m_clinch and m_clinch.group(1) not in USED_OTPS:
+                        extracted_code = m_clinch.group(1).strip()
+                    elif m_gh and m_gh.group(1) not in USED_OTPS:
+                        extracted_code = m_gh.group(1).strip()
                     else:
-                        m2 = re.findall(r'\b[A-Za-z0-9]{6,8}\b', clean_text)
+                        m2 = re.findall(r'\b[A-Za-z0-9]{5,8}\b', clean_text)
                         for c in m2:
                             if any(ch.isdigit() for ch in c) and c not in USED_OTPS:
                                 extracted_code = c
@@ -473,9 +476,10 @@ def fill_greenhouse_combobox(page, inp, label_text):
     # 1. Negative / Disqualification questions -> 'No' / 'None'
     if any(k in label_lower for k in [
         'sponsorship', 'visa', 'require sponsorship', 'require visa', 'need visa',
-        'previous', 'prior employee', 'former employee', 'worked at', 'worked for', 'consulted for',
-        'current or former', 'alphabet employee', 'subsidiary', 'relatives', 'family member',
-        'conflict of interest', 'non-compete', 'compete', 'felony', 'convicted',
+        'employee', 'currently employed', 'current employee', 'currently work', 'worked at', 'worked for',
+        'previous', 'prior employee', 'former employee', 'consulted for', 'internal candidate', 'internal applicant',
+        'current or former', 'alphabet employee', 'twitch employee', 'subsidiary', 'relatives', 'family member',
+        'conflict of interest', 'non-compete', 'compete', 'felony', 'convicted', 'crime', 'investigation',
         'disability', 'medical condition', 'hispanic', 'latino', 'transgender'
     ]):
         target_choice = 'No'
@@ -553,12 +557,18 @@ def fill_greenhouse_combobox(page, inp, label_text):
                 val = opt.get_attribute('value')
                 if not val or txt in ['select...', 'select', 'choose', 'please select', '']:
                     continue
-                if any(safe_k in txt for safe_k in ['decline', 'prefer not', 'not applicable', 'n/a', 'other', 'none']):
+                if any(safe_k in txt for safe_k in ['no', 'decline', 'prefer not', 'not applicable', 'n/a', 'other', 'none']):
                     inp.select_option(value=val)
                     return True
 
             if len(opts) > 1:
-                # Pick option 1 only if it's not a disqualifier
+                # Never pick option 1 if it says "Yes" without target_choice
+                first_txt = opts[1].inner_text().strip().lower()
+                if first_txt == 'yes':
+                    for opt in opts:
+                        if opt.inner_text().strip().lower() in ['no', 'decline']:
+                            inp.select_option(value=opt.get_attribute('value'))
+                            return True
                 inp.select_option(index=1)
                 return True
             return False
@@ -598,6 +608,13 @@ def fill_greenhouse_combobox(page, inp, label_text):
                     opt.click()
                     page.wait_for_timeout(250)
                     return True
+
+        # Safe fallback: Prefer "No" or "Decline" before blindly clicking first_opt
+        no_opt = menu.locator('div:has-text("No"), li:has-text("No"), [role="option"]:has-text("No"), div:has-text("Decline"), [role="option"]:has-text("Decline")').first
+        if no_opt.count() > 0:
+            no_opt.click()
+            page.wait_for_timeout(250)
+            return True
 
         first_opt = menu.locator('[id*="option"], [role="option"]').first
         if first_opt.count() > 0:
@@ -947,6 +964,12 @@ def apply_greenhouse(page, item):
                             el.fill(CANDIDATE["portfolio"])
                         elif tag == 'TEXTAREA':
                             el.fill("Software systems engineering undergraduate (B.Sc. Hons Software Systems & Automation) with a public GitHub track record in Next.js/React, TypeScript, Python, and cloud automation. Committed to writing clean, maintainable, tested code and delivering reliable software.")
+                        elif any(k in flabel_l for k in [
+                            'employee', 'currently employed', 'former employee', 'prior employee', 'worked at', 'worked for', 
+                            'sponsorship', 'visa', 'require sponsorship', 'require visa', 'relatives', 'family member', 
+                            'conflict of interest', 'non-compete', 'felony', 'convicted', 'crime', 'investigation'
+                        ]):
+                            el.fill("No")
                         elif '?' in flabel or any(k in flabel_l for k in ['are you', 'do you', 'can you', 'have you', 'will you']):
                             el.fill("Yes")
                         else:
@@ -954,15 +977,22 @@ def apply_greenhouse(page, item):
     except Exception as e:
         print(f"[-] Custom question fill note: {e}")
 
-    # Radio buttons handling (EEO, Veteran, Disability, Agreements)
+    # Radio buttons handling (EEO, Veteran, Disability, Agreements, Employment Status)
     try:
         radio_groups = page.evaluate('''() => {
             const groups = {};
             document.querySelectorAll('input[type="radio"]').forEach(r => {
                 if (!r.name) return;
-                if (!groups[r.name]) groups[r.name] = [];
+                if (!groups[r.name]) {
+                    const qEl = r.closest('fieldset')?.querySelector('legend') || 
+                                r.closest('.field, .form-group, .question, div[class*="field"]')?.querySelector('label, .label, legend, p, h3, h4');
+                    groups[r.name] = {
+                        question: qEl ? qEl.innerText.trim().toLowerCase() : '',
+                        radios: []
+                    };
+                }
                 const lbl = document.querySelector('label[for="' + r.id + '"]') || (r.closest('label') || null);
-                groups[r.name].push({
+                groups[r.name].radios.push({
                     id: r.id,
                     value: r.value,
                     checked: r.checked,
@@ -971,17 +1001,59 @@ def apply_greenhouse(page, item):
             });
             return groups;
         }''')
-        for group_name, radios in radio_groups.items():
+        for group_name, gdata in radio_groups.items():
+            radios = gdata.get('radios', [])
+            q_text = gdata.get('question', '')
             if any(r['checked'] for r in radios):
                 continue
             picked_id = None
-            for r in radios:
-                l = r['label']
-                if any(w in l for w in ['not a protected veteran', 'no, i don’t have', 'no, i do not', 'i do not wish', 'decline', 'asian', 'male', 'yes']):
-                    picked_id = r['id']
-                    break
+            if any(k in q_text for k in [
+                'employee', 'currently employed', 'former employee', 'prior employee', 'worked at', 'worked for',
+                'sponsorship', 'visa', 'require sponsorship', 'require visa', 'relatives', 'family', 'conflict',
+                'non-compete', 'felony', 'convicted'
+            ]):
+                for r in radios:
+                    if any(w in r['label'] for w in ['no', 'neither', 'none', 'i do not', 'not applicable', 'decline']):
+                        picked_id = r['id']
+                        break
+            elif any(k in q_text for k in ['authorized', 'eligibility', 'eligible', 'over 18', '18 or older', 'agree', 'certify', 'terms', 'privacy', 'acknowledge']):
+                for r in radios:
+                    if any(w in r['label'] for w in ['yes', 'agree', 'authorized', 'certify', 'confirm']):
+                        picked_id = r['id']
+                        break
+            elif any(k in q_text for k in ['veteran']):
+                for r in radios:
+                    if any(w in r['label'] for w in ['not a protected veteran', 'i am not a veteran', 'no', 'decline']):
+                        picked_id = r['id']
+                        break
+            elif any(k in q_text for k in ['disability']):
+                for r in radios:
+                    if any(w in r['label'] for w in ['no, i don’t have', 'no, i do not', 'i do not wish', 'decline', 'no']):
+                        picked_id = r['id']
+                        break
+            elif any(k in q_text for k in ['gender', 'sex']):
+                for r in radios:
+                    if re.search(r'\bmale\b', r['label']) and not re.search(r'\bfemale\b', r['label']):
+                        picked_id = r['id']
+                        break
+            elif any(k in q_text for k in ['race', 'ethnicity']):
+                for r in radios:
+                    if 'asian' in r['label'] and 'caucasian' not in r['label']:
+                        picked_id = r['id']
+                        break
+
+            if not picked_id:
+                for r in radios:
+                    if any(w in r['label'] for w in ['not a protected veteran', 'no, i don’t have', 'no, i do not', 'i do not wish', 'decline', 'asian', 'male', 'no']):
+                        picked_id = r['id']
+                        break
             if not picked_id and radios:
-                picked_id = radios[0]['id']
+                for r in radios:
+                    if 'no' in r['label']:
+                        picked_id = r['id']
+                        break
+                if not picked_id:
+                    picked_id = radios[0]['id']
             if picked_id:
                 try:
                     page.locator(f'[id="{picked_id}"]').first.check(timeout=800)
@@ -1565,16 +1637,25 @@ def apply_ashby(page, item):
                 cont = l.locator('xpath=..')
                 yes_btn = cont.locator('button[data-option="yes"], button:has-text("Yes")').first
                 no_btn = cont.locator('button[data-option="no"], button:has-text("No")').first
-                if any(k in txt for k in ['sponsorship', 'visa', 'require sponsorship', 'require visa']):
+                if any(k in txt for k in [
+                    'sponsorship', 'visa', 'require sponsorship', 'require visa',
+                    'employee', 'currently employed', 'former employee', 'prior employee', 'worked at', 'worked for',
+                    'relative', 'family', 'conflict', 'non-compete', 'felony', 'convicted'
+                ]):
                     if no_btn.count() > 0 and no_btn.is_visible():
                         no_btn.click()
                     elif yes_btn.count() > 0 and yes_btn.is_visible():
                         yes_btn.click()
-                else:
+                elif any(k in txt for k in ['authorized', 'eligible', 'over 18', 'agree', 'certify', 'terms', 'privacy', 'acknowledge']):
                     if yes_btn.count() > 0 and yes_btn.is_visible():
                         yes_btn.click()
                     elif no_btn.count() > 0 and no_btn.is_visible():
                         no_btn.click()
+                else:
+                    if no_btn.count() > 0 and no_btn.is_visible():
+                        no_btn.click()
+                    elif yes_btn.count() > 0 and yes_btn.is_visible():
+                        yes_btn.click()
                 continue
 
             tag = target.evaluate("el => el.tagName.toLowerCase()")
@@ -1683,8 +1764,12 @@ def apply_ashby(page, item):
                     if 'asian' in rtxt and 'caucasian' not in rtxt:
                         chosen = rad
                         break
-                elif any(k in q_text for k in ['sponsorship', 'visa', 'require sponsorship', 'require visa']):
-                    if any(k in rtxt for k in ['none', 'no', 'will not']):
+                elif any(k in q_text for k in [
+                    'sponsorship', 'visa', 'require sponsorship', 'require visa',
+                    'employee', 'currently employed', 'former employee', 'prior employee', 'worked at', 'worked for',
+                    'relative', 'family', 'conflict', 'non-compete', 'felony', 'convicted'
+                ]):
+                    if any(k in rtxt for k in ['none', 'no', 'will not', 'neither', 'i do not']):
                         chosen = rad
                         break
                 elif any(k in q_text for k in ['authorized', 'legally authorized', 'work in the united states']):
