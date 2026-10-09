@@ -2,46 +2,50 @@
   {
     "company": "Asana",
     "title": "Fullstack Engineer",
-    "applyUrl": "https://www.asana.com/jobs/apply/8264089?gh_jid=8264089",
+    "applyUrl": "https://job-boards.greenhouse.io/asana/jobs/8264089",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 98,
-    "critique_reason": "Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score)."
+    "critique_reason": "Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score).",
+    "url": "https://job-boards.greenhouse.io/asana/jobs/8264089"
   },
   {
     "company": "Roblox",
     "title": "Software Engineer, Discovery UX",
-    "applyUrl": "https://careers.roblox.com/jobs/8168383?gh_jid=8168383",
+    "applyUrl": "https://job-boards.greenhouse.io/roblox/jobs/8168383",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 98,
-    "critique_reason": "Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score)."
+    "critique_reason": "Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score).",
+    "url": "https://job-boards.greenhouse.io/roblox/jobs/8168383"
   },
   {
     "company": "Okta",
     "title": "Software Engineer II, Frontend Agentic AI ",
-    "applyUrl": "https://www.okta.com/company/careers/opportunity/8139374?gh_jid=8139374",
+    "applyUrl": "https://job-boards.greenhouse.io/okta/jobs/8139374",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 98,
-    "critique_reason": "Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score)."
+    "critique_reason": "Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score).",
+    "url": "https://job-boards.greenhouse.io/okta/jobs/8139374"
   },
   {
     "company": "Nextdoor",
     "title": "Software Engineer - Fullstack",
-    "applyUrl": "https://about.nextdoor.com/careers-list/?gh_jid=8198165",
+    "applyUrl": "https://job-boards.greenhouse.io/nextdoor/jobs/8198165",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 98,
-    "critique_reason": "Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score)."
+    "critique_reason": "Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score).",
+    "url": "https://job-boards.greenhouse.io/nextdoor/jobs/8198165"
   },
   {
     "company": "Truveta",
@@ -73,17 +77,6 @@
     "is_internship": true,
     "category": "INTERNSHIP",
     "stipend": "$5,000 - $9,000 / mo USD",
-    "fit_score": 98,
-    "critique_reason": "Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score)."
-  },
-  {
-    "company": "Pinterest",
-    "title": "Software Engineer II, Full Stack",
-    "applyUrl": "https://job-boards.greenhouse.io/pinterest/jobs/5459622",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 98,
     "critique_reason": "Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score)."
   },
@@ -497,24 +490,26 @@
   {
     "company": "Airbnb",
     "title": "Early Career Mobile Software Engineer, Quality Platform",
-    "applyUrl": "https://careers.airbnb.com/positions/8257855?gh_jid=8257855",
+    "applyUrl": "https://job-boards.greenhouse.io/airbnb/jobs/8257855",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $160,000 USD / year",
     "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate.",
+    "url": "https://job-boards.greenhouse.io/airbnb/jobs/8257855"
   },
   {
     "company": "Airbnb",
     "title": "Early Career Software Engineer, Quality Engineering",
-    "applyUrl": "https://careers.airbnb.com/positions/8154749?gh_jid=8154749",
+    "applyUrl": "https://job-boards.greenhouse.io/airbnb/jobs/8154749",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $160,000 USD / year",
     "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate.",
+    "url": "https://job-boards.greenhouse.io/airbnb/jobs/8154749"
   },
   {
     "company": "Kikoff",
@@ -596,35 +591,38 @@
   {
     "company": "Roblox",
     "title": "[Summer 2027] Software Engineer Intern",
-    "applyUrl": "https://careers.roblox.com/jobs/8072713?gh_jid=8072713",
+    "applyUrl": "https://job-boards.greenhouse.io/roblox/jobs/8072713",
     "portal_type": "Greenhouse",
     "is_internship": true,
     "category": "INTERNSHIP",
     "stipend": "$5,000 - $9,000 / mo USD",
     "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate.",
+    "url": "https://job-boards.greenhouse.io/roblox/jobs/8072713"
   },
   {
     "company": "Samsara",
     "title": "Software Engineering Internship - San Francisco ",
-    "applyUrl": "https://www.samsara.com/company/careers/roles/8082091?gh_jid=8082091",
+    "applyUrl": "https://job-boards.greenhouse.io/samsara/jobs/8082091",
     "portal_type": "Greenhouse",
     "is_internship": true,
     "category": "INTERNSHIP",
     "stipend": "$5,000 - $9,000 / mo USD",
     "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate.",
+    "url": "https://job-boards.greenhouse.io/samsara/jobs/8082091"
   },
   {
     "company": "Roblox",
     "title": "[2027] Software Engineer, Early Career",
-    "applyUrl": "https://careers.roblox.com/jobs/8072244?gh_jid=8072244",
+    "applyUrl": "https://job-boards.greenhouse.io/roblox/jobs/8072244",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate.",
+    "url": "https://job-boards.greenhouse.io/roblox/jobs/8072244"
   },
   {
     "company": "Ada",
@@ -640,24 +638,26 @@
   {
     "company": "Seatgeek",
     "title": "Software Engineer - Internship",
-    "applyUrl": "https://seatgeek.com/jobs/8227553?gh_jid=8227553",
+    "applyUrl": "https://job-boards.greenhouse.io/seatgeek/jobs/8227553",
     "portal_type": "Greenhouse",
     "is_internship": true,
     "category": "INTERNSHIP",
     "stipend": "$5,000 - $9,000 / mo USD",
     "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate.",
+    "url": "https://job-boards.greenhouse.io/seatgeek/jobs/8227553"
   },
   {
     "company": "Seatgeek",
     "title": "Software Engineer - New Grad",
-    "applyUrl": "https://seatgeek.com/jobs/8227548?gh_jid=8227548",
+    "applyUrl": "https://job-boards.greenhouse.io/seatgeek/jobs/8227548",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate.",
+    "url": "https://job-boards.greenhouse.io/seatgeek/jobs/8227548"
   },
   {
     "company": "Scale AI",
@@ -689,17 +689,6 @@
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $125,000 USD / year",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
-    "company": "Pinterest",
-    "title": "Software Engineering Intern 2027 (Dublin)",
-    "applyUrl": "https://job-boards.greenhouse.io/pinterest/jobs/8138034",
-    "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$5,000 - $9,000 / mo USD",
     "fit_score": 96,
     "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
   },
@@ -981,13 +970,14 @@
   {
     "company": "Brex",
     "title": "Software Engineer, Forward Deployed Agent Builder",
-    "applyUrl": "https://www.brex.com/careers/8523177002?gh_jid=8523177002",
+    "applyUrl": "https://job-boards.greenhouse.io/brex/jobs/8523177002",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $160,000 USD / year",
     "fit_score": 92,
-    "critique_reason": "Builder fit: Proven Playwright automation, Docker, WebSockets, and GitHub Actions CI/CD."
+    "critique_reason": "Builder fit: Proven Playwright automation, Docker, WebSockets, and GitHub Actions CI/CD.",
+    "url": "https://job-boards.greenhouse.io/brex/jobs/8523177002"
   },
   {
     "company": "Lyft",
@@ -1245,145 +1235,158 @@
   {
     "company": "Dropbox",
     "title": "Infrastructure Software Engineer",
-    "applyUrl": "https://jobs.dropbox.com/listing/6330377?gh_jid=6330377",
+    "applyUrl": "https://job-boards.greenhouse.io/dropbox/jobs/6330377",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $160,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/dropbox/jobs/6330377"
   },
   {
     "company": "Airbnb",
     "title": "Mobile Software Engineer, Tech Foundations",
-    "applyUrl": "https://careers.airbnb.com/positions/8189374?gh_jid=8189374",
+    "applyUrl": "https://job-boards.greenhouse.io/airbnb/jobs/8189374",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $160,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/airbnb/jobs/8189374"
   },
   {
     "company": "Airbnb",
     "title": "Software Engineer, Passport & Commerce, Android",
-    "applyUrl": "https://careers.airbnb.com/positions/8247303?gh_jid=8247303",
+    "applyUrl": "https://job-boards.greenhouse.io/airbnb/jobs/8247303",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $160,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/airbnb/jobs/8247303"
   },
   {
     "company": "Airbnb",
     "title": "Software Engineer, Passport & Commerce, iOS",
-    "applyUrl": "https://careers.airbnb.com/positions/8239985?gh_jid=8239985",
+    "applyUrl": "https://job-boards.greenhouse.io/airbnb/jobs/8239985",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $160,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/airbnb/jobs/8239985"
   },
   {
     "company": "Coinbase",
     "title": "Software Engineer",
-    "applyUrl": "https://www.coinbase.com/careers/positions/8207374?gh_jid=8207374",
+    "applyUrl": "https://job-boards.greenhouse.io/coinbase/jobs/8207374",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $160,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/coinbase/jobs/8207374"
   },
   {
     "company": "Coinbase",
     "title": "Software Engineer, Blockchain Platform Nodes",
-    "applyUrl": "https://www.coinbase.com/careers/positions/8105437?gh_jid=8105437",
+    "applyUrl": "https://job-boards.greenhouse.io/coinbase/jobs/8105437",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $160,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/coinbase/jobs/8105437"
   },
   {
     "company": "Coinbase",
     "title": "Software Engineer, CDP - Foundations",
-    "applyUrl": "https://www.coinbase.com/careers/positions/8241522?gh_jid=8241522",
+    "applyUrl": "https://job-boards.greenhouse.io/coinbase/jobs/8241522",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $160,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/coinbase/jobs/8241522"
   },
   {
     "company": "Coinbase",
     "title": "Software Engineer, CDP - Payment Acceptance",
-    "applyUrl": "https://www.coinbase.com/careers/positions/8164730?gh_jid=8164730",
+    "applyUrl": "https://job-boards.greenhouse.io/coinbase/jobs/8164730",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $160,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/coinbase/jobs/8164730"
   },
   {
     "company": "Coinbase",
     "title": "Software Engineer, CDP - Stablecoin",
-    "applyUrl": "https://www.coinbase.com/careers/positions/8234278?gh_jid=8234278",
+    "applyUrl": "https://job-boards.greenhouse.io/coinbase/jobs/8234278",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $160,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/coinbase/jobs/8234278"
   },
   {
     "company": "Coinbase",
     "title": "Software Engineer, EAA",
-    "applyUrl": "https://www.coinbase.com/careers/positions/8100066?gh_jid=8100066",
+    "applyUrl": "https://job-boards.greenhouse.io/coinbase/jobs/8100066",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $160,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/coinbase/jobs/8100066"
   },
   {
     "company": "Coinbase",
     "title": "Software Engineer- Money Movement",
-    "applyUrl": "https://www.coinbase.com/careers/positions/8177946?gh_jid=8177946",
+    "applyUrl": "https://job-boards.greenhouse.io/coinbase/jobs/8177946",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $160,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/coinbase/jobs/8177946"
   },
   {
     "company": "Brex",
     "title": "Software Engineer II, Identity and Access Management",
-    "applyUrl": "https://www.brex.com/careers/8860822002?gh_jid=8860822002",
+    "applyUrl": "https://job-boards.greenhouse.io/brex/jobs/8860822002",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $160,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/brex/jobs/8860822002"
   },
   {
     "company": "Brex",
     "title": "Software Engineer II, Product",
-    "applyUrl": "https://www.brex.com/careers/8815246002?gh_jid=8815246002",
+    "applyUrl": "https://job-boards.greenhouse.io/brex/jobs/8815246002",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $160,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/brex/jobs/8815246002"
   },
   {
     "company": "The Swift Group",
@@ -1421,255 +1424,278 @@
   {
     "company": "Asana",
     "title": "Software Engineer, AI Teammates Experience",
-    "applyUrl": "https://www.asana.com/jobs/apply/8227390?gh_jid=8227390",
+    "applyUrl": "https://job-boards.greenhouse.io/asana/jobs/8227390",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/asana/jobs/8227390"
   },
   {
     "company": "Asana",
     "title": "Software Engineer, Data Loading Infrastructure ",
-    "applyUrl": "https://www.asana.com/jobs/apply/7962412?gh_jid=7962412",
+    "applyUrl": "https://job-boards.greenhouse.io/asana/jobs/7962412",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/asana/jobs/7962412"
   },
   {
     "company": "Asana",
     "title": "Software Engineer, Development Infrastructure",
-    "applyUrl": "https://www.asana.com/jobs/apply/8140029?gh_jid=8140029",
+    "applyUrl": "https://job-boards.greenhouse.io/asana/jobs/8140029",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/asana/jobs/8140029"
   },
   {
     "company": "Asana",
     "title": "Software Engineer, Product",
-    "applyUrl": "https://www.asana.com/jobs/apply/7961454?gh_jid=7961454",
+    "applyUrl": "https://job-boards.greenhouse.io/asana/jobs/7961454",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/asana/jobs/7961454"
   },
   {
     "company": "Roblox",
     "title": "Software Engineer, Account Authentication",
-    "applyUrl": "https://careers.roblox.com/jobs/8097701?gh_jid=8097701",
+    "applyUrl": "https://job-boards.greenhouse.io/roblox/jobs/8097701",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/roblox/jobs/8097701"
   },
   {
     "company": "Roblox",
     "title": "Software Engineer, Creator",
-    "applyUrl": "https://careers.roblox.com/jobs/8115917?gh_jid=8115917",
+    "applyUrl": "https://job-boards.greenhouse.io/roblox/jobs/8115917",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/roblox/jobs/8115917"
   },
   {
     "company": "Roblox",
     "title": "Software Engineer, Creator Business ",
-    "applyUrl": "https://careers.roblox.com/jobs/8113334?gh_jid=8113334",
+    "applyUrl": "https://job-boards.greenhouse.io/roblox/jobs/8113334",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/roblox/jobs/8113334"
   },
   {
     "company": "Roblox",
     "title": "Software Engineer, Data Access",
-    "applyUrl": "https://careers.roblox.com/jobs/8168881?gh_jid=8168881",
+    "applyUrl": "https://job-boards.greenhouse.io/roblox/jobs/8168881",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/roblox/jobs/8168881"
   },
   {
     "company": "Roblox",
     "title": "Software Engineer, Economy Platform",
-    "applyUrl": "https://careers.roblox.com/jobs/8060254?gh_jid=8060254",
+    "applyUrl": "https://job-boards.greenhouse.io/roblox/jobs/8060254",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/roblox/jobs/8060254"
   },
   {
     "company": "Roblox",
     "title": "Software Engineer, Engine Infrastructure",
-    "applyUrl": "https://careers.roblox.com/jobs/8171506?gh_jid=8171506",
+    "applyUrl": "https://job-boards.greenhouse.io/roblox/jobs/8171506",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/roblox/jobs/8171506"
   },
   {
     "company": "Roblox",
     "title": "Software Engineer, Engine Scalability",
-    "applyUrl": "https://careers.roblox.com/jobs/8226958?gh_jid=8226958",
+    "applyUrl": "https://job-boards.greenhouse.io/roblox/jobs/8226958",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/roblox/jobs/8226958"
   },
   {
     "company": "Roblox",
     "title": "Software Engineer, Foundation AI",
-    "applyUrl": "https://careers.roblox.com/jobs/8123004?gh_jid=8123004",
+    "applyUrl": "https://job-boards.greenhouse.io/roblox/jobs/8123004",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/roblox/jobs/8123004"
   },
   {
     "company": "Roblox",
     "title": "Software Engineer, GenAI Platform",
-    "applyUrl": "https://careers.roblox.com/jobs/8171283?gh_jid=8171283",
+    "applyUrl": "https://job-boards.greenhouse.io/roblox/jobs/8171283",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/roblox/jobs/8171283"
   },
   {
     "company": "Roblox",
     "title": "Software Engineer, Test Frameworks & Tooling",
-    "applyUrl": "https://careers.roblox.com/jobs/8229705?gh_jid=8229705",
+    "applyUrl": "https://job-boards.greenhouse.io/roblox/jobs/8229705",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/roblox/jobs/8229705"
   },
   {
     "company": "Ripple",
     "title": "Software Engineer II",
-    "applyUrl": "https://ripple.com/careers/all-jobs/job/8241603?gh_jid=8241603",
+    "applyUrl": "https://job-boards.greenhouse.io/ripple/jobs/8241603",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/ripple/jobs/8241603"
   },
   {
     "company": "Ripple",
     "title": "Software Engineer II, Platform",
-    "applyUrl": "https://ripple.com/careers/all-jobs/job/8157490?gh_jid=8157490",
+    "applyUrl": "https://job-boards.greenhouse.io/ripple/jobs/8157490",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/ripple/jobs/8157490"
   },
   {
     "company": "Okta",
     "title": "Software Engineer II, Organizations (Auth0)",
-    "applyUrl": "https://www.okta.com/company/careers/opportunity/8237731?gh_jid=8237731",
+    "applyUrl": "https://job-boards.greenhouse.io/okta/jobs/8237731",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/okta/jobs/8237731"
   },
   {
     "company": "Okta",
     "title": "Software Engineer, Professional Services R&D",
-    "applyUrl": "https://www.okta.com/company/careers/opportunity/8056119?gh_jid=8056119",
+    "applyUrl": "https://job-boards.greenhouse.io/okta/jobs/8056119",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/okta/jobs/8056119"
   },
   {
     "company": "Duolingo",
     "title": "Software Engineer II, iOS, Growth",
-    "applyUrl": "https://careers.duolingo.com/jobs/8612120002?gh_jid=8612120002",
+    "applyUrl": "https://job-boards.greenhouse.io/duolingo/jobs/8612120002",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/duolingo/jobs/8612120002"
   },
   {
     "company": "Roblox",
     "title": "Software Engineer, Data Model",
-    "applyUrl": "https://careers.roblox.com/jobs/8159857?gh_jid=8159857",
+    "applyUrl": "https://job-boards.greenhouse.io/roblox/jobs/8159857",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/roblox/jobs/8159857"
   },
   {
     "company": "Roblox",
     "title": "Software Engineer, Engine Systems",
-    "applyUrl": "https://careers.roblox.com/jobs/8159854?gh_jid=8159854",
+    "applyUrl": "https://job-boards.greenhouse.io/roblox/jobs/8159854",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/roblox/jobs/8159854"
   },
   {
     "company": "Circleci",
     "title": "Software Engineer",
-    "applyUrl": "http://www.circleci.com/careers/jobs/8420901002/?gh_jid=8420901002",
+    "applyUrl": "https://job-boards.greenhouse.io/circleci/jobs/8420901002",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/circleci/jobs/8420901002"
   },
   {
     "company": "Fivetran",
     "title": "Software Engineer ",
-    "applyUrl": "https://www.fivetran.com/careers/job?gh_jid=7811889003",
+    "applyUrl": "https://job-boards.greenhouse.io/fivetran/jobs/7811889003",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/fivetran/jobs/7811889003"
   },
   {
     "company": "Canonical",
@@ -1685,24 +1711,26 @@
   {
     "company": "Fastly",
     "title": "Software Engineer - Platform Observability and Intelligence",
-    "applyUrl": "https://www.fastly.com/about/jobs/apply?gh_jid=8256238",
+    "applyUrl": "https://job-boards.greenhouse.io/fastly/jobs/8256238",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/fastly/jobs/8256238"
   },
   {
     "company": "Point72",
     "title": "Software Engineer \u2013 2026 Grad",
-    "applyUrl": "https://boards.greenhouse.io/point72/jobs/8202068002?gh_jid=8202068002",
+    "applyUrl": "https://job-boards.greenhouse.io/point72/jobs/8202068002",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$80,000 - $120,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/point72/jobs/8202068002"
   },
   {
     "company": "Scaleai",
@@ -1718,13 +1746,14 @@
   {
     "company": "Samsara",
     "title": "Software Engineer II",
-    "applyUrl": "https://www.samsara.com/company/careers/roles/8036387?gh_jid=8036387",
+    "applyUrl": "https://job-boards.greenhouse.io/samsara/jobs/8036387",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.",
+    "url": "https://job-boards.greenhouse.io/samsara/jobs/8036387"
   },
   {
     "company": "Lyft",
@@ -1859,39 +1888,6 @@
     "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
   },
   {
-    "company": "Pinterest",
-    "title": "Software Engineer II, EPD Ads",
-    "applyUrl": "https://job-boards.greenhouse.io/pinterest/jobs/8227344",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $130,000 USD / year",
-    "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
-  },
-  {
-    "company": "Pinterest",
-    "title": "Software Engineer II, Web",
-    "applyUrl": "https://job-boards.greenhouse.io/pinterest/jobs/8024883",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $130,000 USD / year",
-    "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
-  },
-  {
-    "company": "Pinterest",
-    "title": "Software Engineer, iOS",
-    "applyUrl": "https://job-boards.greenhouse.io/pinterest/jobs/6922682",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $130,000 USD / year",
-    "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
-  },
-  {
     "company": "Instacart",
     "title": "Software Engineer II, - Ads",
     "applyUrl": "https://job-boards.greenhouse.io/instacart/jobs/8188987",
@@ -1917,17 +1913,6 @@
     "company": "Instacart",
     "title": "Software Engineer II, CRM & SEO",
     "applyUrl": "https://job-boards.greenhouse.io/instacart/jobs/8244914",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $130,000 USD / year",
-    "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
-  },
-  {
-    "company": "Pinterest",
-    "title": "University Grad Software Engineer 2027 (USA)",
-    "applyUrl": "https://job-boards.greenhouse.io/pinterest/jobs/7838591",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",

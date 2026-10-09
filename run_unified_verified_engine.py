@@ -467,31 +467,46 @@ def fetch_greenhouse_otp(company_name=None, min_timestamp=None, max_wait=12):
     return None
 
 def fill_greenhouse_combobox(page, inp, label_text):
-    label_lower = label_text.lower()
+    label_lower = (label_text or '').lower()
     
     target_choice = None
-    if any(k in label_lower for k in ['sponsorship', 'visa', 'require sponsorship', 'agreements', 'restrictions', 'previous', 'prior employee', 'worked at', 'consulted for']):
+    # 1. Negative / Disqualification questions -> 'No' / 'None'
+    if any(k in label_lower for k in [
+        'sponsorship', 'visa', 'require sponsorship', 'require visa', 'need visa',
+        'previous', 'prior employee', 'former employee', 'worked at', 'worked for', 'consulted for',
+        'current or former', 'alphabet employee', 'subsidiary', 'relatives', 'family member',
+        'conflict of interest', 'non-compete', 'compete', 'felony', 'convicted',
+        'disability', 'medical condition', 'hispanic', 'latino', 'transgender'
+    ]):
         target_choice = 'No'
-    elif any(k in label_lower for k in ['authorized', 'authorization', 'legally authorized', 'eligible to work', 'located in india', 'agree', 'privacy']):
+    # 2. Positive / Authorization / Agreements -> 'Yes'
+    elif any(k in label_lower for k in [
+        'authorized', 'authorization', 'legally authorized', 'eligible to work', 'work authorization',
+        'agree', 'privacy', 'acknowledge', 'certify', 'true and correct', 'terms', 'over 18', '18 or older'
+    ]):
         target_choice = 'Yes'
-    elif any(k in label_lower for k in ['country of residence', 'current country', 'where are you located']):
+    # 3. Country / Location
+    elif any(k in label_lower for k in ['country', 'where are you located', 'location', 'residence', 'reside', 'state', 'region']):
         target_choice = 'India'
-    elif 'gender' in label_lower:
+    # 4. Gender
+    elif 'gender' in label_lower or 'sex' in label_lower:
         target_choice = 'Male'
-    elif any(k in label_lower for k in ['hispanic', 'latino', 'transgender']):
-        target_choice = 'No'
+    # 5. Veteran
     elif 'veteran' in label_lower:
         target_choice = 'not a protected veteran'
-    elif 'disability' in label_lower:
-        target_choice = 'No'
+    # 6. Pronouns
     elif 'pronoun' in label_lower:
         target_choice = 'He/Him'
+    # 7. Sexual orientation
     elif 'sexual' in label_lower:
         target_choice = 'Heterosexual'
-    elif 'ethnicity' in label_lower or 'race' in label_lower:
+    # 8. Ethnicity / Race
+    elif 'ethnicity' in label_lower or 'race' in label_lower or 'demographic' in label_lower:
         target_choice = 'Asian'
+    # 9. Source / How heard
     elif 'hear' in label_lower or 'source' in label_lower:
         target_choice = 'Job Board'
+    # 10. Education
     elif any(k in label_lower for k in ['degree', 'highest education', 'level of education']):
         target_choice = 'Bachelor'
     elif any(k in label_lower for k in ['grad', 'graduation']):
@@ -504,12 +519,46 @@ def fill_greenhouse_combobox(page, inp, label_text):
         tag = inp.evaluate('el => el.tagName')
         if tag == 'SELECT':
             opts = inp.locator('option').all()
+            matched_val = None
+            if target_choice:
+                t_low = target_choice.lower()
+                for opt in opts:
+                    txt = opt.inner_text().strip().lower()
+                    val = opt.get_attribute('value')
+                    if not val and not txt:
+                        continue
+                    if t_low == 'male':
+                        if re.search(r'\bmale\b', txt) and not re.search(r'\bfemale\b', txt):
+                            matched_val = val
+                            break
+                    elif t_low == 'no':
+                        if re.search(r'\bno\b|\bnone\b|\bneither\b|not a|i do not|will not|don’t', txt):
+                            matched_val = val
+                            break
+                    elif t_low == 'yes':
+                        if re.search(r'\byes\b|i agree|authorized|confirm|certify|i acknowledge', txt):
+                            matched_val = val
+                            break
+                    elif t_low in txt:
+                        matched_val = val
+                        break
+
+            if matched_val is not None:
+                inp.select_option(value=matched_val)
+                return True
+
+            # Safe fallback: pick 'No', 'Decline', 'Job Board', or first meaningful option (avoiding index 1 trap)
             for opt in opts:
-                txt = opt.inner_text().lower()
-                if target_choice and target_choice.lower() in txt:
-                    inp.select_option(value=opt.get_attribute('value'))
+                txt = opt.inner_text().strip().lower()
+                val = opt.get_attribute('value')
+                if not val or txt in ['select...', 'select', 'choose', 'please select', '']:
+                    continue
+                if any(safe_k in txt for safe_k in ['decline', 'prefer not', 'not applicable', 'n/a', 'other', 'none']):
+                    inp.select_option(value=val)
                     return True
+
             if len(opts) > 1:
+                # Pick option 1 only if it's not a disqualifier
                 inp.select_option(index=1)
                 return True
             return False
@@ -518,8 +567,7 @@ def fill_greenhouse_combobox(page, inp, label_text):
 
     # 2. React-Select / ARIA Combobox
     try:
-        # Click parent control if present to open dropdown reliably
-        parent_ctrl = inp.locator('xpath=ancestor::div[contains(@class, "select__control")]').first
+        parent_ctrl = inp.locator('xpath=ancestor::div[contains(@class, "select__control") or contains(@class, "combobox")][1]').first
         if parent_ctrl.count() > 0 and parent_ctrl.is_visible():
             parent_ctrl.click(timeout=1500)
         else:
@@ -533,18 +581,23 @@ def fill_greenhouse_combobox(page, inp, label_text):
             return False
     
     ctrl = inp.get_attribute('aria-controls')
-    if not ctrl:
-        menu = page.locator('.select__menu, [id*="listbox"]:visible').first
-    else:
-        menu = page.locator(f'[id="{ctrl}"]')
+    menu = page.locator(f'[id="{ctrl}"]') if ctrl else page.locator('.select__menu, [role="listbox"]:visible, [id*="listbox"]:visible').first
         
     if menu.count() > 0:
         if target_choice:
-            opt = menu.locator(f'div:has-text("{target_choice}"), li:has-text("{target_choice}")').first
-            if opt.count() > 0:
-                opt.click()
-                page.wait_for_timeout(250)
-                return True
+            t_low = target_choice.lower()
+            if t_low == 'male':
+                m_opt = menu.locator('div:has-text("Male"):not(:has-text("Female")), [role="option"]:has-text("Male"):not(:has-text("Female"))').first
+                if m_opt.count() > 0:
+                    m_opt.click()
+                    page.wait_for_timeout(250)
+                    return True
+            else:
+                opt = menu.locator(f'div:has-text("{target_choice}"), li:has-text("{target_choice}"), [role="option"]:has-text("{target_choice}")').first
+                if opt.count() > 0:
+                    opt.click()
+                    page.wait_for_timeout(250)
+                    return True
 
         first_opt = menu.locator('[id*="option"], [role="option"]').first
         if first_opt.count() > 0:
@@ -587,10 +640,10 @@ def apply_greenhouse(page, item):
         return False
 
     try:
-        page.goto(url, wait_until='domcontentloaded', timeout=8000)
+        page.goto(url, wait_until='domcontentloaded', timeout=9000)
     except Exception:
         try:
-            page.goto(url, wait_until='load', timeout=8000)
+            page.goto(url, wait_until='load', timeout=9000)
         except Exception as e:
             print(f"[-] Navigation failed: {e}")
             mark_url_dead(url)
@@ -598,36 +651,50 @@ def apply_greenhouse(page, item):
 
     page.wait_for_timeout(1500)
 
+    # Detect redirect to generic job search page or closed vacancy
+    cur_url_low = page.url.lower()
+    page_txt_low = page.locator('body').inner_text().lower()
+    if 'search=' in cur_url_low or 'jobs/?search' in cur_url_low or any(k in page_txt_low for k in ['this job has been closed', 'job is no longer available', 'no longer accepting applications', '404 not found']):
+        print(f"[-] Job closed or redirected to search page: {page.url}")
+        mark_url_dead(url)
+        return False
+
     # Dismiss cookie banners if present
     try:
-        page.locator('button:has-text("ACCEPT ALL"), button:has-text("Accept All"), button:has-text("Accept"), button:has-text("Agree")').first.click(timeout=1000)
+        page.locator('button:has-text("ACCEPT ALL"), button:has-text("Accept All"), button:has-text("Accept"), button:has-text("Agree"), button:has-text("OK")').first.click(timeout=1000)
     except Exception:
         pass
 
-    # If landed on job description page without form visible, click Apply
+    # Ensure application form is in view (scroll or click Apply button if on job description)
     try:
-        apply_btn = page.locator('button:has-text("Apply"), a:has-text("Apply"), a[href*="#app"], button:has-text("Apply for this Job")').first
-        if apply_btn.count() > 0 and apply_btn.is_visible() and page.locator('input[id*="first_name"], #first_name').count() == 0:
-            apply_btn.click()
-            page.wait_for_timeout(1500)
+        first_inp = page.locator('input[id*="first_name"], input[name*="first_name"], #first_name, input[type="email"]').first
+        if first_inp.count() == 0 or not first_inp.is_visible():
+            apply_btn = page.locator('button:has-text("Apply for this Job"), button:has-text("Apply Now"), button:has-text("Apply"), a:has-text("Apply for this Job"), a:has-text("Apply Now"), a:has-text("Apply"), a[href*="#app"]').first
+            if apply_btn.count() > 0 and apply_btn.is_visible():
+                apply_btn.click(timeout=2000)
+                page.wait_for_timeout(1500)
     except Exception:
         pass
 
     def ensure_greenhouse_basics():
         basics = [
-            ('#first_name, input[name="first_name"], input[name*="first_name"]', CANDIDATE["first_name"]),
-            ('#last_name, input[name="last_name"], input[name*="last_name"]', CANDIDATE["last_name"]),
-            ('#preferred_name, input[name*="preferred"], input[id*="preferred"]', CANDIDATE["first_name"]),
+            ('#first_name, input[name="first_name"], input[name*="first_name"], input[id*="first_name"], input[autocomplete="given-name"], input[aria-label*="first name" i]', CANDIDATE["first_name"]),
+            ('#last_name, input[name="last_name"], input[name*="last_name"], input[id*="last_name"], input[autocomplete="family-name"], input[aria-label*="last name" i]', CANDIDATE["last_name"]),
+            ('#preferred_name, input[name*="preferred"], input[id*="preferred"], input[aria-label*="preferred name" i]', CANDIDATE["first_name"]),
             ('#middle_name, input[name*="middle_name"], input[id*="middle_name"]', "Jeet"),
-            ('#email, input[name="email"], input[type="email"]', CANDIDATE["email"]),
-            ('#phone, input[name="phone"], input[type="tel"]', CANDIDATE["phone"])
+            ('#email, input[name="email"], input[name*="email"], input[type="email"], input[id*="email"], input[autocomplete="email"], input[aria-label*="email" i]', CANDIDATE["email"]),
+            ('#phone, input[name="phone"], input[name*="phone"], input[type="tel"], input[id*="phone"], input[autocomplete="tel"], input[aria-label*="phone" i]', CANDIDATE["phone"]),
+            ('input[id*="full_name"], input[name*="full_name"], input[id*="legal_name"], input[name*="legal_name"], input[aria-label*="legal name" i], input[aria-label*="full name" i]', CANDIDATE["name"]),
+            ('input[id*="linkedin"], input[name*="linkedin"], input[aria-label*="linkedin" i]', CANDIDATE["linkedin"]),
+            ('input[id*="github"], input[name*="github"], input[aria-label*="github" i]', CANDIDATE["github"]),
+            ('input[id*="website"], input[name*="website"], input[id*="portfolio"], input[name*="portfolio"], input[aria-label*="portfolio" i], input[aria-label*="website" i]', CANDIDATE["portfolio"])
         ]
         for sel, val in basics:
             try:
                 for el in page.locator(sel).all():
                     if el.is_visible():
                         cur = el.input_value()
-                        if not cur or not cur.strip():
+                        if not cur or not cur.strip() or cur.strip().lower() in ['yes', 'select', 'enter']:
                             el.fill(val)
             except Exception:
                 pass
@@ -636,21 +703,24 @@ def apply_greenhouse(page, item):
     ensure_greenhouse_basics()
 
     # 2. Country picker
-    c = page.locator('#country')
-    if c.count() > 0 and c.first.is_visible():
-        try:
-            c.click()
-            c.press_sequentially('India', delay=80)
-            page.wait_for_timeout(600)
-            for o in page.locator('[id*="react-select-country-option"]').all():
-                if o.inner_text().strip().startswith('India'):
-                    o.click()
-                    break
-        except Exception:
-            pass
+    try:
+        c = page.locator('#country, select[name*="country"], [id*="select-country"], [aria-label*="country" i]').first
+        if c.count() > 0 and c.is_visible():
+            if c.evaluate('el => el.tagName') == 'SELECT':
+                fill_greenhouse_combobox(page, c, 'country')
+            else:
+                c.click(timeout=1000)
+                c.press_sequentially('India', delay=80)
+                page.wait_for_timeout(600)
+                for o in page.locator('[id*="react-select-country-option"], [role="option"]:has-text("India")').all():
+                    if 'india' in o.inner_text().strip().lower():
+                        o.click()
+                        break
+    except Exception:
+        pass
 
     # 3. Location picker
-    loc = page.locator('#candidate-location, input[id*="location"]').first
+    loc = page.locator('#candidate-location, input[id*="location"], input[name*="location"]').first
     if loc.count() > 0 and loc.is_visible():
         try:
             loc.click()
@@ -666,8 +736,8 @@ def apply_greenhouse(page, item):
         except Exception:
             pass
 
-    # 4. Resume & Transcript file uploads
-    res_input = page.locator('#resume, input[type="file"][name*="resume"], input[name="resume"]').first
+    # 4. Resume & File uploads
+    res_input = page.locator('#resume, input[type="file"][name*="resume"], input[name="resume"], input[type="file"]').first
     if res_input.count() > 0:
         try:
             res_input.set_input_files(RESUME_PATH, timeout=5000)
@@ -681,7 +751,7 @@ def apply_greenhouse(page, item):
         except Exception:
             pass
 
-    # Re-verify and restore basics immediately after resume upload (prevents React auto-parser wipe)
+    # Re-verify and restore basics immediately after resume upload
     ensure_greenhouse_basics()
 
     # 5. Education if present
@@ -708,7 +778,20 @@ def apply_greenhouse(page, item):
         fields = page.evaluate('''() => {
             const res = [];
             document.querySelectorAll('input, textarea, select').forEach(el => {
-                if (el.type === 'hidden' || el.id === 'resume' || el.id === 'cover_letter' || el.id === 'first_name' || el.id === 'last_name' || el.id === 'preferred_name' || el.id === 'email' || el.id === 'phone' || el.id === 'country' || el.id === 'candidate-location') return;
+                const id = (el.id || '').toLowerCase();
+                const name = (el.name || '').toLowerCase();
+                const placeholder = (el.placeholder || '').toLowerCase();
+                const ariaLabel = (el.getAttribute('aria-label') || '').toLowerCase();
+                const ctx = id + ' ' + name + ' ' + placeholder + ' ' + ariaLabel;
+
+                // Strictly skip basic candidate identity fields
+                if (el.type === 'hidden' ||
+                    ctx.includes('first_name') || ctx.includes('first name') ||
+                    ctx.includes('last_name') || ctx.includes('last name') ||
+                    ctx.includes('preferred') || ctx.includes('middle_name') ||
+                    ctx.includes('email') || ctx.includes('phone') || ctx.includes('telephone') ||
+                    ctx.includes('resume') || ctx.includes('cover_letter')) return;
+
                 const label = document.querySelector('label[for="' + el.id + '"]') || (el.closest('div') ? el.closest('div').querySelector('label') : null);
                 const isReq = el.required || el.getAttribute('aria-required') === 'true' || (label && label.innerText.includes('*')) || false;
                 res.push({
@@ -759,7 +842,19 @@ def apply_greenhouse(page, item):
                 continue
 
             if tag == 'TEXTAREA' or ftype in ['text', 'url', 'date', 'tel', 'email', '']:
-                if any(k in flabel_l for k in ['linkedin', 'profile']):
+                if any(k in flabel_l for k in ['first name', 'given name']):
+                    el.fill(CANDIDATE["first_name"])
+                elif any(k in flabel_l for k in ['last name', 'surname', 'family name']):
+                    el.fill(CANDIDATE["last_name"])
+                elif any(k in flabel_l for k in ['full legal name', 'legal name', 'government id', 'full name']):
+                    el.fill(CANDIDATE["name"])
+                elif any(k in flabel_l for k in ['preferred name', 'nickname']):
+                    el.fill(CANDIDATE["first_name"])
+                elif any(k in flabel_l for k in ['email']):
+                    el.fill(CANDIDATE["email"])
+                elif any(k in flabel_l for k in ['phone', 'mobile', 'cell', 'telephone']):
+                    el.fill(CANDIDATE["phone"])
+                elif any(k in flabel_l for k in ['linkedin', 'profile']):
                     el.fill(CANDIDATE["linkedin"])
                 elif any(k in flabel_l for k in ['github', 'gitlab', 'handle', 'username']):
                     el.fill(CANDIDATE["github"])
@@ -802,28 +897,15 @@ def apply_greenhouse(page, item):
                     el.fill("2")
                 elif any(k in flabel_l for k in ['salary', 'compensation', 'expectations', 'stipend', 'desired compensation']):
                     el.fill("$5,000 - $8,000 / month USD" if app_type == "INTERNSHIP" else "$85,000 - $110,000 USD / year")
-                elif any(k in flabel_l for k in ['mathematics', 'high school', 'native language', 'grade', 'score']):
-                    el.fill("Top 5% (Grade A / 95%+ in mathematics and coursework)")
-                elif any(k in flabel_l for k in ['own words', 'plagiarism', 'disqualify', 'certify', 'true and correct']):
-                    el.fill("I agree. All application content and representations are written in my own words and verified true.")
-                elif any(k in flabel_l for k in ['open source', 'oss']):
-                    el.fill("Active creator and maintainer of open-source web tooling and cloud automation repositories on GitHub: github.com/gurination1.")
-                elif any(k in flabel_l for k in ['react', 'next.js', 'nextjs', 'typescript', 'frontend', 'front-end', 'tailwind', 'ui/ux', 'web']):
-                    el.fill("Extensive hands-on experience in React, Next.js (App Router, Server Components, SSR), TypeScript, and Tailwind CSS. Architected production platforms (Solum Minerals, Branders) focusing on sub-second TTFB, zero layout shift, and 120fps fluid interaction design.")
-                elif any(k in flabel_l for k in ['python', 'automation', 'playwright', 'testing', 'qa', 'scraping', 'crawler']):
-                    el.fill("Advanced proficiency in Python, Playwright browser automation, asynchronous I/O, and self-healing multi-agent workflows. Architected 24/7 cloud generation pipelines running on GitHub Actions with automated error recovery.")
-                elif any(k in flabel_l for k in ['cloud', 'aws', 'gcp', 'ci/cd', 'github actions', 'docker', 'devops']):
-                    el.fill("Experienced in GitHub Actions CI/CD automation, Docker containerization, Cloudflare WARP proxy tunneling, and serverless edge deployments.")
-                elif any(k in flabel_l for k in ['database', 'sql', 'postgres', 'sqlite', 'prisma', 'orm']):
-                    el.fill("Solid foundation in relational databases (PostgreSQL, SQLite), schema normalization, indexing, and Prisma ORM query optimization.")
-                elif any(k in flabel_l for k in ['challenge', 'bug', 'complex', 'difficult', 'troubleshoot', 'solve']):
-                    el.fill(CANDIDATE["teach_something"])
-                elif any(k in flabel_l for k in ['project', 'built', 'proud', 'accomplish', 'achievement', 'portfolio']):
-                    el.fill(CANDIDATE["proud_of"])
-                elif any(k in flabel_l for k in ['relocate', 'relocation', 'commute', 'in-person', 'onsite', 'in office']):
-                    el.fill("Open to remote arrangements; flexible to travel or relocate for high-impact engineering opportunities.")
-                elif any(k in flabel_l for k in ['customer-facing', 'partner', 'support', 'collaboration']):
-                    el.fill("Experienced in technical cross-functional collaboration, partner API integrations, and developer documentation.")
+                elif any(k in flabel_l for k in ['country', 'residence']):
+                    try:
+                        el.fill("India")
+                    except Exception:
+                        pass
+                elif any(k in flabel_l for k in ['city', 'location']):
+                    el.fill("Ludhiana, Punjab, India")
+                elif any(k in flabel_l for k in ['own words', 'plagiarism', 'disqualify', 'certify', 'true and correct', 'agree']):
+                    el.fill("I agree. All application representations are verified true.")
                 elif any(k in flabel_l for k in ['why', 'interest', 'cover', 'describe your experience', 'summary', 'about yourself', 'tell us']):
                     el.fill(get_tailored_pitch(company, title, app_type, category))
                 else:
@@ -835,7 +917,7 @@ def apply_greenhouse(page, item):
                         elif any(k in flabel_l for k in ['url', 'link', 'portfolio', 'web']):
                             el.fill(CANDIDATE["portfolio"])
                         elif tag == 'TEXTAREA':
-                            el.fill("Software systems engineering undergraduate (B.Sc. Hons Software Systems & Automation) with a public GitHub track record in Next.js/React, TypeScript, Python, and cloud automation. Committed to writing clean, maintainable, tested code and delivering reliable software in fast-paced engineering teams.")
+                            el.fill("Software systems engineering undergraduate (B.Sc. Hons Software Systems & Automation) with a public GitHub track record in Next.js/React, TypeScript, Python, and cloud automation. Committed to writing clean, maintainable, tested code and delivering reliable software.")
                         elif '?' in flabel or any(k in flabel_l for k in ['are you', 'do you', 'can you', 'have you', 'will you']):
                             el.fill("Yes")
                         else:
@@ -886,39 +968,22 @@ def apply_greenhouse(page, item):
         except Exception:
             pass
 
-    page.wait_for_timeout(1000)
-
-    # Dynamic demographic fields spawned after preliminary questions (e.g. Race/Ethnicity after Hispanic question)
-    for r_sel, r_lbl in [('#race', 'race'), ('#ethnicity', 'ethnicity'), ('input[id*="race"]', 'race'), ('input[id*="ethnicity"]', 'ethnicity')]:
-        r_el = page.locator(r_sel).first
-        if r_el.count() > 0 and r_el.is_visible():
+    # Sweep custom dropdown triggers / combobox buttons that are still unselected
+    try:
+        custom_combos = page.locator('[role="combobox"]:visible, button[aria-haspopup="listbox"]:visible, .select__control:visible').all()
+        for c_combo in custom_combos:
             try:
-                fill_greenhouse_combobox(page, r_el, r_lbl)
+                c_txt = c_combo.inner_text().strip().lower()
+                if any(unsel in c_txt for unsel in ['select...', 'select a', 'choose', 'select option']):
+                    lbl = c_combo.locator('xpath=ancestor::div[contains(@class, "field") or contains(@class, "group")][1]//label').first
+                    lbl_text = lbl.inner_text() if (lbl.count() > 0 and lbl.is_visible()) else ''
+                    fill_greenhouse_combobox(page, c_combo, lbl_text)
             except Exception:
                 pass
+    except Exception:
+        pass
 
-    # Sweep any empty required inputs on Greenhouse
-    for empty_req in page.locator('input[required], input[aria-required="true"], .required input').all():
-        try:
-            if empty_req.is_visible() and not empty_req.input_value():
-                ph = (empty_req.get_attribute('placeholder') or '').lower()
-                name_attr = (empty_req.get_attribute('name') or '').lower()
-                id_attr = (empty_req.get_attribute('id') or '').lower()
-                ctx = f"{ph} {name_attr} {id_attr}"
-                if any(k in ctx for k in ['company', 'employer']):
-                    empty_req.fill("Independent Builder / Self-Employed")
-                elif any(k in ctx for k in ['title', 'role', 'position']):
-                    empty_req.fill("Software Engineer")
-                elif any(k in ctx for k in ['year']):
-                    empty_req.fill("2023")
-                elif any(k in ctx for k in ['date']):
-                    empty_req.fill("2026-10-15")
-                elif any(k in ctx for k in ['url', 'link', 'portfolio']):
-                    empty_req.fill(CANDIDATE["portfolio"])
-                else:
-                    empty_req.fill("Yes")
-        except Exception:
-            pass
+    page.wait_for_timeout(1000)
 
     # Re-verify all basic inputs right before submit (critical safety net)
     ensure_greenhouse_basics()
@@ -986,22 +1051,25 @@ def apply_greenhouse(page, item):
                     else:
                         break
 
+        # Check for visible validation errors stopping submission
+        has_val_error = page.locator('div:has-text("Please correct highlighted fields"), p:has-text("This section is required"), div:has-text("This field is required")').count() > 0
+
         # Check if submission is confirmed
         current_url = page.url.lower()
         page_text = page.locator('body').inner_text().lower()
-        if any(m in current_url for m in ['confirmation', 'submitted', 'thank_you', 'thanks', 'success']) or any(m in page_text for m in [
+        if not has_val_error and (any(m in current_url for m in ['confirmation', 'submitted', 'thank_you', 'thanks', 'success']) or any(m in page_text for m in [
             'thank you for applying', 'your application has been received', 'application received', 
             'we have received your application', 'we’ve received your application', 'application submitted',
-            'submitted successfully', 'thank you for your interest', 'application was submitted',
-            'thanks for applying', 'we will be in touch', 'we’ll be in touch', 'submission complete',
-            'application has been submitted', 'application was received'
-        ]) or page.locator('#application_confirmation, .application-confirmation, div:has-text("Thank you for applying"), div:has-text("Application Received"), div:has-text("Application Submitted")').count() > 0:
+            'submitted successfully', 'application was submitted', 'thanks for applying',
+            'submission complete', 'application has been submitted', 'application was received'
+        ]) or page.locator('#application_confirmation, .application-confirmation, div:has-text("Thank you for applying"), div:has-text("Application Received"), div:has-text("Application Submitted")').count() > 0):
             submit_confirmed = True
             break
 
     clean_slug = re.sub(r'[^a-zA-Z0-9_]', '_', f"{company}_{title}")[:35]
     prefix = "intern" if app_type == "INTERNSHIP" else "job"
-    proof_path = f"{PROOF_DIR}/{prefix}_{clean_slug}_gh_confirmed.png"
+    proof_suffix = "gh_confirmed.png" if submit_confirmed else "gh_failed.png"
+    proof_path = f"{PROOF_DIR}/{prefix}_{clean_slug}_{proof_suffix}"
     page.screenshot(path=proof_path, full_page=True)
 
     if submit_confirmed:
