@@ -44,28 +44,6 @@
     "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
   },
   {
-    "company": "Roblox",
-    "title": "[Summer 2027] Software Engineer Intern",
-    "applyUrl": "https://careers.roblox.com/jobs/8072713?gh_jid=8072713",
-    "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$5,000 - $9,000 / mo USD",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
-    "company": "Cresta",
-    "title": "Software Engineer Intern",
-    "applyUrl": "https://job-boards.greenhouse.io/cresta/jobs/4123841008",
-    "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$5,000 - $9,000 / mo USD",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
     "company": "Samsara",
     "title": "Software Engineering Internship - San Francisco ",
     "applyUrl": "https://www.samsara.com/company/careers/roles/8082091?gh_jid=8082091",
@@ -80,17 +58,6 @@
     "company": "Realmalliance",
     "title": "Software Engineer - Intern",
     "applyUrl": "https://jobs.ashbyhq.com/realmalliance/a8a2f78e-1c28-4b52-a77a-c2b2ad9b7a8a",
-    "portal_type": "Ashby",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$5,000 - $9,000 / mo USD",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
-    "company": "Chartahealth",
-    "title": "Software Engineer (FDE / Platform) - Intern",
-    "applyUrl": "https://jobs.ashbyhq.com/chartahealth/0c76d54d-0ca8-4ab6-b360-c2dbae7b17cf",
     "portal_type": "Ashby",
     "is_internship": true,
     "category": "INTERNSHIP",
