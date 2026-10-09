@@ -651,6 +651,35 @@ def apply_greenhouse(page, item):
 
     page.wait_for_timeout(1500)
 
+    # Detect cross-origin iframe or canonical redirect to 3rd-party marketing site:
+    try:
+        slug = None
+        jid = None
+        m_slug = re.search(r'greenhouse\.io/(?:embed/job_app\?for=)?([^/]+)/(?:jobs/)?(\d+)', url)
+        if m_slug:
+            slug = m_slug.group(1)
+            jid = m_slug.group(2)
+        else:
+            m_jid = re.search(r'gh_jid=(\d+)', url)
+            if m_jid:
+                jid = m_jid.group(1)
+                slug = company.lower().replace(' ', '')
+
+        gh_iframe = page.locator('iframe[src*="greenhouse.io"], iframe#grnh_iframe').first
+        if gh_iframe.count() > 0:
+            iframe_src = gh_iframe.get_attribute('src')
+            if iframe_src:
+                print(f"[*] Detected Greenhouse iframe; navigating directly to native embed: {iframe_src}")
+                page.goto(iframe_src, wait_until='domcontentloaded', timeout=9000)
+                page.wait_for_timeout(1000)
+        elif 'greenhouse.io' not in page.url.lower() and slug and jid:
+            direct_embed = f"https://job-boards.greenhouse.io/embed/job_app?for={slug}&token={jid}"
+            print(f"[*] Canonical redirect detected ({page.url}); loading native embed: {direct_embed}")
+            page.goto(direct_embed, wait_until='domcontentloaded', timeout=9000)
+            page.wait_for_timeout(1000)
+    except Exception:
+        pass
+
     # Detect redirect to generic job search page or closed vacancy
     cur_url_low = page.url.lower()
     page_txt_low = page.locator('body').inner_text().lower()
