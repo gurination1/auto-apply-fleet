@@ -303,7 +303,13 @@ gh_slugs.update([
     'coinbase', 'roblox', 'snapchat', 'pinterest', 'box', 'dropbox', 'github', 'reddit', 'mongodb',
     'elastic', 'datadog', 'pagerduty', 'twilio', 'hashicorp', 'splunk', 'okta', 'hubspot', 'toast',
     'duolingo', 'coursera', 'asana', 'airtable', 'spacex', 'tesla', 'plaid', 'wealthfront',
-    'robinhood', 'samsara', 'checkr', 'blend', 'lattice', 'ironclad', 'gusto', 'ripple'
+    'robinhood', 'samsara', 'checkr', 'blend', 'lattice', 'ironclad', 'gusto', 'ripple',
+    'amplitude', 'anchorage', 'apollo', 'betterup', 'canonical', 'carta', 'chainalysis', 'chime',
+    'circleci', 'cockroachlabs', 'confluent', 'dataiku', 'dataminr', 'dbtlabs', 'eventbrite', 'fastly',
+    'fivetran', 'flexport', 'glossier', 'grammarly', 'honeycomb', 'intercom', 'justworks', 'klarna',
+    'launchdarkly', 'mapbox', 'mattermost', 'mixpanel', 'monzo', 'mux', 'nerdwallet', 'nextdoor',
+    'patreon', 'quora', 'seatgeek', 'segment', 'shopify', 'starburst', 'sumologic', 'tempus', 'upstart',
+    'veeva', 'webflow', 'zapier', 'zillow'
 ])
 
 ashby_slugs.update([
@@ -311,7 +317,9 @@ ashby_slugs.update([
     'perplexity', 'resend', 'clerk', 'posthog', 'raycast', 'calcom', 'dub', 'prisma', 'triggerdotdev',
     'inngest', 'langchain', 'llamaindex', 'qdrant', 'weaviate', 'pinecone', 'deepgram', 'assemblyai',
     'cursor', 'anysphere', 'codeium', 'replit', 'midjourney', 'runpod', 'flyio', 'baseten', 'replicate',
-    'retool', 'writer', 'tavily', 'brave', 'synthesia', 'groq', 'modal-labs'
+    'retool', 'writer', 'tavily', 'brave', 'synthesia', 'groq', 'modal-labs', 'speakeasy', 'knock',
+    'attio', 'superhuman', 'mintlify', 'unkey', 'highlight', 'axiom', 'tailscale', 'val-town',
+    'northflank', 'dagster', 'prefect'
 ])
 
 print(f"[*] Querying {len(gh_slugs)} Greenhouse boards and {len(ashby_slugs)} Ashby boards...")
@@ -430,6 +438,16 @@ if os.path.exists(live_file):
             existing_live = json.load(f)
     except Exception:
         pass
+
+# Strict sanitize existing pool through critique_application
+valid_live = []
+for r in existing_live:
+    score, reason = critique_application(r.get('company', ''), r.get('title', ''))
+    if score >= 80:
+        r['fit_score'] = score
+        r['critique_reason'] = reason
+        valid_live.append(r)
+existing_live = valid_live
 
 existing_urls = set((r.get('applyUrl') or r.get('url') or '').lower().rstrip('/') for r in existing_live)
 new_added = 0

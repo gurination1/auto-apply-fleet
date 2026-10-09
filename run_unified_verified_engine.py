@@ -144,22 +144,26 @@ def critique_application(company, title, category=""):
         'applied ai', 'ai engineer', 'ai developer', 'mlops', 'llmops', 'aiops', 'llm', 'data engineer',
         'data science', 'data scientist', 'analyst', 'analytics', 'bi engineer', 'data infra', 'data platform',
         'data pipeline', 'analytics engineer', 'enterprise data',
-        # IT Support / Helpdesk / Sysadmin
-        'it support', 'it specialist', 'it engineer', 'help desk', 'helpdesk', 'desktop support', 'sysadmin',
-        'systems administrator', 'network engineer', 'database administrator', 'dba ',
+        # Non-software / physical domain / retail / oil & gas
+        'retail', 'store associate', 'cashier', 'merchandise', 'warehouse', 'oil', 'gas', 'midstream', 'drilling',
+        'civil', 'chemical engineer', 'materials science', 'facilities engineer', 'technician',
+        # Aerospace flight software / avionics / spacecraft / orbital
+        'flight software', 'flight ', 'avionics', 'orbital', 'spacecraft', 'propulsion', 'satellite flight',
+        'guidance, navigation', 'guidance and control', 'spacecraft simulation', 'drone stack',
+        # Robotics manipulation / motion planning / perception
+        'robotics', 'robot ', 'robotic', 'manipulation', 'motion planning', 'perception engineer', 'low speed motion',
+        # Low-level languages / Unaligned Infrastructure stacks / Hardware
+        'c++', '(c++)', 'rust ', 'rust/', 'rust-', 'chip design', 'fpga', 'asic', 'kernel', 'firmware', 'pcb', 'hpc ',
+        'gpu cluster', 'kafka', 'distributed systems', 'low latency', 'graphics engine', 'rendering engine',
+        'game engine', 'unreal', 'unity engine',
+        # IT Support / Corporate Desktop / Sysadmin
+        'it support', 'it specialist', 'it engineer', 'help desk', 'helpdesk', 'desktop support', 'desktop software',
+        'sysadmin', 'systems administrator', 'network engineer', 'database administrator', 'dba ',
         # Security / Cyber
         'security', 'infosec', 'cyber', 'secops', 'vulnerability', 'soc ', 'penetration',
-        # Hardware / Electrical / Embedded / Robotics / Aerospace / Autonomous Systems
-        'hardware', 'firmware', 'silicon', 'dft', 'fpga', 'asic', 'analog', 'ic design', 'electronics', 'embedded',
-        'pcb', 'circuit', 'electrical', 'controls', 'vehicle', 'automotive', 'battery', 'chemical', 'chemistry',
-        'metallurgy', 'mechanical', 'thermal', 'propulsion', 'avionics', 'onboard', 'kernel', 'cuda', 'compiler',
-        'robotics', 'robot ', 'robot,', 'robotic', 'nuclear', 'reactor', 'motion planning', 'flight software',
-        'sensors', 'sensor ', 'sensor,', 'guidance', 'aerospace', 'autonomy', 'autonomous', 'ate ', 'ate engineer',
-        'test equipment', 'semiconductor', 'calibration', 'middleware', 'over-the-air', 'ota ', 'perception',
-        'localization', 'planning', 'powertrain', 'chassis', 'radar', 'lidar', 'rf engineer',
-        # Low-level languages / Unaligned Infrastructure stacks
-        'c++', 'c/c++', 'cpp', 'rust', 'kafka', 'distributed systems', 'low latency', 'graphics engine',
-        'rendering engine', 'game engine', 'unreal', 'unity engine',
+        # Hardware / Electrical / Embedded / Automotive
+        'hardware', 'silicon', 'dft', 'analog', 'ic design', 'electronics', 'embedded',
+        'controls', 'vehicle', 'automotive', 'battery', 'mechanical', 'thermal',
         # Business / Operations / Finance / PM
         'business development', 'bizdev', 'operations', 'revops', 'user operations', 'product management',
         'product manager', 'pm intern', 'product intern', 'product strategy', 'compensation partner', 'sales',
@@ -179,9 +183,9 @@ def critique_application(company, title, category=""):
         if b in title_lower:
             return 30, f'Brutally Purged / Domain or Stack Mismatch: Title contains banned term "{b}". Candidate strictly targets Frontend, Full-Stack, Web, Python, and Cloud Automation.'
 
-    # Check for word-bounded leadership / senior / level / IT keywords
-    if re.search(r'\b(lead|sr|director|vp|chief|head|phd|ml|iii|iv|staff|principal|architect|sysadmin)\b', title_lower):
-        return 30, 'Over-seniority Knockout: Title exceeds entry/mid bar. Candidate targets Junior, Associate, Mid, and Intern Software Engineering.'
+    # Check for word-bounded leadership / senior / level / technician / IT keywords
+    if re.search(r'\b(lead|sr|director|vp|chief|head|phd|ml|iii|iv|staff|principal|architect|sysadmin|technician)\b', title_lower):
+        return 30, 'Over-seniority or Technician Knockout: Title exceeds entry/mid builder bar.'
 
     # Systems Engineer without software/cloud/web context
     if 'systems engineer' in title_lower and not any(k in title_lower for k in ['software', 'web', 'cloud', 'automation', 'application']):
@@ -200,15 +204,14 @@ def critique_application(company, title, category=""):
     if is_pure_backend:
         return 45, 'Low conversion: Pure backend roles without Web/Product/Full-Stack/Node context have low conversion.'
 
-    # 4. MANDATORY SOFTWARE BUILDER RELEVANCE CHECK
-    valid_titles = [
-        'software', 'developer', 'frontend', 'front-end', 'front end', 'web', 'full stack', 'full-stack',
-        'fullstack', 'react', 'application', 'automation', 'platform', 'cloud', 'qa', 'test',
-        'engineer', 'agent', 'voice', 'builder', 'coder'
-    ]
-    has_valid_title = any(v in title_lower for v in valid_titles) or bool(re.search(r'\b(ui|ux)\b', title_lower))
-    if not has_valid_title:
-        return 20, 'Title lacks Software / Web / Frontend / Automation engineering keywords.'
+    # 4. MANDATORY SOFTWARE BUILDER RELEVANCE CHECK (ZERO NON-SOFTWARE PASS-THROUGH)
+    has_software_context = bool(re.search(
+        r'\b(software|developer|frontend|front-end|web|fullstack|full-stack|full stack|application|react|next\.js|python|cloud|devops|automation|qa engineer|test engineer|programmer|coder)\b',
+        title_lower
+    )) or bool(re.search(r'\b(ui|ux)\b', title_lower))
+
+    if not has_software_context:
+        return 20, 'Domain Mismatch: Title lacks software, web, frontend, full-stack, developer, or automation keywords.'
 
     score = 70
     strengths = []
