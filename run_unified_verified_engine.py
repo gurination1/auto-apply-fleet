@@ -75,17 +75,37 @@ CANDIDATE = {
     "city_query": "Ludhiana"
 }
 
+def get_tailored_pitch(company, role, app_type="JOB", category=""):
+    comp_clean = re.sub(r'<[^>]+>', '', company or '').strip() or "the team"
+    if app_type == "INTERNSHIP":
+        return f"Software systems builder (B.Sc. Hons Software Systems & Automation) highly excited to contribute to {comp_clean}'s engineering initiatives. Proven public GitHub track record shipping luxury frontend platforms (Solum Minerals, Branders, Dreamheights) and autonomous cloud agent fleets (yt-auto, Genesis Agent, VideoGen). Eager to contribute high-velocity, reliable software engineering at {comp_clean}."
+    elif "front" in category.lower() or "web" in category.lower():
+        return f"Specialized in luxury, high-craft web engineering and 120fps fluid interaction design, eager to bring my engineering craft to {comp_clean}. Architected and shipped production digital flagships including Solum Minerals and Branders. Focused on Next.js/React, Tailwind CSS, sub-second TTFB, and zero-slop component craft."
+    elif "voice" in category.lower():
+        return f"Experienced in architecting sub-700ms real-time voice AI agents over WebSockets and SIP/VoIP, enthusiastic to build with {comp_clean}'s platform. Strong expertise in Sarvam Indic models, Groq LPUs, and Silero VAD frame slicing."
+    else:
+        return f"Software systems engineer passionate about {comp_clean}'s technical vision. Deep expertise in autonomous cloud workflows, Playwright browser automation, Docker containerization, and 24/7 self-healing GitHub Actions pipelines (architected yt-auto and Genesis Coding Agent)."
+
 CONFIRMED_CACHE = None
 
 def clean_norm_url(u):
     if not u: return ''
     try:
-        from urllib.parse import urlparse
+        from urllib.parse import urlparse, parse_qs
         p = urlparse(u)
         clean = f'{p.scheme}://{p.netloc}{p.path}'.rstrip('/')
         if clean.endswith('/application'):
             clean = clean[:-12]
-        return clean.lower()
+        clean = clean.lower()
+        if 'embed/job_app' in clean or 'job_app' in clean:
+            qs = parse_qs(p.query)
+            params = []
+            for k in sorted(qs.keys()):
+                if k.lower() in ['token', 'for', 'gh_jid']:
+                    params.append(f'{k.lower()}={qs[k][0]}')
+            if params:
+                clean = f"{clean}?{'&'.join(params)}"
+        return clean
     except Exception:
         return (u or '').split('?')[0].lower().rstrip('/')
 
@@ -802,8 +822,7 @@ def apply_greenhouse(page, item):
                 elif any(k in flabel_l for k in ['customer-facing', 'partner', 'support', 'collaboration']):
                     el.fill("Experienced in technical cross-functional collaboration, partner API integrations, and developer documentation.")
                 elif any(k in flabel_l for k in ['why', 'interest', 'cover', 'describe your experience', 'summary', 'about yourself', 'tell us']):
-                    pitch = CANDIDATE["why_frontend"] if "front" in category.lower() else (CANDIDATE["why_intern"] if app_type == "INTERNSHIP" else CANDIDATE["why_automation"])
-                    el.fill(pitch)
+                    el.fill(get_tailored_pitch(company, title, app_type, category))
                 else:
                     if f.get('required') or '*' in flabel:
                         if ftype == 'number':
@@ -1475,14 +1494,7 @@ def apply_ashby(page, item):
             elif any(k in txt for k in ['compensation', 'salary', 'expectation', 'expected comp', 'desired rate', 'hourly rate', 'desired salary', 'pay']):
                 safe_fill(target, "$5,000 / month ($30/hr USD)" if app_type == "INTERNSHIP" else "$80,000 - $95,000 USD / year")
             elif any(k in txt for k in ['why', 'interest', 'cover letter', 'tell us', 'about you', 'fit']):
-                if app_type == "INTERNSHIP":
-                    safe_fill(target, CANDIDATE["why_intern"])
-                elif "front" in category.lower() or "web" in category.lower():
-                    safe_fill(target, CANDIDATE["why_frontend"])
-                elif "voice" in category.lower():
-                    safe_fill(target, CANDIDATE["why_voice"])
-                else:
-                    safe_fill(target, CANDIDATE["why_automation"])
+                safe_fill(target, get_tailored_pitch(company, title, app_type, category))
             elif any(k in txt for k in ['earliest month', 'start date', 'when can you start', 'join date', 'notice period', 'availability']):
                 safe_fill(target, CANDIDATE["join_date"])
             elif 'linkedin' in txt:
@@ -1725,7 +1737,7 @@ def apply_ashby(page, item):
                     elif any(k in combined_hint for k in ['compensation', 'salary', 'expectation', 'rate', 'pay']):
                         safe_fill(el, "$5,000 / month ($30/hr USD)" if app_type == "INTERNSHIP" else "$80,000 - $95,000 USD / year")
                     elif any(k in combined_hint for k in ['why', 'interest', 'cover', 'fit', 'about you']):
-                        safe_fill(el, CANDIDATE["why_intern"] if app_type == "INTERNSHIP" else CANDIDATE["why_frontend"])
+                        safe_fill(el, get_tailored_pitch(company, title, app_type, category))
                     elif any(k in combined_hint for k in ['link', 'url', 'portfolio', 'craft', 'github']):
                         safe_fill(el, CANDIDATE["github"])
                     elif any(k in combined_hint for k in ['city', 'location']):
@@ -1891,6 +1903,8 @@ def main():
             os.path.join(BASE_DIR, 'remaining_internships_queue.json')
         ]
         seen_urls = set()
+        seen_intern_roles = set()
+        seen_intern_companies = set()
         for src in intern_sources:
             if os.path.exists(src):
                 try:
@@ -1900,21 +1914,29 @@ def main():
                             u = (it.get('applyUrl') or it.get('url') or '').strip().replace('&amp;', '&')
                             comp = (it.get('company') or '').strip()
                             tit = (it.get('title') or it.get('role') or '').strip()
-                            if u and u not in seen_urls and not is_already_confirmed(u, comp, tit):
-                                is_int = it.get('is_internship') or it.get('category') == 'INTERNSHIP' or any(k in tit.lower() for k in ['intern', 'co-op', 'apprentice', 'campus', 'fellowship'])
-                                if not is_int:
-                                    continue
-                                score, _ = critique_application(comp, tit)
-                                if score < 80:
-                                    continue
-                                seen_urls.add(u)
-                                item_copy = dict(it)
-                                item_copy['title'] = tit
-                                item_copy['company'] = comp
-                                item_copy['applyUrl'] = u
-                                item_copy['is_internship'] = True
-                                item_copy['category'] = 'INTERNSHIP'
-                                unapplied_interns.append(item_copy)
+                            nu = clean_norm_url(u)
+                            nc = clean_norm_company(comp)
+                            nr = clean_norm_role(tit)
+                            if not u or not nu or nu in seen_urls or (nc, nr) in seen_intern_roles or nc in seen_intern_companies:
+                                continue
+                            if is_already_confirmed(u, comp, tit):
+                                continue
+                            is_int = it.get('is_internship') or it.get('category') == 'INTERNSHIP' or any(k in tit.lower() for k in ['intern', 'co-op', 'apprentice', 'campus', 'fellowship'])
+                            if not is_int:
+                                continue
+                            score, _ = critique_application(comp, tit)
+                            if score < 80:
+                                continue
+                            seen_urls.add(nu)
+                            seen_intern_roles.add((nc, nr))
+                            seen_intern_companies.add(nc)
+                            item_copy = dict(it)
+                            item_copy['title'] = tit
+                            item_copy['company'] = comp
+                            item_copy['applyUrl'] = u
+                            item_copy['is_internship'] = True
+                            item_copy['category'] = 'INTERNSHIP'
+                            unapplied_interns.append(item_copy)
                 except Exception as e:
                     print(f"[-] Error loading {src}: {e}")
         all_unapplied.extend(unapplied_interns)
@@ -1930,6 +1952,7 @@ def main():
             os.path.join(BASE_DIR, 'curated_viable_jobs.json')
         ]
         seen_job_urls = set()
+        seen_job_roles = set()
         for src in job_sources:
             if os.path.exists(src):
                 try:
@@ -1939,21 +1962,28 @@ def main():
                             u = (it.get('applyUrl') or it.get('url') or '').strip().replace('&amp;', '&')
                             comp = (it.get('company') or '').strip()
                             tit = (it.get('title') or it.get('role') or '').strip()
-                            if u and u not in seen_job_urls and not is_already_confirmed(u, comp, tit):
-                                is_int = it.get('is_internship') or it.get('category') == 'INTERNSHIP' or any(k in tit.lower() for k in ['intern', 'co-op', 'apprentice', 'campus', 'fellowship'])
-                                if is_int:
-                                    continue
-                                score, _ = critique_application(comp, tit)
-                                if score < 80:
-                                    continue
-                                seen_job_urls.add(u)
-                                item_copy = dict(it)
-                                item_copy['title'] = tit
-                                item_copy['company'] = comp
-                                item_copy['applyUrl'] = u
-                                item_copy['is_internship'] = False
-                                item_copy['category'] = 'JOB'
-                                unapplied_jobs.append(item_copy)
+                            nu = clean_norm_url(u)
+                            nc = clean_norm_company(comp)
+                            nr = clean_norm_role(tit)
+                            if not u or not nu or nu in seen_job_urls or (nc, nr) in seen_job_roles:
+                                continue
+                            if is_already_confirmed(u, comp, tit):
+                                continue
+                            is_int = it.get('is_internship') or it.get('category') == 'INTERNSHIP' or any(k in tit.lower() for k in ['intern', 'co-op', 'apprentice', 'campus', 'fellowship'])
+                            if is_int:
+                                continue
+                            score, _ = critique_application(comp, tit)
+                            if score < 80:
+                                continue
+                            seen_job_urls.add(nu)
+                            seen_job_roles.add((nc, nr))
+                            item_copy = dict(it)
+                            item_copy['title'] = tit
+                            item_copy['company'] = comp
+                            item_copy['applyUrl'] = u
+                            item_copy['is_internship'] = False
+                            item_copy['category'] = 'JOB'
+                            unapplied_jobs.append(item_copy)
                 except Exception as e:
                     print(f"[-] Could not load {src}: {e}")
         all_unapplied.extend(unapplied_jobs)
@@ -2098,6 +2128,27 @@ def main():
                                 print(f"[-] Ashby posting is confirmed closed: {u_check}")
                                 mark_url_dead(u_check)
                                 continue
+                except Exception:
+                    pass
+            elif 'greenhouse.io' in u_check:
+                try:
+                    import urllib.request, urllib.error
+                    req = urllib.request.Request(u_check, headers={'User-Agent': chosen_ua})
+                    with urllib.request.urlopen(req, timeout=4) as resp:
+                        if resp.status == 404:
+                            print(f"[-] Greenhouse posting 404: {u_check}")
+                            mark_url_dead(u_check)
+                            continue
+                        h_sample = resp.read().decode('utf-8', errors='ignore')[:15000].lower()
+                        if any(k in h_sample for k in ['the job you are looking for is no longer open', 'this job has been closed', 'posting not found', 'no longer accepting applications']):
+                            print(f"[-] Greenhouse posting is confirmed closed: {u_check}")
+                            mark_url_dead(u_check)
+                            continue
+                except urllib.error.HTTPError as he:
+                    if he.code in [404, 410]:
+                        print(f"[-] Greenhouse posting HTTP {he.code}: {u_check}")
+                        mark_url_dead(u_check)
+                        continue
                 except Exception:
                     pass
             try:

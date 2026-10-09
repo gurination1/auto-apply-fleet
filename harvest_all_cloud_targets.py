@@ -460,33 +460,52 @@ if os.path.exists(live_file):
     except Exception:
         pass
 
-# Strict sanitize existing pool through critique_application & is_already_confirmed
-valid_live = []
-for r in existing_live:
-    u = r.get('applyUrl') or r.get('url') or ''
-    c_name = r.get('company') or ''
-    t = r.get('title') or ''
+# Strict sanitize existing pool through critique_application & is_already_confirmed with triple-deduplication
+clean_live = []
+existing_urls = set()
+existing_roles = set()
+existing_intern_comps = set()
+
+all_candidates = existing_live + harvested_interns + harvested_jobs
+new_added = 0
+
+for item in all_candidates:
+    u = item.get('applyUrl') or item.get('url') or ''
+    c_name = item.get('company') or ''
+    t = item.get('title') or ''
     if not u or 'lever.co' in u:
+        continue
+    nu = clean_norm_url(u)
+    nc = clean_norm_company(c_name)
+    nr = clean_norm_role(t)
+    is_intern = item.get('is_internship') or item.get('category') == 'INTERNSHIP' or 'intern' in t.lower() or 'co-op' in t.lower()
+    
+    if not nu or nu in existing_urls or (nc, nr) in existing_roles:
+        continue
+    if is_intern and nc in existing_intern_comps:
         continue
     if is_already_confirmed(u, c_name, t):
         continue
     score, reason = critique_application(c_name, t)
-    if score >= 80:
-        r['fit_score'] = score
-        r['critique_reason'] = reason
-        valid_live.append(r)
-existing_live = valid_live
-
-existing_urls = set((r.get('applyUrl') or r.get('url') or '').lower().rstrip('/') for r in existing_live)
-new_added = 0
-for item in (harvested_interns + harvested_jobs):
-    u = (item.get('applyUrl') or item.get('url') or '').lower().rstrip('/')
-    if not u or 'lever.co' in u:
+    if score < 80:
         continue
-    if u not in existing_urls:
-        existing_live.append(item)
-        existing_urls.add(u)
-        new_added += 1
+    
+    existing_urls.add(nu)
+    existing_roles.add((nc, nr))
+    if is_intern:
+        existing_intern_comps.add(nc)
+        item['is_internship'] = True
+        item['category'] = 'INTERNSHIP'
+    else:
+        item['is_internship'] = False
+        item['category'] = 'JOB'
+        
+    item['fit_score'] = score
+    item['critique_reason'] = reason
+    clean_live.append(item)
+    new_added += 1
+
+existing_live = clean_live
 
 # Prioritize Ashby first (highest auto-submission conversion rate) and then sort by fit_score descending
 existing_live.sort(key=lambda x: (
@@ -497,4 +516,4 @@ existing_live.sort(key=lambda x: (
 with open(live_file, 'w') as f:
     json.dump(existing_live, f, indent=2)
 
-print(f"[+] Total live pool now at {len(existing_live)} roles ({new_added} newly added).")
+print(f"[+] Total live pool now at {len(existing_live)} verified clean roles ({new_added} retained).")
