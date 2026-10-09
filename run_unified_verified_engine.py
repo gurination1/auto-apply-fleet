@@ -394,14 +394,17 @@ def fetch_greenhouse_otp(company_name=None, min_timestamp=None, max_wait=12):
         try:
             mail = imaplib.IMAP4_SSL('imap.gmail.com')
             mail.login('gurination1@gmail.com', gmail_pwd or '')
-            mail.select('inbox')
-            status, messages = mail.search(None, '(FROM "no-reply@us.greenhouse-mail.io")')
+            try:
+                mail.select('"[Gmail]/All Mail"')
+            except Exception:
+                mail.select('inbox')
+            status, messages = mail.search(None, '(OR (FROM "no-reply@us.greenhouse-mail.io") (SUBJECT "security code"))')
             if not messages[0]:
                 status, messages = mail.search(None, 'ALL')
             msg_ids = messages[0].split()
             code = None
             latest_fallback = None
-            for mid in reversed(msg_ids[-15:]):
+            for mid in reversed(msg_ids[-25:]):
                 _, data = mail.fetch(mid, '(RFC822)')
                 msg = email.message_from_bytes(data[0][1])
 
@@ -430,13 +433,13 @@ def fetch_greenhouse_otp(company_name=None, min_timestamp=None, max_wait=12):
                     clean_text = re.sub('<[^<]+?>', ' ', body)
 
                     extracted_code = None
-                    m = re.search(r'security code field on your application:\s*([A-Za-z0-9]{8})', clean_text)
+                    m = re.search(r'security code field on your application:\s*([A-Za-z0-9]{6,8})', clean_text)
                     if m and m.group(1) not in USED_OTPS:
                         extracted_code = m.group(1)
                     else:
-                        m2 = re.findall(r'\b[A-Za-z0-9]{8}\b', clean_text)
+                        m2 = re.findall(r'\b[A-Za-z0-9]{6,8}\b', clean_text)
                         for c in m2:
-                            if any(ch.isdigit() for ch in c) and any(ch.isupper() for ch in c) and c not in USED_OTPS:
+                            if any(ch.isdigit() for ch in c) and c not in USED_OTPS:
                                 extracted_code = c
                                 break
 
@@ -921,7 +924,10 @@ def apply_greenhouse(page, item):
     ensure_greenhouse_basics()
 
     # 7. Submit Application
-    btn = page.locator('#submit_app, button[type="submit"], button:has-text("Submit application"), button:has-text("Submit App"), input[type="submit"]').first
+    btn = page.locator('#submit_app, input[id="submit_app"], button:has-text("Submit application"), button:has-text("Submit Application"), button:has-text("Submit app"), button:has-text("Submit App"), #application-form button[type="submit"], #apply_form button[type="submit"], form[action*="application"] button[type="submit"], form[action*="job"] button[type="submit"], button[data-mapped="submit"], button:has-text("Submit")').first
+    if btn.count() == 0 or not btn.is_visible():
+        btn = page.locator('button[type="submit"]:not([id*="search"]):not([class*="search"]):not([id*="quick"]), input[type="submit"]:not([id*="search"])').first
+
     if btn.count() == 0:
         print(f"[-] No Greenhouse submit button found")
         mark_url_dead(url)
@@ -939,56 +945,64 @@ def apply_greenhouse(page, item):
             btn.evaluate('el => el.click()')
         except Exception:
             pass
-    page.wait_for_timeout(3000)
 
-    # 8. Check for OTP / Security Code
-    otp_container = page.locator('#email-verification, input[id*="security_code"], input[name*="security_code"], #security-input-0')
-    if otp_container.count() > 0 and otp_container.first.is_visible():
-        print(f"[!] Email security verification triggered for {company}! Fetching code via Gmail IMAP...")
-        for otp_attempt in range(1):
-            code = fetch_greenhouse_otp(company_name=company, min_timestamp=time.time() - 60, max_wait=12)
-            if code:
-                for idx, ch in enumerate(code):
-                    inp = page.locator(f'#security-input-{idx}')
-                    if inp.count() > 0:
-                        inp.fill(ch)
-                sec_in = page.locator('input[id*="security_code"], input[name*="security_code"]').first
-                if sec_in.count() > 0:
-                    sec_in.fill(code)
-                page.wait_for_timeout(800)
-                verify_btn = page.locator('#submit_app, button[type="submit"], button:has-text("Submit application"), button:has-text("Verify"), button:has-text("Submit"), button:has-text("Confirm"), button:has-text("Continue"), button:has-text("Enter")').first
-                if verify_btn.count() > 0 and verify_btn.is_visible():
-                    verify_btn.click()
-                else:
-                    try:
-                        page.keyboard.press("Enter")
-                    except Exception:
-                        pass
-                page.wait_for_timeout(5000)
-                solve_all_captchas(page)
+    # 8. Post-Submit Wait & Multi-Check Loop (Handles OTP and Async Processing)
+    submit_confirmed = False
+    for poll_idx in range(6):  # Poll up to 18 seconds (6 x 3s)
+        page.wait_for_timeout(3000)
+        solve_all_captchas(page)
 
-                err_code = page.locator('div:has-text("Incorrect security code"), span:has-text("Incorrect security code"), p:has-text("Incorrect security code")')
-                if err_code.count() > 0 and err_code.first.is_visible():
-                    print("[-] Incorrect security code flagged! Waiting 6s for newest OTP and retrying...")
-                    time.sleep(6)
-                    continue
-                else:
-                    break
+        # Check for OTP / Security Code
+        otp_container = page.locator('#email-verification, input[id*="security_code"], input[name*="security_code"], #security-input-0')
+        if otp_container.count() > 0 and otp_container.first.is_visible():
+            print(f"[!] Email security verification triggered for {company}! Fetching code via Gmail IMAP (poll {poll_idx+1}/6)...")
+            for otp_attempt in range(2):
+                code = fetch_greenhouse_otp(company_name=company, min_timestamp=time.time() - 90, max_wait=24)
+                if code:
+                    for idx, ch in enumerate(code):
+                        inp = page.locator(f'#security-input-{idx}')
+                        if inp.count() > 0:
+                            inp.fill(ch)
+                    sec_in = page.locator('input[id*="security_code"], input[name*="security_code"]').first
+                    if sec_in.count() > 0:
+                        sec_in.fill(code)
+                    page.wait_for_timeout(800)
+                    verify_btn = page.locator('#submit_app, button[type="submit"], button:has-text("Submit application"), button:has-text("Verify"), button:has-text("Submit"), button:has-text("Confirm"), button:has-text("Continue"), button:has-text("Enter")').first
+                    if verify_btn.count() > 0 and verify_btn.is_visible():
+                        verify_btn.click()
+                    else:
+                        try:
+                            page.keyboard.press("Enter")
+                        except Exception:
+                            pass
+                    page.wait_for_timeout(4000)
+                    solve_all_captchas(page)
+
+                    err_code = page.locator('div:has-text("Incorrect security code"), span:has-text("Incorrect security code"), p:has-text("Incorrect security code")')
+                    if err_code.count() > 0 and err_code.first.is_visible():
+                        print("[-] Incorrect security code flagged! Waiting 5s for newest OTP and retrying...")
+                        time.sleep(5)
+                        continue
+                    else:
+                        break
+
+        # Check if submission is confirmed
+        current_url = page.url.lower()
+        page_text = page.locator('body').inner_text().lower()
+        if any(m in current_url for m in ['confirmation', 'submitted', 'thank_you', 'thanks', 'success']) or any(m in page_text for m in [
+            'thank you for applying', 'your application has been received', 'application received', 
+            'we have received your application', 'we’ve received your application', 'application submitted',
+            'submitted successfully', 'thank you for your interest', 'application was submitted',
+            'thanks for applying', 'we will be in touch', 'we’ll be in touch', 'submission complete',
+            'application has been submitted', 'application was received'
+        ]) or page.locator('#application_confirmation, .application-confirmation, div:has-text("Thank you for applying"), div:has-text("Application Received"), div:has-text("Application Submitted")').count() > 0:
+            submit_confirmed = True
+            break
 
     clean_slug = re.sub(r'[^a-zA-Z0-9_]', '_', f"{company}_{title}")[:35]
     prefix = "intern" if app_type == "INTERNSHIP" else "job"
     proof_path = f"{PROOF_DIR}/{prefix}_{clean_slug}_gh_confirmed.png"
     page.screenshot(path=proof_path, full_page=True)
-
-    current_url = page.url.lower()
-    page_text = page.locator('body').inner_text().lower()
-    submit_confirmed = any(m in current_url for m in ['confirmation', 'submitted', 'thank_you', 'thanks', 'success']) or any(m in page_text for m in [
-        'thank you for applying', 'your application has been received', 'application received', 
-        'we have received your application', 'we’ve received your application', 'application submitted',
-        'submitted successfully', 'thank you for your interest', 'application was submitted',
-        'thanks for applying', 'we will be in touch', 'we’ll be in touch', 'submission complete',
-        'application has been submitted', 'application was received'
-    ]) or page.locator('#application_confirmation, .application-confirmation, div:has-text("Thank you for applying"), div:has-text("Application Received"), div:has-text("Application Submitted")').count() > 0
 
     if submit_confirmed:
         print(f"🎉 CONFIRMED Greenhouse submission for {company} - {title}!")
