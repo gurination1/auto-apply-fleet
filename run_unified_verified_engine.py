@@ -87,8 +87,14 @@ def get_confirmed_cache():
                 url TEXT PRIMARY KEY,
                 checked_at DATETIME DEFAULT CURRENT_TIMESTAMP
             )''')
+            c.execute('''CREATE TABLE IF NOT EXISTS company_blacklist (
+                company TEXT PRIMARY KEY,
+                reason TEXT,
+                created_at DATETIME
+            )''')
             urls = set()
-            for r in c.execute('SELECT job_url FROM verified_applications WHERE status = "CONFIRMED_SUBMITTED"'):
+            # 1. Block ALL URLs previously processed (regardless of status)
+            for r in c.execute('SELECT job_url FROM verified_applications'):
                 if r[0]:
                     urls.add(r[0].lower().rstrip('/'))
                     urls.add(r[0].split('?')[0].lower().rstrip('/'))
@@ -97,18 +103,29 @@ def get_confirmed_cache():
                     urls.add(r[0].lower().rstrip('/'))
                     urls.add(r[0].split('?')[0].lower().rstrip('/'))
             roles = set()
-            for r in c.execute('SELECT company, role FROM verified_applications WHERE status = "CONFIRMED_SUBMITTED"'):
+            # 2. Block ALL (company, role) pairs previously processed
+            for r in c.execute('SELECT company, role FROM verified_applications'):
                 clean_c = re.sub(r'<[^>]+>', '', r[0] or '').strip().lower()
                 clean_r = re.sub(r'<[^>]+>', '', r[1] or '').strip().lower()
                 roles.add((clean_c, clean_r))
+            
+            # 3. Block ALL companies that sent rejections or are on blacklist
+            blacklisted_companies = set()
+            for r in c.execute('SELECT company FROM company_blacklist'):
+                if r[0]:
+                    blacklisted_companies.add(r[0].strip().lower())
+            for r in c.execute('SELECT DISTINCT company FROM verified_applications WHERE status = "REJECTED_BY_COMPANY"'):
+                if r[0]:
+                    blacklisted_companies.add(r[0].strip().lower())
+
             conn.close()
-            CONFIRMED_CACHE = (urls, roles)
+            CONFIRMED_CACHE = (urls, roles, blacklisted_companies)
         except Exception:
-            CONFIRMED_CACHE = (set(), set())
+            CONFIRMED_CACHE = (set(), set(), set())
     return CONFIRMED_CACHE
 
 def mark_url_dead(url):
-    urls, roles = get_confirmed_cache()
+    urls, roles, blacklisted_companies = get_confirmed_cache()
     if url:
         urls.add(url.lower().rstrip('/'))
         urls.add(url.split('?')[0].lower().rstrip('/'))
@@ -121,7 +138,7 @@ def mark_url_dead(url):
         pass
 
 def is_already_confirmed(url, company, title):
-    urls, roles = get_confirmed_cache()
+    urls, roles, blacklisted_companies = get_confirmed_cache()
     u_norm = (url or '').lower().rstrip('/')
     u_base = (url or '').split('?')[0].lower().rstrip('/')
     if u_norm in urls or u_base in urls:
@@ -129,6 +146,12 @@ def is_already_confirmed(url, company, title):
     clean_c = re.sub(r'<[^>]+>', '', company or '').strip().lower()
     clean_t = re.sub(r'<[^>]+>', '', title or '').strip().lower()
     if (clean_c, clean_t) in roles:
+        return True
+    # Check blacklist: if company or core company name is blacklisted
+    if clean_c in blacklisted_companies:
+        return True
+    c_tokens = [tok for tok in clean_c.split() if len(tok) > 3 and tok not in {'labs', 'inc', 'tech', 'technologies', 'software', 'systems'}]
+    if any(tok in blacklisted_companies for tok in c_tokens):
         return True
     return False
 
@@ -192,12 +215,16 @@ def critique_application(company, title, category=""):
         return 30, 'Domain Mismatch: Systems Engineering without Web/Software/Cloud context is low conversion.'
 
     # 2. REJECTION COOLDOWN / BLACKLIST CHECK
-    REJECTED_COMPANIES_COOLDOWN = {
-        'resend', 'runpod', 'railway', 'lean techniques', 'constellation space',
-        'phonic', 'graymatter robotics', 'intersystems'
-    }
-    if company.lower() in REJECTED_COMPANIES_COOLDOWN:
-        return 10, f'Company Cooldown: {company} recently sent a formal rejection. Skipping reapplication.'
+    urls, roles, blacklisted_companies = get_confirmed_cache()
+    c_clean = re.sub(r'<[^>]+>', '', company or '').strip().lower()
+    clean_t = re.sub(r'<[^>]+>', '', title or '').strip().lower()
+    if (c_clean, clean_t) in roles:
+        return 10, f'Duplicate Application: Already applied to {company} for {title}.'
+    if c_clean in blacklisted_companies:
+        return 10, f'Company Blacklist/Rejection: {company} sent a formal rejection email. Skipping reapplication.'
+    c_tokens = [tok for tok in c_clean.split() if len(tok) > 3 and tok not in {'labs', 'inc', 'tech', 'technologies', 'software', 'systems'}]
+    if any(tok in blacklisted_companies for tok in c_tokens):
+        return 10, f'Company Blacklist/Rejection: {company} sent a formal rejection email. Skipping reapplication.'
 
     # 3. PURE BACKEND PENALTY
     is_pure_backend = any(b in title_lower for b in ['backend', 'back-end', 'back end']) and not any(f in title_lower for f in ['front', 'web', 'full stack', 'fullstack', 'full-stack', 'intern', 'co-op', 'node', 'product', 'application', 'developer experience', 'dx'])

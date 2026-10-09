@@ -28,7 +28,7 @@ applied_pairs = set((r[0].lower(), r[1].lower()) for r in c.execute('SELECT comp
 dead_urls = set(r[0] for r in c.execute('SELECT url FROM checked_dead_urls').fetchall() if r[0])
 conn.close()
 
-from run_unified_verified_engine import critique_application
+from run_unified_verified_engine import critique_application, is_already_confirmed
 
 def is_ashby_active(url):
     try:
@@ -439,10 +439,15 @@ if os.path.exists(live_file):
     except Exception:
         pass
 
-# Strict sanitize existing pool through critique_application
+# Strict sanitize existing pool through critique_application & is_already_confirmed
 valid_live = []
 for r in existing_live:
-    score, reason = critique_application(r.get('company', ''), r.get('title', ''))
+    u = r.get('applyUrl') or r.get('url') or ''
+    c_name = r.get('company') or ''
+    t = r.get('title') or ''
+    if is_already_confirmed(u, c_name, t):
+        continue
+    score, reason = critique_application(c_name, t)
     if score >= 80:
         r['fit_score'] = score
         r['critique_reason'] = reason
