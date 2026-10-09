@@ -147,6 +147,16 @@ def is_already_confirmed(url, company, title):
     clean_t = re.sub(r'<[^>]+>', '', title or '').strip().lower()
     if (clean_c, clean_t) in roles:
         return True
+    # Fuzzy duplicate check: if candidate already applied to this company for a similar role
+    norm_t = re.sub(r'[^a-z0-9]', '', clean_t)
+    for rc, rt in roles:
+        if rc == clean_c:
+            if re.sub(r'[^a-z0-9]', '', rt) == norm_t:
+                return True
+            t1_words = set(w for w in clean_t.split() if len(w) > 3)
+            t2_words = set(w for w in rt.split() if len(w) > 3)
+            if t1_words and t2_words and (t1_words == t2_words or len(t1_words.intersection(t2_words)) >= 2):
+                return True
     # Check blacklist: if company or core company name is blacklisted
     if clean_c in blacklisted_companies:
         return True
