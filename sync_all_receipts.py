@@ -23,7 +23,7 @@ def normalize(text):
 
 def sync_receipts():
     try:
-        mail = imaplib.IMAP4_SSL('imap.gmail.com')
+        mail = imaplib.IMAP4_SSL('imap.gmail.com', timeout=15)
         pwd = os.environ.get('GMAIL_APP_PASSWORD')
         if not pwd and os.path.exists('/root/local_env.sh'):
             try:
