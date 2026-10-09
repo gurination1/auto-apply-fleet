@@ -33,11 +33,14 @@ def sync_receipts():
             except Exception:
                 pass
         mail.login('gurination1@gmail.com', pwd or '')
-        mail.select('inbox')
+        try:
+            mail.select('"[Gmail]/All Mail"')
+        except Exception:
+            mail.select('inbox')
 
-        status, m1 = mail.search(None, '(SINCE "01-Oct-2026" (OR (FROM "ashbyhq.com") (FROM "greenhouse-mail.io")))')
-        status, m2 = mail.search(None, '(SINCE "01-Oct-2026" (OR (SUBJECT "application") (SUBJECT "applying")))')
-        status, m3 = mail.search(None, '(SINCE "01-Oct-2026" (OR (SUBJECT "thank you") (SUBJECT "thanks")))')
+        status, m1 = mail.search(None, '(SINCE "08-Oct-2026" (OR (FROM "ashbyhq.com") (FROM "greenhouse-mail.io")))')
+        status, m2 = mail.search(None, '(SINCE "08-Oct-2026" (OR (SUBJECT "application") (SUBJECT "applying")))')
+        status, m3 = mail.search(None, '(SINCE "08-Oct-2026" (OR (SUBJECT "thank you") (SUBJECT "thanks")))')
 
         all_mids = set((m1[0] or b'').split() + (m2[0] or b'').split() + (m3[0] or b'').split())
         id_list = list(all_mids)
