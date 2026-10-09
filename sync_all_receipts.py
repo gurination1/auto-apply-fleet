@@ -12,7 +12,7 @@ from email.header import decode_header
 
 import os
 import socket
-socket.setdefaulttimeout(15)
+socket.setdefaulttimeout(35)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, 'verified_job_applications.db')
@@ -23,7 +23,7 @@ def normalize(text):
 
 def sync_receipts():
     try:
-        mail = imaplib.IMAP4_SSL('imap.gmail.com', timeout=15)
+        mail = imaplib.IMAP4_SSL('imap.gmail.com', timeout=35)
         pwd = os.environ.get('GMAIL_APP_PASSWORD')
         if not pwd and os.path.exists('/root/local_env.sh'):
             try:
@@ -40,9 +40,9 @@ def sync_receipts():
         except Exception:
             mail.select('inbox')
 
-        status, m1 = mail.search(None, '(SINCE "08-Oct-2026" (OR (FROM "ashbyhq.com") (FROM "greenhouse-mail.io")))')
-        status, m2 = mail.search(None, '(SINCE "08-Oct-2026" (OR (SUBJECT "application") (SUBJECT "applying")))')
-        status, m3 = mail.search(None, '(SINCE "08-Oct-2026" (OR (SUBJECT "thank you") (SUBJECT "thanks")))')
+        status, m1 = mail.search(None, '(SINCE "09-Oct-2026" (OR (FROM "ashbyhq.com") (FROM "greenhouse-mail.io")))')
+        status, m2 = mail.search(None, '(SINCE "09-Oct-2026" (OR (SUBJECT "application") (SUBJECT "applying")))')
+        status, m3 = mail.search(None, '(SINCE "09-Oct-2026" (OR (SUBJECT "thank you") (SUBJECT "thanks")))')
 
         all_mids = set((m1[0] or b'').split() + (m2[0] or b'').split() + (m3[0] or b'').split())
         # Sort numerically to process newest messages first and prevent SSL BAD_LENGTH
