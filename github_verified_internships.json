@@ -44,50 +44,6 @@
     "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
   },
   {
-    "company": "Pinterest",
-    "title": "Software Engineering Intern 2027 (Dublin)",
-    "applyUrl": "https://job-boards.greenhouse.io/pinterest/jobs/8138034",
-    "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$5,000 - $9,000 / mo USD",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
-    "company": "Pinterest",
-    "title": "Software Engineering Intern 2027 (Zurich)",
-    "applyUrl": "https://job-boards.greenhouse.io/pinterest/jobs/8214745",
-    "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$5,000 - $9,000 / mo USD",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
-    "company": "Pinterest",
-    "title": "Software Engineer Intern 2027 (USA)",
-    "applyUrl": "https://job-boards.greenhouse.io/pinterest/jobs/7838577",
-    "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$5,000 - $9,000 / mo USD",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
-    "company": "Samsara",
-    "title": "Software Engineering Internship - San Francisco",
-    "applyUrl": "https://job-boards.greenhouse.io/samsara/jobs/8082091",
-    "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$5,000 - $9,000 / mo USD",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
     "company": "Lyft",
     "title": "Software Engineer Intern, Backend (Summer 2027 - Mexico)",
     "applyUrl": "https://job-boards.greenhouse.io/lyft/jobs/8767715002",
@@ -132,9 +88,42 @@
     "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
   },
   {
-    "company": "Roblox",
-    "title": "[Summer 2027] Software Engineer Intern",
-    "applyUrl": "https://job-boards.greenhouse.io/roblox/jobs/8072713",
+    "company": "Samsara",
+    "title": "Software Engineering Internship - San Francisco",
+    "applyUrl": "https://job-boards.greenhouse.io/samsara/jobs/8082091",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 96,
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
+  },
+  {
+    "company": "Pinterest",
+    "title": "Software Engineering Intern 2027 (Dublin)",
+    "applyUrl": "https://job-boards.greenhouse.io/pinterest/jobs/8138034",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 96,
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
+  },
+  {
+    "company": "Pinterest",
+    "title": "Software Engineering Intern 2027 (Zurich)",
+    "applyUrl": "https://job-boards.greenhouse.io/pinterest/jobs/8214745",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 96,
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
+  },
+  {
+    "company": "Pinterest",
+    "title": "Software Engineer Intern 2027 (USA)",
+    "applyUrl": "https://job-boards.greenhouse.io/pinterest/jobs/7838577",
     "portal_type": "Greenhouse",
     "is_internship": true,
     "category": "INTERNSHIP",
@@ -146,39 +135,6 @@
     "company": "Stripe",
     "title": "High School Internship, Software Engineering (Summer 2027)",
     "applyUrl": "https://job-boards.greenhouse.io/stripe/jobs/8241260",
-    "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$5,000 - $9,000 / mo USD",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
-    "company": "Datadog",
-    "title": "Software Engineering Intern",
-    "applyUrl": "https://job-boards.greenhouse.io/datadog/jobs/8114186",
-    "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$5,000 - $9,000 / mo USD",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
-    "company": "Datadog",
-    "title": "Software Engineering Intern",
-    "applyUrl": "https://job-boards.greenhouse.io/datadog/jobs/8114161",
-    "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$5,000 - $9,000 / mo USD",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
-    "company": "Datadog",
-    "title": "Software Engineering Intern (Summer)",
-    "applyUrl": "https://job-boards.greenhouse.io/datadog/jobs/8052118",
     "portal_type": "Greenhouse",
     "is_internship": true,
     "category": "INTERNSHIP",
@@ -264,6 +220,39 @@
     "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
   },
   {
+    "company": "Datadog",
+    "title": "Software Engineering Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/datadog/jobs/8114186",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 96,
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
+  },
+  {
+    "company": "Datadog",
+    "title": "Software Engineering Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/datadog/jobs/8114161",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 96,
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
+  },
+  {
+    "company": "Datadog",
+    "title": "Software Engineering Intern (Summer)",
+    "applyUrl": "https://job-boards.greenhouse.io/datadog/jobs/8052118",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 96,
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
+  },
+  {
     "company": "Databricks",
     "title": "Software Engineering Intern (2027 Start) - Aarhus",
     "applyUrl": "https://job-boards.greenhouse.io/databricks/jobs/8133710002",
@@ -311,6 +300,17 @@
     "company": "Databricks",
     "title": "Software Engineering Intern (2027 Start) - Winter",
     "applyUrl": "https://job-boards.greenhouse.io/databricks/jobs/8732364002",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$5,000 - $9,000 / mo USD",
+    "fit_score": 96,
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
+  },
+  {
+    "company": "Roblox",
+    "title": "[Summer 2027] Software Engineer Intern",
+    "applyUrl": "https://job-boards.greenhouse.io/roblox/jobs/8072713",
     "portal_type": "Greenhouse",
     "is_internship": true,
     "category": "INTERNSHIP",
