@@ -45,7 +45,9 @@ def sync_receipts():
         status, m3 = mail.search(None, '(SINCE "08-Oct-2026" (OR (SUBJECT "thank you") (SUBJECT "thanks")))')
 
         all_mids = set((m1[0] or b'').split() + (m2[0] or b'').split() + (m3[0] or b'').split())
-        id_list = list(all_mids)
+        # Sort numerically to process newest messages first and prevent SSL BAD_LENGTH
+        sorted_mids = sorted([m for m in all_mids if m.isdigit()], key=lambda x: int(x))
+        id_list = sorted_mids[-500:] if len(sorted_mids) > 500 else sorted_mids
 
         receipts = []
         for i in range(0, len(id_list), 25):
