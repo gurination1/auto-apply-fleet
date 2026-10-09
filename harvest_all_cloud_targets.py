@@ -267,25 +267,59 @@ for src in TARGET_SOURCES:
 print("\n=== STARTING DIRECT ATS API HARVEST (GREENHOUSE & ASHBY) ===")
 from concurrent.futures import ThreadPoolExecutor
 
-gh_slugs = set()
-ashby_slugs = set()
+# Ingest curated repository of 1,531+ verified ATS boards
+ashby_targets = [] # list of dicts {"company": ..., "slug": ...}
+gh_targets = []    # list of dicts {"company": ..., "slug": ...}
+seen_ashby_slugs = set()
+seen_gh_slugs = set()
+
+try:
+    print("[*] Fetching comprehensive company catalog from JobsBuddy...")
+    cb_resp = requests.get('https://raw.githubusercontent.com/SIDDARTHAREDDY8/JobsBuddy/main/companies.json', timeout=15)
+    if cb_resp.status_code == 200:
+        for item in cb_resp.json():
+            ats_type = (item.get('ats') or '').lower()
+            slug = (item.get('slug') or '').lower().strip()
+            comp_name = (item.get('company') or slug.capitalize()).strip()
+            if not slug:
+                continue
+            if ats_type == 'ashby' and slug not in seen_ashby_slugs:
+                ashby_targets.append({'company': comp_name, 'slug': slug})
+                seen_ashby_slugs.add(slug)
+            elif ats_type == 'greenhouse' and slug not in seen_gh_slugs:
+                gh_targets.append({'company': comp_name, 'slug': slug})
+                seen_gh_slugs.add(slug)
+    print(f"    [+] Loaded {len(ashby_targets)} Ashby and {len(gh_targets)} Greenhouse companies from JobsBuddy.")
+except Exception as e:
+    print(f"    [-] Failed to load JobsBuddy catalog: {e}")
+
+# Augment with existing SQLite history
 try:
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     for url, comp in c.execute('SELECT job_url, company FROM verified_applications'):
         if not url: continue
         m_gh = re.search(r'boards\.greenhouse\.io/([^/?#]+)', url) or re.search(r'greenhouse\.io/embed/job_board\?for=([^&]+)', url) or re.search(r'job-boards\.greenhouse\.io/([^/?#]+)', url)
-        if m_gh: gh_slugs.add(m_gh.group(1).lower())
+        if m_gh:
+            s = m_gh.group(1).lower()
+            if s not in seen_gh_slugs:
+                gh_targets.append({'company': comp or s.capitalize(), 'slug': s})
+                seen_gh_slugs.add(s)
         m_ash = re.search(r'jobs\.ashbyhq\.com/([^/?#]+)', url)
-        if m_ash: ashby_slugs.add(m_ash.group(1).lower())
+        if m_ash:
+            s = m_ash.group(1).lower()
+            if s not in seen_ashby_slugs:
+                ashby_targets.append({'company': comp or s.capitalize(), 'slug': s})
+                seen_ashby_slugs.add(s)
     conn.close()
 except Exception:
     pass
 
-gh_slugs.update([
+# Fallback top tech startup lists
+fallback_gh = [
     'figma', 'stripe', 'scale', 'retool', 'affirm', 'postman', 'cloudflare', 'gitlab', 'databricks',
     'brex', 'ramp', 'notion', 'airbyte', 'benchling', 'andurilindustries', 'gusto', 'instacart',
-    'coinbase', 'roblox', 'snapchat', 'pinterest', 'box', 'dropbox', 'github', 'reddit', 'mongodb',
+    'coinbase', 'roblox', 'snapchat', 'pinterest', 'box', 'dropbox', 'github', 'reddit',
     'elastic', 'datadog', 'pagerduty', 'twilio', 'hashicorp', 'splunk', 'okta', 'hubspot', 'toast',
     'duolingo', 'coursera', 'asana', 'airtable', 'spacex', 'tesla', 'plaid', 'wealthfront',
     'robinhood', 'samsara', 'checkr', 'blend', 'lattice', 'ironclad', 'gusto', 'ripple',
@@ -295,31 +329,42 @@ gh_slugs.update([
     'launchdarkly', 'mapbox', 'mattermost', 'mixpanel', 'monzo', 'mux', 'nerdwallet', 'nextdoor',
     'patreon', 'quora', 'seatgeek', 'segment', 'shopify', 'starburst', 'sumologic', 'tempus', 'upstart',
     'veeva', 'webflow', 'zapier', 'zillow'
-])
+]
+for s in fallback_gh:
+    if s not in seen_gh_slugs:
+        gh_targets.append({'company': s.capitalize(), 'slug': s})
+        seen_gh_slugs.add(s)
 
-ashby_slugs.update([
+fallback_ash = [
     'linear', 'sentry', 'supabase', 'vercel', 'modal', 'neon', 'temporal', 'togetherai', 'elevenlabs',
     'perplexity', 'resend', 'clerk', 'posthog', 'raycast', 'calcom', 'dub', 'prisma', 'triggerdotdev',
     'inngest', 'langchain', 'llamaindex', 'qdrant', 'weaviate', 'pinecone', 'deepgram', 'assemblyai',
     'cursor', 'anysphere', 'codeium', 'replit', 'midjourney', 'runpod', 'flyio', 'baseten', 'replicate',
-    'retool', 'writer', 'tavily', 'brave', 'synthesia', 'groq', 'modal-labs', 'speakeasy', 'knock',
+    'writer', 'tavily', 'brave', 'synthesia', 'groq', 'modal-labs', 'speakeasy', 'knock',
     'attio', 'superhuman', 'mintlify', 'unkey', 'highlight', 'axiom', 'tailscale', 'val-town',
-    'northflank', 'dagster', 'prefect'
-])
+    'northflank', 'dagster', 'prefect', 'openai'
+]
+for s in fallback_ash:
+    if s not in seen_ashby_slugs:
+        ashby_targets.append({'company': s.capitalize(), 'slug': s})
+        seen_ashby_slugs.add(s)
 
-print(f"[*] Querying {len(gh_slugs)} Greenhouse boards and {len(ashby_slugs)} Ashby boards...")
+print(f"[*] Targeting {len(gh_targets)} Greenhouse boards and {len(ashby_targets)} Ashby boards...")
 
-def fetch_gh(slug):
+def fetch_gh(item):
+    slug = item['slug']
+    c_name = item['company']
     try:
-        r = requests.get(f'https://boards-api.greenhouse.io/v1/boards/{slug}/jobs', timeout=4)
+        r = requests.get(f'https://boards-api.greenhouse.io/v1/boards/{slug}/jobs', timeout=6)
         if r.status_code == 200:
             for j in r.json().get('jobs', []):
-                t = j.get('title', '')
-                u = j.get('absolute_url', '')
-                if not u: continue
+                t = (j.get('title') or '').strip()
+                j_id = str(j.get('id') or '')
+                if not j_id: continue
+                # Direct native Greenhouse portal endpoint bypasses custom wrappers
+                u = f"https://job-boards.greenhouse.io/{slug}/jobs/{j_id}"
                 nu = clean_norm_url(u)
                 if not nu or nu in seen_urls: continue
-                c_name = slug.capitalize()
                 if is_already_confirmed(u, c_name, t):
                     seen_urls.add(nu)
                     continue
@@ -329,7 +374,7 @@ def fetch_gh(slug):
 
                 is_intern = bool(re.search(r'\b(intern|internship|co-op|coop|apprentice)\b', t.lower()))
                 seen_urls.add(nu)
-                item = {
+                job_data = {
                     'company': c_name,
                     'title': t,
                     'applyUrl': u,
@@ -341,65 +386,60 @@ def fetch_gh(slug):
                     'critique_reason': reason
                 }
                 if is_intern:
-                    harvested_interns.append(item)
+                    harvested_interns.append(job_data)
                 else:
-                    harvested_jobs.append(item)
+                    harvested_jobs.append(job_data)
     except Exception:
         pass
 
-def fetch_ash(slug):
-    query = '''
-    query ApiJobBoardWithTeams($organizationHostedJobsPageName: String!) {
-      jobBoard: jobBoardWithTeams(organizationHostedJobsPageName: $organizationHostedJobsPageName) {
-        jobPostings { id title locationName }
-      }
-    }'''
+def fetch_ash(item):
+    slug = item['slug']
+    c_name = item['company']
     try:
-        r = requests.post(
-            'https://jobs.ashbyhq.com/api/non-user-graphql?op=ApiJobBoardWithTeams',
-            json={'operationName': 'ApiJobBoardWithTeams', 'variables': {'organizationHostedJobsPageName': slug}, 'query': query},
-            headers={'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0'},
-            timeout=4
-        )
-        if r.status_code == 200:
-            for p in r.json().get('data', {}).get('jobBoard', {}).get('jobPostings', []):
-                t = p.get('title', '')
-                j_id = p.get('id', '')
-                u = f'https://jobs.ashbyhq.com/{slug}/{j_id}'
-                if not u: continue
-                nu = clean_norm_url(u)
-                if not nu or nu in seen_urls: continue
-                c_name = slug.capitalize()
-                if is_already_confirmed(u, c_name, t):
+        # Ashby public boards embed postings directly in window.__appData
+        r = requests.get(f'https://jobs.ashbyhq.com/{slug}', headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}, timeout=6)
+        if r.status_code == 200 and 'window.__appData' in r.text:
+            m = re.search(r'window\.__appData\s*=\s*(\{.*?\});', r.text)
+            if m:
+                data = json.loads(m.group(1))
+                postings = data.get('jobBoard', {}).get('jobPostings', [])
+                for p in postings:
+                    t = (p.get('title') or '').strip()
+                    j_id = (p.get('id') or '').strip()
+                    if not j_id: continue
+                    u = f"https://jobs.ashbyhq.com/{slug}/{j_id}"
+                    nu = clean_norm_url(u)
+                    if not nu or nu in seen_urls: continue
+                    if is_already_confirmed(u, c_name, t):
+                        seen_urls.add(nu)
+                        continue
+
+                    score, reason = critique_application(c_name, t)
+                    if score < 80: continue
+
+                    is_intern = bool(re.search(r'\b(intern|internship|co-op|coop|apprentice)\b', t.lower()))
                     seen_urls.add(nu)
-                    continue
-
-                score, reason = critique_application(c_name, t)
-                if score < 80: continue
-
-                is_intern = bool(re.search(r'\b(intern|internship|co-op|coop|apprentice)\b', t.lower()))
-                seen_urls.add(nu)
-                item = {
-                    'company': c_name,
-                    'title': t,
-                    'applyUrl': u,
-                    'portal_type': 'Ashby',
-                    'is_internship': is_intern,
-                    'category': 'INTERNSHIP' if is_intern else 'JOB',
-                    'stipend': '$5,000 - $9,000 / mo USD' if is_intern else '$85,000 - $130,000 USD / year',
-                    'fit_score': score,
-                    'critique_reason': reason
-                }
-                if is_intern:
-                    harvested_interns.append(item)
-                else:
-                    harvested_jobs.append(item)
+                    job_data = {
+                        'company': c_name,
+                        'title': t,
+                        'applyUrl': u,
+                        'portal_type': 'Ashby',
+                        'is_internship': is_intern,
+                        'category': 'INTERNSHIP' if is_intern else 'JOB',
+                        'stipend': '$5,000 - $9,000 / mo USD' if is_intern else '$85,000 - $130,000 USD / year',
+                        'fit_score': score,
+                        'critique_reason': reason
+                    }
+                    if is_intern:
+                        harvested_interns.append(job_data)
+                    else:
+                        harvested_jobs.append(job_data)
     except Exception:
         pass
 
-with ThreadPoolExecutor(max_workers=25) as ex:
-    ex.map(fetch_gh, list(gh_slugs))
-    ex.map(fetch_ash, list(ashby_slugs))
+with ThreadPoolExecutor(max_workers=30) as ex:
+    ex.map(fetch_gh, gh_targets)
+    ex.map(fetch_ash, ashby_targets)
 
 print(f"\n[+] Total New Harvested: {len(harvested_interns)} Internships, {len(harvested_jobs)} Jobs.")
 
@@ -426,6 +466,8 @@ for r in existing_live:
     u = r.get('applyUrl') or r.get('url') or ''
     c_name = r.get('company') or ''
     t = r.get('title') or ''
+    if not u or 'lever.co' in u:
+        continue
     if is_already_confirmed(u, c_name, t):
         continue
     score, reason = critique_application(c_name, t)
@@ -439,10 +481,18 @@ existing_urls = set((r.get('applyUrl') or r.get('url') or '').lower().rstrip('/'
 new_added = 0
 for item in (harvested_interns + harvested_jobs):
     u = (item.get('applyUrl') or item.get('url') or '').lower().rstrip('/')
-    if u and u not in existing_urls:
+    if not u or 'lever.co' in u:
+        continue
+    if u not in existing_urls:
         existing_live.append(item)
         existing_urls.add(u)
         new_added += 1
+
+# Prioritize Ashby first (highest auto-submission conversion rate) and then sort by fit_score descending
+existing_live.sort(key=lambda x: (
+    1 if (x.get('portal_type') == 'Ashby' or 'ashbyhq.com' in (x.get('applyUrl') or '')) else 0,
+    x.get('fit_score', 0)
+), reverse=True)
 
 with open(live_file, 'w') as f:
     json.dump(existing_live, f, indent=2)

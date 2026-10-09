@@ -256,7 +256,7 @@ def critique_application(company, title, category=""):
         'investment', 'talent', 'human resources', 'people', 'legal', 'compliance', 'tax', 'accounting', 'fellow',
         # Over-seniority (strictly junior, lower-mid, mid, intern)
         'senior', 'sr.', 'sr ', 'principal', 'staff', 'architect', 'director', 'vp', 'head of', 'manager',
-        'lead', 'expert', 'specialist ii', 'engineer iii', 'engineer iv',
+        'lead', 'expert', 'specialist ii', 'engineer iii', 'engineer iv', 'engineer 3', 'engineer 4', 'swe 3', 'swe 4', 'sde 3', 'sde 4',
         # Geographic, Citizenship & Format Knockouts
         ' - tor', ' (tor)', 'toronto', ' - van', 'vancouver', ' - montreal', 'waterloo university',
         'us citizen', 'security clearance', 'ts/sci', 'clearance', 'uk only', 'canada only', 'onsite only',
@@ -268,7 +268,7 @@ def critique_application(company, title, category=""):
             return 30, f'Brutally Purged / Domain or Stack Mismatch: Title contains banned term "{b}". Candidate strictly targets Frontend, Full-Stack, Web, Python, and Cloud Automation.'
 
     # Check for word-bounded leadership / senior / level / technician / IT keywords
-    if re.search(r'\b(lead|sr|director|vp|chief|head|phd|ml|iii|iv|staff|principal|architect|sysadmin|technician)\b', title_lower):
+    if re.search(r'\b(lead|sr|director|vp|chief|head|phd|ml|iii|iv|v|staff|principal|architect|sysadmin|technician)\b', title_lower) or re.search(r'\b(engineer|developer|swe|sde)\s*([3-9]|iii|iv|v)\b', title_lower) or re.search(r'\b(l[3-9]|e[3-9]|ic[3-9]|level\s*[3-9])\b', title_lower):
         return 30, 'Over-seniority or Technician Knockout: Title exceeds entry/mid builder bar.'
 
     # Systems Engineer without software/cloud/web context
