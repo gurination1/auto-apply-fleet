@@ -1,16 +1,5 @@
 [
   {
-    "company": "Supabase",
-    "title": "Cloud Platform Engineer",
-    "applyUrl": "https://jobs.ashbyhq.com/supabase/5d09daeb-2d7e-42de-9151-81a1341195c4",
-    "portal_type": "Ashby",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $130,000 USD / year",
-    "fit_score": 92,
-    "critique_reason": "Builder fit: Proven Playwright automation, Docker, WebSockets, and GitHub Actions CI/CD."
-  },
-  {
     "company": "Asana",
     "title": "Fullstack Engineer",
     "applyUrl": "https://www.asana.com/jobs/apply/8264089?gh_jid=8264089",
@@ -289,17 +278,6 @@
     "company": "Jane Street",
     "title": "Front End Software Engineer",
     "applyUrl": "https://job-boards.greenhouse.io/janestreet/jobs/6184529002",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $130,000 USD / year",
-    "fit_score": 98,
-    "critique_reason": "Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score)."
-  },
-  {
-    "company": "Scout AI",
-    "title": "Full Stack Software Engineer",
-    "applyUrl": "https://job-boards.greenhouse.io/scoutai/jobs/4958043008",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
@@ -2665,17 +2643,6 @@
     "company": "Dremio",
     "title": "Software Engineer - Query Execution",
     "applyUrl": "https://job-boards.greenhouse.io/dremio/jobs/8005826003",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $130,000 USD / year",
-    "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
-  },
-  {
-    "company": "GiveCampus",
-    "title": "Software Engineer, Online Giving",
-    "applyUrl": "https://job-boards.greenhouse.io/givecampus/jobs/4409577009",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
