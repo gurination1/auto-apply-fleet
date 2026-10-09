@@ -777,17 +777,31 @@ def apply_greenhouse(page, item):
                         el.fill(CANDIDATE["join_date"])
                 elif any(k in flabel_l for k in ['years', 'how many', 'experience']):
                     el.fill("2")
-                elif any(k in flabel_l for k in ['salary', 'compensation', 'expectations', 'stipend']):
-                    el.fill("Competitive market rate ($5,000 - $8,000 / month)")
+                elif any(k in flabel_l for k in ['salary', 'compensation', 'expectations', 'stipend', 'desired compensation']):
+                    el.fill("$5,000 - $8,000 / month USD" if app_type == "INTERNSHIP" else "$85,000 - $110,000 USD / year")
                 elif any(k in flabel_l for k in ['mathematics', 'high school', 'native language', 'grade', 'score']):
                     el.fill("Top 5% (Grade A / 95%+ in mathematics and coursework)")
-                elif any(k in flabel_l for k in ['own words', 'plagiarism', 'disqualify']):
-                    el.fill("I agree. All application content is written in my own words.")
-                elif any(k in flabel_l for k in ['open source']):
-                    el.fill("Active contributor and maintainer of web tooling and cloud automation repositories on GitHub (github.com/gurination1).")
-                elif any(k in flabel_l for k in ['customer-facing', 'silicon', 'hardware', 'oem', 'partner', 'isv']):
-                    el.fill("Experienced in technical customer support, partner integrations, and cloud infrastructure operations.")
-                elif any(k in flabel_l for k in ['why', 'interest', 'cover', 'describe your experience', 'summary', 'about yourself']):
+                elif any(k in flabel_l for k in ['own words', 'plagiarism', 'disqualify', 'certify', 'true and correct']):
+                    el.fill("I agree. All application content and representations are written in my own words and verified true.")
+                elif any(k in flabel_l for k in ['open source', 'oss']):
+                    el.fill("Active creator and maintainer of open-source web tooling and cloud automation repositories on GitHub: github.com/gurination1.")
+                elif any(k in flabel_l for k in ['react', 'next.js', 'nextjs', 'typescript', 'frontend', 'front-end', 'tailwind', 'ui/ux', 'web']):
+                    el.fill("Extensive hands-on experience in React, Next.js (App Router, Server Components, SSR), TypeScript, and Tailwind CSS. Architected production platforms (Solum Minerals, Branders) focusing on sub-second TTFB, zero layout shift, and 120fps fluid interaction design.")
+                elif any(k in flabel_l for k in ['python', 'automation', 'playwright', 'testing', 'qa', 'scraping', 'crawler']):
+                    el.fill("Advanced proficiency in Python, Playwright browser automation, asynchronous I/O, and self-healing multi-agent workflows. Architected 24/7 cloud generation pipelines running on GitHub Actions with automated error recovery.")
+                elif any(k in flabel_l for k in ['cloud', 'aws', 'gcp', 'ci/cd', 'github actions', 'docker', 'devops']):
+                    el.fill("Experienced in GitHub Actions CI/CD automation, Docker containerization, Cloudflare WARP proxy tunneling, and serverless edge deployments.")
+                elif any(k in flabel_l for k in ['database', 'sql', 'postgres', 'sqlite', 'prisma', 'orm']):
+                    el.fill("Solid foundation in relational databases (PostgreSQL, SQLite), schema normalization, indexing, and Prisma ORM query optimization.")
+                elif any(k in flabel_l for k in ['challenge', 'bug', 'complex', 'difficult', 'troubleshoot', 'solve']):
+                    el.fill(CANDIDATE["teach_something"])
+                elif any(k in flabel_l for k in ['project', 'built', 'proud', 'accomplish', 'achievement', 'portfolio']):
+                    el.fill(CANDIDATE["proud_of"])
+                elif any(k in flabel_l for k in ['relocate', 'relocation', 'commute', 'in-person', 'onsite', 'in office']):
+                    el.fill("Open to remote arrangements; flexible to travel or relocate for high-impact engineering opportunities.")
+                elif any(k in flabel_l for k in ['customer-facing', 'partner', 'support', 'collaboration']):
+                    el.fill("Experienced in technical cross-functional collaboration, partner API integrations, and developer documentation.")
+                elif any(k in flabel_l for k in ['why', 'interest', 'cover', 'describe your experience', 'summary', 'about yourself', 'tell us']):
                     pitch = CANDIDATE["why_frontend"] if "front" in category.lower() else (CANDIDATE["why_intern"] if app_type == "INTERNSHIP" else CANDIDATE["why_automation"])
                     el.fill(pitch)
                 else:
@@ -798,6 +812,8 @@ def apply_greenhouse(page, item):
                             el.fill("2026-10-15")
                         elif any(k in flabel_l for k in ['url', 'link', 'portfolio', 'web']):
                             el.fill(CANDIDATE["portfolio"])
+                        elif tag == 'TEXTAREA':
+                            el.fill("Software systems engineering undergraduate (B.Sc. Hons Software Systems & Automation) with a public GitHub track record in Next.js/React, TypeScript, Python, and cloud automation. Committed to writing clean, maintainable, tested code and delivering reliable software in fast-paced engineering teams.")
                         elif '?' in flabel or any(k in flabel_l for k in ['are you', 'do you', 'can you', 'have you', 'will you']):
                             el.fill("Yes")
                         else:
@@ -1367,7 +1383,7 @@ def apply_ashby(page, item):
 
     # Grace period for proxy latency before declaring dead
     if page.locator('input').count() == 0:
-        page.wait_for_timeout(3500)
+        page.wait_for_timeout(1200)
 
     if page.locator('input').count() == 0:
         print(f"[-] No form inputs found after hydration wait (job closed or expired)")
@@ -1379,7 +1395,7 @@ def apply_ashby(page, item):
         try:
             finp.set_input_files(RESUME_PATH)
             print("[+] Resume attached to file input")
-            page.wait_for_timeout(800)
+            page.wait_for_timeout(200)
         except Exception:
             pass
 
@@ -1394,13 +1410,6 @@ def apply_ashby(page, item):
                 if not digits or int(digits) < 10:
                     digits = "5000" if app_type == "INTERNSHIP" else "85000"
                 el.fill(digits)
-            elif len(str(val)) < 40 and random.random() < 0.5:
-                try:
-                    el.click()
-                    el.fill('')
-                    el.press_sequentially(str(val), delay=random.randint(15, 35))
-                except Exception:
-                    el.fill(str(val))
             else:
                 el.fill(str(val))
             return True

@@ -2,7 +2,7 @@ name: Autonomous Job & Internship Cloud Fleet
 
 on:
   schedule:
-    - cron: '*/20 * * * *'
+    - cron: '*/15 * * * *'
   workflow_dispatch:
     inputs:
       mode:
@@ -17,7 +17,7 @@ on:
       limit:
         description: 'Max applications per run'
         required: true
-        default: '50'
+        default: '35'
         type: string
       use_warp:
         description: 'Route traffic through Cloudflare WARP SOCKS5 proxy'
@@ -35,7 +35,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        worker: [1, 2, 3, 4, 5, 6, 7, 8]
+        worker: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 
     steps:
       - name: Checkout Repository
@@ -94,7 +94,15 @@ jobs:
 
       - name: Refresh Fresh Role Queues
         run: |
-          python3 harvest_all_cloud_targets.py
+          python3 -c "
+          import json, os, subprocess
+          path = 'live_fresh_verified_roles.json'
+          if not os.path.exists(path) or len(json.load(open(path))) < 200:
+              print('[*] Role queue low; running full target harvest...')
+              subprocess.run(['python3', 'harvest_all_cloud_targets.py'], check=True)
+          else:
+              print(f'[+] Role queue pre-populated with {len(json.load(open(path)))} verified roles. Instant start.')
+          "
 
       - name: Run Unified Verified Application Engine
         env:
@@ -102,9 +110,9 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           MODE="${{ github.event.inputs.mode || 'all' }}"
-          LIMIT="${{ github.event.inputs.limit || '50' }}"
-          echo "[*] Executing verified submission engine: mode=$MODE limit=$LIMIT worker=${{ matrix.worker }}/8 $PROXY_ARG"
-          python3 -u run_unified_verified_engine.py --mode "$MODE" --limit "$LIMIT" --worker-id ${{ matrix.worker }} --total-workers 8 $PROXY_ARG
+          LIMIT="${{ github.event.inputs.limit || '35' }}"
+          echo "[*] Executing verified submission engine: mode=$MODE limit=$LIMIT worker=${{ matrix.worker }}/16 $PROXY_ARG"
+          python3 -u run_unified_verified_engine.py --mode "$MODE" --limit "$LIMIT" --worker-id ${{ matrix.worker }} --total-workers 16 $PROXY_ARG
 
       - name: Audit Conversion Performance via IMAP Confirmation Receipts
         env:
