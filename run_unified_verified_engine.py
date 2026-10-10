@@ -641,6 +641,11 @@ def fill_greenhouse_combobox(page, inp, label_text):
                     page.wait_for_timeout(250)
                     return True
             elif t_low == 'india':
+                try:
+                    inp.press_sequentially('India', delay=40)
+                    page.wait_for_timeout(300)
+                except Exception:
+                    pass
                 for opt_el in menu.locator('div, li, [role="option"]').all():
                     txt = opt_el.inner_text().strip().lower()
                     if any(bad in txt for bad in ['british', 'ocean', 'diego', 'territory']):
@@ -649,16 +654,26 @@ def fill_greenhouse_combobox(page, inp, label_text):
                         opt_el.click()
                         page.wait_for_timeout(250)
                         return True
-            elif 'baba farid' in t_low or 'other' in t_low:
-                try:
-                    inp.fill("")
-                    inp.press_sequentially("Other", delay=60)
-                    page.wait_for_timeout(400)
-                except Exception:
-                    pass
+            elif 'other' in t_low or 'school' in t_low or 'baba farid' in t_low or 'institution' in t_low:
                 s_opt = menu.locator('div:has-text("Other"), [role="option"]:has-text("Other"), div:has-text("Baba Farid"), [role="option"]:has-text("Baba Farid")').first
                 if s_opt.count() > 0:
                     s_opt.click()
+                    page.wait_for_timeout(250)
+                    return True
+                first_opt = menu.locator('[role="option"]:visible').first
+                if first_opt.count() > 0:
+                    first_opt.click()
+                    page.wait_for_timeout(250)
+                    return True
+            elif 'bachelor' in t_low or 'degree' in t_low:
+                b_opt = menu.locator('div:has-text("Bachelor"), [role="option"]:has-text("Bachelor"), div:has-text("Undergraduate"), [role="option"]:has-text("Undergraduate")').first
+                if b_opt.count() > 0:
+                    b_opt.click()
+                    page.wait_for_timeout(250)
+                    return True
+                first_opt = menu.locator('[role="option"]:visible').first
+                if first_opt.count() > 0:
+                    first_opt.click()
                     page.wait_for_timeout(250)
                     return True
             elif t_low == 'yes':
@@ -679,8 +694,8 @@ def fill_greenhouse_combobox(page, inp, label_text):
                     d_opt.click()
                     page.wait_for_timeout(250)
                     return True
-            elif t_low in ['asian']:
-                a_opt = menu.locator('div:has-text("Asian"), [role="option"]:has-text("Asian")').first
+            elif any(k in t_low for k in ['asian', 'race', 'ethnicity']):
+                a_opt = menu.locator('div:has-text("Asian"), [role="option"]:has-text("Asian"), div:has-text("Decline"), [role="option"]:has-text("Decline")').first
                 if a_opt.count() > 0:
                     a_opt.click()
                     page.wait_for_timeout(250)
@@ -851,31 +866,27 @@ def apply_greenhouse(page, item):
 
     # 2. Country picker & clean phone digits
     try:
-        c = page.locator('#country, [aria-labelledby*="country-label"], [id*="select-country"], select[name*="country"]').first
+        c = page.locator('input#country, input[id="country"], select#country, select[name*="country"]').first
         if c.count() > 0 and c.is_visible():
             if c.evaluate('el => el.tagName') == 'SELECT':
                 fill_greenhouse_combobox(page, c, 'India')
             else:
-                c.focus()
-                c.fill("")
-                c.press_sequentially('India', delay=50)
-                page.wait_for_timeout(600)
+                c.click()
+                c.press_sequentially('India', delay=40)
+                page.wait_for_timeout(500)
                 ind_opt = page.locator('[id*="react-select-country-option"]:has-text("India +91"), [role="option"]:has-text("India +91")').first
-                if ind_opt.count() == 0 or not ind_opt.is_visible():
+                if ind_opt.count() > 0 and ind_opt.is_visible():
+                    ind_opt.click()
+                else:
                     for opt_el in page.locator('[role="option"]:visible, [id*="-option-"]:visible').all():
                         t = opt_el.inner_text().strip().lower()
                         if 'india' in t and not any(bad in t for bad in ['british', 'ocean', 'diego', 'territory']):
-                            ind_opt = opt_el
+                            opt_el.click()
                             break
-                if ind_opt.count() > 0 and ind_opt.is_visible():
-                    ind_opt.click()
-                    page.wait_for_timeout(300)
-                else:
-                    iti_s = page.locator('#iti-0__search-input, .iti__search-input').first
-                    if iti_s.count() > 0 and iti_s.is_visible():
-                        iti_s.fill('India')
-                        page.wait_for_timeout(300)
-                        page.locator('li.iti__country:not(.iti__hide):has-text("India")').first.click()
+                    else:
+                        page.keyboard.press("ArrowDown")
+                        page.keyboard.press("Enter")
+                page.wait_for_timeout(300)
         # Ensure phone input always has strictly pure digits 9041172159:
         p_in = page.locator('#phone, input[name="phone"], input[type="tel"]').first
         if p_in.count() > 0 and p_in.is_visible():
@@ -923,28 +934,34 @@ def apply_greenhouse(page, item):
 
     # 5. Education if present
     for fld, val in [
-        ('#school--0', CANDIDATE["school"]),
-        ('#degree--0', CANDIDATE["degree"]),
+        ('#school--0', "Other"),
+        ('#degree--0', "Bachelor"),
         ('#discipline--0', "Computer Science"),
         ('#start-month--0', "August"),
         ('#start-year--0', CANDIDATE["start_year"]),
         ('#end-month--0', "May"),
         ('#end-year--0', CANDIDATE["end_year"])
     ]:
-        loc_el = page.locator(fld).first
+        loc_el = page.locator(f'input{fld}, select{fld}, {fld}').first
         if loc_el.count() > 0 and loc_el.is_visible():
             try:
-                if loc_el.get_attribute('role') == 'combobox':
-                    loc_el.focus()
-                    loc_el.press_sequentially(val, delay=40)
-                    page.wait_for_timeout(400)
-                    c_opt = page.locator(f'[role="option"]:visible:has-text("{val}")').first
-                    if c_opt.count() > 0:
-                        c_opt.click()
+                if loc_el.get_attribute('role') == 'combobox' or loc_el.evaluate('el => el.tagName') == 'SELECT':
+                    if fld == '#school--0':
+                        loc_el.click()
+                        loc_el.press_sequentially("Other", delay=40)
+                        page.wait_for_timeout(400)
+                        loc_el.press('ArrowDown')
+                        loc_el.press('Enter')
+                        page.wait_for_timeout(300)
+                    elif fld == '#degree--0':
+                        loc_el.click()
+                        loc_el.press_sequentially("Bachelor", delay=40)
+                        page.wait_for_timeout(400)
+                        loc_el.press('ArrowDown')
+                        loc_el.press('Enter')
+                        page.wait_for_timeout(300)
                     else:
-                        page.keyboard.press("ArrowDown")
-                        page.wait_for_timeout(200)
-                        page.keyboard.press("Enter")
+                        fill_greenhouse_combobox(page, loc_el, val)
                 else:
                     loc_el.fill(val)
             except Exception:
@@ -1255,18 +1272,25 @@ def apply_greenhouse(page, item):
         for c_combo in custom_combos:
             try:
                 c_txt = c_combo.inner_text().strip().lower()
-                if any(unsel in c_txt for unsel in ['select...', 'select a', 'choose', 'select option']):
+                cid = (c_combo.get_attribute('id') or '').lower()
+                if any(unsel in c_txt for unsel in ['select...', 'select a', 'choose', 'select option', 'select a country']):
                     lbl = c_combo.locator('xpath=ancestor::div[contains(@class, "field") or contains(@class, "group") or contains(@class, "container")][1]//label').first
                     lbl_text = lbl.inner_text().strip().lower() if (lbl.count() > 0 and lbl.is_visible()) else ''
                     choice = "Yes"
-                    if any(k in lbl_text for k in ['sponsorship', 'visa', 'felony', 'relative', 'conflict', 'former', 'employee']):
+                    if any(k in lbl_text for k in ['country']) or 'country' in cid:
+                        choice = "India"
+                    elif any(k in lbl_text for k in ['school']) or 'school' in cid:
+                        choice = "Other"
+                    elif any(k in lbl_text for k in ['degree']) or 'degree' in cid:
+                        choice = "Bachelor"
+                    elif any(k in lbl_text for k in ['race', 'ethnicity', 'demographic']):
+                        choice = "Asian"
+                    elif any(k in lbl_text for k in ['sponsorship', 'visa', 'felony', 'relative', 'conflict', 'former', 'employee']):
                         choice = "No"
                     elif any(k in lbl_text for k in ['gender', 'sex']):
                         choice = "Male"
                     elif any(k in lbl_text for k in ['country', 'residence', 'nationality']):
                         choice = "India"
-                    elif any(k in lbl_text for k in ['race', 'ethnicity', 'demographic']):
-                        choice = "Asian"
                     elif any(k in lbl_text for k in ['veteran']):
                         choice = "not a protected veteran"
                     elif any(k in lbl_text for k in ['grad', 'confirm', 'certify', 'agree', 'willing', 'clearance', 'test']):
@@ -1274,6 +1298,53 @@ def apply_greenhouse(page, item):
                     fill_greenhouse_combobox(page, c_combo, choice)
             except Exception:
                 pass
+    except Exception:
+        pass
+
+    # Explicit final safety sweep for essential Greenhouse fields
+    try:
+        c_el = page.locator('input#country, input[id="country"], select#country').first
+        if c_el.count() > 0 and c_el.is_visible():
+            c_ctrl = c_el.locator('xpath=ancestor::div[contains(@class, "select__control")][1]').first
+            if c_ctrl.count() > 0 and any(u in c_ctrl.inner_text().lower() for u in ['select', 'choose', 'country']):
+                c_el.click()
+                c_el.press_sequentially('India', delay=40)
+                page.wait_for_timeout(500)
+                ind_opt = page.locator('[id*="react-select-country-option"]:has-text("India +91"), [role="option"]:has-text("India +91")').first
+                if ind_opt.count() > 0 and ind_opt.is_visible():
+                    ind_opt.click()
+                else:
+                    page.keyboard.press("ArrowDown")
+                    page.keyboard.press("Enter")
+                page.wait_for_timeout(300)
+    except Exception:
+        pass
+
+    try:
+        s_el = page.locator('input#school--0, input[id="school--0"], select#school--0').first
+        if s_el.count() > 0 and s_el.is_visible():
+            s_ctrl = s_el.locator('xpath=ancestor::div[contains(@class, "select__control")][1]').first
+            if s_ctrl.count() > 0 and any(u in s_ctrl.inner_text().lower() for u in ['select', 'choose']):
+                s_el.click()
+                s_el.press_sequentially('Other', delay=40)
+                page.wait_for_timeout(400)
+                s_el.press('ArrowDown')
+                s_el.press('Enter')
+                page.wait_for_timeout(300)
+    except Exception:
+        pass
+
+    try:
+        d_el = page.locator('input#degree--0, input[id="degree--0"], select#degree--0').first
+        if d_el.count() > 0 and d_el.is_visible():
+            d_ctrl = d_el.locator('xpath=ancestor::div[contains(@class, "select__control")][1]').first
+            if d_ctrl.count() > 0 and any(u in d_ctrl.inner_text().lower() for u in ['select', 'choose']):
+                d_el.click()
+                d_el.press_sequentially('Bachelor', delay=40)
+                page.wait_for_timeout(400)
+                d_el.press('ArrowDown')
+                d_el.press('Enter')
+                page.wait_for_timeout(300)
     except Exception:
         pass
 
