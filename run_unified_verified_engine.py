@@ -645,9 +645,21 @@ def fill_greenhouse_combobox(page, inp, label_text):
                     page.wait_for_timeout(250)
                     return True
             elif t_low == 'yes':
-                y_opt = menu.locator('div:has-text("Yes"), [role="option"]:has-text("Yes"), div:has-text("Willing"), [role="option"]:has-text("Willing"), div:has-text("Open to"), [role="option"]:has-text("Open to"), div:has-text("Agree"), [role="option"]:has-text("Agree")').first
+                y_opt = menu.locator('div:has-text("Yes"), [role="option"]:has-text("Yes"), div:has-text("Willing"), [role="option"]:has-text("Willing"), div:has-text("Open to"), [role="option"]:has-text("Open to"), div:has-text("Agree"), [role="option"]:has-text("Agree"), div:has-text("I confirm"), [role="option"]:has-text("I confirm"), div:has-text("Confirm"), [role="option"]:has-text("Confirm")').first
                 if y_opt.count() > 0:
                     y_opt.click()
+                    page.wait_for_timeout(250)
+                    return True
+            elif t_low == 'no':
+                n_opt = menu.locator('div:has-text("No"):not(:has-text("Notice")), [role="option"]:has-text("No"):not(:has-text("Notice")), div:has-text("I do not"), [role="option"]:has-text("I do not"), div:has-text("None"), [role="option"]:has-text("None")').first
+                if n_opt.count() > 0:
+                    n_opt.click()
+                    page.wait_for_timeout(250)
+                    return True
+            elif t_low in ['decline', 'prefer not to say']:
+                d_opt = menu.locator('div:has-text("Decline"), [role="option"]:has-text("Decline"), div:has-text("Prefer not to"), [role="option"]:has-text("Prefer not to"), div:has-text("I do not wish"), [role="option"]:has-text("I do not wish")').first
+                if d_opt.count() > 0:
+                    d_opt.click()
                     page.wait_for_timeout(250)
                     return True
             else:
@@ -940,7 +952,38 @@ def apply_greenhouse(page, item):
                 continue
 
             if role == 'combobox' or tag == 'SELECT':
-                fill_greenhouse_combobox(page, el.first, flabel)
+                choice = "Yes"
+                if any(k in flabel_l for k in [
+                    'sponsorship', 'require sponsorship', 'require visa',
+                    'relatives', 'family', 'conflict', 'non-compete',
+                    'felony', 'convicted', 'crime', 'investigation',
+                    'former employee', 'prior employee', 'worked at', 'worked for'
+                ]):
+                    choice = "No"
+                elif any(k in flabel_l for k in ['gender', 'sex']):
+                    choice = "Male"
+                elif any(k in flabel_l for k in ['pronoun']):
+                    choice = "He / Him"
+                elif any(k in flabel_l for k in ['country', 'residence', 'nationality']):
+                    choice = "India"
+                elif any(k in flabel_l for k in ['veteran']):
+                    choice = "Decline"
+                elif any(k in flabel_l for k in ['disability']):
+                    choice = "Decline"
+                elif any(k in flabel_l for k in ['hispanic', 'latino', 'race', 'ethnicity']):
+                    choice = "No"
+                elif any(k in flabel_l for k in ['school', 'university', 'college', 'institution']):
+                    choice = CANDIDATE["school"]
+                elif any(k in flabel_l for k in ['degree']):
+                    choice = CANDIDATE["degree"]
+                elif any(k in flabel_l for k in [
+                    'confirm', 'agree', 'certify', 'authorized', 'eligible',
+                    'relocate', 'commute', 'hybrid', 'willing', 'graduation',
+                    'graduate', 'over 18', '18 or older', 'terms', 'privacy'
+                ]) or '?' in flabel:
+                    choice = "Yes"
+
+                fill_greenhouse_combobox(page, el.first, choice)
                 continue
 
             if ftype == 'number':
