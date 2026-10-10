@@ -466,7 +466,18 @@ existing_urls = set()
 existing_roles = set()
 existing_intern_comps = set()
 
-all_candidates = existing_live + harvested_interns + harvested_jobs
+# Ingest static vetted pools
+vetted_pools = []
+for vname in ['viable_vetted_internships.json', 'viable_vetted_remote_jobs.json', 'vetted_global_boutique_roles.json']:
+    vpath = os.path.join(BASE_DIR, vname)
+    if os.path.exists(vpath):
+        try:
+            with open(vpath) as vf:
+                vetted_pools.extend(json.load(vf))
+        except Exception:
+            pass
+
+all_candidates = existing_live + harvested_interns + harvested_jobs + vetted_pools
 new_added = 0
 
 for item in all_candidates:

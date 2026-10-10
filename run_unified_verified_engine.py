@@ -730,18 +730,20 @@ def apply_greenhouse(page, item):
                 jid = m_jid.group(1)
                 slug = company.lower().replace(' ', '')
 
-        gh_iframe = page.locator('iframe[src*="greenhouse.io"], iframe#grnh_iframe').first
-        if gh_iframe.count() > 0:
-            iframe_src = gh_iframe.get_attribute('src')
-            if iframe_src:
-                print(f"[*] Detected Greenhouse iframe; navigating directly to native embed: {iframe_src}")
-                page.goto(iframe_src, wait_until='domcontentloaded', timeout=9000)
+        # Only look for embedded iframe if we are NOT already on greenhouse.io:
+        if 'greenhouse.io' not in page.url.lower():
+            gh_iframe = page.locator('iframe#grnh_iframe, iframe[src*="boards.greenhouse.io"], iframe[src*="job-boards.greenhouse.io"]').first
+            if gh_iframe.count() > 0:
+                iframe_src = gh_iframe.get_attribute('src') or ''
+                if iframe_src and 'greenhouse.io' in iframe_src and 'googleapis.com' not in iframe_src:
+                    print(f"[*] Detected Greenhouse iframe on external site; navigating directly to native embed: {iframe_src}")
+                    page.goto(iframe_src, wait_until='domcontentloaded', timeout=9000)
+                    page.wait_for_timeout(1000)
+            elif slug and jid:
+                direct_embed = f"https://job-boards.greenhouse.io/embed/job_app?for={slug}&token={jid}"
+                print(f"[*] Canonical redirect detected ({page.url}); loading native embed: {direct_embed}")
+                page.goto(direct_embed, wait_until='domcontentloaded', timeout=9000)
                 page.wait_for_timeout(1000)
-        elif 'greenhouse.io' not in page.url.lower() and slug and jid:
-            direct_embed = f"https://job-boards.greenhouse.io/embed/job_app?for={slug}&token={jid}"
-            print(f"[*] Canonical redirect detected ({page.url}); loading native embed: {direct_embed}")
-            page.goto(direct_embed, wait_until='domcontentloaded', timeout=9000)
-            page.wait_for_timeout(1000)
     except Exception:
         pass
 
