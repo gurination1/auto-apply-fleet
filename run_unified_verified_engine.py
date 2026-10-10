@@ -838,15 +838,18 @@ def apply_greenhouse(page, item):
     if loc.count() > 0 and loc.is_visible():
         try:
             loc.click()
+            loc.fill("")
             loc.press_sequentially("Ludhiana", delay=80)
-            page.wait_for_timeout(800)
-            l_opt = page.locator('[id*="react-select-candidate-location-option"]:has-text("Ludhiana, Punjab")').first
-            if l_opt.count() == 0:
-                l_opt = page.locator('[id*="react-select-candidate-location-option"]').first
-            if l_opt.count() > 0:
+            page.wait_for_timeout(900)
+            l_opt = page.locator('[role="option"]:has-text("Ludhiana"), [id*="-option-"]:has-text("Ludhiana"), [id*="react-select-candidate-location-option"]:has-text("Ludhiana, Punjab")').first
+            if l_opt.count() == 0 or not l_opt.is_visible():
+                l_opt = page.locator('[role="option"], [id*="-option-"], [class*="option"]').first
+            if l_opt.count() > 0 and l_opt.is_visible():
                 l_opt.click()
             else:
-                loc.press('Enter')
+                page.keyboard.press("ArrowDown")
+                page.wait_for_timeout(200)
+                page.keyboard.press("Enter")
         except Exception:
             pass
 
@@ -997,9 +1000,9 @@ def apply_greenhouse(page, item):
                 elif any(k in flabel_l for k in ['computer', 'operating system', 'device', 'workstation']) or re.search(r'\b(os|mac|linux|pc)\b', flabel_l):
                     el.fill("Linux / Mac")
                 elif any(k in flabel_l for k in ['start date year', 'start year']):
-                    el.fill("2023")
+                    el.fill(CANDIDATE["start_year"])
                 elif any(k in flabel_l for k in ['end date year', 'end year']):
-                    el.fill("2024")
+                    el.fill(CANDIDATE["end_year"])
                 elif any(k in flabel_l for k in ['company name', 'employer', 'current company', 'previous company']):
                     el.fill("Independent Builder / Self-Employed")
                 elif any(k in flabel_l for k in ['job title', 'title', 'position']):
