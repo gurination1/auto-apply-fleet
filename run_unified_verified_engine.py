@@ -470,11 +470,14 @@ def fetch_greenhouse_otp(company_name=None, min_timestamp=None, max_wait=12):
     return None
 
 def fill_greenhouse_combobox(page, inp, label_text):
-    label_lower = (label_text or '').lower()
+    label_lower = (label_text or '').lower().strip()
     
     target_choice = None
+    # 0. If direct choice was passed directly:
+    if label_lower in ['india', 'yes', 'no', 'male', 'female', 'asian', 'decline', 'bachelor', 'he / him', 'he/him', 'other', 'not a protected veteran']:
+        target_choice = label_text.strip()
     # 1. Negative / Disqualification questions -> 'No' / 'None'
-    if any(k in label_lower for k in [
+    elif any(k in label_lower for k in [
         'sponsorship', 'visa', 'require sponsorship', 'require visa', 'need visa',
         'employee', 'currently employed', 'current employee', 'currently work', 'worked at', 'worked for',
         'previous', 'prior employee', 'former employee', 'consulted for', 'internal candidate', 'internal applicant',
@@ -958,12 +961,16 @@ def apply_greenhouse(page, item):
                 const ariaLabel = (el.getAttribute('aria-label') || '').toLowerCase();
                 const ctx = id + ' ' + name + ' ' + placeholder + ' ' + ariaLabel;
 
-                // Strictly skip basic candidate identity fields
+                // Strictly skip basic candidate identity & education fields (handled specifically)
                 if (el.type === 'hidden' ||
                     ctx.includes('first_name') || ctx.includes('first name') ||
                     ctx.includes('last_name') || ctx.includes('last name') ||
                     ctx.includes('preferred') || ctx.includes('middle_name') ||
                     ctx.includes('email') || ctx.includes('phone') || ctx.includes('telephone') ||
+                    ctx.includes('country') || ctx.includes('candidate-location') ||
+                    ctx.includes('school') || ctx.includes('degree') || ctx.includes('discipline') ||
+                    ctx.includes('start-month') || ctx.includes('start-year') ||
+                    ctx.includes('end-month') || ctx.includes('end-year') ||
                     ctx.includes('resume') || ctx.includes('cover_letter')) return;
 
                 const label = document.querySelector('label[for="' + el.id + '"]') || (el.closest('div') ? el.closest('div').querySelector('label') : null);
@@ -1032,13 +1039,19 @@ def apply_greenhouse(page, item):
                 continue
 
             if ftype == 'number':
-                if 'year' in flabel_l:
-                    el.fill("2026")
+                if any(bad in fid for bad in ['start-year', 'end-year']):
+                    continue
+                if 'start' in flabel_l and 'year' in flabel_l:
+                    el.fill("2023")
+                elif 'end' in flabel_l and 'year' in flabel_l:
+                    el.fill("2027")
+                elif 'year' in flabel_l:
+                    el.fill("2027")
                 elif 'month' in flabel_l:
-                    el.fill("10")
+                    el.fill("8")
                 elif 'day' in flabel_l:
                     el.fill("15")
-                elif any(k in flabel_l for k in ['year', 'experience', 'how many']):
+                elif any(k in flabel_l for k in ['experience', 'how many']):
                     el.fill("2")
                 elif any(k in flabel_l for k in ['gpa', 'grade']):
                     el.fill("3.8")
