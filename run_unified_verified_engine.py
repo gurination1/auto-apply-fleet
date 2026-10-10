@@ -638,8 +638,14 @@ def fill_greenhouse_combobox(page, inp, label_text):
                         opt_el.click()
                         page.wait_for_timeout(250)
                         return True
-            elif 'baba farid' in t_low:
-                s_opt = menu.locator('div:has-text("Baba Farid"), [role="option"]:has-text("Baba Farid"), div:has-text("Other"), [role="option"]:has-text("Other")').first
+            elif 'baba farid' in t_low or 'other' in t_low:
+                try:
+                    inp.fill("")
+                    inp.press_sequentially("Other", delay=60)
+                    page.wait_for_timeout(400)
+                except Exception:
+                    pass
+                s_opt = menu.locator('div:has-text("Other"), [role="option"]:has-text("Other"), div:has-text("Baba Farid"), [role="option"]:has-text("Baba Farid")').first
                 if s_opt.count() > 0:
                     s_opt.click()
                     page.wait_for_timeout(250)
@@ -791,7 +797,7 @@ def apply_greenhouse(page, item):
             ('#preferred_name, input[name*="preferred"], input[id*="preferred"], input[aria-label*="preferred name" i]', CANDIDATE["first_name"]),
             ('#middle_name, input[name*="middle_name"], input[id*="middle_name"]', "Jeet"),
             ('#email, input[name="email"], input[name*="email"], input[type="email"], input[id*="email"], input[autocomplete="email"], input[aria-label*="email" i]', CANDIDATE["email"]),
-            ('#phone, input[name="phone"], input[name*="phone"], input[type="tel"], input[id*="phone"], input[autocomplete="tel"], input[aria-label*="phone" i]', CANDIDATE["phone"]),
+            ('#phone, input[name="phone"], input[name*="phone"], input[type="tel"], input[id*="phone"], input[autocomplete="tel"], input[aria-label*="phone" i]', "9041172159"),
             ('input[id*="full_name"], input[name*="full_name"], input[id*="legal_name"], input[name*="legal_name"], input[aria-label*="legal name" i], input[aria-label*="full name" i]', CANDIDATE["name"]),
             ('input[id*="linkedin"], input[name*="linkedin"], input[aria-label*="linkedin" i]', CANDIDATE["linkedin"]),
             ('input[id*="github"], input[name*="github"], input[aria-label*="github" i]', CANDIDATE["github"]),
@@ -819,29 +825,36 @@ def apply_greenhouse(page, item):
     # 1. Fill basic inputs initially
     ensure_greenhouse_basics()
 
-    # 2. Country picker
+    # 2. Country picker & clean phone digits
     try:
-        c = page.locator('#country, select[name*="country"], [id*="select-country"], [aria-label*="country" i]').first
+        c = page.locator('#country, [aria-labelledby*="country-label"], [id*="select-country"], select[name*="country"]').first
         if c.count() > 0 and c.is_visible():
             if c.evaluate('el => el.tagName') == 'SELECT':
-                fill_greenhouse_combobox(page, c, 'country')
+                fill_greenhouse_combobox(page, c, 'India')
             else:
                 c.click(timeout=1000)
+                page.wait_for_timeout(250)
+                c.fill("")
                 c.press_sequentially('India', delay=80)
-                page.wait_for_timeout(600)
-                for o in page.locator('[id*="react-select-country-option"], [role="option"]:has-text("India"), div:has-text("India")').all():
-                    txt = o.inner_text().strip().lower()
-                    if any(bad in txt for bad in ['british', 'ocean', 'diego', 'territory']):
-                        continue
-                    if 'india' in txt:
-                        o.click()
-                        break
-        # Verify phone is clean after country selection
+                page.wait_for_timeout(800)
+                ind_opt = page.locator('[role="option"]:has-text("India (+91)"), [id*="-option-"]:has-text("India (+91)"), [role="option"]:has-text("India"), [id*="-option-"]:has-text("India")').first
+                if ind_opt.count() > 0 and ind_opt.is_visible():
+                    ind_opt.click()
+                else:
+                    c.fill("")
+                    c.press_sequentially('+91', delay=80)
+                    page.wait_for_timeout(600)
+                    p91_opt = page.locator('[role="option"]:has-text("+91"), [id*="-option-"]:has-text("+91")').first
+                    if p91_opt.count() > 0 and p91_opt.is_visible():
+                        p91_opt.click()
+                    else:
+                        page.keyboard.press("ArrowDown")
+                        page.wait_for_timeout(200)
+                        page.keyboard.press("Enter")
+        # Ensure phone input always has strictly pure digits 9041172159:
         p_in = page.locator('#phone, input[name="phone"], input[type="tel"]').first
         if p_in.count() > 0 and p_in.is_visible():
-            cur_p = p_in.input_value()
-            if '246' in cur_p or 'too long' in page.locator('body').inner_text().lower():
-                p_in.fill("9041172159")
+            p_in.fill("9041172159")
     except Exception:
         pass
 
@@ -896,7 +909,7 @@ def apply_greenhouse(page, item):
         if loc_el.count() > 0 and loc_el.is_visible():
             try:
                 if loc_el.get_attribute('role') == 'combobox':
-                    fill_greenhouse_combobox(page, loc_el, fld)
+                    fill_greenhouse_combobox(page, loc_el, val)
                 else:
                     loc_el.fill(val)
             except Exception:
@@ -1022,12 +1035,16 @@ def apply_greenhouse(page, item):
                     el.fill(CANDIDATE["portfolio"])
                 elif any(k in flabel_l for k in ['open source', 'sample', 'project', 'repository']):
                     el.fill(CANDIDATE["github"])
+                elif any(k in flabel_l for k in ['gpa', 'grade', 'cgpa', 'percentage']):
+                    el.fill("8.8/10 (3.8/4.0)")
+                elif any(k in flabel_l for k in ['highest level of education', 'level of education', 'degree']):
+                    el.fill(CANDIDATE["degree"])
                 elif any(k in flabel_l for k in ['school', 'university', 'college', 'institution']):
                     el.fill(CANDIDATE["school"])
-                elif any(k in flabel_l for k in ['degree']):
-                    el.fill(CANDIDATE["degree"])
                 elif any(k in flabel_l for k in ['discipline', 'major', 'field of study']):
                     el.fill(CANDIDATE["discipline"])
+                elif any(k in flabel_l for k in ['security clearance', 'active clearance', 'clearance']):
+                    el.fill("No active security clearance; eligible for background checks.")
                 elif any(k in flabel_l for k in ['grad', 'graduation']):
                     el.fill(CANDIDATE["grad_year"])
                 elif any(k in flabel_l for k in ['authorized', 'authorization', 'legally authorized', 'eligible to work']):
@@ -1204,8 +1221,15 @@ def apply_greenhouse(page, item):
 
     page.wait_for_timeout(1000)
 
-    # Re-verify all basic inputs right before submit (critical safety net)
-    ensure_greenhouse_basics()
+    # Final sweep: Attach verified resume to all file inputs (e.g. Transcript, Cover Letter)
+    try:
+        for fi in page.locator('input[type="file"]').all():
+            try:
+                fi.set_input_files(RESUME_PATH, timeout=2000)
+            except Exception:
+                pass
+    except Exception:
+        pass
 
     # 7. Submit Application
     btn = page.locator('#submit_app, input[id="submit_app"], button:has-text("Submit application"), button:has-text("Submit Application"), button:has-text("Submit app"), button:has-text("Submit App"), #application-form button[type="submit"], #apply_form button[type="submit"], form[action*="application"] button[type="submit"], form[action*="job"] button[type="submit"], button[data-mapped="submit"], button:has-text("Submit")').first
