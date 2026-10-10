@@ -2333,36 +2333,35 @@ def main():
                     print(f"[-] Could not load {src}: {e}")
         all_unapplied.extend(unapplied_jobs)
 
-    # Prioritize Greenhouse, Ashby, and Lever (with Cloudflare WARP proxy)
+    # Purge Lever entirely (100% failure rate on cloud due to interactive image hCaptcha puzzles)
+    all_unapplied = [it for it in all_unapplied if 'lever.co' not in (it.get('applyUrl') or it.get('url') or '')]
+    unapplied_jobs = [it for it in unapplied_jobs if 'lever.co' not in (it.get('applyUrl') or it.get('url') or '')]
+    unapplied_interns = [it for it in unapplied_interns if 'lever.co' not in (it.get('applyUrl') or it.get('url') or '')]
+
+    # Prioritize Greenhouse (95.6% confirmation rate) and Ashby (76.9% confirmation rate)
     greenhouse_jobs = [it for it in unapplied_jobs if 'greenhouse.io' in (it.get('applyUrl') or it.get('url') or '')]
     ashby_jobs = [it for it in unapplied_jobs if 'ashbyhq' in (it.get('applyUrl') or it.get('url') or '')]
-    lever_jobs = [it for it in unapplied_jobs if 'lever.co' in (it.get('applyUrl') or it.get('url') or '')]
 
     greenhouse_interns = [it for it in unapplied_interns if 'greenhouse.io' in (it.get('applyUrl') or it.get('url') or '')]
     ashby_interns = [it for it in unapplied_interns if 'ashbyhq' in (it.get('applyUrl') or it.get('url') or '')]
-    lever_interns = [it for it in unapplied_interns if 'lever.co' in (it.get('applyUrl') or it.get('url') or '')]
 
     if args.mode == 'internships':
         interleaved = []
-        max_len = max(len(greenhouse_interns), len(ashby_interns), len(lever_interns), 1)
+        max_len = max(len(greenhouse_interns), len(ashby_interns), 1)
         for idx in range(max_len):
             if idx < len(greenhouse_interns):
                 interleaved.append(greenhouse_interns[idx])
             if idx < len(ashby_interns):
                 interleaved.append(ashby_interns[idx])
-            if idx < len(lever_interns):
-                interleaved.append(lever_interns[idx])
         items = interleaved
     elif args.mode == 'jobs':
         interleaved = []
-        max_len = max(len(greenhouse_jobs), len(ashby_jobs), len(lever_jobs), 1)
+        max_len = max(len(greenhouse_jobs), len(ashby_jobs), 1)
         for idx in range(max_len):
             if idx < len(greenhouse_jobs):
                 interleaved.append(greenhouse_jobs[idx])
             if idx < len(ashby_jobs):
                 interleaved.append(ashby_jobs[idx])
-            if idx < len(lever_jobs):
-                interleaved.append(lever_jobs[idx])
         items = interleaved
     else:
         all_gh = []
@@ -2377,21 +2376,13 @@ def main():
                 all_ash.append(ashby_jobs[idx])
             if idx < len(ashby_interns):
                 all_ash.append(ashby_interns[idx])
-        all_lev = []
-        for idx in range(max(len(lever_jobs), len(lever_interns))):
-            if idx < len(lever_jobs):
-                all_lev.append(lever_jobs[idx])
-            if idx < len(lever_interns):
-                all_lev.append(lever_interns[idx])
         balanced = []
-        max_len = max(len(all_gh), len(all_ash), len(all_lev), 1)
+        max_len = max(len(all_gh), len(all_ash), 1)
         for idx in range(max_len):
             if idx < len(all_gh):
                 balanced.append(all_gh[idx])
             if idx < len(all_ash):
                 balanced.append(all_ash[idx])
-            if idx < len(all_lev):
-                balanced.append(all_lev[idx])
         items = balanced
 
     if args.total_workers > 1:
