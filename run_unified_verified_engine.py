@@ -483,10 +483,11 @@ def fill_greenhouse_combobox(page, inp, label_text):
         'disability', 'medical condition', 'hispanic', 'latino', 'transgender'
     ]):
         target_choice = 'No'
-    # 2. Positive / Authorization / Agreements -> 'Yes'
+    # 2. Positive / Authorization / Agreements / Relocation -> 'Yes'
     elif any(k in label_lower for k in [
         'authorized', 'authorization', 'legally authorized', 'eligible to work', 'work authorization',
-        'agree', 'privacy', 'acknowledge', 'certify', 'true and correct', 'terms', 'over 18', '18 or older'
+        'agree', 'privacy', 'acknowledge', 'certify', 'true and correct', 'terms', 'over 18', '18 or older',
+        'relocate', 'relocation', 'willing to relocate', 'open to relocating'
     ]):
         target_choice = 'Yes'
     # 3. Country / Location
@@ -500,7 +501,7 @@ def fill_greenhouse_combobox(page, inp, label_text):
         target_choice = 'not a protected veteran'
     # 6. Pronouns
     elif 'pronoun' in label_lower:
-        target_choice = 'He/Him'
+        target_choice = 'He / Him'
     # 7. Sexual orientation
     elif 'sexual' in label_lower:
         target_choice = 'Heterosexual'
@@ -517,6 +518,8 @@ def fill_greenhouse_combobox(page, inp, label_text):
         target_choice = '2027'
     elif any(k in label_lower for k in ['discipline', 'major', 'field']):
         target_choice = 'Computer Science'
+    elif any(k in label_lower for k in ['school', 'university', 'college', 'institution', '#school']):
+        target_choice = 'Baba Farid Group of Institutions'
 
     # 1. Native HTML SELECT
     try:
@@ -535,12 +538,30 @@ def fill_greenhouse_combobox(page, inp, label_text):
                         if re.search(r'\bmale\b', txt) and not re.search(r'\bfemale\b', txt):
                             matched_val = val
                             break
+                    elif t_low in ['he / him', 'he/him']:
+                        if any(female_k in txt for female_k in ['she', 'her']):
+                            continue
+                        if re.search(r'\bhe\s*/\s*him\b', txt) or 'he/him' in txt or 'he / him' in txt:
+                            matched_val = val
+                            break
+                    elif t_low == 'india':
+                        if any(bad in txt for bad in ['british', 'ocean', 'diego', 'territory']):
+                            continue
+                        if re.search(r'\bindia\b', txt) or txt.startswith('india'):
+                            matched_val = val
+                            break
+                    elif 'baba farid' in t_low:
+                        if 'baba farid' in txt:
+                            matched_val = val
+                            break
+                        if 'other' in txt and matched_val is None:
+                            matched_val = val
                     elif t_low == 'no':
                         if re.search(r'\bno\b|\bnone\b|\bneither\b|not a|i do not|will not|don’t', txt):
                             matched_val = val
                             break
                     elif t_low == 'yes':
-                        if re.search(r'\byes\b|i agree|authorized|confirm|certify|i acknowledge', txt):
+                        if re.search(r'\byes\b|i agree|authorized|confirm|certify|i acknowledge|willing|open to', txt):
                             matched_val = val
                             break
                     elif t_low in txt:
@@ -600,6 +621,33 @@ def fill_greenhouse_combobox(page, inp, label_text):
                 m_opt = menu.locator('div:has-text("Male"):not(:has-text("Female")), [role="option"]:has-text("Male"):not(:has-text("Female"))').first
                 if m_opt.count() > 0:
                     m_opt.click()
+                    page.wait_for_timeout(250)
+                    return True
+            elif t_low in ['he / him', 'he/him']:
+                h_opt = menu.locator('div:has-text("He / Him"), div:has-text("He/Him"), [role="option"]:has-text("He / Him"), [role="option"]:has-text("He/Him"), div:has-text("He/him"), [role="option"]:has-text("He/him")').first
+                if h_opt.count() > 0:
+                    h_opt.click()
+                    page.wait_for_timeout(250)
+                    return True
+            elif t_low == 'india':
+                for opt_el in menu.locator('div, li, [role="option"]').all():
+                    txt = opt_el.inner_text().strip().lower()
+                    if any(bad in txt for bad in ['british', 'ocean', 'diego', 'territory']):
+                        continue
+                    if 'india' in txt:
+                        opt_el.click()
+                        page.wait_for_timeout(250)
+                        return True
+            elif 'baba farid' in t_low:
+                s_opt = menu.locator('div:has-text("Baba Farid"), [role="option"]:has-text("Baba Farid"), div:has-text("Other"), [role="option"]:has-text("Other")').first
+                if s_opt.count() > 0:
+                    s_opt.click()
+                    page.wait_for_timeout(250)
+                    return True
+            elif t_low == 'yes':
+                y_opt = menu.locator('div:has-text("Yes"), [role="option"]:has-text("Yes"), div:has-text("Willing"), [role="option"]:has-text("Willing"), div:has-text("Open to"), [role="option"]:has-text("Open to"), div:has-text("Agree"), [role="option"]:has-text("Agree")').first
+                if y_opt.count() > 0:
+                    y_opt.click()
                     page.wait_for_timeout(250)
                     return True
             else:
@@ -744,6 +792,15 @@ def apply_greenhouse(page, item):
                             el.fill(val)
             except Exception:
                 pass
+        # Auto-heal phone if 'too long' error triggered
+        try:
+            p_err = page.locator('div:has-text("Phone number is too long"), p:has-text("Phone number is too long"), span:has-text("Phone number is too long")')
+            if p_err.count() > 0 and p_err.first.is_visible():
+                p_in = page.locator('#phone, input[name="phone"], input[type="tel"]').first
+                if p_in.count() > 0 and p_in.is_visible():
+                    p_in.fill("9041172159")
+        except Exception:
+            pass
 
     # 1. Fill basic inputs initially
     ensure_greenhouse_basics()
@@ -758,10 +815,19 @@ def apply_greenhouse(page, item):
                 c.click(timeout=1000)
                 c.press_sequentially('India', delay=80)
                 page.wait_for_timeout(600)
-                for o in page.locator('[id*="react-select-country-option"], [role="option"]:has-text("India")').all():
-                    if 'india' in o.inner_text().strip().lower():
+                for o in page.locator('[id*="react-select-country-option"], [role="option"]:has-text("India"), div:has-text("India")').all():
+                    txt = o.inner_text().strip().lower()
+                    if any(bad in txt for bad in ['british', 'ocean', 'diego', 'territory']):
+                        continue
+                    if 'india' in txt:
                         o.click()
                         break
+        # Verify phone is clean after country selection
+        p_in = page.locator('#phone, input[name="phone"], input[type="tel"]').first
+        if p_in.count() > 0 and p_in.is_visible():
+            cur_p = p_in.input_value()
+            if '246' in cur_p or 'too long' in page.locator('body').inner_text().lower():
+                p_in.fill("9041172159")
     except Exception:
         pass
 
@@ -922,7 +988,11 @@ def apply_greenhouse(page, item):
                     el.fill("No")
                 elif any(k in flabel_l for k in ['hear', 'how did you', 'source']):
                     el.fill("Online Job Board / Direct Application")
-                elif any(k in flabel_l for k in ['computer', 'mac', 'linux', 'pc', 'os', 'operating system', 'device']):
+                elif any(k in flabel_l for k in ['zip', 'postal', 'post code', 'zipcode', 'pincode', 'pin code']):
+                    el.fill("141001")
+                elif any(k in flabel_l for k in ['relocate', 'relocation', 'willing to relocate', 'open to relocating']):
+                    el.fill("Yes")
+                elif any(k in flabel_l for k in ['computer', 'operating system', 'device', 'workstation']) or re.search(r'\b(os|mac|linux|pc)\b', flabel_l):
                     el.fill("Linux / Mac")
                 elif any(k in flabel_l for k in ['start date year', 'start year']):
                     el.fill("2023")

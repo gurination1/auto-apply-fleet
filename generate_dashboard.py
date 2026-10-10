@@ -253,6 +253,7 @@ html = f"""<!DOCTYPE html>
       <tbody>
 """
 
+row_chunks = []
 for r in rows:
     app_id, co, title, portal, url, salary, status, proof, notes, applied_at, app_type, stipend, email_ver, email_subj, email_date, fit_score, critique = r
     badge_cls = "badge-confirmed" if "CONFIRMED" in status else "badge-pending"
@@ -267,15 +268,15 @@ for r in rows:
     critique_display = f'<span style="color:#cbd5e1; font-size:11px; line-height:1.35; display:block; max-width:280px;">{critique_text}</span>'
     
     proof_display = "-"
-    if proof and os.path.exists(proof):
-        fname = os.path.basename(proof)
-        proof_display = f'<a href="{proof}" target="_blank" class="proof-link">View PNG &rarr;</a>'
+    if proof:
+        proof_display = f'<a href="{proof}" target="_blank" class="proof-link">View Proof &rarr;</a>'
     
     email_display = '<span style="color:#64748b; font-size:11px;">Pending Delivery</span>'
     if email_ver == 1 and email_subj:
         email_display = f'<span style="color:#34d399; font-weight:700; font-size:11px;">&check; {email_subj[:40]}...</span>'
     
-    html += f"""
+    applied_time = (applied_at or "")[:19]
+    row_chunks.append(f"""
         <tr>
           <td>{app_id}</td>
           <td>{type_badge}</td>
@@ -289,10 +290,10 @@ for r in rows:
           <td>{email_display}</td>
           <td>{proof_display}</td>
           <td><a href="{url}" target="_blank" style="font-size:12px;">Link &rarr;</a></td>
-          <td style="color:#64748b; font-size:11px;">{applied_at[:19]}</td>
-        </tr>
-"""
+          <td style="color:#64748b; font-size:11px;">{applied_time}</td>
+        </tr>""")
 
+html += "".join(row_chunks)
 html += """
       </tbody>
     </table>
