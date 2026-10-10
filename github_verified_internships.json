@@ -1,16 +1,5 @@
 [
   {
-    "company": "GCM Grosvenor",
-    "title": "Software Engineer Intern",
-    "applyUrl": "https://job-boards.greenhouse.io/gcmgrosvenor/jobs/8015792003?utm_source=Simplify&ref=Simplify",
-    "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$5,000 - $9,000 / mo USD",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
     "company": "Ada",
     "title": "DevOps Intern",
     "applyUrl": "https://job-boards.greenhouse.io/ada18/jobs/4934925007",
@@ -20,17 +9,6 @@
     "stipend": "$4,500 - $8,000 / mo USD",
     "fit_score": 96,
     "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
-    "company": "Tenet3",
-    "title": "Software Developer Intern - Full Stack",
-    "applyUrl": "https://job-boards.greenhouse.io/tenet3/jobs/8878874002?utm_source=Simplify&ref=Simplify",
-    "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$5,000 - $8,500 / mo USD",
-    "fit_score": 98,
-    "critique_reason": "Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score)."
   },
   {
     "company": "StackAdapt",
