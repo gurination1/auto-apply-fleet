@@ -166,14 +166,11 @@ for src in TARGET_SOURCES:
                         seen_urls.add(nu)
                         continue
                     
-                    if 'lever.co' in u:
-                        continue
-
                     score, reason = critique_application(comp, title)
-                    if score < 80:
+                    if score < 75:
                         continue
                     
-                    portal = 'Greenhouse' if 'greenhouse.io' in u else 'Ashby'
+                    portal = 'Greenhouse' if 'greenhouse.io' in u else ('Lever' if 'lever.co' in u else 'Ashby')
                     if portal == 'Ashby' and not is_ashby_active(u):
                         seen_urls.add(nu)
                         continue
@@ -228,14 +225,11 @@ for src in TARGET_SOURCES:
                         seen_urls.add(nu)
                         continue
                     
-                    if 'lever.co' in u:
-                        continue
-
                     score, reason = critique_application(comp, title)
-                    if score < 80:
+                    if score < 75:
                         continue
                     
-                    portal = 'Greenhouse' if 'greenhouse.io' in u else 'Ashby'
+                    portal = 'Greenhouse' if 'greenhouse.io' in u else ('Lever' if 'lever.co' in u else 'Ashby')
                     if portal == 'Ashby' and not is_ashby_active(u):
                         seen_urls.add(nu)
                         continue
@@ -270,8 +264,10 @@ from concurrent.futures import ThreadPoolExecutor
 # Ingest curated repository of 1,531+ verified ATS boards
 ashby_targets = [] # list of dicts {"company": ..., "slug": ...}
 gh_targets = []    # list of dicts {"company": ..., "slug": ...}
+lever_targets = [] # list of dicts {"company": ..., "slug": ...}
 seen_ashby_slugs = set()
 seen_gh_slugs = set()
+seen_lever_slugs = set()
 
 try:
     print("[*] Fetching comprehensive company catalog from JobsBuddy...")
@@ -289,7 +285,10 @@ try:
             elif ats_type == 'greenhouse' and slug not in seen_gh_slugs:
                 gh_targets.append({'company': comp_name, 'slug': slug})
                 seen_gh_slugs.add(slug)
-    print(f"    [+] Loaded {len(ashby_targets)} Ashby and {len(gh_targets)} Greenhouse companies from JobsBuddy.")
+            elif ats_type == 'lever' and slug not in seen_lever_slugs:
+                lever_targets.append({'company': comp_name, 'slug': slug})
+                seen_lever_slugs.add(slug)
+    print(f"    [+] Loaded {len(ashby_targets)} Ashby, {len(gh_targets)} Greenhouse, and {len(lever_targets)} Lever companies from JobsBuddy.")
 except Exception as e:
     print(f"    [-] Failed to load JobsBuddy catalog: {e}")
 
@@ -437,9 +436,49 @@ def fetch_ash(item):
     except Exception:
         pass
 
-with ThreadPoolExecutor(max_workers=30) as ex:
+def fetch_lever(item):
+    slug = item['slug']
+    c_name = item['company']
+    try:
+        r = requests.get(f'https://api.lever.co/v0/postings/{slug}?mode=json', timeout=6)
+        if r.status_code == 200:
+            for j in r.json():
+                t = (j.get('text') or '').strip()
+                u = j.get('hostedUrl') or ''
+                if not u: continue
+                nu = clean_norm_url(u)
+                if not nu or nu in seen_urls: continue
+                if is_already_confirmed(u, c_name, t):
+                    seen_urls.add(nu)
+                    continue
+
+                score, reason = critique_application(c_name, t)
+                if score < 75: continue
+
+                is_intern = bool(re.search(r'\b(intern|internship|co-op|coop|apprentice)\b', t.lower()))
+                seen_urls.add(nu)
+                job_data = {
+                    'company': c_name,
+                    'title': t,
+                    'applyUrl': u,
+                    'portal_type': 'Lever',
+                    'is_internship': is_intern,
+                    'category': 'INTERNSHIP' if is_intern else 'JOB',
+                    'stipend': '$5,000 - $8,500 / mo USD' if is_intern else '$85,000 - $125,000 USD / year',
+                    'fit_score': score,
+                    'critique_reason': reason
+                }
+                if is_intern:
+                    harvested_interns.append(job_data)
+                else:
+                    harvested_jobs.append(job_data)
+    except Exception:
+        pass
+
+with ThreadPoolExecutor(max_workers=35) as ex:
     ex.map(fetch_gh, gh_targets)
     ex.map(fetch_ash, ashby_targets)
+    ex.map(fetch_lever, lever_targets)
 
 print(f"\n[+] Total New Harvested: {len(harvested_interns)} Internships, {len(harvested_jobs)} Jobs.")
 
@@ -484,7 +523,7 @@ for item in all_candidates:
     u = item.get('applyUrl') or item.get('url') or ''
     c_name = item.get('company') or ''
     t = item.get('title') or ''
-    if not u or 'lever.co' in u:
+    if not u:
         continue
     nu = clean_norm_url(u)
     nc = clean_norm_company(c_name)
@@ -498,7 +537,7 @@ for item in all_candidates:
     if is_already_confirmed(u, c_name, t):
         continue
     score, reason = critique_application(c_name, t)
-    if score < 80:
+    if score < 75:
         continue
     
     existing_urls.add(nu)
