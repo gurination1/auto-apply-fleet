@@ -483,11 +483,14 @@ def fill_greenhouse_combobox(page, inp, label_text):
         'disability', 'medical condition', 'hispanic', 'latino', 'transgender'
     ]):
         target_choice = 'No'
-    # 2. Positive / Authorization / Agreements / Relocation -> 'Yes'
+    # 2. Positive / Authorization / Agreements / Relocation / Confirmation -> 'Yes'
     elif any(k in label_lower for k in [
         'authorized', 'authorization', 'legally authorized', 'eligible to work', 'work authorization',
         'agree', 'privacy', 'acknowledge', 'certify', 'true and correct', 'terms', 'over 18', '18 or older',
-        'relocate', 'relocation', 'willing to relocate', 'open to relocating'
+        'relocate', 'relocation', 'willing to relocate', 'open to relocating',
+        'confirm', 'graduation date', 'graduate', 'graduation', 'drug test', 'background check',
+        'background screening', 'willing to submit', 'fluent', 'english', 'full-time', 'able to work',
+        'available', 'open to', 'willing to'
     ]):
         target_choice = 'Yes'
     # 3. Country / Location
@@ -598,22 +601,27 @@ def fill_greenhouse_combobox(page, inp, label_text):
 
     # 2. React-Select / ARIA Combobox
     try:
-        parent_ctrl = inp.locator('xpath=ancestor-or-self::div[contains(@class, "select__control") or contains(@class, "combobox")][1]').first
-        if parent_ctrl.count() > 0 and parent_ctrl.is_visible():
-            parent_ctrl.click(timeout=1500)
-        else:
-            inp.click(timeout=1500)
+        inp.focus()
+        inp.press('ArrowDown')
         page.wait_for_timeout(350)
     except Exception:
-        try:
-            inp.focus()
-            inp.press('ArrowDown')
-        except Exception:
-            return False
-    
+        pass
+
     ctrl = inp.get_attribute('aria-controls')
     menu = page.locator(f'[id="{ctrl}"]') if ctrl else page.locator('.select__menu, .select__menu-list, div[class*="-menu"], [role="listbox"]:visible, [id*="listbox"]:visible').first
-        
+
+    if menu.count() == 0 or not menu.is_visible():
+        try:
+            parent_ctrl = inp.locator('xpath=ancestor-or-self::div[contains(@class, "select__control") or contains(@class, "combobox")][1]').first
+            if parent_ctrl.count() > 0 and parent_ctrl.is_visible():
+                parent_ctrl.click(timeout=1500)
+            else:
+                inp.click(timeout=1500)
+            page.wait_for_timeout(350)
+        except Exception:
+            pass
+        menu = page.locator(f'[id="{ctrl}"]') if ctrl else page.locator('.select__menu, .select__menu-list, div[class*="-menu"], [role="listbox"]:visible, [id*="listbox"]:visible').first
+
     if menu.count() > 0:
         if target_choice:
             t_low = target_choice.lower()
@@ -651,7 +659,7 @@ def fill_greenhouse_combobox(page, inp, label_text):
                     page.wait_for_timeout(250)
                     return True
             elif t_low == 'yes':
-                y_opt = menu.locator('div:has-text("Yes"), [role="option"]:has-text("Yes"), div:has-text("Willing"), [role="option"]:has-text("Willing"), div:has-text("Open to"), [role="option"]:has-text("Open to"), div:has-text("Agree"), [role="option"]:has-text("Agree"), div:has-text("I confirm"), [role="option"]:has-text("I confirm"), div:has-text("Confirm"), [role="option"]:has-text("Confirm")').first
+                y_opt = menu.locator('div:has-text("Yes"), [role="option"]:has-text("Yes"), div:has-text("Willing"), [role="option"]:has-text("Willing"), div:has-text("Open to"), [role="option"]:has-text("Open to"), div:has-text("Agree"), [role="option"]:has-text("Agree"), div:has-text("I confirm"), [role="option"]:has-text("I confirm"), div:has-text("Confirm"), [role="option"]:has-text("Confirm"), div:has-text("I Acknowledge"), [role="option"]:has-text("I Acknowledge"), div:has-text("Acknowledge"), [role="option"]:has-text("Acknowledge")').first
                 if y_opt.count() > 0:
                     y_opt.click()
                     page.wait_for_timeout(250)
@@ -668,6 +676,12 @@ def fill_greenhouse_combobox(page, inp, label_text):
                     d_opt.click()
                     page.wait_for_timeout(250)
                     return True
+            elif t_low in ['asian']:
+                a_opt = menu.locator('div:has-text("Asian"), [role="option"]:has-text("Asian")').first
+                if a_opt.count() > 0:
+                    a_opt.click()
+                    page.wait_for_timeout(250)
+                    return True
             else:
                 opt = menu.locator(f'div:has-text("{target_choice}"), li:has-text("{target_choice}"), [role="option"]:has-text("{target_choice}")').first
                 if opt.count() > 0:
@@ -675,7 +689,14 @@ def fill_greenhouse_combobox(page, inp, label_text):
                     page.wait_for_timeout(250)
                     return True
 
-        # Safe fallback: Prefer "No" or "Decline" before blindly clicking first_opt
+        # Safe fallback based on context:
+        if any(k in label_lower for k in ['confirm', 'certify', 'agree', 'acknowledge', 'willing', 'clearance', 'test', 'graduate', 'graduation', 'authorized', 'eligible']):
+            yes_fb = menu.locator('div:has-text("Yes"), li:has-text("Yes"), [role="option"]:has-text("Yes"), div:has-text("Agree"), [role="option"]:has-text("Agree")').first
+            if yes_fb.count() > 0:
+                yes_fb.click()
+                page.wait_for_timeout(250)
+                return True
+
         no_opt = menu.locator('div:has-text("No"), li:has-text("No"), [role="option"]:has-text("No"), div:has-text("Decline"), [role="option"]:has-text("Decline")').first
         if no_opt.count() > 0:
             no_opt.click()
@@ -832,25 +853,26 @@ def apply_greenhouse(page, item):
             if c.evaluate('el => el.tagName') == 'SELECT':
                 fill_greenhouse_combobox(page, c, 'India')
             else:
-                c.click(timeout=1000)
-                page.wait_for_timeout(250)
+                c.focus()
                 c.fill("")
-                c.press_sequentially('India', delay=80)
-                page.wait_for_timeout(800)
-                ind_opt = page.locator('[role="option"]:has-text("India (+91)"), [id*="-option-"]:has-text("India (+91)"), [role="option"]:has-text("India"), [id*="-option-"]:has-text("India")').first
+                c.press_sequentially('India', delay=50)
+                page.wait_for_timeout(600)
+                ind_opt = page.locator('[id*="react-select-country-option"]:has-text("India +91"), [role="option"]:has-text("India +91")').first
+                if ind_opt.count() == 0 or not ind_opt.is_visible():
+                    for opt_el in page.locator('[role="option"]:visible, [id*="-option-"]:visible').all():
+                        t = opt_el.inner_text().strip().lower()
+                        if 'india' in t and not any(bad in t for bad in ['british', 'ocean', 'diego', 'territory']):
+                            ind_opt = opt_el
+                            break
                 if ind_opt.count() > 0 and ind_opt.is_visible():
                     ind_opt.click()
+                    page.wait_for_timeout(300)
                 else:
-                    c.fill("")
-                    c.press_sequentially('+91', delay=80)
-                    page.wait_for_timeout(600)
-                    p91_opt = page.locator('[role="option"]:has-text("+91"), [id*="-option-"]:has-text("+91")').first
-                    if p91_opt.count() > 0 and p91_opt.is_visible():
-                        p91_opt.click()
-                    else:
-                        page.keyboard.press("ArrowDown")
-                        page.wait_for_timeout(200)
-                        page.keyboard.press("Enter")
+                    iti_s = page.locator('#iti-0__search-input, .iti__search-input').first
+                    if iti_s.count() > 0 and iti_s.is_visible():
+                        iti_s.fill('India')
+                        page.wait_for_timeout(300)
+                        page.locator('li.iti__country:not(.iti__hide):has-text("India")').first.click()
         # Ensure phone input always has strictly pure digits 9041172159:
         p_in = page.locator('#phone, input[name="phone"], input[type="tel"]').first
         if p_in.count() > 0 and p_in.is_visible():
@@ -901,15 +923,25 @@ def apply_greenhouse(page, item):
         ('#school--0', CANDIDATE["school"]),
         ('#degree--0', CANDIDATE["degree"]),
         ('#discipline--0', "Computer Science"),
+        ('#start-month--0', "August"),
         ('#start-year--0', CANDIDATE["start_year"]),
-        ('#end-year--0', CANDIDATE["end_year"]),
-        ('#end-month--0', "May")
+        ('#end-month--0', "May"),
+        ('#end-year--0', CANDIDATE["end_year"])
     ]:
         loc_el = page.locator(fld).first
         if loc_el.count() > 0 and loc_el.is_visible():
             try:
                 if loc_el.get_attribute('role') == 'combobox':
-                    fill_greenhouse_combobox(page, loc_el, val)
+                    loc_el.focus()
+                    loc_el.press_sequentially(val, delay=40)
+                    page.wait_for_timeout(400)
+                    c_opt = page.locator(f'[role="option"]:visible:has-text("{val}")').first
+                    if c_opt.count() > 0:
+                        c_opt.click()
+                    else:
+                        page.keyboard.press("ArrowDown")
+                        page.wait_for_timeout(200)
+                        page.keyboard.press("Enter")
                 else:
                     loc_el.fill(val)
             except Exception:
@@ -1211,15 +1243,21 @@ def apply_greenhouse(page, item):
             try:
                 c_txt = c_combo.inner_text().strip().lower()
                 if any(unsel in c_txt for unsel in ['select...', 'select a', 'choose', 'select option']):
-                    lbl = c_combo.locator('xpath=ancestor::div[contains(@class, "field") or contains(@class, "group")][1]//label').first
+                    lbl = c_combo.locator('xpath=ancestor::div[contains(@class, "field") or contains(@class, "group") or contains(@class, "container")][1]//label').first
                     lbl_text = lbl.inner_text().strip().lower() if (lbl.count() > 0 and lbl.is_visible()) else ''
                     choice = "Yes"
-                    if any(k in lbl_text for k in ['sponsorship', 'visa', 'felony', 'relative', 'conflict', 'former']):
+                    if any(k in lbl_text for k in ['sponsorship', 'visa', 'felony', 'relative', 'conflict', 'former', 'employee']):
                         choice = "No"
                     elif any(k in lbl_text for k in ['gender', 'sex']):
                         choice = "Male"
                     elif any(k in lbl_text for k in ['country', 'residence', 'nationality']):
                         choice = "India"
+                    elif any(k in lbl_text for k in ['race', 'ethnicity', 'demographic']):
+                        choice = "Asian"
+                    elif any(k in lbl_text for k in ['veteran']):
+                        choice = "not a protected veteran"
+                    elif any(k in lbl_text for k in ['grad', 'confirm', 'certify', 'agree', 'willing', 'clearance', 'test']):
+                        choice = "Yes"
                     fill_greenhouse_combobox(page, c_combo, choice)
             except Exception:
                 pass
@@ -1337,7 +1375,6 @@ def apply_greenhouse(page, item):
         return True
     else:
         print(f"[-] Status inconclusive on Greenhouse. Current URL: {current_url}")
-        mark_url_dead(url)
         return False
 
 def apply_lever(page, item):
