@@ -598,7 +598,7 @@ def fill_greenhouse_combobox(page, inp, label_text):
 
     # 2. React-Select / ARIA Combobox
     try:
-        parent_ctrl = inp.locator('xpath=ancestor::div[contains(@class, "select__control") or contains(@class, "combobox")][1]').first
+        parent_ctrl = inp.locator('xpath=ancestor-or-self::div[contains(@class, "select__control") or contains(@class, "combobox")][1]').first
         if parent_ctrl.count() > 0 and parent_ctrl.is_visible():
             parent_ctrl.click(timeout=1500)
         else:
@@ -612,7 +612,7 @@ def fill_greenhouse_combobox(page, inp, label_text):
             return False
     
     ctrl = inp.get_attribute('aria-controls')
-    menu = page.locator(f'[id="{ctrl}"]') if ctrl else page.locator('.select__menu, [role="listbox"]:visible, [id*="listbox"]:visible').first
+    menu = page.locator(f'[id="{ctrl}"]') if ctrl else page.locator('.select__menu, .select__menu-list, div[class*="-menu"], [role="listbox"]:visible, [id*="listbox"]:visible').first
         
     if menu.count() > 0:
         if target_choice:
@@ -682,7 +682,7 @@ def fill_greenhouse_combobox(page, inp, label_text):
             page.wait_for_timeout(250)
             return True
 
-        first_opt = menu.locator('[id*="option"], [role="option"]').first
+        first_opt = menu.locator('[id*="option"], [role="option"], div[class*="-option"], .select__option, li').first
         if first_opt.count() > 0:
             first_opt.click()
             page.wait_for_timeout(250)
@@ -1212,8 +1212,15 @@ def apply_greenhouse(page, item):
                 c_txt = c_combo.inner_text().strip().lower()
                 if any(unsel in c_txt for unsel in ['select...', 'select a', 'choose', 'select option']):
                     lbl = c_combo.locator('xpath=ancestor::div[contains(@class, "field") or contains(@class, "group")][1]//label').first
-                    lbl_text = lbl.inner_text() if (lbl.count() > 0 and lbl.is_visible()) else ''
-                    fill_greenhouse_combobox(page, c_combo, lbl_text)
+                    lbl_text = lbl.inner_text().strip().lower() if (lbl.count() > 0 and lbl.is_visible()) else ''
+                    choice = "Yes"
+                    if any(k in lbl_text for k in ['sponsorship', 'visa', 'felony', 'relative', 'conflict', 'former']):
+                        choice = "No"
+                    elif any(k in lbl_text for k in ['gender', 'sex']):
+                        choice = "Male"
+                    elif any(k in lbl_text for k in ['country', 'residence', 'nationality']):
+                        choice = "India"
+                    fill_greenhouse_combobox(page, c_combo, choice)
             except Exception:
                 pass
     except Exception:
