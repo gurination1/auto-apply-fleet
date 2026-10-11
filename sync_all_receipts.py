@@ -108,8 +108,17 @@ def sync_receipts():
                 }
                 c_words = [w for w in c_norm.split() if len(w) > 3 and w not in generic_terms]
                 
+                s_cond = s_norm.replace(' ', '')
+                f_cond = f_norm.replace(' ', '')
+                c_cond = c_norm.replace(' ', '')
+                c_root = re.sub(r'(corporation|technologies|technology|university|labs|holdings|inc|group|company|ai|solutions|systems|platform|capital)$', '', c_cond)
+                
                 matches_comp = False
                 if c_norm in s_norm or c_norm in f_norm:
+                    matches_comp = True
+                elif c_cond in s_cond or c_cond in f_cond:
+                    matches_comp = True
+                elif len(c_root) >= 4 and (c_root in s_cond or c_root in f_cond):
                     matches_comp = True
                 elif c_words and any(w in s_norm or w in f_norm for w in c_words):
                     matches_comp = True

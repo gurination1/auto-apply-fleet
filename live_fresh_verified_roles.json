@@ -23,8 +23,8 @@
   },
   {
     "company": "Sparksoftcorporation",
-    "title": "Jr. Full Stack Developer",
-    "applyUrl": "https://job-boards.greenhouse.io/sparksoftcorporation/jobs/5257361007",
+    "title": "Mid-level Full Stack Developer",
+    "applyUrl": "https://job-boards.greenhouse.io/sparksoftcorporation/jobs/5240411007",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
@@ -33,13 +33,13 @@
     "critique_reason": "Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score)."
   },
   {
-    "company": "Sparksoftcorporation",
-    "title": "Mid-level Full Stack Developer",
-    "applyUrl": "https://job-boards.greenhouse.io/sparksoftcorporation/jobs/5240411007",
+    "company": "Betterhelpcom",
+    "title": "Full Stack Software Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/betterhelpcom/jobs/5395576008",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
-    "stipend": "$85,000 - $130,000 USD / year",
+    "stipend": "$95,000 - $145,000 / yr",
     "fit_score": 98,
     "critique_reason": "Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score)."
   },
@@ -66,31 +66,9 @@
     "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
   },
   {
-    "company": "Tenstorrentuniversity",
-    "title": "AI Software Intern (Canada)",
-    "applyUrl": "https://job-boards.greenhouse.io/tenstorrentuniversity/jobs/5259347007",
-    "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$5,000 - $9,000 / mo USD",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
     "company": "Kikoff",
     "title": "Software Engineer New Grad",
     "applyUrl": "https://job-boards.greenhouse.io/kikoff/jobs/4393822009?utm_source=Simplify&ref=Simplify",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $130,000 USD / year",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
-    "company": "General Matter",
-    "title": "Software Engineer New Grad",
-    "applyUrl": "https://job-boards.greenhouse.io/generalmatter/jobs/5375987008?utm_source=Simplify&ref=Simplify",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
@@ -113,17 +91,6 @@
     "company": "Twitch",
     "title": "Software Engineer I, Commerce Engineering",
     "applyUrl": "https://job-boards.greenhouse.io/twitch/jobs/8457711002?utm_source=vansh",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $125,000 USD / year",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
-    "company": "StubHub",
-    "title": "New Grad: Software Engineer I",
-    "applyUrl": "https://job-boards.eu.greenhouse.io/stubhubinc/jobs/4749965101?utm_source=vansh",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
@@ -176,17 +143,6 @@
     "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
   },
   {
-    "company": "Sparksoftcorporation",
-    "title": "Junior DevOps Engineer",
-    "applyUrl": "https://job-boards.greenhouse.io/sparksoftcorporation/jobs/5257480007",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $130,000 USD / year",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
     "company": "Tenstorrent",
     "title": "AI Compiler Software Intern",
     "portal_type": "greenhouse",
@@ -206,26 +162,26 @@
     "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
   },
   {
-    "company": "Sparksoftcorporation",
-    "title": "Automation Tester",
-    "applyUrl": "https://job-boards.greenhouse.io/sparksoftcorporation/jobs/5221704007",
+    "company": "XTX Markets",
+    "title": "Software Engineering Intern - Summer 2026",
+    "applyUrl": "https://job-boards.greenhouse.io/xtxmarketstechnologies?keyword=intern+summer+2026&utm_source=Trackr&utm_medium=tracker&utm_campaign=UK_Technology_2026&gh_src=Trackr",
     "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $130,000 USD / year",
-    "fit_score": 92,
-    "critique_reason": "Builder fit: Proven Playwright automation, Docker, WebSockets, and GitHub Actions CI/CD."
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": "$3,500 - $7,000 / month ($22 - $45/hr USD)",
+    "fit_score": 96,
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
   },
   {
-    "company": "Sparksoftcorporation",
-    "title": "Cloud Engineer",
-    "applyUrl": "https://job-boards.greenhouse.io/sparksoftcorporation/jobs/5246375007",
+    "company": "Celonis",
+    "title": "Associate Software Engineer - Java",
+    "applyUrl": "https://job-boards.greenhouse.io/celonis/jobs/7791267003",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",
-    "stipend": "$85,000 - $130,000 USD / year",
-    "fit_score": 92,
-    "critique_reason": "Builder fit: Proven Playwright automation, Docker, WebSockets, and GitHub Actions CI/CD."
+    "stipend": "$95,000 - $145,000 / yr",
+    "fit_score": 96,
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
   },
   {
     "company": "Sparksoftcorporation",
@@ -239,15 +195,15 @@
     "critique_reason": "Builder fit: Proven Playwright automation, Docker, WebSockets, and GitHub Actions CI/CD."
   },
   {
-    "company": "Databricks",
-    "title": "Software Engineer - Database Engine Internals",
-    "applyUrl": "https://databricks.com/company/careers/open-positions/job?gh_jid=8012658002",
+    "company": "Capco",
+    "title": "Test Automation Engineer",
+    "applyUrl": "https://job-boards.greenhouse.io/capco/jobs/8185333",
     "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "5,000 - 30,000 USD / year",
-    "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "$95,000 - $145,000 / yr",
+    "fit_score": 92,
+    "critique_reason": "Builder fit: Proven Playwright automation, Docker, WebSockets, and GitHub Actions CI/CD."
   },
   {
     "company": "Canonical",
@@ -294,17 +250,6 @@
     "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
   },
   {
-    "company": "Point72",
-    "title": "Software Engineer \u2013 2026 Grad",
-    "applyUrl": "https://boards.greenhouse.io/point72/jobs/8202068002?gh_jid=8202068002",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $120,000 USD / year",
-    "fit_score": 85,
-    "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
-  },
-  {
     "company": "Scaleai",
     "title": "Infrastructure Software Engineer, Enterprise GenAI",
     "applyUrl": "https://job-boards.greenhouse.io/scaleai/jobs/4665557005",
@@ -314,39 +259,6 @@
     "stipend": "$85,000 - $130,000 USD / year",
     "fit_score": 85,
     "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
-  },
-  {
-    "company": "Databricks",
-    "title": "Software Engineer Intern",
-    "applyUrl": "https://boards.greenhouse.io/embed/job_app?token=8732364002",
-    "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$4,000 - $8,500 / month ($25 - $53/hr USD)",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
-    "company": "XTX Markets",
-    "title": "Software Engineering Intern - Summer 2026",
-    "applyUrl": "https://job-boards.greenhouse.io/xtxmarketstechnologies?keyword=intern+summer+2026&utm_source=Trackr&utm_medium=tracker&utm_campaign=UK_Technology_2026&gh_src=Trackr",
-    "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$3,500 - $7,000 / month ($22 - $45/hr USD)",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
-    "company": "Capco",
-    "title": "Test Automation Engineer",
-    "applyUrl": "https://job-boards.greenhouse.io/capco/jobs/8185333",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$95,000 - $145,000 / yr",
-    "fit_score": 92,
-    "critique_reason": "Builder fit: Proven Playwright automation, Docker, WebSockets, and GitHub Actions CI/CD."
   },
   {
     "company": "Airbnb",
@@ -360,17 +272,6 @@
     "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
   },
   {
-    "company": "Celonis",
-    "title": "Associate Software Engineer - Java",
-    "applyUrl": "https://job-boards.greenhouse.io/celonis/jobs/7791267003",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$95,000 - $145,000 / yr",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
     "company": "Commvault",
     "title": "Software Engineer (AI with Gen AI)",
     "applyUrl": "https://job-boards.greenhouse.io/commvault/jobs/5425593008",
@@ -380,17 +281,6 @@
     "stipend": "$95,000 - $145,000 / yr",
     "fit_score": 85,
     "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
-  },
-  {
-    "company": "Betterhelpcom",
-    "title": "Full Stack Software Engineer",
-    "applyUrl": "https://job-boards.greenhouse.io/betterhelpcom/jobs/5395576008",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$95,000 - $145,000 / yr",
-    "fit_score": 98,
-    "critique_reason": "Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score)."
   },
   {
     "company": "Planetscale",

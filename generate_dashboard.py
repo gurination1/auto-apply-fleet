@@ -35,13 +35,19 @@ rows = cur.fetchall()
 cur.execute('SELECT COUNT(*) FROM verified_applications WHERE email_verified = 1')
 email_verified_count = cur.fetchone()[0]
 
+cur.execute('SELECT COUNT(*) FROM verified_applications WHERE status = "ASSESSMENT_INVITED"')
+invited_count = cur.fetchone()[0]
+
+cur.execute('SELECT COUNT(*) FROM verified_applications WHERE status LIKE "REJECTED%"')
+rejected_count = cur.fetchone()[0]
+
 if has_app_type:
-    cur.execute('SELECT COUNT(*) FROM verified_applications WHERE (application_type = "JOB" OR application_type IS NULL) AND status LIKE "CONFIRMED%"')
+    cur.execute('SELECT COUNT(*) FROM verified_applications WHERE (application_type = "JOB" OR application_type IS NULL) AND (status LIKE "CONFIRMED%" OR status = "ASSESSMENT_INVITED")')
     confirmed_jobs = cur.fetchone()[0]
-    cur.execute('SELECT COUNT(*) FROM verified_applications WHERE application_type = "INTERNSHIP" AND status LIKE "CONFIRMED%"')
+    cur.execute('SELECT COUNT(*) FROM verified_applications WHERE application_type = "INTERNSHIP" AND (status LIKE "CONFIRMED%" OR status = "ASSESSMENT_INVITED")')
     confirmed_interns = cur.fetchone()[0]
 else:
-    cur.execute('SELECT COUNT(*) FROM verified_applications WHERE status LIKE "CONFIRMED%"')
+    cur.execute('SELECT COUNT(*) FROM verified_applications WHERE status LIKE "CONFIRMED%" OR status = "ASSESSMENT_INVITED"')
     confirmed_jobs = cur.fetchone()[0]
     confirmed_interns = 0
 
@@ -155,6 +161,37 @@ html = f"""<!DOCTYPE html>
     color: #34d399;
     border: 1px solid rgba(16, 185, 129, 0.3);
   }}
+  .badge-invited {{
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 800;
+    background: rgba(234, 179, 8, 0.2);
+    color: #fde047;
+    border: 1px solid rgba(234, 179, 8, 0.6);
+    box-shadow: 0 0 10px rgba(234, 179, 8, 0.25);
+  }}
+  .badge-rejected {{
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 700;
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+  }}
+  .badge-purged {{
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 600;
+    background: rgba(148, 163, 184, 0.1);
+    color: #94a3b8;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+  }}
   .badge-pending {{
     display: inline-block;
     padding: 3px 8px;
@@ -214,20 +251,28 @@ html = f"""<!DOCTYPE html>
 
   <div class="stats-grid">
     <div class="stat-card">
-      <div class="stat-num">{confirmed_jobs} <span style="font-size:18px; color:#64748b;">/ 300</span></div>
+      <div class="stat-num">{confirmed_jobs} <span style="font-size:18px; color:#64748b;">/ 3,000</span></div>
       <div class="stat-label">Confirmed Jobs</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num" style="color:#c084fc;">{confirmed_interns} <span style="font-size:18px; color:#64748b;">/ 500</span></div>
+      <div class="stat-num" style="color:#c084fc;">{confirmed_interns} <span style="font-size:18px; color:#64748b;">/ 3,000</span></div>
       <div class="stat-label">Confirmed Paid Internships</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="color:#fde047;">{invited_count}</div>
+      <div class="stat-label">Selected / Assessment Invites</div>
     </div>
     <div class="stat-card">
       <div class="stat-num" style="color:#10b981;">{email_verified_count}</div>
       <div class="stat-label">Live Email Receipts in Inbox</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num" style="color:#38bdf8;">{total_confirmed}</div>
-      <div class="stat-label">Total Confirmed Applications</div>
+      <div class="stat-num" style="color:#f87171;">{rejected_count}</div>
+      <div class="stat-label">Rejections Tracked</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="color:#38bdf8;">{total_count}</div>
+      <div class="stat-label">Total Applications in Database</div>
     </div>
   </div>
 
@@ -256,7 +301,16 @@ html = f"""<!DOCTYPE html>
 row_chunks = []
 for r in rows:
     app_id, co, title, portal, url, salary, status, proof, notes, applied_at, app_type, stipend, email_ver, email_subj, email_date, fit_score, critique = r
-    badge_cls = "badge-confirmed" if "CONFIRMED" in status else "badge-pending"
+    if "ASSESSMENT_INVITED" in status:
+        badge_cls = "badge-invited"
+    elif "CONFIRMED" in status:
+        badge_cls = "badge-confirmed"
+    elif "REJECTED" in status:
+        badge_cls = "badge-rejected"
+    elif "PURGED" in status:
+        badge_cls = "badge-purged"
+    else:
+        badge_cls = "badge-pending"
     type_badge = f'<span class="badge-intern">INTERN</span>' if app_type == 'INTERNSHIP' else f'<span class="badge-job">JOB</span>'
     comp_display = stipend or salary or "Competitive ($60k - $110k USD)"
     

@@ -297,17 +297,6 @@
     "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
   },
   {
-    "company": "General Matter",
-    "title": "Software Engineer New Grad",
-    "applyUrl": "https://job-boards.greenhouse.io/generalmatter/jobs/5375987008?utm_source=Simplify&ref=Simplify",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$80,000 - $130,000 USD / year",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
     "company": "Woven",
     "title": "Software Engineer, Analysis/Tool",
     "applyUrl": "https://jobs.lever.co/woven-by-toyota/e5ebcad9-b648-4d04-8c15-0d8dffb36190?utm_source=vansh",
@@ -606,28 +595,6 @@
   },
   {
     "company": "Sparksoftcorporation",
-    "title": "Automation Tester",
-    "applyUrl": "https://job-boards.greenhouse.io/sparksoftcorporation/jobs/5221704007",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $130,000 USD / year",
-    "fit_score": 92,
-    "critique_reason": "Builder fit: Proven Playwright automation, Docker, WebSockets, and GitHub Actions CI/CD."
-  },
-  {
-    "company": "Sparksoftcorporation",
-    "title": "Cloud Engineer",
-    "applyUrl": "https://job-boards.greenhouse.io/sparksoftcorporation/jobs/5246375007",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $130,000 USD / year",
-    "fit_score": 92,
-    "critique_reason": "Builder fit: Proven Playwright automation, Docker, WebSockets, and GitHub Actions CI/CD."
-  },
-  {
-    "company": "Sparksoftcorporation",
     "title": "Cloud Infrastructure Engineer - (Junior)",
     "applyUrl": "https://job-boards.greenhouse.io/sparksoftcorporation/jobs/5257455007",
     "portal_type": "Greenhouse",
@@ -650,30 +617,8 @@
   },
   {
     "company": "Sparksoftcorporation",
-    "title": "Jr. Full Stack Developer",
-    "applyUrl": "https://job-boards.greenhouse.io/sparksoftcorporation/jobs/5257361007",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $130,000 USD / year",
-    "fit_score": 98,
-    "critique_reason": "Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score)."
-  },
-  {
-    "company": "Sparksoftcorporation",
     "title": "Jr Functional /Automation Tester",
     "applyUrl": "https://job-boards.greenhouse.io/sparksoftcorporation/jobs/5259170007",
-    "portal_type": "Greenhouse",
-    "is_internship": false,
-    "category": "JOB",
-    "stipend": "$85,000 - $130,000 USD / year",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
-    "company": "Sparksoftcorporation",
-    "title": "Junior DevOps Engineer",
-    "applyUrl": "https://job-boards.greenhouse.io/sparksoftcorporation/jobs/5257480007",
     "portal_type": "Greenhouse",
     "is_internship": false,
     "category": "JOB",

@@ -449,38 +449,5 @@
     "stipend": "$5,000 - $8,000 / mo USD",
     "fit_score": 96,
     "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
-    "company": "Tenstorrentuniversity",
-    "title": "AI Software Intern (Canada)",
-    "applyUrl": "https://job-boards.greenhouse.io/tenstorrentuniversity/jobs/5259347007",
-    "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$5,000 - $9,000 / mo USD",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
-    "company": "Tenstorrentuniversity",
-    "title": "AI Software Intern - Cloud, Infrastructure & Data Centre Deployment (Canada)",
-    "applyUrl": "https://job-boards.greenhouse.io/tenstorrentuniversity/jobs/5256579007",
-    "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$5,000 - $9,000 / mo USD",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
-  },
-  {
-    "company": "Tenstorrentuniversity",
-    "title": "AI Software Intern - DC Deployment and Infrastructure (Poland - Summer 2027)",
-    "applyUrl": "https://job-boards.greenhouse.io/tenstorrentuniversity/jobs/5256680007",
-    "portal_type": "Greenhouse",
-    "is_internship": true,
-    "category": "INTERNSHIP",
-    "stipend": "$5,000 - $9,000 / mo USD",
-    "fit_score": 96,
-    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
   }
 ]
