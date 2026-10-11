@@ -356,7 +356,20 @@ def fetch_gh(item):
     try:
         r = requests.get(f'https://boards-api.greenhouse.io/v1/boards/{slug}/jobs', timeout=6)
         if r.status_code == 200:
-            for j in r.json().get('jobs', []):
+            job_list = r.json().get('jobs', [])
+            if not job_list:
+                return
+            # Verify that the board is native Greenhouse and does not redirect to external career sites
+            test_jid = str(job_list[0].get('id') or '')
+            test_url = f"https://job-boards.greenhouse.io/{slug}/jobs/{test_jid}"
+            try:
+                r_check = requests.get(test_url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=5, allow_redirects=True)
+                if 'job-boards.greenhouse.io' not in r_check.url:
+                    return  # Board redirects to custom 3rd-party site
+            except Exception:
+                pass
+
+            for j in job_list:
                 t = (j.get('title') or '').strip()
                 j_id = str(j.get('id') or '')
                 if not j_id: continue
@@ -475,10 +488,20 @@ def fetch_lever(item):
     except Exception:
         pass
 
-with ThreadPoolExecutor(max_workers=35) as ex:
-    ex.map(fetch_gh, gh_targets)
-    ex.map(fetch_ash, ashby_targets)
-    ex.map(fetch_lever, lever_targets)
+verified_native_slugs = [
+    'figma', 'cloudflare', 'twilio', 'scaleai', 'reddit', 'pagerduty', 'coursera', 'airtable',
+    'robinhood', 'checkr', 'blend', 'canonical', 'carta', 'chime', 'flexport', 'glossier',
+    'honeycomb', 'intercom', 'justworks', 'launchdarkly', 'mattermost', 'mixpanel', 'monzo',
+    'starburst', 'webflow', 'sparksoftcorporation', 'tenstorrentuniversity'
+]
+# Prioritize verified native slugs at front of gh_targets
+native_gh_targets = [{'company': s.capitalize(), 'slug': s} for s in verified_native_slugs]
+remaining_gh_targets = [t for t in gh_targets if t['slug'] not in verified_native_slugs]
+gh_targets = native_gh_targets + remaining_gh_targets
+
+with ThreadPoolExecutor(max_workers=50) as ex:
+    list(ex.map(fetch_gh, gh_targets[:200]))
+    list(ex.map(fetch_ash, ashby_targets[:150]))
 
 print(f"\n[+] Total New Harvested: {len(harvested_interns)} Internships, {len(harvested_jobs)} Jobs.")
 

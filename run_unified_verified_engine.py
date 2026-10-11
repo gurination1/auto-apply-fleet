@@ -1361,21 +1361,57 @@ def apply_greenhouse(page, item):
         pass
 
     # 7. Submit Application
-    btn = page.locator('#submit_app, input[id="submit_app"], button:has-text("Submit application"), button:has-text("Submit Application"), button:has-text("Submit app"), button:has-text("Submit App"), #application-form button[type="submit"], #apply_form button[type="submit"], form[action*="application"] button[type="submit"], form[action*="job"] button[type="submit"], button[data-mapped="submit"], button:has-text("Submit")').first
-    if btn.count() == 0 or not btn.is_visible():
-        btn = page.locator('button[type="submit"]:not([id*="search"]):not([class*="search"]):not([id*="quick"]), input[type="submit"]:not([id*="search"])').first
+    # CRITICAL: Modern Greenhouse headers have a jump button <button type="button" aria-label="Apply">Submit Application</button>.
+    # Never click type="button" header jumps. Target the real form submit button inside the application form!
+    btn = None
+    form_submit_candidates = [
+        '#application-form button[type="submit"]',
+        'form#application-form button[type="submit"]',
+        'form[action*="job"] button[type="submit"]',
+        'form[action*="application"] button[type="submit"]',
+        '#apply_form button[type="submit"]',
+        '#application_form button[type="submit"]',
+        'button#submit_app',
+        'input#submit_app',
+        'form button[type="submit"]',
+        'form input[type="submit"]',
+        'button[type="submit"]:not([aria-label="Apply"])',
+        'button[data-mapped="submit"]',
+        'button:has-text("Submit application"):not([type="button"])',
+        'button:has-text("Submit Application"):not([type="button"])',
+        'button:has-text("Submit"):not([type="button"])'
+    ]
+    for sel in form_submit_candidates:
+        loc = page.locator(sel)
+        if loc.count() > 0:
+            for idx in reversed(range(loc.count())):
+                cand = loc.nth(idx)
+                if cand.is_visible():
+                    btn = cand
+                    break
+        if btn:
+            break
 
-    if btn.count() == 0:
+    if not btn:
+        any_sub = page.locator('button[type="submit"], input[type="submit"]').last
+        if any_sub.count() > 0 and any_sub.is_visible():
+            btn = any_sub
+
+    if not btn or btn.count() == 0:
         print(f"[-] No Greenhouse submit button found")
         mark_url_dead(url)
         return False
+
+    # Wait for any asynchronous file/resume S3 uploads to finish
+    page.wait_for_timeout(3500)
 
     # Check & solve captchas (Turnstile / reCAPTCHA) with Gemini
     solve_all_captchas(page)
 
     try:
         btn.scroll_into_view_if_needed(timeout=3000)
-        btn.click(timeout=4000)
+        page.wait_for_timeout(600)
+        btn.click(timeout=5000)
     except Exception as e:
         print(f"[-] Greenhouse submit click note: {e}")
         try:
@@ -2357,8 +2393,8 @@ def main():
 
     if args.mode in ['internships', 'all']:
         intern_sources = [
-            os.path.join(BASE_DIR, 'github_verified_internships.json'),
             os.path.join(BASE_DIR, 'live_fresh_verified_roles.json'),
+            os.path.join(BASE_DIR, 'github_verified_internships.json'),
             os.path.join(BASE_DIR, 'queue_500_paid_internships.json'),
             os.path.join(BASE_DIR, 'high_paying_viable_internships.json'),
             os.path.join(BASE_DIR, 'curated_viable_internships.json'),
@@ -2385,6 +2421,8 @@ def main():
                             nr = clean_norm_role(tit)
                             if not u or not nu or nu in seen_urls or (nc, nr) in seen_intern_roles or nc in seen_intern_companies:
                                 continue
+                            if 'lever.co' in u.lower() or 'simplify.jobs' in u.lower():
+                                continue
                             if is_already_confirmed(u, comp, tit):
                                 continue
                             is_int = it.get('is_internship') or it.get('category') == 'INTERNSHIP' or any(k in tit.lower() for k in ['intern', 'co-op', 'apprentice', 'campus', 'fellowship'])
@@ -2409,8 +2447,8 @@ def main():
 
     if args.mode in ['jobs', 'all']:
         job_sources = [
-            os.path.join(BASE_DIR, 'github_verified_jobs.json'),
             os.path.join(BASE_DIR, 'live_fresh_verified_roles.json'),
+            os.path.join(BASE_DIR, 'github_verified_jobs.json'),
             os.path.join(BASE_DIR, 'vetted_global_boutique_roles.json'),
             os.path.join(BASE_DIR, 'clean_vetted_remote_jobs.json'),
             os.path.join(BASE_DIR, 'pure_global_boutique_roles.json'),
@@ -2432,6 +2470,8 @@ def main():
                             nc = clean_norm_company(comp)
                             nr = clean_norm_role(tit)
                             if not u or not nu or nu in seen_job_urls or (nc, nr) in seen_job_roles:
+                                continue
+                            if 'lever.co' in u.lower() or 'simplify.jobs' in u.lower():
                                 continue
                             if is_already_confirmed(u, comp, tit):
                                 continue
