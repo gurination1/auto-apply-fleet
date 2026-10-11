@@ -17,7 +17,7 @@ on:
       limit:
         description: 'Max applications per run'
         required: true
-        default: '20'
+        default: '15'
         type: string
       use_warp:
         description: 'Route traffic through Cloudflare WARP SOCKS5 proxy'
@@ -31,7 +31,7 @@ permissions:
 jobs:
   run-fleet:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     strategy:
       fail-fast: false
       matrix:
