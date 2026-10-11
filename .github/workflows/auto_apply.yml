@@ -118,7 +118,9 @@ jobs:
         env:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
         run: |
-          python3 sync_all_receipts.py
+          if [ "${{ matrix.worker }}" -eq 1 ]; then
+            python3 sync_all_receipts.py
+          fi
           python3 generate_dashboard.py
           python3 audit_fleet_performance.py
 

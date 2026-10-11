@@ -23,7 +23,6 @@ def normalize(text):
 
 def sync_receipts():
     try:
-        mail = imaplib.IMAP4_SSL('imap.gmail.com', timeout=35)
         pwd = os.environ.get('GMAIL_APP_PASSWORD')
         if not pwd and os.path.exists('/root/local_env.sh'):
             try:
@@ -34,52 +33,71 @@ def sync_receipts():
                             break
             except Exception:
                 pass
-        mail.login('gurination1@gmail.com', pwd or '')
-        try:
-            mail.select('"[Gmail]/All Mail"')
-        except Exception:
-            mail.select('inbox')
-
-        status, m1 = mail.search(None, '(SINCE "09-Oct-2026" (OR (FROM "ashbyhq.com") (FROM "greenhouse-mail.io")))')
-        status, m2 = mail.search(None, '(SINCE "09-Oct-2026" (OR (SUBJECT "application") (SUBJECT "applying")))')
-        status, m3 = mail.search(None, '(SINCE "09-Oct-2026" (OR (SUBJECT "thank you") (SUBJECT "thanks")))')
-
-        all_mids = set((m1[0] or b'').split() + (m2[0] or b'').split() + (m3[0] or b'').split())
-        # Sort numerically to process newest messages first and prevent SSL BAD_LENGTH
-        sorted_mids = sorted([m for m in all_mids if m.isdigit()], key=lambda x: int(x))
-        id_list = sorted_mids[-500:] if len(sorted_mids) > 500 else sorted_mids
 
         receipts = []
-        for i in range(0, len(id_list), 25):
-            chunk = id_list[i:i+25]
-            id_str = b','.join(chunk).decode('ascii')
+        for retry_attempt in range(3):
+            mail = None
             try:
-                status, data = mail.fetch(id_str, '(BODY.PEEK[HEADER.FIELDS (SUBJECT FROM DATE)])')
-            except Exception:
-                continue
-            for item in data:
-                if isinstance(item, tuple):
-                    msg = email.message_from_bytes(item[1])
-                    subj_val = msg.get('Subject', '')
-                    decoded_subj = ''
-                    for part, enc in decode_header(subj_val):
-                        if isinstance(part, bytes):
-                            decoded_subj += part.decode(enc or 'utf-8', errors='ignore')
-                        else:
-                            decoded_subj += str(part)
-                    from_val = msg.get('From', '')
-                    date_val = msg.get('Date', '')
-                    s_low = decoded_subj.lower()
-                    if 'security code' not in s_low and 'withdrawn' not in s_low and 'explained' not in s_low and 'admissions' not in s_low:
-                        if any(k in s_low for k in ['thank', 'thanks', 'applying', 'application', 'received', 'submission']) or any(k in from_val.lower() for k in ['ashbyhq', 'greenhouse', 'lever.co', 'haizelabs']):
-                            receipts.append({
-                                'subject': decoded_subj,
-                                'from': from_val,
-                                'date': date_val
-                            })
+                mail = imaplib.IMAP4_SSL('imap.gmail.com', timeout=30)
+                mail.login('gurination1@gmail.com', pwd or '')
+                try:
+                    mail.select('"[Gmail]/All Mail"')
+                except Exception:
+                    mail.select('inbox')
 
-        mail.close()
-        mail.logout()
+                status, m1 = mail.search(None, '(SINCE "09-Oct-2026" (OR (FROM "ashbyhq.com") (FROM "greenhouse-mail.io")))')
+                status, m2 = mail.search(None, '(SINCE "09-Oct-2026" (OR (SUBJECT "application") (SUBJECT "applying")))')
+                status, m3 = mail.search(None, '(SINCE "09-Oct-2026" (OR (SUBJECT "thank you") (SUBJECT "thanks")))')
+
+                all_mids = set((m1[0] or b'').split() + (m2[0] or b'').split() + (m3[0] or b'').split())
+                sorted_mids = sorted([m for m in all_mids if m.isdigit()], key=lambda x: int(x))
+                id_list = sorted_mids[-500:] if len(sorted_mids) > 500 else sorted_mids
+
+                for i in range(0, len(id_list), 25):
+                    chunk = id_list[i:i+25]
+                    id_str = b','.join(chunk).decode('ascii')
+                    try:
+                        status, data = mail.fetch(id_str, '(BODY.PEEK[HEADER.FIELDS (SUBJECT FROM DATE)])')
+                    except Exception:
+                        continue
+                    for item in data:
+                        if isinstance(item, tuple):
+                            msg = email.message_from_bytes(item[1])
+                            subj_val = msg.get('Subject', '')
+                            decoded_subj = ''
+                            for part, enc in decode_header(subj_val):
+                                if isinstance(part, bytes):
+                                    decoded_subj += part.decode(enc or 'utf-8', errors='ignore')
+                                else:
+                                    decoded_subj += str(part)
+                            from_val = msg.get('From', '')
+                            date_val = msg.get('Date', '')
+                            s_low = decoded_subj.lower()
+                            if 'security code' not in s_low and 'withdrawn' not in s_low and 'explained' not in s_low and 'admissions' not in s_low:
+                                if any(k in s_low for k in ['thank', 'thanks', 'applying', 'application', 'received', 'submission']) or any(k in from_val.lower() for k in ['ashbyhq', 'greenhouse', 'lever.co', 'haizelabs']):
+                                    receipts.append({
+                                        'subject': decoded_subj,
+                                        'from': from_val,
+                                        'date': date_val
+                                    })
+                break
+            except Exception as e:
+                if 'simultaneous connections' in str(e).lower() and retry_attempt < 2:
+                    import time
+                    time.sleep(4)
+                    continue
+                print(f"[-] Receipt fetch attempt note: {e}")
+                break
+            finally:
+                if mail:
+                    try:
+                        mail.close()
+                    except Exception:
+                        pass
+                    try:
+                        mail.logout()
+                    except Exception:
+                        pass
 
         conn = sqlite3.connect(DB_PATH)
         c = conn.cursor()

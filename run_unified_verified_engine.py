@@ -394,8 +394,9 @@ def fetch_greenhouse_otp(company_name=None, min_timestamp=None, max_wait=12):
         co_keyword = re.sub(r'[^a-zA-Z0-9]', '', company_name.split()[0]).lower()
 
     for attempt in range(max_wait // 3):
+        mail = None
         try:
-            mail = imaplib.IMAP4_SSL('imap.gmail.com')
+            mail = imaplib.IMAP4_SSL('imap.gmail.com', timeout=25)
             mail.login('gurination1@gmail.com', gmail_pwd or '')
             try:
                 mail.select('"[Gmail]/All Mail"')
@@ -460,15 +461,24 @@ def fetch_greenhouse_otp(company_name=None, min_timestamp=None, max_wait=12):
                             code = extracted_code
                             break
 
-            mail.close()
-            mail.logout()
             final_code = code or latest_fallback
             if final_code and final_code not in USED_OTPS:
                 USED_OTPS.add(final_code)
                 print(f"[+] Found fresh Greenhouse security code: {final_code}")
                 return final_code
-        except Exception:
-            pass
+        except Exception as e:
+            if 'simultaneous connections' in str(e).lower():
+                time.sleep(4)
+        finally:
+            if mail:
+                try:
+                    mail.close()
+                except Exception:
+                    pass
+                try:
+                    mail.logout()
+                except Exception:
+                    pass
         time.sleep(3)
     return None
 
@@ -2515,44 +2525,12 @@ def main():
     ashby_interns = [it for it in unapplied_interns if 'ashbyhq' in (it.get('applyUrl') or it.get('url') or '')]
 
     if args.mode == 'internships':
-        interleaved = []
-        max_len = max(len(greenhouse_interns), len(ashby_interns), 1)
-        for idx in range(max_len):
-            if idx < len(greenhouse_interns):
-                interleaved.append(greenhouse_interns[idx])
-            if idx < len(ashby_interns):
-                interleaved.append(ashby_interns[idx])
-        items = interleaved
+        items = ashby_interns + greenhouse_interns
     elif args.mode == 'jobs':
-        interleaved = []
-        max_len = max(len(greenhouse_jobs), len(ashby_jobs), 1)
-        for idx in range(max_len):
-            if idx < len(greenhouse_jobs):
-                interleaved.append(greenhouse_jobs[idx])
-            if idx < len(ashby_jobs):
-                interleaved.append(ashby_jobs[idx])
-        items = interleaved
+        items = ashby_jobs + greenhouse_jobs
     else:
-        all_gh = []
-        for idx in range(max(len(greenhouse_jobs), len(greenhouse_interns))):
-            if idx < len(greenhouse_jobs):
-                all_gh.append(greenhouse_jobs[idx])
-            if idx < len(greenhouse_interns):
-                all_gh.append(greenhouse_interns[idx])
-        all_ash = []
-        for idx in range(max(len(ashby_jobs), len(ashby_interns))):
-            if idx < len(ashby_jobs):
-                all_ash.append(ashby_jobs[idx])
-            if idx < len(ashby_interns):
-                all_ash.append(ashby_interns[idx])
-        balanced = []
-        max_len = max(len(all_ash), len(all_gh), 1)
-        for idx in range(max_len):
-            if idx < len(all_ash):
-                balanced.append(all_ash[idx])
-            if idx < len(all_gh):
-                balanced.append(all_gh[idx])
-        items = balanced
+        # All mode: Place all high-converting Ashby roles first so every worker gets pure Ashby roles initially
+        items = ashby_jobs + ashby_interns + greenhouse_jobs + greenhouse_interns
 
     if args.total_workers > 1:
         items = [it for idx, it in enumerate(items) if idx % args.total_workers == (args.worker_id - 1)]
