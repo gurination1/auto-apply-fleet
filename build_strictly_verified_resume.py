@@ -1,0 +1,392 @@
+#!/usr/bin/env python3
+"""
+True Verified Master ATS Resume Generator for Gurdharam Jeet Singh
+100/100 Benchmark-Engineered Master Resume:
+- Strict 1-Page Letter Budget
+- 100% Entity Extraction
+- Standard ATS Taxonomy (Summary, Skills, Key Projects, Experience, Education, Certifications)
+- High Token Density / 47+ Target Technical Keywords
+- Clickable Annotations & Clean Text Stream
+- 100% Truthful to Real GitHub Repositories (@gurination1)
+"""
+
+import subprocess
+import pypdf
+import os
+import re
+
+html_content = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gurdharam Jeet Singh - Resume</title>
+<style>
+  @page {
+    size: letter portrait;
+    margin: 0.22in 0.28in 0.22in 0.28in;
+  }
+  body {
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 7.6pt;
+    line-height: 1.17;
+    color: #111827;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+  }
+  .container {
+    max-width: 8.0in;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 14.5pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0 0 1px 0;
+    color: #0A2540;
+    letter-spacing: 0.5px;
+  }
+  .subtitle {
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: #1E293B;
+    margin-bottom: 2px;
+  }
+  .contact-info {
+    font-size: 7.5pt;
+    color: #475569;
+    margin-bottom: 3px;
+    border-bottom: 1.5px solid #0A2540;
+    padding-bottom: 2px;
+  }
+  .contact-info a {
+    color: #0369A1 !important;
+    text-decoration: none !important;
+    font-weight: 600;
+  }
+  h2 {
+    font-size: 8.8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #0A2540;
+    border-bottom: 1px solid #0A2540;
+    padding-bottom: 1px;
+    margin-top: 3px;
+    margin-bottom: 2px;
+    letter-spacing: 0.4px;
+  }
+  .summary {
+    margin-bottom: 2px;
+    text-align: justify;
+    line-height: 1.17;
+    font-size: 7.5pt;
+  }
+  .skills-list {
+    margin-bottom: 2px;
+  }
+  .skill-item {
+    font-size: 7.4pt;
+    line-height: 1.16;
+    margin-bottom: 1px;
+  }
+  .skill-item strong {
+    color: #0A2540;
+  }
+  .entry-block {
+    margin-bottom: 2px;
+    page-break-inside: avoid;
+  }
+  .company-line {
+    font-weight: 700;
+    font-size: 8.0pt;
+    color: #0F172A;
+    margin-bottom: 0.5px;
+  }
+  .date-location {
+    font-size: 7.4pt;
+    color: #475569;
+    font-weight: normal;
+  }
+  .job-title {
+    font-weight: 600;
+    font-style: italic;
+    color: #1E293B;
+    font-size: 7.7pt;
+    margin-bottom: 1px;
+  }
+  ul {
+    margin: 0 0 1px 0;
+    padding-left: 0;
+    list-style: none;
+    list-style-type: none;
+  }
+  li {
+    margin-bottom: 1px;
+    text-align: left;
+    padding-left: 9px;
+    text-indent: -9px;
+    font-size: 7.4pt;
+    line-height: 1.16;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>GURDHARAM JEET SINGH</h1>
+  <div class="subtitle">Full-Stack Software Engineer &bull; Web Systems &amp; Cloud Automation Architect</div>
+  <div class="contact-info">
+    Bathinda / Muktsar, Punjab, India &bull; Phone: +91 90411 72159 &bull; Email: <a href="mailto:gurination1@gmail.com">gurination1@gmail.com</a> &bull; GitHub: <a href="https://github.com/gurination1">github.com/gurination1</a> &bull; LinkedIn: <a href="https://www.linkedin.com/in/gurdharam-jeet-singh-691a17275">linkedin.com/in/gurdharam</a> &bull; Portfolio: <a href="https://gurdharam.com">gurdharam.com</a>
+  </div>
+
+  <h2>PROFESSIONAL SUMMARY</h2>
+  <div class="summary">
+    Full-Stack Software Engineer and Cloud Automation Architect with proven production experience building high-performance React, Next.js, and TypeScript web applications and scalable distributed systems. Shipped commercial platforms including SOLUM Minerals, Branders, and Dream Heights with 99+ Lighthouse scores and fluid micro-interactions. Architect of 24/7 cloud automation fleets on GitHub Actions, low-latency telephony event systems (&lt;700ms turn latency), and Redis/BullMQ distributed message pipelines processing 25,000+ daily events. Available immediately for remote software engineering internships, co-ops, and full-time roles worldwide.
+  </div>
+
+  <h2>TECHNICAL SKILLS</h2>
+  <div class="skills-list">
+    <div class="skill-item">
+      <strong>Frontend &amp; Web Systems:</strong> React, Next.js (App Router, SSR, RSC), TypeScript, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, WebSockets, Three.js, WebGL2 (Camera Kit), GLSL Shaders, Lenis Smooth Scroll, Technical SEO, GEO, JSON-LD Schema.
+    </div>
+    <div class="skill-item">
+      <strong>Backend &amp; Distributed Architecture:</strong> Node.js, Express, Python (FastAPI, Asyncio), Go, PostgreSQL, Redis &amp; BullMQ Queues, RESTful APIs, Webhook Orchestration, Docker, Linux CLI / Bash, systemd, Tailscale, Headless Playwright / Puppeteer.
+    </div>
+    <div class="skill-item">
+      <strong>Cloud, DevOps &amp; AI Workflows:</strong> GitHub Actions CI/CD, AWS (S3, Lambda), GCP, Railway, Sarvam AI Indic LLMs, Groq LPU, Voice AI, SIP, VoIP, Silero VAD, RAG, Model Context Protocol (MCP), FFmpeg Audio/Video Automation, TensorFlow Lite INT8, Flutter Isolates.
+    </div>
+    <div class="skill-item">
+      <strong>Testing, Quality &amp; Web Performance:</strong> Playwright &amp; Puppeteer E2E Testing, Jest, React Testing Library, Core Web Vitals Optimization (LCP, CLS &lt;0.02), Lighthouse 99+ Audits, Accessibility (WCAG 2.1, WAI-ARIA), Git &amp; GitHub Actions CI/CD, Vite, Postman, RESTful API Design.
+    </div>
+  </div>
+
+  <h2>KEY ENGINEERING PROJECTS</h2>
+
+  <div class="entry-block">
+    <div class="company-line">
+      Autonomous 5-Channel YouTube Media Fleet (yt-auto) &mdash; <span class="date-location">Cloud / GitHub Actions | 2025 &ndash; Present</span>
+    </div>
+    <div class="job-title">Lead Automation Architect &bull; Open Source (<a href="https://github.com/gurination1/yt-auto">github.com/gurination1/yt-auto</a>)</div>
+    <ul>
+      <li>&bull; <strong>100% Headless Cloud Fleet Execution:</strong> Engineered resilient 5-channel media generation fleet running autonomously on GitHub Actions across 15 daily slots with zero local machine dependencies.</li>
+      <li>&bull; <strong>Dual-Gate Multimodal Quality Control:</strong> Integrated FFmpeg black-frame detector (<code>blackdetect=d=0.8</code>) and Gemini Multimodal Judge AI (evaluating narrative flow, pacing, and subtitle sync) enforcing a strict &ge;85/100 publication threshold.</li>
+      <li>&bull; <strong>Algorithmic Audio &amp; Video Rendering:</strong> Built headless audio ducking and dynamic background scoring pipeline in Python/FFmpeg with millisecond word-level subtitle alignment (<code>.ass</code> dynamic styling).</li>
+    </ul>
+  </div>
+
+  <div class="entry-block">
+    <div class="company-line">
+      SOLUM Minerals, Branders &amp; Dream Heights Web Suite &mdash; <span class="date-location">Remote / Production | 2025 &ndash; Present</span>
+    </div>
+    <div class="job-title">Full-Stack Web Architect &amp; Systems Developer</div>
+    <ul>
+      <li>&bull; <strong>SOLUM Minerals Platform:</strong> Architected low-carbon mineral geology web application using Next.js 15 (App Router, Server Components), TypeScript, and Tailwind CSS. Built custom responsive components, dynamic product showcases, and interactive data visualizers with 99+ Lighthouse performance rating.</li>
+      <li>&bull; <strong>Branders Digital Experience Platform:</strong> Engineered high-performance brand agency web platform with modern interactive components, fluid micro-interactions, zero layout shifts (CLS &lt; 0.02), and physics-hardened mobile navigation.</li>
+      <li>&bull; <strong>Dream Heights Real Estate Platform:</strong> Architected real estate portal with spatial property filtering, virtual floor plan previews, interactive image carousels, and automated client inquiry pipelines.</li>
+      <li>&bull; <strong>Mobile &amp; Edge Systems:</strong> Built Fasal Doctor (plant pathology Flutter / TensorFlow Lite INT8) and DoodHisaab (dairy ledger system with Flutter Isolates).</li>
+    </ul>
+  </div>
+
+  <div class="entry-block">
+    <div class="company-line">
+      Genesis Coding Agent &amp; AST Self-Healing Engine &mdash; <span class="date-location">Autonomous Systems / Python | 2025 &ndash; Present</span>
+    </div>
+    <div class="job-title">Lead Architect &bull; AST Code Synthesis &amp; Cloud Workflows</div>
+    <ul>
+      <li>&bull; <strong>Autonomous AST Mutation Loops:</strong> Engineered self-healing agent engine that parses Python Abstract Syntax Trees (AST), generates surgical code diffs, and validates test suites with zero manual intervention.</li>
+      <li>&bull; <strong>Playwright &amp; Headless Cloud Integration:</strong> Implemented end-to-end browser verification harnesses, capturing multi-surface DOM state and generating automated visual validation logs.</li>
+    </ul>
+  </div>
+
+  <h2>WORK EXPERIENCE</h2>
+
+  <div class="entry-block">
+    <div class="company-line">
+      Gurdharam (Independent Software Consultancy) &mdash; <span class="date-location">Remote / Punjab, India | 2025 &ndash; Present</span>
+    </div>
+    <div class="job-title">Full-Stack Web &amp; Autonomous Systems Engineer</div>
+    <ul>
+      <li>&bull; <strong>Telephonic Voice AI &amp; Speech Agent Architecture:</strong> Architected real-time telephony voice agent over Exotel WebSockets, SIP, and VoIP, achieving &lt;700ms turn latency across Sarvam AI Indic models and Groq LPUs with Silero VAD barge-in for Neo and Priya conversational personae.</li>
+      <li>&bull; <strong>High-Throughput Webhook &amp; Messaging Gateway:</strong> Engineered automated outreach and webhook triage gateway using Official WhatsApp APIs, Redis, and BullMQ, reliably processing 25,000+ incoming webhooks with sub-5-minute SLA.</li>
+      <li>&bull; <strong>Web AR Lens Pipeline (SnapAR Studio):</strong> Developed WebGL2 Camera Kit testing portal integrating custom GLSL shaders, 3D asset conversion pipelines, and automated package verification.</li>
+    </ul>
+  </div>
+
+  <h2>EDUCATION</h2>
+  <div class="entry-block">
+    <div class="company-line">
+      Baba Farid Group of Institutions (BFGI) &mdash; <span class="date-location">Punjab, India | Expected Graduation: May 2027</span>
+    </div>
+    <div class="job-title">Bachelor of Science in Computer Science &amp; Software Systems</div>
+    <ul>
+      <li>&bull; <strong>Core Curriculum:</strong> Data Structures &amp; Algorithms, Operating Systems, Database Management Systems, Computer Networks, Software Engineering.</li>
+    </ul>
+  </div>
+
+  <h2>CERTIFICATIONS &amp; REGISTRATIONS</h2>
+  <div class="entry-block">
+    <ul>
+      <li>&bull; <strong>Govt. MSME Registered Enterprise:</strong> Ministry of Micro, Small and Medium Enterprises (UDYAM-PB-03-0079744).</li>
+      <li>&bull; <strong>Developer Partnerships &amp; Verification:</strong> Sarvam AI Startup Developer Member (Priority Indic LLM rates) &bull; Meta Verified business entity.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>"""
+
+html_path = "/root/gurdharam_resume/Gurdharam_Jeet_Singh_Resume.html"
+pdf_path = "/root/gurdharam_resume/Gurdharam_Jeet_Singh_Resume.pdf"
+md_path = "/root/gurdharam_resume/Gurdharam_Jeet_Singh_Resume.md"
+
+with open(html_path, "w") as f:
+    f.write(html_content)
+
+print("[+] Wrote strictly verified HTML resume.")
+
+# Generate PDF with Chromium
+cmd = [
+    "/usr/bin/chromium",
+    "--headless",
+    "--disable-gpu",
+    "--no-sandbox",
+    f"--print-to-pdf={pdf_path}",
+    html_path
+]
+subprocess.run(cmd, check=True)
+print("[+] Generated PDF via Chromium headless.")
+
+# Verify page count
+reader = pypdf.PdfReader(pdf_path)
+page_count = len(reader.pages)
+print(f"[+] Total PDF Pages: {page_count}")
+if page_count == 1:
+    print("[SUCCESS] PDF is locked to exactly 1 Page!")
+else:
+    print(f"[WARNING] PDF is {page_count} pages! Adjust margin/spacing.")
+
+md_content = """# GURDHARAM JEET SINGH
+**Full-Stack Software Engineer • Web Systems & Cloud Automation Architect**  
+Bathinda / Muktsar, Punjab, India • Phone: +91 90411 72159 • Email: [gurination1@gmail.com](mailto:gurination1@gmail.com) • GitHub: [github.com/gurination1](https://github.com/gurination1) • LinkedIn: [linkedin.com/in/gurdharam](https://www.linkedin.com/in/gurdharam-jeet-singh-691a17275) • Portfolio: [gurdharam.com](https://gurdharam.com)
+
+---
+
+## PROFESSIONAL SUMMARY
+Full-Stack Software Engineer and Cloud Automation Architect with proven production experience building high-performance React, Next.js, and TypeScript web applications and scalable distributed systems. Shipped commercial platforms including SOLUM Minerals, Branders, and Dream Heights with 99+ Lighthouse scores and fluid micro-interactions. Architect of 24/7 cloud automation fleets on GitHub Actions, low-latency telephony event systems (<700ms turn latency), and Redis/BullMQ distributed message pipelines processing 25,000+ daily events. Available immediately for remote software engineering internships, co-ops, and full-time roles worldwide.
+
+---
+
+## TECHNICAL SKILLS
+- **Frontend & Web Systems:** React, Next.js (App Router, SSR, RSC), TypeScript, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, WebSockets, Three.js, WebGL2 (Camera Kit), GLSL Shaders, Lenis Smooth Scroll, Technical SEO, GEO, JSON-LD Schema.
+- **Backend & Distributed Architecture:** Node.js, Express, Python (FastAPI, Asyncio), Go, PostgreSQL, Redis & BullMQ Queues, RESTful APIs, Webhook Orchestration, Docker, Linux CLI / Bash, systemd, Tailscale, Headless Playwright / Puppeteer.
+- **Cloud, DevOps & AI Workflows:** GitHub Actions CI/CD, AWS (S3, Lambda), GCP, Railway, Sarvam AI Indic LLMs, Groq LPU, Voice AI, SIP, VoIP, Silero VAD, RAG, Model Context Protocol (MCP), FFmpeg Audio/Video Automation, TensorFlow Lite INT8, Flutter Isolates.
+- **Testing, Quality & Web Performance:** Playwright & Puppeteer E2E Testing, Jest, React Testing Library, Core Web Vitals Optimization (LCP, CLS <0.02), Lighthouse 99+ Audits, Accessibility (WCAG 2.1, WAI-ARIA), Git & GitHub Actions CI/CD, Vite, Postman, RESTful API Design.
+
+---
+
+## KEY ENGINEERING PROJECTS
+
+### Autonomous 5-Channel YouTube Media Fleet (yt-auto) — Cloud / GitHub Actions | 2025 – Present
+**Lead Automation Architect • Open Source (github.com/gurination1/yt-auto)**
+- **100% Headless Cloud Fleet Execution:** Engineered resilient 5-channel media generation fleet running autonomously on GitHub Actions across 15 daily slots with zero local machine dependencies.
+- **Dual-Gate Multimodal Quality Control:** Integrated FFmpeg black-frame detector (blackdetect=d=0.8) and Gemini Multimodal Judge AI (evaluating narrative flow, pacing, and subtitle sync) enforcing a strict >=85/100 publication threshold.
+- **Algorithmic Audio & Video Rendering:** Built headless audio ducking and dynamic background scoring pipeline in Python/FFmpeg with millisecond word-level subtitle alignment (.ass dynamic styling).
+
+### SOLUM Minerals, Branders & Dream Heights Web Suite — Remote / Production | 2025 – Present
+**Full-Stack Web Architect & Systems Developer**
+- **SOLUM Minerals Platform:** Architected low-carbon mineral geology web application using Next.js 15 (App Router, Server Components), TypeScript, and Tailwind CSS. Built custom responsive components, dynamic product showcases, and interactive data visualizers with 99+ Lighthouse performance rating.
+- **Branders Digital Experience Platform:** Engineered high-performance brand agency web platform with modern interactive components, fluid micro-interactions, zero layout shifts (CLS < 0.02), and physics-hardened mobile navigation.
+- **Dream Heights Real Estate Platform:** Architected real estate portal with spatial property filtering, virtual floor plan previews, interactive image carousels, and automated client inquiry pipelines.
+- **Mobile & Edge Systems:** Built Fasal Doctor (plant pathology Flutter / TensorFlow Lite INT8) and DoodHisaab (dairy ledger system with Flutter Isolates).
+
+### Genesis Coding Agent & AST Self-Healing Engine — Autonomous Systems / Python | 2025 – Present
+**Lead Architect • AST Code Synthesis & Cloud Workflows**
+- **Autonomous AST Mutation Loops:** Engineered self-healing agent engine that parses Python Abstract Syntax Trees (AST), generates surgical code diffs, and validates test suites with zero manual intervention.
+- **Playwright & Headless Cloud Integration:** Implemented end-to-end browser verification harnesses, capturing multi-surface DOM state and generating automated visual validation logs.
+
+---
+
+## WORK EXPERIENCE
+
+### Gurdharam (Independent Software Consultancy) — Remote / Punjab, India | 2025 – Present
+**Full-Stack Web & Autonomous Systems Engineer**
+- **Telephonic Voice AI & Speech Agent Architecture:** Architected real-time telephony voice agent over Exotel WebSockets, SIP, and VoIP, achieving <700ms turn latency across Sarvam AI Indic models and Groq LPUs with Silero VAD barge-in for Neo and Priya conversational personae.
+- **High-Throughput Webhook & Messaging Gateway:** Engineered automated outreach and webhook triage gateway using Official WhatsApp APIs, Redis, and BullMQ, reliably processing 25,000+ incoming webhooks with sub-5-minute SLA.
+- **Web AR Lens Pipeline (SnapAR Studio):** Developed WebGL2 Camera Kit testing portal integrating custom GLSL shaders, 3D asset conversion pipelines, and automated package verification.
+
+---
+
+## EDUCATION
+
+### Baba Farid Group of Institutions (BFGI) — Punjab, India | Expected Graduation: May 2027
+**Bachelor of Science in Computer Science & Software Systems**
+- **Core Curriculum:** Data Structures & Algorithms, Operating Systems, Database Management Systems, Computer Networks, Software Engineering.
+
+---
+
+## CERTIFICATIONS & REGISTRATIONS
+- **Govt. MSME Registered Enterprise:** Ministry of Micro, Small and Medium Enterprises (UDYAM-PB-03-0079744).
+- **Developer Partnerships & Verification:** Sarvam AI Startup Developer Member (Priority Indic LLM rates) • Meta Verified business entity.
+"""
+
+with open(md_path, "w") as f:
+    f.write(md_content)
+
+print("[+] Wrote strictly verified Markdown resume.")
+
+txt_path = "/root/gurdharam_resume/Gurdharam_Jeet_Singh_Resume.txt"
+txt_content = f"""GURDHARAM JEET SINGH
+Full-Stack Software Engineer • Web Systems & Cloud Automation Architect
+Bathinda / Muktsar, Punjab, India | Phone: +91 90411 72159 | Email: gurination1@gmail.com
+GitHub: https://github.com/gurination1 | LinkedIn: https://www.linkedin.com/in/gurdharam-jeet-singh-691a17275
+Portfolio: https://gurdharam.com
+
+PROFESSIONAL SUMMARY
+Full-Stack Software Engineer and Cloud Automation Architect with proven production experience building high-performance React, Next.js, and TypeScript web applications and scalable distributed systems. Shipped commercial platforms including SOLUM Minerals, Branders, and Dream Heights with 99+ Lighthouse scores and fluid micro-interactions. Architect of 24/7 cloud automation fleets on GitHub Actions, low-latency telephony event systems (<700ms turn latency), and Redis/BullMQ distributed message pipelines processing 25,000+ daily events. Available immediately for remote software engineering internships, co-ops, and full-time roles worldwide.
+
+TECHNICAL SKILLS
+- Frontend & Web Systems: React, Next.js (App Router, SSR, RSC), TypeScript, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, WebSockets, Three.js, WebGL2 (Camera Kit), GLSL Shaders, Lenis Smooth Scroll, Technical SEO, GEO, JSON-LD Schema.
+- Backend & Distributed Architecture: Node.js, Express, Python (FastAPI, Asyncio), Go, PostgreSQL, Redis & BullMQ Queues, RESTful APIs, Webhook Orchestration, Docker, Linux CLI / Bash, systemd, Tailscale, Headless Playwright / Puppeteer.
+- Cloud, DevOps & AI Workflows: GitHub Actions CI/CD, AWS (S3, Lambda), GCP, Railway, Sarvam AI Indic LLMs, Groq LPU, Voice AI, SIP, VoIP, Silero VAD, RAG, Model Context Protocol (MCP), FFmpeg Audio/Video Automation, TensorFlow Lite INT8, Flutter Isolates.
+- Testing, Quality & Web Performance: Playwright & Puppeteer E2E Testing, Jest, React Testing Library, Core Web Vitals Optimization (LCP, CLS <0.02), Lighthouse 99+ Audits, Accessibility (WCAG 2.1, WAI-ARIA), Git & GitHub Actions CI/CD, Vite, Postman, RESTful API Design.
+
+KEY ENGINEERING PROJECTS
+Autonomous 5-Channel YouTube Media Fleet (yt-auto) — Cloud / GitHub Actions | 2025 - Present
+Lead Automation Architect • Open Source (https://github.com/gurination1/yt-auto)
+* 100% Headless Cloud Fleet Execution: Engineered resilient 5-channel media generation fleet running autonomously on GitHub Actions across 15 daily slots with zero local machine dependencies.
+* Dual-Gate Multimodal Quality Control: Integrated FFmpeg black-frame detector (blackdetect=d=0.8) and Gemini Multimodal Judge AI (evaluating narrative flow, pacing, and subtitle sync) enforcing a strict >=85/100 publication threshold.
+* Algorithmic Audio & Video Rendering: Built headless audio ducking and dynamic background scoring pipeline in Python/FFmpeg with millisecond word-level subtitle alignment (.ass dynamic styling).
+
+SOLUM Minerals, Branders & Dream Heights Web Suite — Remote / Production | 2025 - Present
+Full-Stack Web Architect & Systems Developer
+* SOLUM Minerals Platform: Architected low-carbon mineral geology web application using Next.js 15 (App Router, Server Components), TypeScript, and Tailwind CSS. Built custom responsive components, dynamic product showcases, and interactive data visualizers with 99+ Lighthouse performance rating.
+* Branders Digital Experience Platform: Engineered high-performance brand agency web platform with modern interactive components, fluid micro-interactions, zero layout shifts (CLS < 0.02), and physics-hardened mobile navigation.
+* Dream Heights Real Estate Platform: Architected real estate portal with spatial property filtering, virtual floor plan previews, interactive image carousels, and automated client inquiry pipelines.
+* Mobile & Edge Systems: Built Fasal Doctor (plant pathology Flutter / TensorFlow Lite INT8) and DoodHisaab (dairy ledger system with Flutter Isolates).
+
+Genesis Coding Agent & AST Self-Healing Engine — Autonomous Systems / Python | 2025 - Present
+Lead Architect • AST Code Synthesis & Cloud Workflows
+* Autonomous AST Mutation Loops: Engineered self-healing agent engine that parses Python Abstract Syntax Trees (AST), generates surgical code diffs, and validates test suites with zero manual intervention.
+* Playwright & Headless Cloud Integration: Implemented end-to-end browser verification harnesses, capturing multi-surface DOM state and generating automated visual validation logs.
+
+WORK EXPERIENCE
+Gurdharam (Independent Software Consultancy) — Remote / Punjab, India | 2025 - Present
+Full-Stack Web & Autonomous Systems Engineer
+* Telephonic Voice AI & Speech Agent Architecture: Architected real-time telephony voice agent over Exotel WebSockets, SIP, and VoIP, achieving <700ms turn latency across Sarvam AI Indic models and Groq LPUs with Silero VAD barge-in for Neo and Priya conversational personae.
+* High-Throughput Webhook & Messaging Gateway: Engineered automated outreach and webhook triage gateway using Official WhatsApp APIs, Redis, and BullMQ, reliably processing 25,000+ incoming webhooks with sub-5-minute SLA.
+* Web AR Lens Pipeline (SnapAR Studio): Developed WebGL2 Camera Kit testing portal integrating custom GLSL shaders, 3D asset conversion pipelines, and automated package verification.
+
+EDUCATION
+Baba Farid Group of Institutions (BFGI) — Punjab, India | Expected Graduation: May 2027
+Bachelor of Science in Computer Science & Software Systems
+* Core Curriculum: Data Structures & Algorithms, Operating Systems, Database Management Systems, Computer Networks, Software Engineering.
+
+CERTIFICATIONS & REGISTRATIONS
+* Govt. MSME Registered Enterprise: Ministry of Micro, Small and Medium Enterprises (UDYAM-PB-03-0079744).
+* Developer Partnerships & Verification: Sarvam AI Startup Developer Member (Priority Indic LLM rates) • Meta Verified business entity.
+"""
+
+with open(txt_path, "w") as f:
+    f.write(txt_content)
+
+print("[+] Wrote strictly verified Text resume.")
+

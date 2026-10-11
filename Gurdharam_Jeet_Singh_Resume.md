@@ -5,7 +5,7 @@ Bathinda / Muktsar, Punjab, India • Phone: +91 90411 72159 • Email: [gurinat
 ---
 
 ## PROFESSIONAL SUMMARY
-Full-Stack Software Engineer and Autonomous Cloud Automation Architect with proven production experience shipping modern React, Next.js, and TypeScript web applications and high-throughput backend microservices. Architect of a 5-channel 24/7 cloud media generation fleet on GitHub Actions (yt-auto) with dual-gate multimodal LLM judge verification, telephonic Voice AI speech agents over Exotel WebSockets, SIP, and VoIP (<700ms turn latency), dynamic private API reverse engineering suites (Frida ARM64 libc hooking, Ghidra), and high-throughput Redis/BullMQ distributed message queues processing 25,000+ daily events. Creator of commercial web applications including SOLUM Minerals, Branders, and Dream Heights.
+Full-Stack Software Engineer and Cloud Automation Architect with proven production experience building high-performance React, Next.js, and TypeScript web applications and scalable distributed systems. Shipped commercial platforms including SOLUM Minerals, Branders, and Dream Heights with 99+ Lighthouse scores and fluid micro-interactions. Architect of 24/7 cloud automation fleets on GitHub Actions, low-latency telephony event systems (<700ms turn latency), and Redis/BullMQ distributed message pipelines processing 25,000+ daily events. Available immediately for remote software engineering internships, co-ops, and full-time roles worldwide.
 
 ---
 
@@ -13,7 +13,7 @@ Full-Stack Software Engineer and Autonomous Cloud Automation Architect with prov
 - **Frontend & Web Systems:** React, Next.js (App Router, SSR, RSC), TypeScript, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, WebSockets, Three.js, WebGL2 (Camera Kit), GLSL Shaders, Lenis Smooth Scroll, Technical SEO, GEO, JSON-LD Schema.
 - **Backend & Distributed Architecture:** Node.js, Express, Python (FastAPI, Asyncio), Go, PostgreSQL, Redis & BullMQ Queues, RESTful APIs, Webhook Orchestration, Docker, Linux CLI / Bash, systemd, Tailscale, Headless Playwright / Puppeteer.
 - **Cloud, DevOps & AI Workflows:** GitHub Actions CI/CD, AWS (S3, Lambda), GCP, Railway, Sarvam AI Indic LLMs, Groq LPU, Voice AI, SIP, VoIP, Silero VAD, RAG, Model Context Protocol (MCP), FFmpeg Audio/Video Automation, TensorFlow Lite INT8, Flutter Isolates.
-- **Security & Reverse Engineering:** Frida ARM64 Libc Hooking (libcrypto.so), Ghidra Binary Decompilation, XLua, IL2CPP, OWASP Top 10, Burp Suite, Network Protocol Decryption, Session Extraction, Private API Reconstruction.
+- **Testing, Quality & Web Performance:** Playwright & Puppeteer E2E Testing, Jest, React Testing Library, Core Web Vitals Optimization (LCP, CLS <0.02), Lighthouse 99+ Audits, Accessibility (WCAG 2.1, WAI-ARIA), Git & GitHub Actions CI/CD, Vite, Postman, RESTful API Design.
 
 ---
 
@@ -27,8 +27,8 @@ Full-Stack Software Engineer and Autonomous Cloud Automation Architect with prov
 
 ### SOLUM Minerals, Branders & Dream Heights Web Suite — Remote / Production | 2025 – Present
 **Full-Stack Web Architect & Systems Developer**
-- **SOLUM Minerals Platform:** Developed low-carbon capsule fertilizer & mineral geology web experience featuring interactive product showcase, responsive data displays, and dynamic visual storytelling with 99+ Lighthouse performance.
-- **Branders Digital Experience Platform:** Engineered high-performance brand agency web platform with modern interactive components, fluid micro-interactions, and 120fps physics-hardened mobile navigation.
+- **SOLUM Minerals Platform:** Architected low-carbon mineral geology web application using Next.js 15 (App Router, Server Components), TypeScript, and Tailwind CSS. Built custom responsive components, dynamic product showcases, and interactive data visualizers with 99+ Lighthouse performance rating.
+- **Branders Digital Experience Platform:** Engineered high-performance brand agency web platform with modern interactive components, fluid micro-interactions, zero layout shifts (CLS < 0.02), and physics-hardened mobile navigation.
 - **Dream Heights Real Estate Platform:** Architected real estate portal with spatial property filtering, virtual floor plan previews, interactive image carousels, and automated client inquiry pipelines.
 - **Mobile & Edge Systems:** Built Fasal Doctor (plant pathology Flutter / TensorFlow Lite INT8) and DoodHisaab (dairy ledger system with Flutter Isolates).
 
