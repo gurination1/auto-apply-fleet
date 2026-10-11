@@ -2419,9 +2419,9 @@ def main():
                             nu = clean_norm_url(u)
                             nc = clean_norm_company(comp)
                             nr = clean_norm_role(tit)
-                            if not u or not nu or nu in seen_urls or (nc, nr) in seen_intern_roles or nc in seen_intern_companies:
+                            if not u or not nu or nu in seen_urls or (nc, nr) in seen_intern_roles:
                                 continue
-                            if 'lever.co' in u.lower() or 'simplify.jobs' in u.lower():
+                            if 'simplify.jobs' in u.lower():
                                 continue
                             if is_already_confirmed(u, comp, tit):
                                 continue
@@ -2433,7 +2433,6 @@ def main():
                                 continue
                             seen_urls.add(nu)
                             seen_intern_roles.add((nc, nr))
-                            seen_intern_companies.add(nc)
                             item_copy = dict(it)
                             item_copy['title'] = tit
                             item_copy['company'] = comp
@@ -2471,7 +2470,7 @@ def main():
                             nr = clean_norm_role(tit)
                             if not u or not nu or nu in seen_job_urls or (nc, nr) in seen_job_roles:
                                 continue
-                            if 'lever.co' in u.lower() or 'simplify.jobs' in u.lower():
+                            if 'simplify.jobs' in u.lower():
                                 continue
                             if is_already_confirmed(u, comp, tit):
                                 continue
