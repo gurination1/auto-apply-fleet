@@ -22,7 +22,7 @@ on:
       use_warp:
         description: 'Route traffic through Cloudflare WARP SOCKS5 proxy'
         required: true
-        default: true
+        default: false
         type: boolean
 
 permissions:
@@ -35,7 +35,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        worker: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        worker: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
 
     steps:
       - name: Checkout Repository
@@ -97,7 +97,7 @@ jobs:
           python3 -c "
           import json, os, subprocess
           path = 'live_fresh_verified_roles.json'
-          if not os.path.exists(path) or len(json.load(open(path))) < 200:
+          if not os.path.exists(path) or len(json.load(open(path))) < 10:
               print('[*] Role queue low; running full target harvest...')
               subprocess.run(['python3', 'harvest_all_cloud_targets.py'], check=True)
           else:
@@ -111,8 +111,8 @@ jobs:
         run: |
           MODE="${{ github.event.inputs.mode || 'all' }}"
           LIMIT="${{ github.event.inputs.limit || '35' }}"
-          echo "[*] Executing verified submission engine: mode=$MODE limit=$LIMIT worker=${{ matrix.worker }}/16 $PROXY_ARG"
-          python3 -u run_unified_verified_engine.py --mode "$MODE" --limit "$LIMIT" --worker-id ${{ matrix.worker }} --total-workers 16 $PROXY_ARG
+          echo "[*] Executing verified submission engine: mode=$MODE limit=$LIMIT worker=${{ matrix.worker }}/24 $PROXY_ARG"
+          python3 -u run_unified_verified_engine.py --mode "$MODE" --limit "$LIMIT" --worker-id ${{ matrix.worker }} --total-workers 24 $PROXY_ARG
 
       - name: Audit Conversion Performance via IMAP Confirmation Receipts
         env:

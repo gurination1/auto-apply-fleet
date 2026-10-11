@@ -303,5 +303,38 @@
     "stipend": "$95,000 - $145,000 / yr",
     "fit_score": 85,
     "critique_reason": "General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub."
+  },
+  {
+    "company": "Kikoff",
+    "title": "Software Engineer New Grad",
+    "applyUrl": "https://job-boards.greenhouse.io/kikoff/jobs/4393822009?utm_source=Simplify&ref=Simplify",
+    "portal_type": "Greenhouse",
+    "is_internship": false,
+    "category": "JOB",
+    "stipend": "5,000 - 30,000 USD / year",
+    "fit_score": 96,
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
+  },
+  {
+    "company": "Tenstorrent",
+    "title": "AI Software Intern - Cloud, Infrastructure & Data Centre Deployment (Canada)",
+    "applyUrl": "https://job-boards.greenhouse.io/tenstorrentuniversity/jobs/5256579007",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": ",000 - ,000 / mo USD",
+    "fit_score": 96,
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
+  },
+  {
+    "company": "Tenstorrent",
+    "title": "AI Software Intern - DC Deployment and Infrastructure (Poland - Summer 2027)",
+    "applyUrl": "https://job-boards.greenhouse.io/tenstorrentuniversity/jobs/5256680007",
+    "portal_type": "Greenhouse",
+    "is_internship": true,
+    "category": "INTERNSHIP",
+    "stipend": ",000 - ,000 / mo USD",
+    "fit_score": 96,
+    "critique_reason": "Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate."
   }
 ]
