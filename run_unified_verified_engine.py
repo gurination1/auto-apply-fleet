@@ -311,9 +311,12 @@ def critique_application(company, title, category=""):
 
     # 4. MANDATORY SOFTWARE BUILDER RELEVANCE CHECK (ZERO NON-SOFTWARE PASS-THROUGH)
     has_software_context = bool(re.search(
-        r'\b(software|developer|frontend|front-end|web|fullstack|full-stack|full stack|application|react|next\.js|python|cloud|devops|automation|qa engineer|test engineer|programmer|coder)\b',
+        r'\b(software|developer|frontend|front-end|web|fullstack|full-stack|full stack|application|react|next\.js|python|cloud|devops|automation|qa engineer|test engineer|programmer|coder|product engineer|solutions engineer|forward deployed|integration engineer|member of technical staff)\b',
         title_lower
-    )) or bool(re.search(r'\b(ui|ux)\b', title_lower))
+    )) or bool(re.search(r'\b(ui|ux)\b', title_lower)) or (
+        bool(re.search(r'\b(intern|internship|co-op|coop|apprentice|campus|fellowship)\b', title_lower)) and
+        any(k in title_lower for k in ['tech', 'eng', 'dev', 'code', 'software', 'product', 'systems', 'platform', 'cloud', 'web'])
+    )
 
     if not has_software_context:
         return 20, 'Domain Mismatch: Title lacks software, web, frontend, full-stack, developer, or automation keywords.'
@@ -327,10 +330,10 @@ def critique_application(company, title, category=""):
     elif re.search(r'\b(intern|internship|co-op|coop|apprentice|campus|junior|jr|associate|early career|software engineer i|new grad|entry level)\b', title_lower):
         score = 96
         strengths.append('Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate.')
-    elif any(k in title_lower for k in ['agent', 'automation', 'cloud', 'qa', 'workflow', 'voice', 'realtime']):
+    elif any(k in title_lower for k in ['agent', 'automation', 'cloud', 'qa', 'workflow', 'voice', 'realtime', 'solutions', 'forward deployed']):
         score = 92
         strengths.append('Builder fit: Proven Playwright automation, Docker, WebSockets, and GitHub Actions CI/CD.')
-    elif any(k in title_lower for k in ['software engineer', 'software developer', 'application engineer']):
+    elif any(k in title_lower for k in ['software engineer', 'software developer', 'application engineer', 'product engineer', 'member of technical staff']):
         score = 85
         strengths.append('General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.')
     else:
@@ -2543,12 +2546,12 @@ def main():
             if idx < len(ashby_interns):
                 all_ash.append(ashby_interns[idx])
         balanced = []
-        max_len = max(len(all_gh), len(all_ash), 1)
+        max_len = max(len(all_ash), len(all_gh), 1)
         for idx in range(max_len):
-            if idx < len(all_gh):
-                balanced.append(all_gh[idx])
             if idx < len(all_ash):
                 balanced.append(all_ash[idx])
+            if idx < len(all_gh):
+                balanced.append(all_gh[idx])
         items = balanced
 
     if args.total_workers > 1:
