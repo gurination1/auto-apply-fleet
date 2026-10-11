@@ -416,8 +416,8 @@ def fetch_greenhouse_otp(company_name=None, min_timestamp=None, max_wait=12):
                     except Exception:
                         pass
 
-                # Strictly discard stale OTPs from before this submission started
-                if msg_time and msg_time < (min_timestamp - 30):
+                # Accept fresh security codes received within the last 10 minutes
+                if msg_time and msg_time < (time.time() - 600):
                     continue
 
                 subj, enc = decode_header(msg.get('Subject', ''))[0]
@@ -1426,18 +1426,24 @@ def apply_greenhouse(page, item):
         solve_all_captchas(page)
 
         # Check for OTP / Security Code
-        otp_container = page.locator('#email-verification, input[id*="security_code"], input[name*="security_code"], #security-input-0')
-        if otp_container.count() > 0 and otp_container.first.is_visible():
+        otp_triggered = (
+            page.locator('#email-verification, #security-input-0').count() > 0 or
+            page.locator('input[id*="security" i], input[name*="security" i], input[placeholder*="security" i]').count() > 0 or
+            page.locator('div:has-text("security code"), span:has-text("security code"), p:has-text("security code")').count() > 0
+        )
+        if otp_triggered:
             print(f"[!] Email security verification triggered for {company}! Fetching code via Gmail IMAP (poll {poll_idx+1}/6)...")
             for otp_attempt in range(2):
-                code = fetch_greenhouse_otp(company_name=company, min_timestamp=time.time() - 90, max_wait=24)
+                code = fetch_greenhouse_otp(company_name=company, min_timestamp=time.time() - 300, max_wait=24)
                 if code:
-                    for idx, ch in enumerate(code):
+                    # Fill 8-digit split inputs
+                    for idx, ch in enumerate(code[:8]):
                         inp = page.locator(f'#security-input-{idx}')
                         if inp.count() > 0:
                             inp.fill(ch)
-                    sec_in = page.locator('input[id*="security_code"], input[name*="security_code"]').first
-                    if sec_in.count() > 0:
+                    # Also fill single text input if present
+                    sec_in = page.locator('input[id*="security" i], input[name*="security" i], input[placeholder*="security" i], input[aria-label*="security" i]').first
+                    if sec_in.count() > 0 and sec_in.is_visible():
                         sec_in.fill(code)
                     page.wait_for_timeout(800)
                     verify_btn = page.locator('#submit_app, button[type="submit"], button:has-text("Submit application"), button:has-text("Verify"), button:has-text("Submit"), button:has-text("Confirm"), button:has-text("Continue"), button:has-text("Enter")').first
