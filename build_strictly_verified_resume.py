@@ -233,7 +233,7 @@ html_content = """<!DOCTYPE html>
 
   <div class="entry">
     <div class="entry-row-1">
-      <span class="left">Creative Web &amp; 3D Suite &mdash; SOLUM Minerals &amp; Dream Heights</span>
+      <span class="left">Spatial &amp; Creative Web Suite &mdash; SOLUM Minerals, Dream Heights &amp; Branders</span>
       <span class="right">2025 &ndash; Present</span>
     </div>
     <div class="entry-row-2">
@@ -241,8 +241,8 @@ html_content = """<!DOCTYPE html>
       <span class="right"><a class="proj-link" href="https://github.com/gurination1/solum-minerals">Open Source</a></span>
     </div>
     <ul>
-      <li><strong>Procedural In-Memory Asset Generation:</strong> Built procedural Three.js asset pipeline synthesizing dynamic noise textures in-memory via Canvas API, reducing static asset bundle size by 85%.</li>
-      <li><strong>GPU Acceleration &amp; Performance:</strong> Decoupled render loops from scroll events using GPU layers and virtualized interpolation, maintaining stable 60 FPS with zero layout shift.</li>
+      <li><strong>Procedural In-Memory Asset Generation:</strong> Built procedural Three.js asset pipeline synthesizing dynamic noise textures in-memory via Canvas API (SOLUM Minerals), reducing static asset bundle size by 85%.</li>
+      <li><strong>Hardware Acceleration &amp; Web Vitals:</strong> Developed agency portals (Branders) and spatial views (Dream Heights) with Lenis momentum scroll, maintaining stable 60 FPS with zero layout shift.</li>
     </ul>
   </div>
 
@@ -348,10 +348,10 @@ Punjab, India | +91 90411 72159 | [gurination1@gmail.com](mailto:gurination1@gma
 - **On-Device Offline Neural Inference:** Deployed INT8 quantized MobileNet foliar pathology models running 100% offline on low-power mobile devices with sub-50ms inference.
 - **Asynchronous Thread Architecture:** Implemented Flutter background worker isolates to decouple camera frame previews (60 FPS) from tensor inference, preventing UI freezes.
 
-### Creative Web & 3D Suite — SOLUM Minerals & Dream Heights
+### Spatial & Creative Web Suite — SOLUM Minerals, Dream Heights & Branders
 *Next.js, Three.js, WebGL, Tailwind CSS, Framer Motion, Lenis Smooth Scroll | 2025 – Present* [Code](https://github.com/gurination1/solum-minerals)
-- **Procedural In-Memory Asset Generation:** Built procedural Three.js asset pipeline synthesizing dynamic noise textures in-memory via Canvas API, reducing static asset bundle size by 85%.
-- **GPU Acceleration & Performance:** Decoupled render loops from scroll events using GPU layers and virtualized interpolation, maintaining stable 60 FPS with zero layout shift.
+- **Procedural In-Memory Asset Generation:** Built procedural Three.js asset pipeline synthesizing dynamic noise textures in-memory via Canvas API (SOLUM Minerals), reducing static asset bundle size by 85%.
+- **Hardware Acceleration & Web Vitals:** Developed agency portals (Branders) and spatial views (Dream Heights) with Lenis momentum scroll, maintaining stable 60 FPS with zero layout shift.
 
 ---
 
