@@ -51,6 +51,6 @@ Bathinda / Muktsar, Punjab, India | +91 90411 72159 | [gurination1@gmail.com](ma
 ---
 
 ## Education & Credentials
-- **Baba Farid Group of Institutions (BFGI)** — Bachelor of Science (B.Sc.) in Computer Science *(Expected May 2027)*
+- **Baba Farid Group of Institutions (BFGI)** — Bachelor of Science (Hons.) in Computer Science *(2024 – 2027)*
   - Coursework: Data Structures & Algorithms, DBMS, Networks, OS • Punjab, India
 - **Credentials & Verification:** Meta Verified Business Entity • Official WhatsApp Business Platform Developer • Sarvam AI Startup Partner • Govt. MSME Registered Enterprise (UDYAM-PB-03-0079744) • Additional Systems: *SnapAR Studio (Camera Kit WebGL2)*, *TakeMyInterview AI (Local Voice LLM)*, *DoodHisaab (Mobile Dairy Ledger)*.
