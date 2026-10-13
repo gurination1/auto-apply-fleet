@@ -1,12 +1,12 @@
 # Gurdharam Jeet Singh
-**Full-Stack Software Engineer • Web Systems & Distributed Architecture**  
+**Full-Stack Software Engineer • Web Systems & Spatial Frontend Architect**  
 Punjab, India • +91 90411 72159 • [gurination1@gmail.com](mailto:gurination1@gmail.com) • [github.com/gurination1](https://github.com/gurination1) • [linkedin.com/in/gurdharam](https://linkedin.com/in/gurdharam) • [gurdharam.com](https://gurdharam.com)
 
 ---
 
 ## Technical Skills
-- **Languages:** TypeScript, JavaScript (ES6+), Python, Go, SQL, HTML5, CSS3
-- **Frontend & UI Systems:** React 19, Next.js 15 (App Router, Server Components), Tailwind CSS 4, Vite 6, WebSockets, Three.js, Core Web Vitals (LCP, CLS < 0.02)
+- **Languages & Core:** TypeScript, JavaScript (ES6+), Python, Go, SQL, HTML5, CSS3
+- **Frontend & Spatial Web:** React 19, Next.js 15 (App Router, Server Components), Tailwind CSS 4, Vite 6, Framer Motion, Lenis Smooth Scroll, Three.js, WebGL2 (Camera Kit), Core Web Vitals (LCP, CLS < 0.02)
 - **Backend & Distributed Systems:** Node.js, Express, FastAPI, PostgreSQL, Supabase, MariaDB/SQLite Failover, Redis & BullMQ, WebSockets, REST APIs, Docker, Linux/Bash
 - **Cloud & Platform Infrastructure:** Official Meta WhatsApp Cloud API (WABA), GitHub Actions 24/7 CI/CD Fleets, Railway, AWS (S3, Lambda), Exotel Telephony, Gemini AI
 
@@ -16,18 +16,18 @@ Punjab, India • +91 90411 72159 • [gurination1@gmail.com](mailto:gurination1
 
 ### EduCore — Enterprise College Management ERP
 *Lead Full-Stack Architect • React 19, TypeScript, Node.js, Express, MariaDB, Railway | 2025 – Present* [Open Source](https://github.com/gurination1/ERP_educore)
-- **Full-Stack Architecture & Two-Tier Failover:** Engineered enterprise ERP handling student admissions, fee ledgers, and scholarships with automated zero-config DB failover (MariaDB production → local SQLite).
-- **RBAC & Dynamic Form Engine:** Built strict JWT role-based access control across 3 permission tiers, Helmet security headers, Zod validation, and a runtime dynamic form schema builder for campus workflows.
+- **Full-Stack Architecture & Two-Tier Failover:** Engineered enterprise ERP handling student admissions, fee ledgers, and scholarships with automated zero-config DB failover (MariaDB production → local SQLite store).
+- **RBAC & Dynamic Form Schema Builder:** Built strict JWT role-based access control across 3 permission tiers, Helmet security headers, Zod validation, and a runtime dynamic form builder for campus workflows.
 
 ### Enterprise WhatsApp AI & Lead Management CRM
 *Lead Architect • Meta Cloud API, Node.js, Express, Supabase (PostgreSQL) | 2025 – Present*
 - **Official Meta Cloud API Architecture:** Engineered multi-tenant CRM gateway integrating Meta Graph Cloud API (WABA ID: 106690...), handling bi-directional messaging, template dispatch, and HMAC-verified webhooks.
 - **24-Hour Autonomous Follow-Up Radar:** Built real-time engagement engine with dynamic cadences (24h/36h/48h/72h), tracking lead conversation states and triggering automated follow-ups via Supabase.
 
-### Nexus Real-Time Quant & Arbitrage Engine
-*Systems Engineer • Python Async FastAPI, WebSockets, Hyperliquid, Binance Futures | 2025 – Present*
-- **Delta-Neutral Execution Pipeline:** Engineered high-frequency funding rate arbitrage engine analyzing real-time spreads across perpetual futures with automated basis risk calculations and sub-second execution.
-- **Real-Time WebSocket Terminal & Kill-Switch:** Built live trading dashboard streaming orderbook feeds over WebSockets with automated 5% drawdown circuit breaker and basis drift emergency unwinds.
+### Dream Heights — Luxury Architectural & Real Estate Portal
+*Frontend Architect • React 18, TypeScript, Tailwind CSS, Framer Motion, Lenis | 2025 – Present* [Open Source](https://github.com/gurination1/dreamheights)
+- **Spatial Architectural Pins & Navigation:** Built interactive luxury residence portal featuring spatial pin exploration, dynamic residence floor-plan modals, and custom interactive architectural emblems.
+- **60 FPS Physics & Smooth Momentum Scrolling:** Implemented Lenis inertial scrolling combined with hardware-accelerated Framer Motion transitions, maintaining silky 60 FPS across all viewports.
 
 ### SOLUM Minerals & Commercial Web Suite
 *Full-Stack Web Architect • Next.js 15, TypeScript, Tailwind CSS | 2025 – Present*

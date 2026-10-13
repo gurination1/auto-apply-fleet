@@ -2,10 +2,14 @@
 """
 Master SWE Resume Generator for Gurdharam Jeet Singh
 Engineered to the 100/100 Modern SWE Benchmark (Jake's Resume / Overleaf Standard):
-- Complete Full-Stack Portfolio: EduCore ERP (React 19), WhatsApp CRM (Meta API), Nexus Quant (FastAPI), SOLUM (Next.js 15)
-- Technical Skills at the Top for Instant Parser Keyword Extraction
-- 9.3pt Body Typography, 1.23 Line-Height, 0.40in x 0.45in Balanced Margins (Zero Over-Densing)
-- 100% Metric-Quantified Bullets (X-Y-Z Action Formula, Zero Fluff)
+- Complete Full-Spectrum Web Architecture Portfolio:
+  1. EduCore ERP (React 19, TypeScript, Express, MariaDB/SQLite Two-Tier Failover, RBAC, Railway)
+  2. Enterprise WhatsApp CRM (Official Meta Cloud API, Supabase PostgreSQL, 24h Radar)
+  3. Dream Heights (Luxury Architectural Portal, React 18, Framer Motion, Lenis Smooth Scroll, Spatial Pins)
+  4. SOLUM Minerals & Branders Suite (Next.js 15, App Router, 99+ Lighthouse, Zero Layout Shift)
+- Consultancy: Real-Time Telephony Voice AI (<700ms Latency) & High-Throughput BullMQ Queues (25k+ Events)
+- Zero Trading/Crypto content (100% targeted to enterprise tech, scaleups, and web systems)
+- 9.1pt Body Typography, 1.22 Line-Height, 0.38in x 0.44in Balanced Margins (Zero Over-Densing)
 - Chromium Headless Clean Export with --no-pdf-header-footer (Strict 1-Page Guarantee)
 """
 
@@ -22,15 +26,15 @@ html_content = """<!DOCTYPE html>
 <style>
   @page {
     size: letter portrait;
-    margin: 0.40in 0.45in 0.40in 0.45in;
+    margin: 0.38in 0.44in 0.38in 0.44in;
   }
   * {
     box-sizing: border-box;
   }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 9.3pt;
-    line-height: 1.23;
+    font-size: 9.1pt;
+    line-height: 1.22;
     color: #111827;
     margin: 0;
     padding: 0;
@@ -41,7 +45,7 @@ html_content = """<!DOCTYPE html>
     margin-bottom: 4px;
   }
   h1 {
-    font-size: 17pt;
+    font-size: 16.5pt;
     font-weight: 800;
     letter-spacing: 0.5px;
     color: #0f172a;
@@ -49,13 +53,13 @@ html_content = """<!DOCTYPE html>
     text-transform: uppercase;
   }
   .subtitle {
-    font-size: 9.6pt;
+    font-size: 9.4pt;
     font-weight: 600;
     color: #334155;
     margin-bottom: 2.5px;
   }
   .contact-bar {
-    font-size: 8.6pt;
+    font-size: 8.5pt;
     color: #475569;
   }
   .contact-bar a {
@@ -64,37 +68,37 @@ html_content = """<!DOCTYPE html>
     font-weight: 500;
   }
   h2 {
-    font-size: 9.8pt;
+    font-size: 9.6pt;
     font-weight: 700;
     text-transform: uppercase;
     color: #0f172a;
     border-bottom: 1.5px solid #0f172a;
     padding-bottom: 1px;
-    margin: 6px 0 3.5px 0;
+    margin: 5.5px 0 3px 0;
     letter-spacing: 0.4px;
   }
   .skill-line {
-    font-size: 9.0pt;
-    line-height: 1.22;
+    font-size: 8.8pt;
+    line-height: 1.21;
     margin-bottom: 2px;
   }
   .skill-line strong {
     color: #0f172a;
   }
   .entry {
-    margin-bottom: 4px;
+    margin-bottom: 3.8px;
   }
   .entry-header {
     display: flex;
     justify-content: space-between;
-    font-size: 9.3pt;
+    font-size: 9.1pt;
     font-weight: 700;
     color: #0f172a;
   }
   .entry-subheader {
     display: flex;
     justify-content: space-between;
-    font-size: 8.7pt;
+    font-size: 8.5pt;
     font-style: italic;
     color: #475569;
     margin-bottom: 1.5px;
@@ -107,11 +111,11 @@ html_content = """<!DOCTYPE html>
   }
   ul {
     margin: 0;
-    padding-left: 15px;
+    padding-left: 14px;
   }
   li {
-    font-size: 8.7pt;
-    line-height: 1.21;
+    font-size: 8.5pt;
+    line-height: 1.20;
     color: #334155;
     margin-bottom: 1px;
   }
@@ -123,15 +127,15 @@ html_content = """<!DOCTYPE html>
 <body>
   <div class="header">
     <h1>Gurdharam Jeet Singh</h1>
-    <div class="subtitle">Full-Stack Software Engineer &bull; Web Systems &amp; Distributed Architecture</div>
+    <div class="subtitle">Full-Stack Software Engineer &bull; Web Systems &amp; Spatial Frontend Architect</div>
     <div class="contact-bar">
       Punjab, India &bull; +91 90411 72159 &bull; <a href="mailto:gurination1@gmail.com">gurination1@gmail.com</a> &bull; <a href="https://github.com/gurination1">github.com/gurination1</a> &bull; <a href="https://linkedin.com/in/gurdharam">linkedin.com/in/gurdharam</a> &bull; <a href="https://gurdharam.com">gurdharam.com</a>
     </div>
   </div>
 
   <h2>Technical Skills</h2>
-  <div class="skill-line"><strong>Languages:</strong> TypeScript, JavaScript (ES6+), Python, Go, SQL, HTML5, CSS3</div>
-  <div class="skill-line"><strong>Frontend &amp; UI Systems:</strong> React 19, Next.js 15 (App Router, Server Components), Tailwind CSS 4, Vite 6, WebSockets, Three.js, Core Web Vitals (LCP, CLS &lt; 0.02)</div>
+  <div class="skill-line"><strong>Languages &amp; Core:</strong> TypeScript, JavaScript (ES6+), Python, Go, SQL, HTML5, CSS3</div>
+  <div class="skill-line"><strong>Frontend &amp; Spatial Web:</strong> React 19, Next.js 15 (App Router, Server Components), Tailwind CSS 4, Vite 6, Framer Motion, Lenis Smooth Scroll, Three.js, WebGL2 (Camera Kit), Core Web Vitals (LCP, CLS &lt; 0.02)</div>
   <div class="skill-line"><strong>Backend &amp; Distributed Systems:</strong> Node.js, Express, FastAPI, PostgreSQL, Supabase, MariaDB/SQLite Failover, Redis &amp; BullMQ, WebSockets, REST APIs, Docker, Linux/Bash</div>
   <div class="skill-line"><strong>Cloud &amp; Platform Infrastructure:</strong> Official Meta WhatsApp Cloud API (WABA), GitHub Actions 24/7 CI/CD Fleets, Railway, AWS (S3, Lambda), Exotel Telephony, Gemini AI</div>
 
@@ -147,8 +151,8 @@ html_content = """<!DOCTYPE html>
       <span><a href="https://github.com/gurination1/ERP_educore">Open Source</a></span>
     </div>
     <ul>
-      <li><strong>Full-Stack Architecture &amp; Two-Tier Failover:</strong> Engineered enterprise ERP handling student admissions, fee ledgers, and scholarships with automated zero-config DB failover (MariaDB production &rarr; local SQLite).</li>
-      <li><strong>RBAC &amp; Dynamic Form Engine:</strong> Built strict JWT role-based access control across 3 permission tiers, Helmet security headers, Zod validation, and a runtime dynamic form schema builder for campus workflows.</li>
+      <li><strong>Full-Stack Architecture &amp; Two-Tier Failover:</strong> Engineered enterprise ERP handling student admissions, fee ledgers, and scholarships with automated zero-config DB failover (MariaDB production &rarr; local SQLite store).</li>
+      <li><strong>RBAC &amp; Dynamic Form Schema Builder:</strong> Built strict JWT role-based access control across 3 permission tiers, Helmet security headers, Zod validation, and a runtime dynamic form builder for campus workflows.</li>
     </ul>
   </div>
 
@@ -169,16 +173,16 @@ html_content = """<!DOCTYPE html>
 
   <div class="entry">
     <div class="entry-header">
-      <span>Nexus Real-Time Quant &amp; Arbitrage Engine</span>
+      <span>Dream Heights &mdash; Luxury Architectural &amp; Real Estate Portal</span>
       <span>2025 &ndash; Present</span>
     </div>
     <div class="entry-subheader">
-      <span>Systems Engineer &bull; Python Async FastAPI, WebSockets, Hyperliquid, Binance Futures</span>
-      <span>High-Throughput Trading Engine</span>
+      <span>Frontend Architect &bull; React 18, TypeScript, Tailwind CSS, Framer Motion, Lenis</span>
+      <span><a href="https://github.com/gurination1/dreamheights">Open Source</a></span>
     </div>
     <ul>
-      <li><strong>Delta-Neutral Execution Pipeline:</strong> Engineered high-frequency funding rate arbitrage engine analyzing real-time spreads across perpetual futures with automated basis risk calculations and sub-second execution.</li>
-      <li><strong>Real-Time WebSocket Terminal &amp; Kill-Switch:</strong> Built live trading dashboard streaming orderbook feeds over WebSockets with automated 5% drawdown circuit breaker and basis drift emergency unwinds.</li>
+      <li><strong>Spatial Architectural Pins &amp; Navigation:</strong> Built interactive luxury residence portal featuring spatial pin exploration, dynamic residence floor-plan modals, and custom interactive architectural emblems.</li>
+      <li><strong>60 FPS Physics &amp; Smooth Momentum Scrolling:</strong> Implemented Lenis inertial scrolling combined with hardware-accelerated Framer Motion transitions, maintaining silky 60 FPS across all viewports.</li>
     </ul>
   </div>
 
@@ -240,7 +244,7 @@ md_path = "/root/gurdharam_resume/Gurdharam_Jeet_Singh_Resume.md"
 with open(html_path, "w") as f:
     f.write(html_content)
 
-print("[+] Wrote ultimate master HTML resume.")
+print("[+] Wrote balanced master HTML resume.")
 
 # Generate PDF with Chromium headless without header/footer
 cmd = [
@@ -263,14 +267,14 @@ assert page_count == 1, f"Resume exceeded 1 page! Count: {page_count}"
 
 # Generate companion Markdown version
 md_content = """# Gurdharam Jeet Singh
-**Full-Stack Software Engineer • Web Systems & Distributed Architecture**  
+**Full-Stack Software Engineer • Web Systems & Spatial Frontend Architect**  
 Punjab, India • +91 90411 72159 • [gurination1@gmail.com](mailto:gurination1@gmail.com) • [github.com/gurination1](https://github.com/gurination1) • [linkedin.com/in/gurdharam](https://linkedin.com/in/gurdharam) • [gurdharam.com](https://gurdharam.com)
 
 ---
 
 ## Technical Skills
-- **Languages:** TypeScript, JavaScript (ES6+), Python, Go, SQL, HTML5, CSS3
-- **Frontend & UI Systems:** React 19, Next.js 15 (App Router, Server Components), Tailwind CSS 4, Vite 6, WebSockets, Three.js, Core Web Vitals (LCP, CLS < 0.02)
+- **Languages & Core:** TypeScript, JavaScript (ES6+), Python, Go, SQL, HTML5, CSS3
+- **Frontend & Spatial Web:** React 19, Next.js 15 (App Router, Server Components), Tailwind CSS 4, Vite 6, Framer Motion, Lenis Smooth Scroll, Three.js, WebGL2 (Camera Kit), Core Web Vitals (LCP, CLS < 0.02)
 - **Backend & Distributed Systems:** Node.js, Express, FastAPI, PostgreSQL, Supabase, MariaDB/SQLite Failover, Redis & BullMQ, WebSockets, REST APIs, Docker, Linux/Bash
 - **Cloud & Platform Infrastructure:** Official Meta WhatsApp Cloud API (WABA), GitHub Actions 24/7 CI/CD Fleets, Railway, AWS (S3, Lambda), Exotel Telephony, Gemini AI
 
@@ -280,18 +284,18 @@ Punjab, India • +91 90411 72159 • [gurination1@gmail.com](mailto:gurination1
 
 ### EduCore — Enterprise College Management ERP
 *Lead Full-Stack Architect • React 19, TypeScript, Node.js, Express, MariaDB, Railway | 2025 – Present* [Open Source](https://github.com/gurination1/ERP_educore)
-- **Full-Stack Architecture & Two-Tier Failover:** Engineered enterprise ERP handling student admissions, fee ledgers, and scholarships with automated zero-config DB failover (MariaDB production → local SQLite).
-- **RBAC & Dynamic Form Engine:** Built strict JWT role-based access control across 3 permission tiers, Helmet security headers, Zod validation, and a runtime dynamic form schema builder for campus workflows.
+- **Full-Stack Architecture & Two-Tier Failover:** Engineered enterprise ERP handling student admissions, fee ledgers, and scholarships with automated zero-config DB failover (MariaDB production → local SQLite store).
+- **RBAC & Dynamic Form Schema Builder:** Built strict JWT role-based access control across 3 permission tiers, Helmet security headers, Zod validation, and a runtime dynamic form builder for campus workflows.
 
 ### Enterprise WhatsApp AI & Lead Management CRM
 *Lead Architect • Meta Cloud API, Node.js, Express, Supabase (PostgreSQL) | 2025 – Present*
 - **Official Meta Cloud API Architecture:** Engineered multi-tenant CRM gateway integrating Meta Graph Cloud API (WABA ID: 106690...), handling bi-directional messaging, template dispatch, and HMAC-verified webhooks.
 - **24-Hour Autonomous Follow-Up Radar:** Built real-time engagement engine with dynamic cadences (24h/36h/48h/72h), tracking lead conversation states and triggering automated follow-ups via Supabase.
 
-### Nexus Real-Time Quant & Arbitrage Engine
-*Systems Engineer • Python Async FastAPI, WebSockets, Hyperliquid, Binance Futures | 2025 – Present*
-- **Delta-Neutral Execution Pipeline:** Engineered high-frequency funding rate arbitrage engine analyzing real-time spreads across perpetual futures with automated basis risk calculations and sub-second execution.
-- **Real-Time WebSocket Terminal & Kill-Switch:** Built live trading dashboard streaming orderbook feeds over WebSockets with automated 5% drawdown circuit breaker and basis drift emergency unwinds.
+### Dream Heights — Luxury Architectural & Real Estate Portal
+*Frontend Architect • React 18, TypeScript, Tailwind CSS, Framer Motion, Lenis | 2025 – Present* [Open Source](https://github.com/gurination1/dreamheights)
+- **Spatial Architectural Pins & Navigation:** Built interactive luxury residence portal featuring spatial pin exploration, dynamic residence floor-plan modals, and custom interactive architectural emblems.
+- **60 FPS Physics & Smooth Momentum Scrolling:** Implemented Lenis inertial scrolling combined with hardware-accelerated Framer Motion transitions, maintaining silky 60 FPS across all viewports.
 
 ### SOLUM Minerals & Commercial Web Suite
 *Full-Stack Web Architect • Next.js 15, TypeScript, Tailwind CSS | 2025 – Present*
