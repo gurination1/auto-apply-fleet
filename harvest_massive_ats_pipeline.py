@@ -199,6 +199,48 @@ async def fetch_company_postings(session, comp_info, sem):
             pass
         return results
 
+CURATED_HIGH_INCOME_COMPANIES = [
+    # Switzerland / Zurich / Geneva Hubs
+    {'name': 'Proton', 'slug': 'proton', 'ats': 'greenhouse'},
+    {'name': 'Scandit', 'slug': 'scandit', 'ats': 'greenhouse'},
+    {'name': 'Beekeeper', 'slug': 'beekeeper', 'ats': 'greenhouse'},
+    {'name': 'Dfinity', 'slug': 'dfinity', 'ats': 'greenhouse'},
+    {'name': 'SonarSource', 'slug': 'sonarsource', 'ats': 'greenhouse'},
+    {'name': 'Smallpdf', 'slug': 'smallpdf', 'ats': 'lever'},
+    {'name': 'Verity', 'slug': 'verity', 'ats': 'greenhouse'},
+    
+    # Dubai / UAE / GCC Hubs
+    {'name': 'Careem', 'slug': 'careem', 'ats': 'greenhouse'},
+    {'name': 'Tamara', 'slug': 'tamara', 'ats': 'greenhouse'},
+    {'name': 'Property Finder', 'slug': 'propertyfinder', 'ats': 'greenhouse'},
+    {'name': 'Dubizzle', 'slug': 'dubizzle', 'ats': 'greenhouse'},
+    {'name': 'Bayut', 'slug': 'bayut', 'ats': 'greenhouse'},
+    {'name': 'Talabat', 'slug': 'talabat', 'ats': 'greenhouse'},
+    {'name': 'Sarwa', 'slug': 'sarwa', 'ats': 'lever'},
+    {'name': 'Baraka', 'slug': 'baraka', 'ats': 'greenhouse'},
+    {'name': 'Anghami', 'slug': 'anghami', 'ats': 'greenhouse'},
+
+    # Worldwide / High-Comp Global Remote ($3,000 - $12,000+/mo)
+    {'name': 'GitLab', 'slug': 'gitlab', 'ats': 'greenhouse'},
+    {'name': 'Stripe', 'slug': 'stripe', 'ats': 'greenhouse'},
+    {'name': 'Elastic', 'slug': 'elastic', 'ats': 'greenhouse'},
+    {'name': 'Canonical', 'slug': 'canonical', 'ats': 'greenhouse'},
+    {'name': 'Vercel', 'slug': 'vercel', 'ats': 'greenhouse'},
+    {'name': 'Supabase', 'slug': 'supabase', 'ats': 'ashby'},
+    {'name': 'Linear', 'slug': 'linear', 'ats': 'ashby'},
+    {'name': 'PostHog', 'slug': 'posthog', 'ats': 'ashby'},
+    {'name': 'Railway', 'slug': 'railway', 'ats': 'ashby'},
+    {'name': 'ElevenLabs', 'slug': 'elevenlabs', 'ats': 'ashby'},
+    {'name': 'Ramp', 'slug': 'ramp', 'ats': 'ashby'},
+    {'name': 'Grafana Labs', 'slug': 'grafanalabs', 'ats': 'greenhouse'},
+    {'name': 'Neon', 'slug': 'neon', 'ats': 'ashby'},
+    {'name': 'Clerk', 'slug': 'clerk', 'ats': 'ashby'},
+    {'name': 'Buffer', 'slug': 'buffer', 'ats': 'ashby'},
+    {'name': 'Incident.io', 'slug': 'incidentio', 'ats': 'ashby'},
+    {'name': 'Automattic', 'slug': 'automattic', 'ats': 'greenhouse'},
+    {'name': 'DuckDuckGo', 'slug': 'duckduckgo', 'ats': 'greenhouse'}
+]
+
 async def harvest_all():
     print("[*] Fetching company dataset...")
     comps_url = "https://raw.githubusercontent.com/zshah101/Automated-List-Of-Summer-2027-and-Fall-2026-Tech-Internships/main/data/companies.json"
@@ -208,6 +250,13 @@ async def harvest_all():
         all_companies = json.loads(r.read().decode())
 
     target_companies = [c for c in all_companies if c.get('ats') in ['greenhouse', 'ashby', 'lever']]
+    
+    # Inject Curated High-Income Companies (Switzerland, Dubai/UAE, Global Remote)
+    existing_slugs = {c.get('slug', '').lower() for c in target_companies}
+    for hc in CURATED_HIGH_INCOME_COMPANIES:
+        if hc['slug'].lower() not in existing_slugs:
+            target_companies.insert(0, hc)
+
     print(f"[+] Total Greenhouse / Lever / Ashby companies identified: {len(target_companies)}")
 
     sem = asyncio.Semaphore(50)
@@ -220,12 +269,28 @@ async def harvest_all():
     flat_roles = [r for sublist in responses for r in sublist]
     print(f"[+] Total raw targeted roles harvested: {len(flat_roles)}")
 
-    # Deduplicate internally
+    # Deduplicate internally and prioritize high-income regions
     seen_urls = set()
     seen_pairs = set()
     deduped = []
     intern_count = 0
     job_count = 0
+
+    HIGH_INCOME_LOCATIONS = ['switzerland', 'zurich', 'geneva', 'dubai', 'uae', 'united arab emirates', 'singapore', 'remote', 'worldwide', 'anywhere', 'global', 'emea', 'apac', 'europe']
+    
+    def get_priority(role_item):
+        loc = (role_item.get('location') or '').lower()
+        is_rem = role_item.get('is_remote', False)
+        priority = 0
+        if any(h in loc for h in ['switzerland', 'zurich', 'geneva']):
+            priority += 50
+        if any(h in loc for h in ['dubai', 'uae', 'united arab emirates']):
+            priority += 40
+        if any(h in loc for h in ['singapore']):
+            priority += 30
+        if is_rem or any(h in loc for h in ['worldwide', 'anywhere', 'global']):
+            priority += 25
+        return priority
 
     for r in flat_roles:
         u = r['applyUrl'].strip().lower().split('?')[0].rstrip('/')
@@ -247,7 +312,11 @@ async def harvest_all():
         else:
             job_count += 1
 
+    # Sort so high-income hubs (Switzerland, Dubai/UAE, Singapore, Global Remote) come first
+    deduped.sort(key=lambda r: get_priority(r), reverse=True)
+    high_income_count = sum(1 for r in deduped if get_priority(r) > 0)
     print(f"[+] Final viable deduplicated roles: {len(deduped)}")
+    print(f"[+]   High-Income / Priority Hub Roles (Switzerland, Dubai, Global Remote): {high_income_count}")
     print(f"[+]   Paid Internships: {intern_count}")
     print(f"[+]   Junior/Early Full-Time Jobs: {job_count}")
 
