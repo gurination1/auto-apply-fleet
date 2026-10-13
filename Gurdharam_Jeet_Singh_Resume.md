@@ -1,62 +1,51 @@
-# GURDHARAM JEET SINGH
-**Full-Stack Software Engineer • Web Systems & Cloud Automation Architect**  
-Bathinda / Muktsar, Punjab, India • Phone: +91 90411 72159 • Email: [gurination1@gmail.com](mailto:gurination1@gmail.com) • GitHub: [github.com/gurination1](https://github.com/gurination1) • LinkedIn: [linkedin.com/in/gurdharam](https://www.linkedin.com/in/gurdharam-jeet-singh-691a17275) • Portfolio: [gurdharam.com](https://gurdharam.com)
+# Gurdharam Jeet Singh
+**Full-Stack Software Engineer • Web Systems & Cloud Automation**  
+Punjab, India • +91 90411 72159 • [gurination1@gmail.com](mailto:gurination1@gmail.com) • [github.com/gurination1](https://github.com/gurination1) • [linkedin.com/in/gurdharam](https://linkedin.com/in/gurdharam) • [gurdharam.com](https://gurdharam.com)
 
 ---
 
-## PROFESSIONAL SUMMARY
-Full-Stack Software Engineer and Cloud Automation Architect with proven production experience building high-performance React, Next.js, and TypeScript web applications and scalable distributed systems. Shipped commercial platforms including SOLUM Minerals, Branders, and Dream Heights with 99+ Lighthouse scores and fluid micro-interactions. Architect of 24/7 cloud automation fleets on GitHub Actions, low-latency telephony event systems (<700ms turn latency), and Redis/BullMQ distributed message pipelines processing 25,000+ daily events. Available immediately for remote software engineering internships, co-ops, and full-time roles worldwide.
+## Professional Summary
+Full-Stack Software Engineer with production experience shipping modern Next.js 15, TypeScript, and Node.js web applications and autonomous cloud automation fleets. Architect of commercial web portals with 99+ Lighthouse scores, enterprise WhatsApp CRM platforms over official Meta Cloud APIs, and real-time distributed pipelines processing 25,000+ daily events. Available immediately for remote Software Engineering internships and full-time roles worldwide.
 
 ---
 
-## TECHNICAL SKILLS
-- **Frontend & Web Systems:** React, Next.js (App Router, SSR, RSC), TypeScript, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, WebSockets, Three.js, WebGL2 (Camera Kit), GLSL Shaders, Lenis Smooth Scroll, Technical SEO, GEO, JSON-LD Schema.
-- **Backend & Distributed Architecture:** Node.js, Express, Python (FastAPI, Asyncio), Go, PostgreSQL, Redis & BullMQ Queues, RESTful APIs, Webhook Orchestration, Docker, Linux CLI / Bash, systemd, Tailscale, Headless Playwright / Puppeteer.
-- **Cloud, DevOps & AI Workflows:** GitHub Actions CI/CD, AWS (S3, Lambda), GCP, Railway, Sarvam AI Indic LLMs, Groq LPU, Voice AI, SIP, VoIP, Silero VAD, RAG, Model Context Protocol (MCP), FFmpeg Audio/Video Automation, TensorFlow Lite INT8, Flutter Isolates.
-- **Testing, Quality & Web Performance:** Playwright & Puppeteer E2E Testing, Jest, React Testing Library, Core Web Vitals Optimization (LCP, CLS <0.02), Lighthouse 99+ Audits, Accessibility (WCAG 2.1, WAI-ARIA), Git & GitHub Actions CI/CD, Vite, Postman, RESTful API Design.
+## Technical Skills
+- **Frontend & UI Systems:** React, Next.js 15 (App Router, Server Components), TypeScript, JavaScript (ES6+), Tailwind CSS, Three.js, WebGL2, HTML5/CSS3, Core Web Vitals (LCP, CLS < 0.02), Lenis Smooth Scroll.
+- **Backend & Distributed Architecture:** Node.js, Express, Python (FastAPI, Asyncio), PostgreSQL, Supabase, Redis & BullMQ, WebSockets, REST APIs, Webhook Ingestion, Docker, Linux / Bash.
+- **Cloud, DevOps & AI Integration:** GitHub Actions CI/CD (24/7 Cloud Fleets), Official Meta WhatsApp Cloud API (WABA), Gemini API / LLM Orchestration, Voice AI (SIP, WebSockets, Silero VAD), AWS (S3, Lambda), Playwright E2E.
 
 ---
 
-## KEY ENGINEERING PROJECTS
+## Key Engineering Projects
 
-### Autonomous 5-Channel YouTube Media Fleet (yt-auto) — Cloud / GitHub Actions | 2025 – Present
-**Lead Automation Architect • Open Source (github.com/gurination1/yt-auto)**
-- **100% Headless Cloud Fleet Execution:** Engineered resilient 5-channel media generation fleet running autonomously on GitHub Actions across 15 daily slots with zero local machine dependencies.
-- **Dual-Gate Multimodal Quality Control:** Integrated FFmpeg black-frame detector (blackdetect=d=0.8) and Gemini Multimodal Judge AI (evaluating narrative flow, pacing, and subtitle sync) enforcing a strict >=85/100 publication threshold.
-- **Algorithmic Audio & Video Rendering:** Built headless audio ducking and dynamic background scoring pipeline in Python/FFmpeg with millisecond word-level subtitle alignment (.ass dynamic styling).
+### Enterprise WhatsApp AI & Lead Management CRM
+*Lead Architect • Meta Cloud API, Node.js, Express, Supabase (PostgreSQL) | 2025 – Present*
+- **Official Meta Cloud API Architecture:** Engineered multi-tenant CRM gateway integrating Meta Graph Cloud API (WABA ID: 106690...), handling bi-directional messaging, template dispatch, and HMAC-verified webhooks.
+- **24-Hour Autonomous Follow-Up Radar:** Built real-time engagement engine with dynamic cadences (24h/36h/48h/72h), tracking lead conversation states and triggering automated follow-ups via Supabase (PostgreSQL).
+- **Failover LLM Pipeline & Phone Routing:** Integrated multi-key Gemini AI pool for automated intent parsing and lead qualification with 99.9% uptime, multi-coordinator SMS/WhatsApp dispatch, and live control dashboard.
 
-### SOLUM Minerals, Branders & Dream Heights Web Suite — Remote / Production | 2025 – Present
-**Full-Stack Web Architect & Systems Developer**
-- **SOLUM Minerals Platform:** Architected low-carbon mineral geology web application using Next.js 15 (App Router, Server Components), TypeScript, and Tailwind CSS. Built custom responsive components, dynamic product showcases, and interactive data visualizers with 99+ Lighthouse performance rating.
-- **Branders Digital Experience Platform:** Engineered high-performance brand agency web platform with modern interactive components, fluid micro-interactions, zero layout shifts (CLS < 0.02), and physics-hardened mobile navigation.
-- **Dream Heights Real Estate Platform:** Architected real estate portal with spatial property filtering, virtual floor plan previews, interactive image carousels, and automated client inquiry pipelines.
-- **Mobile & Edge Systems:** Built Fasal Doctor (plant pathology Flutter / TensorFlow Lite INT8) and DoodHisaab (dairy ledger system with Flutter Isolates).
+### SOLUM Minerals & Commercial Web Suite
+*Full-Stack Web Architect • Next.js 15, TypeScript, Tailwind CSS | 2025 – Present*
+- **SOLUM Minerals Geology Portal:** Architected responsive commercial web platform using Next.js 15 App Router, achieving a 99+ Lighthouse performance rating with interactive product showcases and zero layout shift (CLS < 0.02).
+- **Branders Digital Experience Platform:** Engineered agency web platform with modern micro-interactions, responsive navigation, and physics-hardened layouts designed for high-conversion client acquisition.
 
-### Genesis Coding Agent & AST Self-Healing Engine — Autonomous Systems / Python | 2025 – Present
-**Lead Architect • AST Code Synthesis & Cloud Workflows**
-- **Autonomous AST Mutation Loops:** Engineered self-healing agent engine that parses Python Abstract Syntax Trees (AST), generates surgical code diffs, and validates test suites with zero manual intervention.
-- **Playwright & Headless Cloud Integration:** Implemented end-to-end browser verification harnesses, capturing multi-surface DOM state and generating automated visual validation logs.
+### Autonomous Media Generation Cloud Fleet (yt-auto)
+*Lead Automation Architect • Python, FFmpeg, GitHub Actions CI/CD | 2025 – Present*
+- **100% Headless Cloud Fleet Execution:** Engineered resilient media generation pipeline running autonomously on GitHub Actions across 15 daily slots with automated matrix workers and zero local server dependencies.
+- **Dual-Gate Multimodal Quality Control:** Integrated FFmpeg black-frame detection and Gemini Multimodal Judge AI enforcing strict ≥85/100 publication standards, dynamic audio ducking, and millisecond subtitle rendering.
 
 ---
 
-## WORK EXPERIENCE
+## Work Experience
 
-### Gurdharam (Independent Software Consultancy) — Remote / Punjab, India | 2025 – Present
-**Full-Stack Web & Autonomous Systems Engineer**
-- **Telephonic Voice AI & Speech Agent Architecture:** Architected real-time telephony voice agent over Exotel WebSockets, SIP, and VoIP, achieving <700ms turn latency across Sarvam AI Indic models and Groq LPUs with Silero VAD barge-in for Neo and Priya conversational personae.
-- **High-Throughput Webhook & Messaging Gateway:** Engineered automated outreach and webhook triage gateway using Official WhatsApp APIs, Redis, and BullMQ, reliably processing 25,000+ incoming webhooks with sub-5-minute SLA.
-- **Web AR Lens Pipeline (SnapAR Studio):** Developed WebGL2 Camera Kit testing portal integrating custom GLSL shaders, 3D asset conversion pipelines, and automated package verification.
-
----
-
-## EDUCATION
-
-### Baba Farid Group of Institutions (BFGI) — Punjab, India | Expected Graduation: May 2027
-**Bachelor of Science in Computer Science & Software Systems**
-- **Core Curriculum:** Data Structures & Algorithms, Operating Systems, Database Management Systems, Computer Networks, Software Engineering.
+### Gurdharam Software Consultancy • Systems & Web Engineer
+*Independent Software Consultancy • Remote | Punjab, India | 2025 – Present*
+- **Telephonic Voice AI Agent:** Built real-time telephony agent over Exotel WebSockets, SIP, and VoIP, achieving <700ms turn latency across Sarvam AI Indic LLMs, Groq LPU, and Silero VAD barge-in for natural spoken dialogue.
+- **High-Throughput Webhook Processing:** Architected distributed queue worker system using Redis and BullMQ, reliably processing 25,000+ daily webhook events with automated retry logic and sub-5-minute SLA.
 
 ---
 
-## CERTIFICATIONS & REGISTRATIONS
-- **Govt. MSME Registered Enterprise:** Ministry of Micro, Small and Medium Enterprises (UDYAM-PB-03-0079744).
-- **Developer Partnerships & Verification:** Sarvam AI Startup Developer Member (Priority Indic LLM rates) • Meta Verified business entity.
+## Education & Credentials
+- **Baba Farid Group of Institutions (BFGI)** — B.Sc. in Computer Science *(Expected May 2027)*
+  - Core: Data Structures & Algorithms, Database Systems, Computer Networks, Operating Systems
+- **Credentials & Verification:** Meta Verified Business Entity • Official WhatsApp Business Platform Developer • Sarvam AI Startup Developer Partner • Govt. MSME Registered Enterprise (UDYAM-PB-03-0079744).
