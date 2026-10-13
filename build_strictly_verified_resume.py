@@ -254,10 +254,21 @@ html_content = """<!DOCTYPE html>
   <div class="entry">
     <div class="entry-row-1">
       <span class="left">Baba Farid Group of Institutions (BFGI)</span>
-      <span class="right">2024 &ndash; 2027</span>
+      <span class="right">2024 &ndash; Present</span>
     </div>
     <div class="entry-row-2">
-      <span class="left">Bachelor of Science (Hons.) in Computer Science &bull; Coursework: Data Structures &amp; Algorithms, DBMS, Networks, OS</span>
+      <span class="left">Bachelor of Science (Hons.) &bull; Applied Computational Systems &amp; Computer Science Foundations</span>
+      <span class="right">Punjab, India</span>
+    </div>
+  </div>
+
+  <div class="entry" style="margin-bottom: 2px;">
+    <div class="entry-row-1">
+      <span class="left">Senior Secondary Education (Class XII / Grade 12) &mdash; <strong>91.0% (Academic Distinction)</strong></span>
+      <span class="right">2024</span>
+    </div>
+    <div class="entry-row-2">
+      <span class="left">Focus: Physics, Chemistry, Mathematics (PCM) &bull; Quantitative &amp; Algorithmic Foundations</span>
       <span class="right">Punjab, India</span>
     </div>
   </div>
@@ -349,8 +360,10 @@ Bathinda / Muktsar, Punjab, India | +91 90411 72159 | [gurination1@gmail.com](ma
 ---
 
 ## Education & Credentials
-- **Baba Farid Group of Institutions (BFGI)** — Bachelor of Science (Hons.) in Computer Science *(2024 – 2027)*
-  - Coursework: Data Structures & Algorithms, DBMS, Networks, OS • Punjab, India
+- **Baba Farid Group of Institutions (BFGI)** — Bachelor of Science (Hons.) *(2024 – Present)*
+  - Applied Computational Systems & Computer Science Foundations • Punjab, India
+- **Senior Secondary Education (Class XII / Grade 12)** — **91.0% (Academic Distinction)** *(2024)*
+  - Focus: Physics, Chemistry, Mathematics (PCM) • Quantitative & Algorithmic Foundations • Punjab, India
 - **Credentials & Verification:** Meta Verified Business Entity • Official WhatsApp Business Platform Developer • Sarvam AI Startup Partner • Govt. MSME Registered Enterprise (UDYAM-PB-03-0079744) • Additional Systems: *SnapAR Studio (Camera Kit WebGL2)*, *TakeMyInterview AI (Local Voice LLM)*, *DoodHisaab (Mobile Dairy Ledger)*.
 """
 
