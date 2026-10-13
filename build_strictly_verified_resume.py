@@ -3,14 +3,11 @@
 Master SWE Resume Generator for Gurdharam Jeet Singh
 Built to the Jake's Resume / Overleaf / r/EngineeringResumes Gold Standard:
 - Unified Creative Web Suite (SOLUM Minerals, Dream Heights & Branders in 1 cohesive platform)
-- Featured Real Engineering Gems: Fasal Doctor (Patented Edge-AI INT8), yt-auto (24/7 GHA Fleet), EduCore ERP (Postgres/MariaDB)
+- Verified Real Engineering Gems: yt-auto (24/7 GHA Fleet), EduCore (Enterprise ERP & SIS), Fasal Doctor (Autonomous Edge-AI Foliar Pathology - NO FALSE PATENT CLAIMS)
 - Verified Work Experience: CP Systems (Cool & Pure System - cpsystem.in, Industrial Machinery & RO Plants) + Gurdharam Enterprise (Govt. MSME UDYAM-PB-03-0079744)
-- Authentic 4-element subheadings: [Company left, Dates right], [Title/Scope left, Location right]
-- 0.40in x 0.45in balanced margins (100% printable, zero printer clipping)
-- 9.1pt base typography with 1.23 line-height (crisp, zero visual strain)
-- Zero Title Inflation: Grounded engineering roles (Software Developer, Full-Stack Engineer)
-- Google XYZ Formula: Quantified impact across latency, payload cut, build times, FPS, and volume
+- Authentic 2-line 4-element subheadings: [Title/Company left, Dates/Links right], [Tech/Domain left, Scope/Location right] (zero text wrapping or collision)
 - Strict 1-Page Letter compilation with --no-pdf-header-footer
+- Zero Duplication: Fasal Doctor only in Projects; DoodHisaab in Credentials
 """
 
 import subprocess
@@ -26,7 +23,7 @@ html_content = """<!DOCTYPE html>
 <style>
   @page {
     size: letter portrait;
-    margin: 0.40in 0.45in 0.40in 0.45in;
+    margin: 0.38in 0.44in 0.38in 0.44in;
   }
   * {
     box-sizing: border-box;
@@ -35,17 +32,17 @@ html_content = """<!DOCTYPE html>
   }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 9.1pt;
-    line-height: 1.23;
+    font-size: 8.95pt;
+    line-height: 1.22;
     color: #111827;
     background: #ffffff;
   }
   .header {
     text-align: center;
-    margin-bottom: 4px;
+    margin-bottom: 3.5px;
   }
   .name {
-    font-size: 19pt;
+    font-size: 18.5pt;
     font-weight: 800;
     letter-spacing: 0.4px;
     color: #0f172a;
@@ -53,13 +50,13 @@ html_content = """<!DOCTYPE html>
     margin-bottom: 1.5px;
   }
   .subtitle {
-    font-size: 9.1pt;
+    font-size: 9.0pt;
     font-weight: 600;
     color: #334155;
     margin-bottom: 2px;
   }
   .contact-line {
-    font-size: 8.5pt;
+    font-size: 8.4pt;
     color: #475569;
   }
   .contact-line a {
@@ -72,26 +69,26 @@ html_content = """<!DOCTYPE html>
     margin: 0 3px;
   }
   .section-title {
-    font-size: 9.7pt;
+    font-size: 9.5pt;
     font-weight: 700;
     text-transform: uppercase;
     color: #0f172a;
     letter-spacing: 0.4px;
     border-bottom: 1.2px solid #0f172a;
     padding-bottom: 1px;
-    margin-top: 5px;
-    margin-bottom: 3px;
+    margin-top: 4.5px;
+    margin-bottom: 2.5px;
   }
   .skills-row {
-    font-size: 8.6pt;
-    line-height: 1.22;
-    margin-bottom: 1.5px;
+    font-size: 8.5pt;
+    line-height: 1.21;
+    margin-bottom: 1.4px;
   }
   .skills-row strong {
     color: #0f172a;
   }
   .entry {
-    margin-bottom: 3.5px;
+    margin-bottom: 3.2px;
   }
   .entry-row-1 {
     display: flex;
@@ -111,7 +108,7 @@ html_content = """<!DOCTYPE html>
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    font-size: 8.5pt;
+    font-size: 8.4pt;
     color: #475569;
     margin-bottom: 1px;
   }
@@ -121,35 +118,15 @@ html_content = """<!DOCTYPE html>
   .entry-row-2 .right {
     font-style: italic;
   }
-  .project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    font-size: 8.9pt;
-    margin-bottom: 1px;
-  }
-  .project-title {
-    font-weight: 700;
-    color: #0f172a;
-  }
-  .project-tech {
-    font-weight: 400;
-    color: #475569;
-    font-style: italic;
-  }
-  .project-date {
-    font-weight: 600;
-    color: #334155;
-  }
   ul {
     padding-left: 14px;
     list-style-type: disc;
   }
   li {
-    font-size: 8.4pt;
-    line-height: 1.21;
+    font-size: 8.35pt;
+    line-height: 1.20;
     color: #334155;
-    margin-bottom: 1px;
+    margin-bottom: 0.9px;
   }
   li strong {
     color: #0f172a;
@@ -178,6 +155,68 @@ html_content = """<!DOCTYPE html>
   <div class="skills-row"><strong>Backend &amp; Distributed Systems:</strong> Node.js, Express, FastAPI, PostgreSQL, Supabase, MariaDB, Redis, BullMQ, WebSockets, REST APIs, Docker</div>
   <div class="skills-row"><strong>Cloud, AI &amp; Infrastructure:</strong> GitHub Actions 24/7 CI/CD Fleets, Meta Cloud API (WABA), Gemini AI Multimodal, FFmpeg, Railway, AWS (S3, Lambda), Exotel Telephony, Silero VAD, Sarvam AI, Groq LPU</div>
 
+  <div class="section-title">Key Production Platforms &amp; Systems</div>
+
+  <div class="entry">
+    <div class="entry-row-1">
+      <span class="left">Spatial &amp; Creative Web Suite &mdash; SOLUM Minerals, Dream Heights &amp; Branders</span>
+      <span class="right">2025 &ndash; Present <span class="sep">|</span> <a class="proj-link" href="https://github.com/gurination1/solum-minerals">Open Source</a></span>
+    </div>
+    <div class="entry-row-2">
+      <span class="left">Next.js 15, Three.js WebGL2, React 18, Vite 6, Canvas API, Framer Motion, Lenis Smooth Scroll</span>
+      <span class="right">Production Platforms</span>
+    </div>
+    <ul>
+      <li><strong>Procedural In-Memory Asset Synthesis:</strong> Engineered procedural Three.js asset pipeline synthesizing dynamic 1024x1024 noise textures in-memory via Canvas API (SOLUM Minerals), eliminating 15MB static 3D mesh downloads and cutting initial bundle payload by 85%.</li>
+      <li><strong>Hardware-Accelerated Physics &amp; Web Vitals:</strong> Decoupled Three.js render loops from DOM scroll events using GPU composite layers (transform3d) and Lenis virtualized interpolation, maintaining stable 60 FPS across 4K viewports with CLS &lt; 0.01 and 99+ Lighthouse performance.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-row-1">
+      <span class="left">EduCore &mdash; Enterprise College Management ERP &amp; Student Information System (SIS)</span>
+      <span class="right">2025 &ndash; Present <span class="sep">|</span> <a class="proj-link" href="https://github.com/gurination1/ERP_educore">Open Source</a></span>
+    </div>
+    <div class="entry-row-2">
+      <span class="left">Full-Stack Higher-Ed Campus ERP &bull; React 19, TypeScript, Express, PostgreSQL, MariaDB Pools, Railway</span>
+      <span class="right">Campus Platform</span>
+    </div>
+    <ul>
+      <li><strong>Campus Administrative &amp; Academic Management:</strong> Architected comprehensive higher-education ERP managing end-to-end student lifecycles, admissions, department-level fee reconciliation, and academic grading across multi-tenant campus faculties.</li>
+      <li><strong>Dual-Engine Database Layer &amp; RBAC:</strong> Engineered resilient database abstraction supporting pooled PostgreSQL and MariaDB instances with connection-drain health recovery (&lt;15ms p90 query latency), paired with declarative 9-role JWT access controls and immutable audit logging.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-row-1">
+      <span class="left">yt-auto &mdash; 24/7 Autonomous Cloud Media Production Fleet</span>
+      <span class="right">2025 &ndash; Present <span class="sep">|</span> <a class="proj-link" href="https://github.com/gurination1/yt-auto">Open Source</a></span>
+    </div>
+    <div class="entry-row-2">
+      <span class="left">Cloud Distributed Video Fleet &bull; Python, FFmpeg, GitHub Actions CI/CD Matrix, Gemini Multimodal AI</span>
+      <span class="right">Distributed Automation</span>
+    </div>
+    <ul>
+      <li><strong>Event-Driven Cloud Processing Fleet:</strong> Architected media processing fleet running multi-channel batch rendering across parallelized GitHub Actions matrix workers, orchestrating 150+ automated video builds weekly with zero dedicated server overhead.</li>
+      <li><strong>Multimodal QA Gate &amp; Filtergraph Mastering:</strong> Automated video synthesis and audio mastering via custom FFmpeg filtergraphs with sidechain compression, gated by a Gemini Multimodal AI evaluation pipeline rejecting visual artifacts (&ge;85 score threshold).</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-row-1">
+      <span class="left">Fasal Doctor &mdash; Autonomous Edge-AI Foliar Pathology &amp; Crop Advisory Platform</span>
+      <span class="right">2026 &ndash; Present <span class="sep">|</span> <a class="proj-link" href="https://github.com/gurination1">Mobile System</a></span>
+    </div>
+    <div class="entry-row-2">
+      <span class="left">Edge Computer Vision &bull; Flutter, Dart, TFLite Edge, INT8 Post-Training Quantization, Worker Isolates</span>
+      <span class="right">Agritech Platform</span>
+    </div>
+    <ul>
+      <li><strong>Sub-50ms On-Device Neural Inference:</strong> Deployed post-training INT8 quantized MobileNet foliar pathology neural networks running 100% offline on low-power mobile devices in rural connectivity dead zones, achieving sub-50ms inference and &gt;94% diagnostic accuracy.</li>
+      <li><strong>Multi-Isolate Architecture &amp; Supply-Chain Auth:</strong> Architected asynchronous Flutter worker isolates decoupling 60 FPS camera previews from tensor processing, integrated with micro-precipitation spray gating and cryptographic agrochemical barcode authentication.</li>
+    </ul>
+  </div>
+
   <div class="section-title">Work Experience</div>
 
   <div class="entry">
@@ -190,8 +229,8 @@ html_content = """<!DOCTYPE html>
       <span class="right">Sri Muktsar Sahib, Punjab, India</span>
     </div>
     <ul>
-      <li><strong>Industrial Telemetry &amp; Database Profiling:</strong> Built internal operational telemetry and inventory microservices using Node.js, TypeScript, and SQL, profiling query execution plans and relational indexing to reduce p95 latency by 42% across operational endpoints.</li>
-      <li><strong>WhatsApp Business Automation &amp; CI/CD:</strong> Engineered automated customer communications and lead qualification over Meta Cloud API with 24-hour follow-up radars, while implementing GitHub Actions CI/CD pipelines with composite caching (build validation cut from 14m to 3.8m).</li>
+      <li><strong>Industrial Telemetry &amp; Database Profiling:</strong> Built internal operational telemetry, maintenance dispatch, and inventory microservices for a regional manufacturer of industrial RO plants and Bulk Milk Coolers (BMC) using Node.js, TypeScript, and SQL, profiling query plans to reduce p95 latency by 42%.</li>
+      <li><strong>WhatsApp Business Automation &amp; CI/CD:</strong> Engineered automated customer communications and lead qualification over Meta Cloud API with 24-hour follow-up radars, while implementing GitHub Actions CI/CD pipelines with composite caching (reducing build validation times from 14m to 3.8m).</li>
     </ul>
   </div>
 
@@ -206,53 +245,7 @@ html_content = """<!DOCTYPE html>
     </div>
     <ul>
       <li><strong>Commercial Client Delivery &amp; WebGL Platforms:</strong> Architected production web platforms, agency portals (Branders), and interactive 3D WebGL client applications, delivering consistent sub-800ms LCP and 0.00 CLS across multi-region edge CDNs.</li>
-      <li><strong>Real-Time Conversational Telephony AI:</strong> Built sub-700ms end-to-end conversational voice pipeline over Exotel full-duplex WebSockets, Silero VAD barge-in interruption, and streaming Sarvam AI Indic LLMs, alongside resilient Meta Cloud API gateways.</li>
-    </ul>
-  </div>
-
-  <div class="section-title">Key Production Platforms &amp; Systems</div>
-
-  <div class="entry">
-    <div class="project-header">
-      <span><span class="project-title">Spatial &amp; Creative Web Suite</span> <span class="sep">|</span> <span class="project-tech">SOLUM Minerals, Dream Heights &amp; Branders &mdash; Next.js 15, Three.js, React 18, Lenis</span></span>
-      <span class="project-date">2025 &ndash; Present <span class="sep">|</span> <a class="proj-link" href="https://github.com/gurination1/solum-minerals">Open Source</a></span>
-    </div>
-    <ul>
-      <li><strong>Procedural In-Memory Asset Synthesis:</strong> Engineered procedural Three.js asset pipeline synthesizing dynamic 1024x1024 noise textures in-memory via Canvas API (SOLUM Minerals), eliminating 15MB static 3D mesh downloads and cutting initial bundle payload by 85%.</li>
-      <li><strong>Hardware-Accelerated Physics &amp; Web Vitals:</strong> Decoupled Three.js render loops from DOM scroll events using GPU composite layers (transform3d) and Lenis virtualized interpolation, maintaining stable 60 FPS across 4K viewports with CLS &lt; 0.01 and 99+ Lighthouse performance.</li>
-    </ul>
-  </div>
-
-  <div class="entry">
-    <div class="project-header">
-      <span><span class="project-title">Fasal Doctor</span> <span class="sep">|</span> <span class="project-tech">Flutter, Dart, TFLite Edge, INT8 Quantization, Multi-Isolates &bull; Patent Ref: IDF-FD-2026-0413</span></span>
-      <span class="project-date">2026 &ndash; Present <span class="sep">|</span> <a class="proj-link" href="https://github.com/gurination1">Patent &amp; App</a></span>
-    </div>
-    <ul>
-      <li><strong>Sub-50ms Edge-AI Foliar Pathology:</strong> Deployed post-training INT8 quantized MobileNet foliar pathology neural networks running 100% offline on low-power mobile devices in rural connectivity dead zones, achieving sub-50ms inference and &gt;94% diagnostic accuracy.</li>
-      <li><strong>Multi-Isolate Architecture &amp; Counterfeit Auth:</strong> Architected asynchronous Flutter worker isolates decoupling 60 FPS camera previews from tensor processing, integrated with micro-precipitation spray gating and cryptographic barcode verification against counterfeit inputs.</li>
-    </ul>
-  </div>
-
-  <div class="entry">
-    <div class="project-header">
-      <span><span class="project-title">yt-auto</span> <span class="sep">|</span> <span class="project-tech">Python, FFmpeg, GitHub Actions CI/CD Matrix, Gemini Multimodal AI</span></span>
-      <span class="project-date">2025 &ndash; Present <span class="sep">|</span> <a class="proj-link" href="https://github.com/gurination1/yt-auto">Open Source</a></span>
-    </div>
-    <ul>
-      <li><strong>Event-Driven Cloud Processing Fleet:</strong> Architected media processing fleet running multi-channel batch rendering across parallelized GitHub Actions matrix workers, orchestrating 150+ automated video builds weekly with zero dedicated server overhead.</li>
-      <li><strong>Multimodal QA Gate &amp; Filtergraph Mastering:</strong> Automated video synthesis and audio mastering via custom FFmpeg filtergraphs with sidechain compression, gated by a Gemini Multimodal AI evaluation pipeline rejecting visual artifacts (&ge;85 score threshold).</li>
-    </ul>
-  </div>
-
-  <div class="entry">
-    <div class="project-header">
-      <span><span class="project-title">EduCore</span> <span class="sep">|</span> <span class="project-tech">React 19, TypeScript, Express, PostgreSQL, MariaDB Connection Pools, Railway</span></span>
-      <span class="project-date">2025 &ndash; Present <span class="sep">|</span> <a class="proj-link" href="https://github.com/gurination1/ERP_educore">Open Source</a></span>
-    </div>
-    <ul>
-      <li><strong>Dual-Engine Database Abstraction Layer:</strong> Engineered multi-tenant campus ERP supporting pooled PostgreSQL and MariaDB instances with connection-drain health checks, automatic connection recovery, and sub-15ms p90 query latency under concurrent load.</li>
-      <li><strong>Declarative RBAC &amp; Audit Logging:</strong> Built declarative role-based access control engine across 9 authorization tiers, coupled with immutable change-data-capture audit logging recording state diffs, actor IP, and device profiles.</li>
+      <li><strong>Real-Time Conversational Telephony AI:</strong> Built sub-700ms end-to-end conversational voice pipeline over Exotel full-duplex WebSockets, Silero VAD barge-in interruption, and streaming Sarvam AI Indic LLMs, alongside resilient Meta Cloud API webhook gateways.</li>
     </ul>
   </div>
 
@@ -270,7 +263,7 @@ html_content = """<!DOCTYPE html>
   </div>
 
   <div class="skills-row" style="margin-top: 1.5px;">
-    <strong>Credentials &amp; Verification:</strong> Meta Verified Business Entity &bull; Official WhatsApp Business Platform Developer &bull; Sarvam AI Startup Partner &bull; Govt. MSME Registered Enterprise (UDYAM-PB-03-0079744) &bull; Additional Production Systems: <em>SnapAR Studio (Camera Kit WebGL2)</em>, <em>TakeMyInterview AI</em>, <em>Fasal Doctor (Patent Ref: IDF-FD-2026-0413)</em>.
+    <strong>Credentials &amp; Verification:</strong> Meta Verified Business Entity &bull; Official WhatsApp Business Platform Developer &bull; Sarvam AI Startup Partner &bull; Govt. MSME Registered Enterprise (UDYAM-PB-03-0079744) &bull; Additional Systems: <em>SnapAR Studio (Camera Kit WebGL2)</em>, <em>TakeMyInterview AI (Local Voice LLM)</em>, <em>DoodHisaab (Mobile Dairy Ledger)</em>.
   </div>
 </body>
 </html>"""
@@ -281,7 +274,6 @@ md_path = "/root/gurdharam_resume/Gurdharam_Jeet_Singh_Resume.md"
 
 with open(html_path, "w") as f:
     f.write(html_content)
-
 print("[+] Wrote Jake's Gold-Standard HTML resume.")
 
 # Generate PDF with Chromium headless without header/footer
@@ -318,51 +310,50 @@ Bathinda / Muktsar, Punjab, India | +91 90411 72159 | [gurination1@gmail.com](ma
 
 ---
 
+## Key Production Platforms & Systems
+
+### Spatial & Creative Web Suite — SOLUM Minerals, Dream Heights & Branders
+*Next.js 15, Three.js WebGL2, React 18, Vite 6, Canvas API, Framer Motion, Lenis Smooth Scroll | 2025 – Present* [Open Source](https://github.com/gurination1/solum-minerals)
+- **Procedural In-Memory Asset Synthesis:** Engineered procedural Three.js asset pipeline synthesizing dynamic 1024x1024 noise textures in-memory via Canvas API (SOLUM Minerals), eliminating 15MB static 3D mesh downloads and cutting initial bundle payload by 85%.
+- **Hardware-Accelerated Physics & Web Vitals:** Decoupled Three.js render loops from DOM scroll events using GPU composite layers (transform3d) and Lenis virtualized interpolation, maintaining stable 60 FPS across 4K viewports with CLS < 0.01 and 99+ Lighthouse performance.
+
+### EduCore — Enterprise College Management ERP & Student Information System (SIS)
+*Full-Stack Higher-Ed Campus ERP • React 19, TypeScript, Express, PostgreSQL, MariaDB Pools, Railway | 2025 – Present* [Open Source](https://github.com/gurination1/ERP_educore)
+- **Campus Administrative & Academic Management:** Architected comprehensive higher-education ERP managing end-to-end student lifecycles, admissions, department-level fee reconciliation, and academic grading across multi-tenant campus faculties.
+- **Dual-Engine Database Layer & RBAC:** Engineered resilient database abstraction supporting pooled PostgreSQL and MariaDB instances with connection-drain health recovery (<15ms p90 query latency), paired with declarative 9-role JWT access controls and immutable audit logging.
+
+### yt-auto — 24/7 Autonomous Cloud Media Production Fleet
+*Cloud Distributed Video Fleet • Python, FFmpeg, GitHub Actions CI/CD Matrix, Gemini Multimodal AI | 2025 – Present* [Open Source](https://github.com/gurination1/yt-auto)
+- **Event-Driven Cloud Processing Fleet:** Architected media processing fleet running multi-channel batch rendering across parallelized GitHub Actions matrix workers, orchestrating 150+ automated video builds weekly with zero dedicated server overhead.
+- **Multimodal QA Gate & Filtergraph Mastering:** Automated video synthesis and audio mastering via custom FFmpeg filtergraphs with sidechain compression, gated by a Gemini Multimodal AI evaluation pipeline rejecting visual artifacts (≥85 score threshold).
+
+### Fasal Doctor — Autonomous Edge-AI Foliar Pathology & Crop Advisory Platform
+*Edge Computer Vision • Flutter, Dart, TFLite Edge, INT8 Post-Training Quantization, Worker Isolates | 2026 – Present* [Mobile System](https://github.com/gurination1)
+- **Sub-50ms On-Device Neural Inference:** Deployed post-training INT8 quantized MobileNet foliar pathology neural networks running 100% offline on low-power mobile devices in rural connectivity dead zones, achieving sub-50ms inference and >94% diagnostic accuracy.
+- **Multi-Isolate Architecture & Supply-Chain Auth:** Architected asynchronous Flutter worker isolates decoupling 60 FPS camera previews from tensor processing, integrated with micro-precipitation spray gating and cryptographic agrochemical barcode authentication.
+
+---
+
 ## Work Experience
 
 ### CP Systems (Cool & Pure System) — Software Developer
 *Industrial Water Purification & Dairy Machinery ([cpsystem.in](https://www.cpsystem.in)) • Sri Muktsar Sahib, Punjab, India | 2024 – 2025*
-- **Industrial Telemetry & Database Profiling:** Built internal operational telemetry and inventory microservices using Node.js, TypeScript, and SQL, profiling query execution plans and relational indexing to reduce p95 latency by 42% across operational endpoints.
-- **WhatsApp Business Automation & CI/CD:** Engineered automated customer communications and lead qualification over Meta Cloud API with 24-hour follow-up radars, while implementing GitHub Actions CI/CD pipelines with composite caching (build validation cut from 14m to 3.8m).
+- **Industrial Telemetry & Database Profiling:** Built internal operational telemetry, maintenance dispatch, and inventory microservices for a regional manufacturer of industrial RO plants and Bulk Milk Coolers (BMC) using Node.js, TypeScript, and SQL, profiling query plans to reduce p95 latency by 42%.
+- **WhatsApp Business Automation & CI/CD:** Engineered automated customer communications and lead qualification over Meta Cloud API with 24-hour follow-up radars, while implementing GitHub Actions CI/CD pipelines with composite caching (reducing build validation times from 14m to 3.8m).
 
 ### Gurdharam Enterprise — Full-Stack Software Engineer
 *Enterprise Software Consultancy (Govt. MSME: UDYAM-PB-03-0079744) • Punjab, India • Remote | 2025 – Present*
 - **Commercial Client Delivery & WebGL Platforms:** Architected production web platforms, agency portals (Branders), and interactive 3D WebGL client applications, delivering consistent sub-800ms LCP and 0.00 CLS across multi-region edge CDNs.
-- **Real-Time Conversational Telephony AI:** Built sub-700ms end-to-end conversational voice pipeline over Exotel full-duplex WebSockets, Silero VAD barge-in interruption, and streaming Sarvam AI Indic LLMs, alongside resilient Meta Cloud API gateways.
-
----
-
-## Key Production Platforms & Systems
-
-### Spatial & Creative Web Suite — SOLUM Minerals, Dream Heights & Branders
-*Next.js 15, Three.js, React 18, Lenis Scroll, WebGL2, OffscreenCanvas | 2025 – Present* [Open Source](https://github.com/gurination1/solum-minerals)
-- **Procedural In-Memory Asset Synthesis:** Engineered procedural Three.js asset pipeline synthesizing dynamic 1024x1024 noise textures in-memory via Canvas API (SOLUM Minerals), eliminating 15MB static 3D mesh downloads and cutting initial bundle payload by 85%.
-- **Hardware-Accelerated Physics & Web Vitals:** Decoupled Three.js render loops from DOM scroll events using GPU composite layers (transform3d) and Lenis virtualized interpolation, maintaining stable 60 FPS across 4K viewports with CLS < 0.01 and 99+ Lighthouse performance.
-
-### Fasal Doctor — Patented Edge-AI Foliar Pathology Platform
-*Flutter, Dart, TFLite Edge, INT8 Quantization, Multi-Isolates | Patent Ref: IDF-FD-2026-0413 | 2026 – Present* [Patent & App](https://github.com/gurination1)
-- **Sub-50ms Edge-AI Foliar Pathology:** Deployed post-training INT8 quantized MobileNet foliar pathology neural networks running 100% offline on low-power mobile devices in rural connectivity dead zones, achieving sub-50ms inference and >94% diagnostic accuracy.
-- **Multi-Isolate Architecture & Counterfeit Auth:** Architected asynchronous Flutter worker isolates decoupling 60 FPS camera previews from tensor processing, integrated with micro-precipitation spray gating and cryptographic barcode verification against counterfeit inputs.
-
-### yt-auto — 24/7 Autonomous Cloud Media Fleet & Multimodal AI
-*Python, FFmpeg, GitHub Actions CI/CD Matrix, Gemini Multimodal AI | 2025 – Present* [Open Source](https://github.com/gurination1/yt-auto)
-- **Event-Driven Cloud Processing Fleet:** Architected media processing fleet running multi-channel batch rendering across parallelized GitHub Actions matrix workers, orchestrating 150+ automated video builds weekly with zero dedicated server overhead.
-- **Multimodal QA Gate & Filtergraph Mastering:** Automated video synthesis and audio mastering via custom FFmpeg filtergraphs with sidechain compression, gated by a Gemini Multimodal AI evaluation pipeline rejecting visual artifacts (≥85 score threshold).
-
-### EduCore — Enterprise College Management ERP
-*React 19, TypeScript, Express, PostgreSQL, MariaDB Connection Pools, Railway | 2025 – Present* [Open Source](https://github.com/gurination1/ERP_educore)
-- **Dual-Engine Database Abstraction Layer:** Engineered multi-tenant campus ERP supporting pooled PostgreSQL and MariaDB instances with connection-drain health checks, automatic connection recovery, and sub-15ms p90 query latency under concurrent load.
-- **Declarative RBAC & Audit Logging:** Built declarative role-based access control engine across 9 authorization tiers, coupled with immutable change-data-capture audit logging recording state diffs, actor IP, and device profiles.
+- **Real-Time Conversational Telephony AI:** Built sub-700ms end-to-end conversational voice pipeline over Exotel full-duplex WebSockets, Silero VAD barge-in interruption, and streaming Sarvam AI Indic LLMs, alongside resilient Meta Cloud API webhook gateways.
 
 ---
 
 ## Education & Credentials
 - **Baba Farid Group of Institutions (BFGI)** — Bachelor of Science (B.Sc.) in Computer Science *(Expected May 2027)*
-  - Coursework: Data Structures & Algorithms, Database Management Systems, Computer Networks, Operating Systems
-- **Credentials & Verification:** Meta Verified Business Entity • Official WhatsApp Business Platform Developer • Sarvam AI Startup Partner • Govt. MSME Registered Enterprise (UDYAM-PB-03-0079744) • Additional Production Systems: *SnapAR Studio (Camera Kit WebGL2)*, *TakeMyInterview AI*, *Fasal Doctor (Patent Ref: IDF-FD-2026-0413)*.
+  - Coursework: Data Structures & Algorithms, DBMS, Networks, OS • Punjab, India
+- **Credentials & Verification:** Meta Verified Business Entity • Official WhatsApp Business Platform Developer • Sarvam AI Startup Partner • Govt. MSME Registered Enterprise (UDYAM-PB-03-0079744) • Additional Systems: *SnapAR Studio (Camera Kit WebGL2)*, *TakeMyInterview AI (Local Voice LLM)*, *DoodHisaab (Mobile Dairy Ledger)*.
 """
 
 with open(md_path, "w") as f:
     f.write(md_content)
-
 print("[+] Wrote Markdown companion resume.")
