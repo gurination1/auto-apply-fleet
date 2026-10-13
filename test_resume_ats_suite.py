@@ -82,10 +82,11 @@ def run_ats_audit():
         "React", "React 19", "Next.js", "Next.js 15", "App Router", "Server Components",
         "Tailwind CSS", "Vite", "Framer Motion", "Lenis", "Three.js", "WebGL",
         "Core Web Vitals", "Lighthouse", "CLS", "FCP",
-        "Node.js", "Express", "FastAPI", "PostgreSQL", "Supabase", "MariaDB", "SQLite",
+        "Node.js", "Express", "FastAPI", "PostgreSQL", "Supabase", "MariaDB",
         "Redis", "BullMQ", "WebSockets", "REST APIs", "Docker", "Linux",
         "Meta Cloud API", "WABA", "GitHub Actions", "Railway", "AWS", "Exotel",
-        "Sarvam AI", "Groq LPU", "Silero VAD", "Gemini AI",
+        "Sarvam AI", "Groq LPU", "Silero VAD", "Gemini AI", "FFmpeg",
+        "CP Systems", "Gurdharam Enterprise", "yt-auto",
         "SOLUM Minerals", "EduCore", "Dream Heights", "Branders",
         "BFGI", "Computer Science", "MSME", "UDYAM-PB-03-0079744", "Meta Verified"
     ]
