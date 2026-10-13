@@ -57,7 +57,7 @@ html_content = """<!DOCTYPE html>
     margin-bottom: 2.5px;
   }
   .contact-line {
-    font-size: 8.6pt;
+    font-size: 8.18pt;
     color: #475569;
     white-space: nowrap;
   }
@@ -147,7 +147,7 @@ html_content = """<!DOCTYPE html>
     <div class="name">Gurdharam Jeet Singh</div>
     <div class="subtitle">Software Engineer Intern &bull; Full-Stack &amp; Web Systems</div>
     <div class="contact-line">
-      Punjab, India &bull; +91 90411 72159 &bull; <a href="mailto:gurination1@gmail.com">gurination1@gmail.com</a> &bull; <a href="https://github.com/gurination1">github.com/gurination1</a> &bull; <a href="https://linkedin.com/in/gurdharam">linkedin.com/in/gurdharam</a> &bull; <a href="https://gurdharam.com">gurdharam.com</a>
+      Punjab, India &bull; +91 90411 72159 &bull; <a href="mailto:gurination1@gmail.com">gurination1@gmail.com</a> &bull; <a href="https://github.com/gurination1">github.com/gurination1</a> &bull; <a href="https://www.linkedin.com/in/gurdharam-jeet-singh-691a17275">linkedin.com/in/gurdharam-jeet-singh-691a17275</a> &bull; <a href="https://gurdharam.com">gurdharam.com</a>
     </div>
   </div>
 
@@ -310,7 +310,7 @@ assert page_count == 1, f"Resume exceeded 1 page! Count: {page_count}"
 # Generate companion Markdown version
 md_content = """# Gurdharam Jeet Singh
 **Software Engineer Intern • Full-Stack & Web Systems**  
-Punjab, India | +91 90411 72159 | [gurination1@gmail.com](mailto:gurination1@gmail.com) | [github.com/gurination1](https://github.com/gurination1) | [linkedin.com/in/gurdharam](https://linkedin.com/in/gurdharam) | [gurdharam.com](https://gurdharam.com)
+Punjab, India | +91 90411 72159 | [gurination1@gmail.com](mailto:gurination1@gmail.com) | [github.com/gurination1](https://github.com/gurination1) | [linkedin.com/in/gurdharam-jeet-singh-691a17275](https://www.linkedin.com/in/gurdharam-jeet-singh-691a17275) | [gurdharam.com](https://gurdharam.com)
 
 ---
 

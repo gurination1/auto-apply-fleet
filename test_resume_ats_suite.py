@@ -44,7 +44,7 @@ def run_ats_audit():
         "Phone Number": ("+91 90411 72159", r"\+91\s*90411\s*72159"),
         "Email Address": ("gurination1@gmail.com", r"gurination1@gmail\.com"),
         "GitHub Profile": ("github.com/gurination1", r"github\.com/gurination1"),
-        "LinkedIn Profile": ("linkedin.com/in/gurdharam", r"linkedin\.com/in/gurdharam"),
+        "LinkedIn Profile": ("linkedin.com/in/gurdharam-jeet-singh-691a17275", r"linkedin\.com/in/gurdharam(-jeet-singh-691a17275)?"),
         "Portfolio Website": ("gurdharam.com", r"gurdharam\.com"),
         "Location Anchor": ("Punjab, India", r"Punjab,\s*India")
     }

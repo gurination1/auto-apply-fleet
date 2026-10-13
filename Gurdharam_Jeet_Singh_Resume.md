@@ -1,6 +1,6 @@
 # Gurdharam Jeet Singh
 **Software Engineer Intern • Full-Stack & Web Systems**  
-Punjab, India | +91 90411 72159 | [gurination1@gmail.com](mailto:gurination1@gmail.com) | [github.com/gurination1](https://github.com/gurination1) | [linkedin.com/in/gurdharam](https://linkedin.com/in/gurdharam) | [gurdharam.com](https://gurdharam.com)
+Punjab, India | +91 90411 72159 | [gurination1@gmail.com](mailto:gurination1@gmail.com) | [github.com/gurination1](https://github.com/gurination1) | [linkedin.com/in/gurdharam-jeet-singh-691a17275](https://www.linkedin.com/in/gurdharam-jeet-singh-691a17275) | [gurdharam.com](https://gurdharam.com)
 
 ---
 
