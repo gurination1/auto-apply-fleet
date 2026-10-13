@@ -16,18 +16,18 @@ Bathinda / Muktsar, Punjab, India • +91 90411 72159 • [gurination1@gmail.com
 
 ### SOLUM Minerals — Procedural 3D WebGL Bio-Carbon Platform
 *Lead Frontend Architect • Next.js 15, Three.js, WebGL2, Tailwind CSS | 2026 (Oct) – Present* [Open Source](https://github.com/gurination1/solum-minerals)
-- **Procedural 3D Tablet & River Kinematics:** Engineered code-generated Three.js WebGL tablet model with procedural 1024x1024 noise texture synthesis in code, squircle compression grooves, and Webflow-style smooth scrolling.
-- **Performance Engineering & Core Web Vitals:** Architected responsive commercial web platform using Next.js 15 App Router, achieving a 99+ Lighthouse performance rating with zero layout shift (CLS < 0.02) and sub-second FCP.
+- **Procedural 3D WebGL Rendering:** Engineered code-generated Three.js WebGL tablet model synthesizing 1024x1024 noise textures procedurally in memory via Canvas API, eliminating 15MB+ of 3D asset downloads.
+- **Scroll Kinematics & Core Web Vitals:** Implemented scroll-linked camera interpolation and river kinematics in Next.js 15 App Router, achieving a 99+ Lighthouse score with zero layout shift (CLS < 0.02) and sub-second FCP.
+
+### Dream Heights — Luxury Spatial Real Estate Portal
+*Spatial & Frontend Architect • React 18, TypeScript, Tailwind CSS, Framer Motion, Lenis | 2025 – Present* [Open Source](https://github.com/gurination1/dreamheights)
+- **Spatial Architectural Pins & Navigation:** Built luxury residence exploration portal in React 18 and Vite 6 featuring spatial residence pins, dynamic floor-plan modals, and custom interactive architectural emblems.
+- **Hardware-Accelerated Physics & Inertial Momentum:** Integrated Lenis 1.1 smooth scrolling with Framer Motion layout transitions, maintaining silky 60 FPS rendering across high-DPI viewports.
 
 ### EduCore — Enterprise College Management ERP
-*Lead Full-Stack Architect • React 19, TypeScript, Node.js, Express, MariaDB, Railway | 2025 – Present* [Open Source](https://github.com/gurination1/ERP_educore)
-- **Full-Stack Architecture & Two-Tier Failover:** Engineered enterprise ERP handling student admissions, fee ledgers, and scholarships with automated zero-config DB failover (MariaDB production → local SQLite store).
-- **RBAC & Dynamic Form Schema Builder:** Built strict JWT role-based access control across 3 permission tiers, Helmet security headers, Zod validation, and a runtime dynamic form builder for campus workflows.
-
-### Dream Heights & Branders — Spatial Architectural & Design Suite
-*Spatial & Frontend Architect • React 18, TypeScript, Three.js, Framer Motion, Lenis | 2025 – Present* [Open Source](https://github.com/gurination1/dreamheights)
-- **Spatial Architectural Pins & Navigation:** Built interactive luxury residence portal featuring spatial pin exploration, dynamic residence floor-plan modals, and custom interactive architectural emblems.
-- **60 FPS Physics & Smooth Momentum Scrolling:** Implemented Lenis inertial scrolling combined with hardware-accelerated Framer Motion transitions and Three.js physics navigation, maintaining silky 60 FPS across viewports.
+*Lead Full-Stack Architect • React 19, TypeScript, Express, PostgreSQL, MariaDB, Railway | 2025 – Present* [Open Source](https://github.com/gurination1/ERP_educore)
+- **Dual-Engine Relational Architecture:** Engineered multi-tenant campus ERP supporting PostgreSQL and MariaDB connection pools with automatic connection health recovery, parameterized query sanitization, and sub-15ms latency.
+- **9-Role RBAC & Dynamic Schema Builder:** Built strict JWT role-based access control across 9 permission tiers, paired with a runtime form schema builder and forensic audit trail logging actor IP, device profile, and data diffs.
 
 ### Enterprise WhatsApp AI & Lead Management CRM
 *Lead Architect • Meta Cloud API, Node.js, Express, Supabase (PostgreSQL) | 2025 – Present*
@@ -40,8 +40,8 @@ Bathinda / Muktsar, Punjab, India • +91 90411 72159 • [gurination1@gmail.com
 
 ### Gurdharam Software Consultancy • Systems & Web Engineer
 *Independent Software Consultancy • Remote | Punjab, India | 2025 – Present*
-- **Telephonic Voice AI Architecture:** Built real-time telephony agent over Exotel WebSockets, SIP, and VoIP, achieving <700ms turn latency across Sarvam AI Indic LLMs, Groq LPU, and Silero VAD barge-in.
-- **High-Throughput Webhook Processing:** Architected distributed queue worker system using Redis and BullMQ, reliably processing 25,000+ daily webhook events with automated retry logic and sub-5-minute SLA.
+- **Telephonic Voice AI & High-Throughput Queues:** Built real-time telephony agent over Exotel WebSockets, SIP, and VoIP, achieving <700ms turn latency across Sarvam AI Indic LLMs, Groq LPU, and Silero VAD, with Redis/BullMQ processing 25,000+ daily events.
+- **Branders Digital Agency Platform:** Architected client agency platform featuring interactive Three.js 3D viewport, CSS3 physics navigation, and mobile-hardened layouts designed for high-conversion client acquisition.
 
 ---
 
