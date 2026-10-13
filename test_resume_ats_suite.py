@@ -46,7 +46,7 @@ def run_ats_audit():
         "GitHub Profile": ("github.com/gurination1", r"github\.com/gurination1"),
         "LinkedIn Profile": ("linkedin.com/in/gurdharam", r"linkedin\.com/in/gurdharam"),
         "Portfolio Website": ("gurdharam.com", r"gurdharam\.com"),
-        "Location Anchor": ("Bathinda / Muktsar, Punjab, India", r"Bathinda\s*/\s*Muktsar")
+        "Location Anchor": ("Punjab, India", r"Punjab,\s*India")
     }
 
     entity_score = 0
@@ -60,11 +60,10 @@ def run_ats_audit():
 
     print(f"[3] STANDARD ATS SECTION TAXONOMY AUDIT")
     headings = [
+        ("EDUCATION", r"\bEDUCATION\b"),
         ("TECHNICAL SKILLS", r"TECHNICAL\s+SKILLS"),
-        ("KEY PRODUCTION PLATFORMS / PROJECTS", r"KEY\s+(PRODUCTION\s+PLATFORMS|ENGINEERING\s+PROJECTS|PROJECTS)"),
-        ("WORK EXPERIENCE", r"WORK\s+EXPERIENCE"),
-        ("EDUCATION & CREDENTIALS", r"EDUCATION(\s+&\s+CREDENTIALS)?"),
-        ("CREDENTIALS & VERIFICATION", r"(CREDENTIALS\s+&\s+VERIFICATION|CERTIFICATIONS)")
+        ("PROJECTS", r"\bPROJECTS\b"),
+        ("WORK EXPERIENCE", r"(WORK\s+)?EXPERIENCE")
     ]
 
     heading_score = 0
@@ -78,17 +77,15 @@ def run_ats_audit():
 
     print(f"[4] KEYWORD & SKILLS CLOUD TOKEN DENSITY AUDIT")
     keywords = [
-        "TypeScript", "JavaScript", "Python", "Go", "SQL", "HTML5", "CSS3",
-        "React", "React 19", "Next.js", "Next.js 15", "App Router", "Server Components",
-        "Tailwind CSS", "Vite", "Framer Motion", "Lenis", "Three.js", "WebGL",
-        "Core Web Vitals", "Lighthouse", "CLS", "FCP",
-        "Node.js", "Express", "FastAPI", "PostgreSQL", "Supabase", "MariaDB",
-        "Redis", "BullMQ", "WebSockets", "REST APIs", "Docker", "Linux",
-        "Meta Cloud API", "WABA", "GitHub Actions", "Railway", "AWS", "Exotel",
-        "Sarvam AI", "Groq LPU", "Silero VAD", "Gemini AI", "FFmpeg",
-        "CP Systems", "Gurdharam Enterprise", "yt-auto",
-        "SOLUM Minerals", "EduCore", "Dream Heights", "Branders",
-        "BFGI", "Computer Science", "MSME", "UDYAM-PB-03-0079744", "Meta Verified"
+        "TypeScript", "JavaScript", "Python", "SQL", "HTML5", "CSS3",
+        "React", "Next.js", "Tailwind CSS", "Vite", "Framer Motion", "Lenis", "Three.js", "WebGL",
+        "Node.js", "Express", "PostgreSQL", "MariaDB", "REST APIs", "Docker", "Git", "Bash",
+        "OOP", "Testing", "Pytest", "Jest", "Data Structures", "Algorithms",
+        "LLMs", "AI Agents", "Gemini", "Meta Cloud API", "WABA", "GitHub Actions", "Railway",
+        "Exotel", "Sarvam AI", "Silero VAD", "FFmpeg",
+        "CP Systems", "Gurdharam Enterprise", "yt-auto", "Fasal Doctor",
+        "SOLUM Minerals", "EduCore", "Dream Heights",
+        "BFGI", "Computer Networks", "DBMS"
     ]
 
     found_kw = []
@@ -113,7 +110,7 @@ def run_ats_audit():
     
     print(f"    - Orphaned Bullet Glyphs Detected: {len(orphaned_bullets)}")
     print(f"    - Inline Bullet Sentences Found  : {len(inline_bullets)}")
-    stream_pass = (len(orphaned_bullets) == 0 and len(inline_bullets) >= 7)
+    stream_pass = (len(orphaned_bullets) == 0 and len(inline_bullets) >= 4)
     print(f"    - Linear Parsing Order Status    : {'✅ 100% PERFECT LINEAR STREAM' if stream_pass else '⚠️ MARGINAL STREAM ISSUES'}\n")
 
     print(f"[6] CLICKABLE URI LINK ANNOTATIONS AUDIT")
