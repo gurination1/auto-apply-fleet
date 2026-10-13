@@ -129,7 +129,7 @@ html_content = """<!DOCTYPE html>
     <h1>Gurdharam Jeet Singh</h1>
     <div class="subtitle">Full-Stack Software Engineer &bull; Web Systems &amp; Spatial Frontend Architect</div>
     <div class="contact-bar">
-      Punjab, India &bull; +91 90411 72159 &bull; <a href="mailto:gurination1@gmail.com">gurination1@gmail.com</a> &bull; <a href="https://github.com/gurination1">github.com/gurination1</a> &bull; <a href="https://linkedin.com/in/gurdharam">linkedin.com/in/gurdharam</a> &bull; <a href="https://gurdharam.com">gurdharam.com</a>
+      Bathinda / Muktsar, Punjab, India &bull; +91 90411 72159 &bull; <a href="mailto:gurination1@gmail.com">gurination1@gmail.com</a> &bull; <a href="https://github.com/gurination1">github.com/gurination1</a> &bull; <a href="https://linkedin.com/in/gurdharam">linkedin.com/in/gurdharam</a> &bull; <a href="https://gurdharam.com">gurdharam.com</a>
     </div>
   </div>
 
@@ -140,6 +140,21 @@ html_content = """<!DOCTYPE html>
   <div class="skill-line"><strong>Cloud &amp; Platform Infrastructure:</strong> Official Meta WhatsApp Cloud API (WABA), GitHub Actions 24/7 CI/CD Fleets, Railway, AWS (S3, Lambda), Exotel Telephony, Gemini AI</div>
 
   <h2>Key Production Platforms &amp; Systems</h2>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span>SOLUM Minerals &mdash; Procedural 3D WebGL Bio-Carbon Platform</span>
+      <span>2026 (Oct) &ndash; Present</span>
+    </div>
+    <div class="entry-subheader">
+      <span>Lead Frontend Architect &bull; Next.js 15, Three.js, WebGL2, Tailwind CSS</span>
+      <span><a href="https://github.com/gurination1/solum-minerals">Open Source</a></span>
+    </div>
+    <ul>
+      <li><strong>Procedural 3D Tablet &amp; River Kinematics:</strong> Engineered code-generated Three.js WebGL tablet model with procedural 1024x1024 noise texture synthesis in code, squircle compression grooves, and Webflow-style smooth scrolling.</li>
+      <li><strong>Performance Engineering &amp; Core Web Vitals:</strong> Architected responsive commercial web platform using Next.js 15 App Router, achieving a 99+ Lighthouse performance rating with zero layout shift (CLS &lt; 0.02) and sub-second FCP.</li>
+    </ul>
+  </div>
 
   <div class="entry">
     <div class="entry-header">
@@ -158,6 +173,21 @@ html_content = """<!DOCTYPE html>
 
   <div class="entry">
     <div class="entry-header">
+      <span>Dream Heights &amp; Branders &mdash; Spatial Architectural &amp; Design Suite</span>
+      <span>2025 &ndash; Present</span>
+    </div>
+    <div class="entry-subheader">
+      <span>Spatial &amp; Frontend Architect &bull; React 18, TypeScript, Three.js, Framer Motion, Lenis</span>
+      <span><a href="https://github.com/gurination1/dreamheights">Open Source</a></span>
+    </div>
+    <ul>
+      <li><strong>Spatial Architectural Pins &amp; Navigation:</strong> Built interactive luxury residence portal featuring spatial pin exploration, dynamic residence floor-plan modals, and custom interactive architectural emblems.</li>
+      <li><strong>60 FPS Physics &amp; Smooth Momentum Scrolling:</strong> Implemented Lenis inertial scrolling combined with hardware-accelerated Framer Motion transitions and Three.js physics navigation, maintaining silky 60 FPS across viewports.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
       <span>Enterprise WhatsApp AI &amp; Lead Management CRM</span>
       <span>2025 &ndash; Present</span>
     </div>
@@ -168,36 +198,6 @@ html_content = """<!DOCTYPE html>
     <ul>
       <li><strong>Official Meta Cloud API Architecture:</strong> Engineered multi-tenant CRM gateway integrating Meta Graph Cloud API (WABA ID: 106690...), handling bi-directional messaging, template dispatch, and HMAC-verified webhooks.</li>
       <li><strong>24-Hour Autonomous Follow-Up Radar:</strong> Built real-time engagement engine with dynamic cadences (24h/36h/48h/72h), tracking lead conversation states and triggering automated follow-ups via Supabase.</li>
-    </ul>
-  </div>
-
-  <div class="entry">
-    <div class="entry-header">
-      <span>Dream Heights &mdash; Luxury Architectural &amp; Real Estate Portal</span>
-      <span>2025 &ndash; Present</span>
-    </div>
-    <div class="entry-subheader">
-      <span>Frontend Architect &bull; React 18, TypeScript, Tailwind CSS, Framer Motion, Lenis</span>
-      <span><a href="https://github.com/gurination1/dreamheights">Open Source</a></span>
-    </div>
-    <ul>
-      <li><strong>Spatial Architectural Pins &amp; Navigation:</strong> Built interactive luxury residence portal featuring spatial pin exploration, dynamic residence floor-plan modals, and custom interactive architectural emblems.</li>
-      <li><strong>60 FPS Physics &amp; Smooth Momentum Scrolling:</strong> Implemented Lenis inertial scrolling combined with hardware-accelerated Framer Motion transitions, maintaining silky 60 FPS across all viewports.</li>
-    </ul>
-  </div>
-
-  <div class="entry">
-    <div class="entry-header">
-      <span>SOLUM Minerals &amp; Commercial Web Suite</span>
-      <span>2025 &ndash; Present</span>
-    </div>
-    <div class="entry-subheader">
-      <span>Full-Stack Web Architect &bull; Next.js 15, TypeScript, Tailwind CSS</span>
-      <span>Commercial Platforms</span>
-    </div>
-    <ul>
-      <li><strong>SOLUM Minerals Geology Portal:</strong> Architected responsive commercial web platform using Next.js 15 App Router, achieving a 99+ Lighthouse performance rating with interactive product showcases and zero layout shift (CLS &lt; 0.02).</li>
-      <li><strong>Branders Digital Experience Platform:</strong> Engineered agency web platform with modern micro-interactions, responsive navigation, and physics-hardened layouts designed for high-conversion client acquisition.</li>
     </ul>
   </div>
 
@@ -268,7 +268,7 @@ assert page_count == 1, f"Resume exceeded 1 page! Count: {page_count}"
 # Generate companion Markdown version
 md_content = """# Gurdharam Jeet Singh
 **Full-Stack Software Engineer • Web Systems & Spatial Frontend Architect**  
-Punjab, India • +91 90411 72159 • [gurination1@gmail.com](mailto:gurination1@gmail.com) • [github.com/gurination1](https://github.com/gurination1) • [linkedin.com/in/gurdharam](https://linkedin.com/in/gurdharam) • [gurdharam.com](https://gurdharam.com)
+Bathinda / Muktsar, Punjab, India • +91 90411 72159 • [gurination1@gmail.com](mailto:gurination1@gmail.com) • [github.com/gurination1](https://github.com/gurination1) • [linkedin.com/in/gurdharam](https://linkedin.com/in/gurdharam) • [gurdharam.com](https://gurdharam.com)
 
 ---
 
@@ -282,25 +282,25 @@ Punjab, India • +91 90411 72159 • [gurination1@gmail.com](mailto:gurination1
 
 ## Key Production Platforms & Systems
 
+### SOLUM Minerals — Procedural 3D WebGL Bio-Carbon Platform
+*Lead Frontend Architect • Next.js 15, Three.js, WebGL2, Tailwind CSS | 2026 (Oct) – Present* [Open Source](https://github.com/gurination1/solum-minerals)
+- **Procedural 3D Tablet & River Kinematics:** Engineered code-generated Three.js WebGL tablet model with procedural 1024x1024 noise texture synthesis in code, squircle compression grooves, and Webflow-style smooth scrolling.
+- **Performance Engineering & Core Web Vitals:** Architected responsive commercial web platform using Next.js 15 App Router, achieving a 99+ Lighthouse performance rating with zero layout shift (CLS < 0.02) and sub-second FCP.
+
 ### EduCore — Enterprise College Management ERP
 *Lead Full-Stack Architect • React 19, TypeScript, Node.js, Express, MariaDB, Railway | 2025 – Present* [Open Source](https://github.com/gurination1/ERP_educore)
 - **Full-Stack Architecture & Two-Tier Failover:** Engineered enterprise ERP handling student admissions, fee ledgers, and scholarships with automated zero-config DB failover (MariaDB production → local SQLite store).
 - **RBAC & Dynamic Form Schema Builder:** Built strict JWT role-based access control across 3 permission tiers, Helmet security headers, Zod validation, and a runtime dynamic form builder for campus workflows.
 
+### Dream Heights & Branders — Spatial Architectural & Design Suite
+*Spatial & Frontend Architect • React 18, TypeScript, Three.js, Framer Motion, Lenis | 2025 – Present* [Open Source](https://github.com/gurination1/dreamheights)
+- **Spatial Architectural Pins & Navigation:** Built interactive luxury residence portal featuring spatial pin exploration, dynamic residence floor-plan modals, and custom interactive architectural emblems.
+- **60 FPS Physics & Smooth Momentum Scrolling:** Implemented Lenis inertial scrolling combined with hardware-accelerated Framer Motion transitions and Three.js physics navigation, maintaining silky 60 FPS across viewports.
+
 ### Enterprise WhatsApp AI & Lead Management CRM
 *Lead Architect • Meta Cloud API, Node.js, Express, Supabase (PostgreSQL) | 2025 – Present*
 - **Official Meta Cloud API Architecture:** Engineered multi-tenant CRM gateway integrating Meta Graph Cloud API (WABA ID: 106690...), handling bi-directional messaging, template dispatch, and HMAC-verified webhooks.
 - **24-Hour Autonomous Follow-Up Radar:** Built real-time engagement engine with dynamic cadences (24h/36h/48h/72h), tracking lead conversation states and triggering automated follow-ups via Supabase.
-
-### Dream Heights — Luxury Architectural & Real Estate Portal
-*Frontend Architect • React 18, TypeScript, Tailwind CSS, Framer Motion, Lenis | 2025 – Present* [Open Source](https://github.com/gurination1/dreamheights)
-- **Spatial Architectural Pins & Navigation:** Built interactive luxury residence portal featuring spatial pin exploration, dynamic residence floor-plan modals, and custom interactive architectural emblems.
-- **60 FPS Physics & Smooth Momentum Scrolling:** Implemented Lenis inertial scrolling combined with hardware-accelerated Framer Motion transitions, maintaining silky 60 FPS across all viewports.
-
-### SOLUM Minerals & Commercial Web Suite
-*Full-Stack Web Architect • Next.js 15, TypeScript, Tailwind CSS | 2025 – Present*
-- **SOLUM Minerals Geology Portal:** Architected responsive commercial web platform using Next.js 15 App Router, achieving a 99+ Lighthouse performance rating with interactive product showcases and zero layout shift (CLS < 0.02).
-- **Branders Digital Experience Platform:** Engineered agency web platform with modern micro-interactions, responsive navigation, and physics-hardened layouts designed for high-conversion client acquisition.
 
 ---
 
