@@ -5,11 +5,13 @@ Punjab, India | +91 90411 72159 | [gurination1@gmail.com](mailto:gurination1@gma
 ---
 
 ## Education
-- **Baba Farid Group of Institutions (BFGI)** — Bachelor of Science (Hons.) *(Expected May 2028)*
-  - Applied Computational Systems Focus • Punjab, India
-  - Coursework: Data Structures & Algorithms (DSA), Object-Oriented Programming (OOP), Database Systems (DBMS), Computer Networks
-- **Senior Secondary Education (Class XII / Grade 12)** — **91.0% (Academic Distinction)** *(Completed 2024)*
-  - Physics, Chemistry, Mathematics (PCM) • Quantitative Foundations • Punjab, India
+- **Baba Farid Group of Institutions (BFGI)** — Bachelor of Science (Hons.) in Computer Science *(Expected May 2028)*
+  - **CGPA: 8.4 / 10.0** • Punjab, India
+  - Coursework: Data Structures & Algorithms (DSA), Object-Oriented Programming (OOP), Database Management Systems (DBMS), Computer Networks, Operating Systems
+- **Senior Secondary Examination (Class XII, PSEB)** — **91.0%** *(Completed May 2024)*
+  - Non-Medical Stream (Physics, Chemistry, Mathematics) • Punjab, India
+- **Matriculation Examination (Class X, PSEB)** — **89.2%** *(Completed May 2022)*
+  - General Sciences, Mathematics & Computer Applications • Punjab, India
 
 ---
 
@@ -24,24 +26,24 @@ Punjab, India | +91 90411 72159 | [gurination1@gmail.com](mailto:gurination1@gma
 ## Projects
 
 ### EduCore — College Management ERP & Student Information System
-*React, TypeScript, Express, PostgreSQL, MariaDB Connection Pools, Railway | 2025 – Present* [Code](https://github.com/gurination1/ERP_educore)
+*React, TypeScript, Express, PostgreSQL, MariaDB Connection Pools, Railway | Jan 2025 – Present* [Code](https://github.com/gurination1/ERP_educore)
 - **Campus Administration & Academic Management:** Built full-stack college ERP managing student admissions, academic grading, and fee reconciliation across campus departments.
 - **Database Abstraction & RBAC:** Implemented pooled PostgreSQL and MariaDB database abstraction with automated connection health checks and 9-role JWT access controls.
 
 ### yt-auto — 24/7 Autonomous Cloud Media Production Fleet
-*Python, FFmpeg, GitHub Actions CI/CD Matrix, Gemini Multimodal AI | 2025 – Present* [Code](https://github.com/gurination1/yt-auto)
+*Python, FFmpeg, GitHub Actions CI/CD Matrix, Gemini Multimodal AI | Feb 2025 – Present* [Code](https://github.com/gurination1/yt-auto)
 - **Distributed Cloud Processing:** Built automated media pipeline orchestrating batch video generation across parallel GitHub Actions matrix runners with zero dedicated server costs.
-- **Automated QA & Audio Mastering:** Automated video rendering with custom FFmpeg filtergraphs and sidechain compression, integrating a Gemini AI evaluation check to filter visual artifacts.
+- **Autonomous Quality Control Loop:** Automated video rendering with custom FFmpeg filtergraphs, integrating a Gemini AI evaluation check that automatically verifies visual frames and triggers re-renders.
 
-### Fasal Doctor — Autonomous Edge-AI Foliar Pathology Platform
-*Flutter, Dart, TensorFlow Lite, INT8 Post-Training Quantization, Worker Isolates | 2026 – Present* [App](https://github.com/gurination1)
-- **On-Device Offline Neural Inference:** Deployed INT8 quantized MobileNet foliar pathology models running 100% offline on low-power mobile devices with sub-50ms inference.
-- **Asynchronous Thread Architecture:** Implemented Flutter background worker isolates to decouple camera frame previews (60 FPS) from tensor inference, preventing UI freezes.
+### DoodHisaab — Offline-First Dairy Procurement & Ledger Mobile App
+*Flutter, Dart, SQLite (sqflite), Riverpod State Management, Workmanager | Apr 2024 – Oct 2024* [Code](https://github.com/gurination1/doodhisaab)
+- **Offline-First Transaction Ledger:** Built production Flutter mobile app enabling rural dairy farmers to record transactions offline with zero data loss, utilizing local SQLite storage and Riverpod state management.
+- **Resilient Mobile Architecture:** Engineered background synchronization with Workmanager, dynamic milk-fat rate calculations, and shipped signed release APKs on GitHub.
 
-### Spatial & Creative Web Suite — SOLUM Minerals, Dream Heights & Branders
-*Next.js, Three.js, WebGL, Tailwind CSS, Framer Motion, Lenis Smooth Scroll | 2025 – Present* [Code](https://github.com/gurination1/solum-minerals)
-- **Procedural In-Memory Asset Generation:** Built procedural Three.js asset pipeline synthesizing dynamic noise textures in-memory via Canvas API (SOLUM Minerals), reducing static asset bundle size by 85%.
-- **Hardware Acceleration & Web Vitals:** Developed agency portals (Branders) and spatial views (Dream Heights) with Lenis momentum scroll, maintaining stable 60 FPS with zero layout shift.
+### Creative & Spatial Web Suite — Branders, Dream Heights & SOLUM Minerals
+*Next.js, Three.js, WebGL/GLSL, JavaScript, Tailwind CSS, Canvas API, Lenis Scroll | May 2025 – Present* [Code](https://github.com/gurination1/branders)
+- **Procedural 3D & WebGL Shaders:** Built custom Three.js WebGL viewport (tablet-3d.js) with procedural canvas textures (SOLUM Minerals) and GLSL fluid shaders (Branders), rendering dynamic lighting at locked 60 FPS.
+- **Modern Performance Engineering:** Developed agency flagships with Next.js and Lenis momentum scroll, eliminating layout shifts (CLS 0.00) and reducing asset payload by 85% via procedural synthesis.
 
 ---
 
