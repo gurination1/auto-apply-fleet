@@ -14,3 +14,14 @@ real_proofs/
 real_submit_proofs/
 scratch/
 job_applications.db
+local_env.sh
+*.env
+*.env.*
+auth_info*
+*.txt
+*.jpg
+*.jpeg
+rubric_materials/
+test_*.html
+test_*.pdf
+test_*.py

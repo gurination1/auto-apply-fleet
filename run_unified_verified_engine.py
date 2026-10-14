@@ -51,10 +51,10 @@ CANDIDATE = {
     "portfolio": "https://gurdharam.com",
     "school": "Baba Farid Group of Institutions",
     "degree": "Bachelor of Science",
-    "discipline": "Software Systems & Automation",
-    "grad_year": "2027",
-    "start_year": "2023",
-    "end_year": "2027",
+    "discipline": "Computer Science",
+    "grad_year": "2028",
+    "start_year": "2024",
+    "end_year": "2028",
     "start_month": "August",
     "end_month": "May",
     "pronouns": "He/Him",
@@ -1495,9 +1495,13 @@ def apply_greenhouse(page, item):
 
     clean_slug = re.sub(r'[^a-zA-Z0-9_]', '_', f"{company}_{title}")[:35]
     prefix = "intern" if app_type == "INTERNSHIP" else "job"
-    proof_suffix = "gh_confirmed.png" if submit_confirmed else "gh_failed.png"
-    proof_path = f"{PROOF_DIR}/{prefix}_{clean_slug}_{proof_suffix}"
-    page.screenshot(path=proof_path, full_page=True)
+    try:
+        page.screenshot(path=proof_path, timeout=5000)
+    except Exception:
+        try:
+            page.screenshot(path=proof_path, timeout=2000, full_page=False)
+        except Exception:
+            pass
 
     if submit_confirmed:
         print(f"🎉 CONFIRMED Greenhouse submission for {company} - {title}!")
@@ -2371,7 +2375,13 @@ def apply_ashby(page, item):
     clean_slug = re.sub(r'[^a-zA-Z0-9_]', '_', f"{company}_{title}")[:35]
     prefix = "intern" if app_type == "INTERNSHIP" else "job"
     proof_path = f"{PROOF_DIR}/{prefix}_{clean_slug}_confirmed.png"
-    page.screenshot(path=proof_path, full_page=True)
+    try:
+        page.screenshot(path=proof_path, timeout=5000)
+    except Exception:
+        try:
+            page.screenshot(path=proof_path, timeout=2000, full_page=False)
+        except Exception:
+            pass
 
     page_text = page.locator('body').inner_text().lower()
     has_positive = any(m in page_text for m in [
