@@ -1495,6 +1495,8 @@ def apply_greenhouse(page, item):
 
     clean_slug = re.sub(r'[^a-zA-Z0-9_]', '_', f"{company}_{title}")[:35]
     prefix = "intern" if app_type == "INTERNSHIP" else "job"
+    proof_suffix = "gh_confirmed.png" if submit_confirmed else "gh_failed.png"
+    proof_path = f"{PROOF_DIR}/{prefix}_{clean_slug}_{proof_suffix}"
     try:
         page.screenshot(path=proof_path, timeout=5000)
     except Exception:
