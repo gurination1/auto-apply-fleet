@@ -506,7 +506,8 @@ def fill_greenhouse_combobox(page, inp, label_text):
         'relocate', 'relocation', 'willing to relocate', 'open to relocating',
         'confirm', 'graduation date', 'graduate', 'graduation', 'drug test', 'background check',
         'background screening', 'willing to submit', 'fluent', 'english', 'full-time', 'able to work',
-        'available', 'open to', 'willing to'
+        'available', 'open to', 'willing to', 'timezone', 'time zone', 'est', 'pst', 'cst', 'hours',
+        'working hours', 'schedule', 'shift', 'overlap'
     ]):
         target_choice = 'Yes'
     # 3. Country / Location
@@ -2035,6 +2036,7 @@ def apply_ashby(page, item):
                 cont = l.locator('xpath=..')
                 yes_btn = cont.locator('button[data-option="yes"], button:has-text("Yes")').first
                 no_btn = cont.locator('button[data-option="no"], button:has-text("No")').first
+                # 1. Negative disqualifiers -> Click 'No'
                 if any(k in txt for k in [
                     'sponsorship', 'visa', 'require sponsorship', 'require visa',
                     'employee', 'currently employed', 'former employee', 'prior employee', 'worked at', 'worked for',
@@ -2044,16 +2046,23 @@ def apply_ashby(page, item):
                         no_btn.click()
                     elif yes_btn.count() > 0 and yes_btn.is_visible():
                         yes_btn.click()
-                elif any(k in txt for k in ['authorized', 'eligible', 'over 18', 'agree', 'certify', 'terms', 'privacy', 'acknowledge']):
+                # 2. Positive qualifications, authorizations, timezone, working hours, and agreements -> Click 'Yes'
+                elif any(k in txt for k in [
+                    'authorized', 'eligible', 'over 18', 'agree', 'certify', 'terms', 'privacy', 'acknowledge',
+                    'timezone', 'time zone', 'est', 'pst', 'cst', 'hours', 'working hours', 'schedule', 'shift',
+                    'overlap', 'commit', 'available', 'degree', 'pursuing', 'experience', 'relocate', 'commute',
+                    'fluent', 'english', 'able to', 'can you', 'are you', 'do you', 'will you', 'hybrid'
+                ]):
                     if yes_btn.count() > 0 and yes_btn.is_visible():
                         yes_btn.click()
                     elif no_btn.count() > 0 and no_btn.is_visible():
                         no_btn.click()
                 else:
-                    if no_btn.count() > 0 and no_btn.is_visible():
-                        no_btn.click()
-                    elif yes_btn.count() > 0 and yes_btn.is_visible():
+                    # Safe default: prefer Yes for general qualification questions
+                    if yes_btn.count() > 0 and yes_btn.is_visible():
                         yes_btn.click()
+                    elif no_btn.count() > 0 and no_btn.is_visible():
+                        no_btn.click()
                 continue
 
             tag = target.evaluate("el => el.tagName.toLowerCase()")
@@ -2123,6 +2132,8 @@ def apply_ashby(page, item):
                 safe_fill(target, "2027-05-31")
             elif any(k in txt for k in ['still student', 'current student']):
                 safe_fill(target, "Yes")
+            elif any(k in txt for k in ['timezone', 'time zone', 'working hours', 'work hours', 'hours', 'schedule', 'shift', 'overlap', 'est']):
+                safe_fill(target, "EST / 100% Flexible (Fully available for 9 AM - 5 PM EST)")
             elif any(k in txt for k in ['relocate', 'commute', 'greater new york', 'nyc', 'in-person']):
                 safe_fill(target, "Yes")
             elif any(k in txt for k in ['grad', 'graduation']):
@@ -2174,6 +2185,10 @@ def apply_ashby(page, item):
                     if 'yes' in rtxt:
                         chosen = rad
                         break
+                elif any(k in q_text for k in ['timezone', 'time zone', 'est', 'pst', 'cst', 'hours', 'working hours', 'schedule', 'shift', 'overlap']):
+                    if any(w in rtxt for w in ['yes', 'agree', 'est', 'flexible', 'confirm', 'available']):
+                        chosen = rad
+                        break
                 elif any(k in q_text for k in ['relocate', 'commute', 'anchor days', 'in-person', 'in office']):
                     if 'yes' in rtxt:
                         chosen = rad
@@ -2190,7 +2205,7 @@ def apply_ashby(page, item):
                     if any(k in rtxt for k in ['do not have', 'no']):
                         chosen = rad
                         break
-                elif any(k in rtxt for k in ['asian (not hispanic or latino)', 'asian', 'i am not a protected veteran', 'male', 'decline to self-identify', '2028', 'spring 2027', 'fall 2026', 'san francisco', 'remote', 'javascript', 'frontend', 'friend', 'careers page', 'no', 'yes']):
+                elif any(k in rtxt for k in ['yes', 'agree', 'confirm', 'asian (not hispanic or latino)', 'asian', 'i am not a protected veteran', 'male', 'decline to self-identify', '2028', 'spring 2027', 'fall 2026', 'san francisco', 'remote', 'javascript', 'frontend', 'friend', 'careers page']):
                     chosen = rad
                     break
 
