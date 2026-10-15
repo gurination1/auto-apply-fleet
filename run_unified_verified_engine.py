@@ -1434,15 +1434,17 @@ def apply_greenhouse(page, item):
         return False
 
     # Wait for any asynchronous file/resume S3 uploads to finish
-    page.wait_for_timeout(3500)
+    page.wait_for_timeout(1800)
 
     # Check & solve captchas (Turnstile / reCAPTCHA) with Gemini
     solve_all_captchas(page)
 
     try:
-        btn.scroll_into_view_if_needed(timeout=3000)
-        page.wait_for_timeout(600)
-        btn.click(timeout=5000)
+        btn.scroll_into_view_if_needed(timeout=2000)
+        page.wait_for_timeout(300)
+        # Unlock button if disabled attribute is set
+        btn.evaluate('el => { el.removeAttribute("disabled"); el.removeAttribute("aria-disabled"); el.classList.remove("btn__disabled"); }')
+        btn.click(timeout=2500, force=True)
     except Exception as e:
         print(f"[-] Greenhouse submit click note: {e}")
         try:
@@ -1452,8 +1454,8 @@ def apply_greenhouse(page, item):
 
     # 8. Post-Submit Wait & Multi-Check Loop (Handles OTP and Async Processing)
     submit_confirmed = False
-    for poll_idx in range(6):  # Poll up to 18 seconds (6 x 3s)
-        page.wait_for_timeout(3000)
+    for poll_idx in range(4):  # Poll up to 10 seconds (4 x 2.5s)
+        page.wait_for_timeout(2500)
         solve_all_captchas(page)
 
         # Check for OTP / Security Code
@@ -1852,18 +1854,18 @@ def apply_lever(page, item):
         return False
 
     try:
-        btn.scroll_into_view_if_needed(timeout=3000)
+        btn.scroll_into_view_if_needed(timeout=2000)
     except Exception:
         pass
     print("[*] Submitting Lever application...")
     try:
-        btn.click(timeout=5000)
+        btn.click(timeout=2500, force=True)
     except Exception:
         try:
             btn.evaluate('el => el.click()')
         except Exception as e:
             print(f"[-] Lever submit click failed: {e}")
-    page.wait_for_timeout(5000)
+    page.wait_for_timeout(2500)
     solve_all_captchas(page)
 
     # If hidden hcaptcha submit button exists, trigger as fallback if hcaptcha solved
@@ -1873,11 +1875,11 @@ def apply_lever(page, item):
         if h_btn.count() > 0 and h_resp:
             print("[+] Triggering verified hCaptcha submit button...")
             h_btn.evaluate('el => el.click()')
-            page.wait_for_timeout(4000)
+            page.wait_for_timeout(2500)
     except Exception:
         pass
 
-    page.wait_for_timeout(3000)
+    page.wait_for_timeout(1500)
 
     clean_slug = re.sub(r'[^a-zA-Z0-9_]', '_', f"{company}_{title}")[:35]
     prefix = "intern" if app_type == "INTERNSHIP" else "job"

@@ -110,11 +110,12 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           MODE="${{ github.event.inputs.mode || 'all' }}"
-          LIMIT="${{ github.event.inputs.limit || '20' }}"
+          LIMIT="${{ github.event.inputs.limit || '8' }}"
           echo "[*] Executing verified submission engine: mode=$MODE limit=$LIMIT worker=${{ matrix.worker }}/24 $PROXY_ARG"
           python3 -u run_unified_verified_engine.py --mode "$MODE" --limit "$LIMIT" --worker-id ${{ matrix.worker }} --total-workers 24 $PROXY_ARG
 
       - name: Audit Conversion Performance via IMAP Confirmation Receipts
+        if: always()
         env:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
         run: |
@@ -133,6 +134,7 @@ jobs:
           retention-days: 14
 
       - name: Commit & Push Updated DB & Dashboard
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
