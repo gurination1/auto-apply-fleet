@@ -2615,12 +2615,28 @@ def main():
     ashby_interns = [it for it in unapplied_interns if 'ashbyhq' in (it.get('applyUrl') or it.get('url') or '')]
     lever_interns = [it for it in unapplied_interns if 'lever.co' in (it.get('applyUrl') or it.get('url') or '')]
 
+    def interleave_queues(*queues):
+        result = []
+        max_q = max((len(q) for q in queues), default=0)
+        for idx in range(max_q):
+            for q in queues:
+                if idx < len(q):
+                    result.append(q[idx])
+        return result
+
     if args.mode == 'internships':
-        items = ashby_interns + lever_interns + greenhouse_interns
+        items = interleave_queues(greenhouse_interns, ashby_interns, lever_interns)
     elif args.mode == 'jobs':
-        items = ashby_jobs + lever_jobs + greenhouse_jobs
+        items = interleave_queues(greenhouse_jobs, ashby_jobs, lever_jobs)
     else:
-        items = ashby_jobs + lever_jobs + ashby_interns + lever_interns + greenhouse_jobs + greenhouse_interns
+        items = interleave_queues(
+            greenhouse_interns,
+            ashby_interns,
+            greenhouse_jobs,
+            ashby_jobs,
+            lever_interns,
+            lever_jobs
+        )
 
     if args.total_workers > 1:
         items = [it for idx, it in enumerate(items) if idx % args.total_workers == (args.worker_id - 1)]
