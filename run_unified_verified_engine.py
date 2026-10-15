@@ -993,15 +993,15 @@ def apply_greenhouse(page, item):
 
                 // Strictly skip basic candidate identity & education fields (handled specifically)
                 if (el.type === 'hidden' ||
-                    ctx.includes('first_name') || ctx.includes('first name') ||
-                    ctx.includes('last_name') || ctx.includes('last name') ||
-                    ctx.includes('preferred') || ctx.includes('middle_name') ||
-                    ctx.includes('email') || ctx.includes('phone') || ctx.includes('telephone') ||
-                    ctx.includes('country') || ctx.includes('candidate-location') ||
-                    ctx.includes('school') || ctx.includes('degree') || ctx.includes('discipline') ||
-                    ctx.includes('start-month') || ctx.includes('start-year') ||
-                    ctx.includes('end-month') || ctx.includes('end-year') ||
-                    ctx.includes('resume') || ctx.includes('cover_letter')) return;
+                    id.includes('first_name') || name.includes('first_name') ||
+                    id.includes('last_name') || name.includes('last_name') ||
+                    id.includes('preferred') || id.includes('middle_name') ||
+                    id.includes('email') || id.includes('phone') ||
+                    id === 'country' || id === 'candidate-location' ||
+                    id === 'school--0' || id === 'degree--0' || id === 'discipline--0' ||
+                    id.includes('start-month--0') || id.includes('start-year--0') ||
+                    id.includes('end-month--0') || id.includes('end-year--0') ||
+                    id === 'resume' || id === 'cover_letter') return;
 
                 const label = document.querySelector('label[for="' + el.id + '"]') || (el.closest('div') ? el.closest('div').querySelector('label') : null);
                 const isReq = el.required || el.getAttribute('aria-required') === 'true' || (label && label.innerText.includes('*')) || false;
@@ -1111,7 +1111,7 @@ def apply_greenhouse(page, item):
                 elif any(k in flabel_l for k in ['open source', 'sample', 'project', 'repository']):
                     el.fill(CANDIDATE["github"])
                 elif any(k in flabel_l for k in ['gpa', 'grade', 'cgpa', 'percentage']):
-                    el.fill("8.8/10 (3.8/4.0)")
+                    el.fill("8.4 / 10.0 (3.5 / 4.0)")
                 elif any(k in flabel_l for k in ['highest level of education', 'level of education', 'degree']):
                     el.fill(CANDIDATE["degree"])
                 elif any(k in flabel_l for k in ['school', 'university', 'college', 'institution']):
@@ -1217,53 +1217,70 @@ def apply_greenhouse(page, item):
             if any(r['checked'] for r in radios):
                 continue
             picked_id = None
+            # 1. Negative / disqualification questions -> 'No' / 'Decline'
             if any(k in q_text for k in [
                 'employee', 'currently employed', 'former employee', 'prior employee', 'worked at', 'worked for',
-                'sponsorship', 'visa', 'require sponsorship', 'require visa', 'relatives', 'family', 'conflict',
-                'non-compete', 'felony', 'convicted'
+                'sponsorship', 'visa', 'require sponsorship', 'require visa', 'need visa', 'relatives', 'family',
+                'conflict', 'non-compete', 'felony', 'convicted', 'crime', 'investigation'
             ]):
                 for r in radios:
                     if any(w in r['label'] for w in ['no', 'neither', 'none', 'i do not', 'not applicable', 'decline']):
                         picked_id = r['id']
                         break
-            elif any(k in q_text for k in ['authorized', 'eligibility', 'eligible', 'over 18', '18 or older', 'agree', 'certify', 'terms', 'privacy', 'acknowledge']):
+            # 2. Positive qualification / authorization / skills / agreement -> 'Yes'
+            elif any(k in q_text for k in [
+                'authorized', 'eligibility', 'eligible', 'over 18', '18 or older', 'agree', 'certify', 'terms',
+                'privacy', 'acknowledge', 'degree', 'pursuing', 'student', 'experience', 'internship', 'python',
+                'sql', 'hybrid', 'relocate', 'commute', 'available', 'commit', 'full-time', 'full time', 'bachelor',
+                'skills', 'proficiency', 'able to', 'can you', 'are you', 'do you', 'have you', 'will you'
+            ]):
                 for r in radios:
-                    if any(w in r['label'] for w in ['yes', 'agree', 'authorized', 'certify', 'confirm']):
+                    if any(w in r['label'] for w in ['yes', 'agree', 'authorized', 'certify', 'confirm', 'i am', 'i do', 'i have']):
                         picked_id = r['id']
                         break
+            # 3. Veteran -> 'Not a protected veteran' / 'Decline'
             elif any(k in q_text for k in ['veteran']):
                 for r in radios:
                     if any(w in r['label'] for w in ['not a protected veteran', 'i am not a veteran', 'no', 'decline']):
                         picked_id = r['id']
                         break
+            # 4. Disability -> 'No' / 'Decline'
             elif any(k in q_text for k in ['disability']):
                 for r in radios:
                     if any(w in r['label'] for w in ['no, i don’t have', 'no, i do not', 'i do not wish', 'decline', 'no']):
                         picked_id = r['id']
                         break
+            # 5. Gender -> 'Male'
             elif any(k in q_text for k in ['gender', 'sex']):
                 for r in radios:
                     if re.search(r'\bmale\b', r['label']) and not re.search(r'\bfemale\b', r['label']):
                         picked_id = r['id']
                         break
+            # 6. Race / Ethnicity -> 'Asian' / 'Decline'
             elif any(k in q_text for k in ['race', 'ethnicity']):
                 for r in radios:
                     if 'asian' in r['label'] and 'caucasian' not in r['label']:
                         picked_id = r['id']
                         break
 
+            # 7. Fallback for unclassified questions: default to 'Yes' unless negative keywords present
             if not picked_id:
-                for r in radios:
-                    if any(w in r['label'] for w in ['not a protected veteran', 'no, i don’t have', 'no, i do not', 'i do not wish', 'decline', 'asian', 'male', 'no']):
-                        picked_id = r['id']
-                        break
+                has_negative_q = any(k in q_text for k in ['felony', 'crime', 'sponsorship', 'conflict', 'relative', 'former'])
+                if has_negative_q:
+                    for r in radios:
+                        if any(w in r['label'] for w in ['no', 'decline', 'none']):
+                            picked_id = r['id']
+                            break
+                else:
+                    for r in radios:
+                        if any(w in r['label'] for w in ['yes', 'agree', 'confirm']):
+                            picked_id = r['id']
+                            break
+
             if not picked_id and radios:
-                for r in radios:
-                    if 'no' in r['label']:
-                        picked_id = r['id']
-                        break
-                if not picked_id:
-                    picked_id = radios[0]['id']
+                # If still nothing, pick first option that isn't empty
+                picked_id = radios[0]['id']
+
             if picked_id:
                 try:
                     page.locator(f'[id="{picked_id}"]').first.check(timeout=800)
@@ -1480,6 +1497,56 @@ def apply_greenhouse(page, item):
 
         # Check for visible validation errors stopping submission
         has_val_error = page.locator('div:has-text("Please correct highlighted fields"), p:has-text("This section is required"), div:has-text("This field is required")').count() > 0
+
+        if has_val_error:
+            print(f"[!] Validation error detected for {company}; executing dynamic auto-heal...")
+            try:
+                # Find all error containers or fields near required warnings
+                err_containers = page.locator('.field:has(.error), .field:has-text("required"), div:has-text("This field is required"), [aria-invalid="true"]').all()
+                for e_cnt in err_containers:
+                    # 1. Check for unselected dropdowns / comboboxes
+                    cb_loc = e_cnt.locator('[role="combobox"], select, .select__control').first
+                    if cb_loc.count() > 0 and cb_loc.is_visible():
+                        cnt_text = e_cnt.inner_text().lower()
+                        if 'canada' in cnt_text or 'province' in cnt_text:
+                            fill_greenhouse_combobox(page, cb_loc, "Not in Canada")
+                        elif 'country' in cnt_text or 'location' in cnt_text:
+                            fill_greenhouse_combobox(page, cb_loc, "India")
+                        else:
+                            fill_greenhouse_combobox(page, cb_loc, "Yes")
+
+                    # 2. Check for empty text / textarea / number inputs
+                    for inp_loc in e_cnt.locator('input[type="text"], input:not([type]), textarea, input[type="number"]').all():
+                        if inp_loc.is_visible() and not inp_loc.input_value():
+                            cnt_text = e_cnt.inner_text().lower()
+                            if any(k in cnt_text for k in ['gpa', 'grade']):
+                                inp_loc.fill("8.4 / 10.0 (3.5 / 4.0)")
+                            elif any(k in cnt_text for k in ['university', 'school', 'college', 'institution']):
+                                inp_loc.fill(CANDIDATE["school"])
+                            elif any(k in cnt_text for k in ['major', 'discipline', 'degree']):
+                                inp_loc.fill(CANDIDATE["degree"])
+                            elif any(k in cnt_text for k in ['experience', 'year', 'how many']):
+                                inp_loc.fill("2")
+                            elif any(k in cnt_text for k in ['city', 'location']):
+                                inp_loc.fill("Ludhiana, Punjab, India")
+                            else:
+                                inp_loc.fill("Yes")
+
+                    # 3. Check for unchecked required checkboxes
+                    for chk_loc in e_cnt.locator('input[type="checkbox"]').all():
+                        if chk_loc.is_visible() and not chk_loc.is_checked():
+                            try:
+                                chk_loc.check(timeout=800)
+                            except Exception:
+                                pass
+
+                # Re-click submit
+                re_sub = page.locator('button[type="submit"]:visible, input[type="submit"]:visible, button:has-text("Submit application"):visible').last
+                if re_sub.count() > 0 and re_sub.is_visible():
+                    re_sub.click(timeout=3000)
+                    page.wait_for_timeout(3000)
+            except Exception as e_heal:
+                print(f"[-] Auto-heal note: {e_heal}")
 
         # Check if submission is confirmed
         current_url = page.url.lower()
@@ -2524,25 +2591,21 @@ def main():
                     print(f"[-] Could not load {src}: {e}")
         all_unapplied.extend(unapplied_jobs)
 
-    # Purge Lever entirely (100% failure rate on cloud due to interactive image hCaptcha puzzles)
-    all_unapplied = [it for it in all_unapplied if 'lever.co' not in (it.get('applyUrl') or it.get('url') or '')]
-    unapplied_jobs = [it for it in unapplied_jobs if 'lever.co' not in (it.get('applyUrl') or it.get('url') or '')]
-    unapplied_interns = [it for it in unapplied_interns if 'lever.co' not in (it.get('applyUrl') or it.get('url') or '')]
-
-    # Prioritize Greenhouse (95.6% confirmation rate) and Ashby (76.9% confirmation rate)
+    # Support all platforms: Ashby, Lever, and Greenhouse
     greenhouse_jobs = [it for it in unapplied_jobs if 'greenhouse.io' in (it.get('applyUrl') or it.get('url') or '')]
     ashby_jobs = [it for it in unapplied_jobs if 'ashbyhq' in (it.get('applyUrl') or it.get('url') or '')]
+    lever_jobs = [it for it in unapplied_jobs if 'lever.co' in (it.get('applyUrl') or it.get('url') or '')]
 
     greenhouse_interns = [it for it in unapplied_interns if 'greenhouse.io' in (it.get('applyUrl') or it.get('url') or '')]
     ashby_interns = [it for it in unapplied_interns if 'ashbyhq' in (it.get('applyUrl') or it.get('url') or '')]
+    lever_interns = [it for it in unapplied_interns if 'lever.co' in (it.get('applyUrl') or it.get('url') or '')]
 
     if args.mode == 'internships':
-        items = ashby_interns + greenhouse_interns
+        items = ashby_interns + lever_interns + greenhouse_interns
     elif args.mode == 'jobs':
-        items = ashby_jobs + greenhouse_jobs
+        items = ashby_jobs + lever_jobs + greenhouse_jobs
     else:
-        # All mode: Place all high-converting Ashby roles first so every worker gets pure Ashby roles initially
-        items = ashby_jobs + ashby_interns + greenhouse_jobs + greenhouse_interns
+        items = ashby_jobs + lever_jobs + ashby_interns + lever_interns + greenhouse_jobs + greenhouse_interns
 
     if args.total_workers > 1:
         items = [it for idx, it in enumerate(items) if idx % args.total_workers == (args.worker_id - 1)]

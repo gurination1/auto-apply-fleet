@@ -502,6 +502,7 @@ gh_targets = native_gh_targets + remaining_gh_targets
 with ThreadPoolExecutor(max_workers=50) as ex:
     list(ex.map(fetch_gh, gh_targets[:200]))
     list(ex.map(fetch_ash, ashby_targets[:150]))
+    list(ex.map(fetch_lever, lever_targets))
 
 print(f"\n[+] Total New Harvested: {len(harvested_interns)} Internships, {len(harvested_jobs)} Jobs.")
 
