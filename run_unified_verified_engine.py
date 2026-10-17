@@ -617,10 +617,13 @@ def fill_greenhouse_combobox(page, inp, label_text):
         pass
 
     # 2. React-Select / ARIA Combobox
+    # Attempt opening the combobox via toggle button, control click, and arrow down
     try:
-        inp.focus()
-        inp.press('ArrowDown')
-        page.wait_for_timeout(350)
+        fw = inp.locator('xpath=ancestor::div[contains(@class, "field") or contains(@class, "select") or contains(@class, "form-group")][1]').first
+        btn_flyout = fw.locator('button[aria-label="Toggle flyout"], button[aria-haspopup="listbox"], .select__indicators button').first
+        if btn_flyout.count() > 0 and btn_flyout.is_visible():
+            btn_flyout.click(timeout=1000)
+            page.wait_for_timeout(300)
     except Exception:
         pass
 
@@ -631,113 +634,142 @@ def fill_greenhouse_combobox(page, inp, label_text):
         try:
             parent_ctrl = inp.locator('xpath=ancestor-or-self::div[contains(@class, "select__control") or contains(@class, "combobox")][1]').first
             if parent_ctrl.count() > 0 and parent_ctrl.is_visible():
-                parent_ctrl.click(timeout=1500)
+                parent_ctrl.click(timeout=1200)
             else:
-                inp.click(timeout=1500)
+                inp.click(timeout=1200)
+            page.wait_for_timeout(300)
+        except Exception:
+            pass
+        ctrl = inp.get_attribute('aria-controls')
+        menu = page.locator(f'[id="{ctrl}"]') if ctrl else page.locator('.select__menu, .select__menu-list, div[class*="-menu"], [role="listbox"]:visible, [id*="listbox"]:visible').first
+
+    if menu.count() == 0 or not menu.is_visible():
+        try:
+            inp.focus()
+            inp.press('ArrowDown')
             page.wait_for_timeout(350)
         except Exception:
             pass
+        ctrl = inp.get_attribute('aria-controls')
         menu = page.locator(f'[id="{ctrl}"]') if ctrl else page.locator('.select__menu, .select__menu-list, div[class*="-menu"], [role="listbox"]:visible, [id*="listbox"]:visible').first
 
     if menu.count() > 0:
-        if target_choice:
-            t_low = target_choice.lower()
-            if t_low == 'male':
-                m_opt = menu.locator('div:has-text("Male"):not(:has-text("Female")), [role="option"]:has-text("Male"):not(:has-text("Female"))').first
-                if m_opt.count() > 0:
-                    m_opt.click()
+        opts = menu.locator('[role="option"], div.select__option, div[class*="option"], li').all()
+        if not opts:
+            opts = page.locator('[role="listbox"]:visible [role="option"], div.select__menu:visible div.select__option').all()
+
+        t_low = (target_choice or '').lower().strip()
+
+        # A. Working rights / Legal authorization / Positive confirmation:
+        if t_low == 'yes' or any(k in label_lower for k in ['authorized', 'authorization', 'working rights', 'work authorization', 'eligible', 'confirm', 'certify', 'agree', 'acknowledge', 'over 18']):
+            for opt in opts:
+                txt = opt.inner_text().strip().lower()
+                if re.search(r'\byes\b', txt) or txt.startswith('yes'):
+                    opt.click()
                     page.wait_for_timeout(250)
                     return True
-            elif t_low in ['he / him', 'he/him']:
-                h_opt = menu.locator('div:has-text("He / Him"), div:has-text("He/Him"), [role="option"]:has-text("He / Him"), [role="option"]:has-text("He/Him"), div:has-text("He/him"), [role="option"]:has-text("He/him")').first
-                if h_opt.count() > 0:
-                    h_opt.click()
+            for opt in opts:
+                txt = opt.inner_text().strip().lower()
+                if any(w in txt for w in ['citizen', 'resident', 'permanent', 'authorized', 'full working', 'work visa', 'open work permit']):
+                    opt.click()
                     page.wait_for_timeout(250)
                     return True
-            elif t_low == 'india':
-                try:
-                    inp.press_sequentially('India', delay=40)
-                    page.wait_for_timeout(300)
-                except Exception:
-                    pass
-                for opt_el in menu.locator('div, li, [role="option"]').all():
-                    txt = opt_el.inner_text().strip().lower()
-                    if any(bad in txt for bad in ['british', 'ocean', 'diego', 'territory']):
-                        continue
-                    if 'india' in txt:
-                        opt_el.click()
-                        page.wait_for_timeout(250)
-                        return True
-            elif 'other' in t_low or 'school' in t_low or 'baba farid' in t_low or 'institution' in t_low:
-                s_opt = menu.locator('div:has-text("Other"), [role="option"]:has-text("Other"), div:has-text("Baba Farid"), [role="option"]:has-text("Baba Farid")').first
-                if s_opt.count() > 0:
-                    s_opt.click()
-                    page.wait_for_timeout(250)
-                    return True
-                first_opt = menu.locator('[role="option"]:visible').first
-                if first_opt.count() > 0:
-                    first_opt.click()
-                    page.wait_for_timeout(250)
-                    return True
-            elif 'bachelor' in t_low or 'degree' in t_low:
-                b_opt = menu.locator('div:has-text("Bachelor"), [role="option"]:has-text("Bachelor"), div:has-text("Undergraduate"), [role="option"]:has-text("Undergraduate")').first
-                if b_opt.count() > 0:
-                    b_opt.click()
-                    page.wait_for_timeout(250)
-                    return True
-                first_opt = menu.locator('[role="option"]:visible').first
-                if first_opt.count() > 0:
-                    first_opt.click()
-                    page.wait_for_timeout(250)
-                    return True
-            elif t_low == 'yes':
-                y_opt = menu.locator('div:has-text("Yes"), [role="option"]:has-text("Yes"), div:has-text("Willing"), [role="option"]:has-text("Willing"), div:has-text("Open to"), [role="option"]:has-text("Open to"), div:has-text("Agree"), [role="option"]:has-text("Agree"), div:has-text("I confirm"), [role="option"]:has-text("I confirm"), div:has-text("Confirm"), [role="option"]:has-text("Confirm"), div:has-text("I Acknowledge"), [role="option"]:has-text("I Acknowledge"), div:has-text("Acknowledge"), [role="option"]:has-text("Acknowledge")').first
-                if y_opt.count() > 0:
-                    y_opt.click()
-                    page.wait_for_timeout(250)
-                    return True
-            elif t_low == 'no':
-                n_opt = menu.locator('div:has-text("No"):not(:has-text("Notice")), [role="option"]:has-text("No"):not(:has-text("Notice")), div:has-text("I do not"), [role="option"]:has-text("I do not"), div:has-text("None"), [role="option"]:has-text("None")').first
-                if n_opt.count() > 0:
-                    n_opt.click()
-                    page.wait_for_timeout(250)
-                    return True
-            elif t_low in ['decline', 'prefer not to say']:
-                d_opt = menu.locator('div:has-text("Decline"), [role="option"]:has-text("Decline"), div:has-text("Prefer not to"), [role="option"]:has-text("Prefer not to"), div:has-text("I do not wish"), [role="option"]:has-text("I do not wish")').first
-                if d_opt.count() > 0:
-                    d_opt.click()
-                    page.wait_for_timeout(250)
-                    return True
-            elif any(k in t_low for k in ['asian', 'race', 'ethnicity']):
-                a_opt = menu.locator('div:has-text("Asian"), [role="option"]:has-text("Asian"), div:has-text("Decline"), [role="option"]:has-text("Decline")').first
-                if a_opt.count() > 0:
-                    a_opt.click()
-                    page.wait_for_timeout(250)
-                    return True
-            else:
-                opt = menu.locator(f'div:has-text("{target_choice}"), li:has-text("{target_choice}"), [role="option"]:has-text("{target_choice}")').first
-                if opt.count() > 0:
+            for opt in opts:
+                txt = opt.inner_text().strip().lower()
+                if any(w in txt for w in ['agree', 'confirm', 'i acknowledge', 'willing', 'open to']):
                     opt.click()
                     page.wait_for_timeout(250)
                     return True
 
-        # Safe fallback based on context:
-        if any(k in label_lower for k in ['confirm', 'certify', 'agree', 'acknowledge', 'willing', 'clearance', 'test', 'graduate', 'graduation', 'authorized', 'eligible']):
-            yes_fb = menu.locator('div:has-text("Yes"), li:has-text("Yes"), [role="option"]:has-text("Yes"), div:has-text("Agree"), [role="option"]:has-text("Agree")').first
-            if yes_fb.count() > 0:
-                yes_fb.click()
-                page.wait_for_timeout(250)
-                return True
+        # B. Sponsorship / Disqualification / Negative confirmation:
+        elif t_low == 'no' or any(k in label_lower for k in ['sponsorship', 'visa', 'require sponsorship', 'require visa', 'need visa', 'relatives', 'family', 'conflict', 'non-compete', 'felony', 'crime', 'convicted', 'former employee', 'prior employee']):
+            for opt in opts:
+                txt = opt.inner_text().strip().lower()
+                if 'notice' in txt:
+                    continue
+                if re.search(r'\bno\b', txt) or txt.startswith('no') or any(w in txt for w in ['none', 'neither', 'i do not', 'will not', 'not require', 'decline']):
+                    opt.click()
+                    page.wait_for_timeout(250)
+                    return True
 
-        no_opt = menu.locator('div:has-text("No"), li:has-text("No"), [role="option"]:has-text("No"), div:has-text("Decline"), [role="option"]:has-text("Decline")').first
-        if no_opt.count() > 0:
-            no_opt.click()
-            page.wait_for_timeout(250)
-            return True
+        # C. Country / Location:
+        elif t_low == 'india' or any(k in label_lower for k in ['country', 'residence', 'nationality', 'location']):
+            try:
+                inp.press_sequentially('India', delay=40)
+                page.wait_for_timeout(300)
+            except Exception:
+                pass
+            for opt in opts:
+                txt = opt.inner_text().strip().lower()
+                if any(bad in txt for bad in ['british', 'ocean', 'diego', 'territory']):
+                    continue
+                if 'india' in txt:
+                    opt.click()
+                    page.wait_for_timeout(250)
+                    return True
 
-        first_opt = menu.locator('[id*="option"], [role="option"], div[class*="-option"], .select__option, li').first
-        if first_opt.count() > 0:
-            first_opt.click()
+        # D. Gender:
+        elif t_low == 'male' or any(k in label_lower for k in ['gender', 'sex']):
+            for opt in opts:
+                txt = opt.inner_text().strip().lower()
+                if re.search(r'\bmale\b', txt) and not re.search(r'\bfemale\b', txt):
+                    opt.click()
+                    page.wait_for_timeout(250)
+                    return True
+
+        # E. Pronouns:
+        elif any(k in t_low for k in ['he / him', 'he/him']) or 'pronoun' in label_lower:
+            for opt in opts:
+                txt = opt.inner_text().strip().lower()
+                if 'she' in txt or 'her' in txt:
+                    continue
+                if 'he/him' in txt or 'he / him' in txt:
+                    opt.click()
+                    page.wait_for_timeout(250)
+                    return True
+
+        # F. Education / Degree:
+        elif any(k in t_low for k in ['bachelor', 'undergraduate']) or any(k in label_lower for k in ['degree', 'highest education', 'level of education']):
+            for opt in opts:
+                txt = opt.inner_text().strip().lower()
+                if any(w in txt for w in ['bachelor', 'undergraduate', 'b.sc', 'b.tech', 'college']):
+                    opt.click()
+                    page.wait_for_timeout(250)
+                    return True
+
+        # G. Ethnicity / Race:
+        elif any(k in t_low for k in ['asian', 'race', 'ethnicity']) or any(k in label_lower for k in ['race', 'ethnicity', 'demographic']):
+            for opt in opts:
+                txt = opt.inner_text().strip().lower()
+                if 'asian' in txt and 'caucasian' not in txt:
+                    opt.click()
+                    page.wait_for_timeout(250)
+                    return True
+
+        # H. Notice Period / Availability:
+        elif any(k in label_lower for k in ['notice', 'how soon', 'start date', 'available']):
+            for opt in opts:
+                txt = opt.inner_text().strip().lower()
+                if any(w in txt for w in ['immediate', '1-2', 'less than', '30 days', 'asap', 'within']):
+                    opt.click()
+                    page.wait_for_timeout(250)
+                    return True
+
+        # I. Direct match for target_choice:
+        if target_choice:
+            for opt in opts:
+                txt = opt.inner_text().strip().lower()
+                if t_low in txt:
+                    opt.click()
+                    page.wait_for_timeout(250)
+                    return True
+
+        # J. Robust Fallback: select first non-placeholder option
+        for opt in opts:
+            txt = opt.inner_text().strip().lower()
+            if not txt or txt in ['select...', 'select', 'choose', 'please select', 'select an option']:
+                continue
+            opt.click()
             page.wait_for_timeout(250)
             return True
 
@@ -752,6 +784,7 @@ def fill_greenhouse_combobox(page, inp, label_text):
             pass
 
     return False
+
 
 def apply_greenhouse(page, item):
     company = re.sub('<[^<]+?>', '', item.get('company', '')).strip()
@@ -1507,21 +1540,30 @@ def apply_greenhouse(page, item):
                 # Find all error containers or fields near required warnings
                 err_containers = page.locator('.field:has(.error), .field:has-text("required"), div:has-text("This field is required"), [aria-invalid="true"]').all()
                 for e_cnt in err_containers:
+                    # Resolve to parent field wrapper if e_cnt is just an error message tag
+                    parent_wrapper = e_cnt.locator('xpath=ancestor-or-self::div[contains(@class, "field") or contains(@class, "select") or contains(@class, "group")][1]').first
+                    target_cnt = parent_wrapper if (parent_wrapper.count() > 0 and parent_wrapper.is_visible()) else e_cnt
+                    cnt_text = target_cnt.inner_text().lower()
+
                     # 1. Check for unselected dropdowns / comboboxes
-                    cb_loc = e_cnt.locator('[role="combobox"], select, .select__control').first
+                    cb_loc = target_cnt.locator('[role="combobox"], select, .select__control, button[aria-label*="flyout" i]').first
                     if cb_loc.count() > 0 and cb_loc.is_visible():
-                        cnt_text = e_cnt.inner_text().lower()
                         if 'canada' in cnt_text or 'province' in cnt_text:
                             fill_greenhouse_combobox(page, cb_loc, "Not in Canada")
                         elif 'country' in cnt_text or 'location' in cnt_text:
                             fill_greenhouse_combobox(page, cb_loc, "India")
+                        elif any(k in cnt_text for k in ['sponsorship', 'require sponsorship', 'visa', 'require visa']):
+                            fill_greenhouse_combobox(page, cb_loc, "No")
+                        elif any(k in cnt_text for k in ['working rights', 'authorized', 'authorization', 'eligible', 'work permit']):
+                            fill_greenhouse_combobox(page, cb_loc, "Yes")
+                        elif any(k in cnt_text for k in ['notice', 'how soon', 'start date']):
+                            fill_greenhouse_combobox(page, cb_loc, "Immediate")
                         else:
                             fill_greenhouse_combobox(page, cb_loc, "Yes")
 
                     # 2. Check for empty text / textarea / number inputs
-                    for inp_loc in e_cnt.locator('input[type="text"], input:not([type]), textarea, input[type="number"]').all():
+                    for inp_loc in target_cnt.locator('input[type="text"], input:not([type]), textarea, input[type="number"]').all():
                         if inp_loc.is_visible() and not inp_loc.input_value():
-                            cnt_text = e_cnt.inner_text().lower()
                             if any(k in cnt_text for k in ['gpa', 'grade']):
                                 inp_loc.fill("8.4 / 10.0 (3.5 / 4.0)")
                             elif any(k in cnt_text for k in ['university', 'school', 'college', 'institution']):
@@ -1532,16 +1574,36 @@ def apply_greenhouse(page, item):
                                 inp_loc.fill("2")
                             elif any(k in cnt_text for k in ['city', 'location']):
                                 inp_loc.fill("Ludhiana, Punjab, India")
+                            elif any(k in cnt_text for k in ['notice', 'earliest', 'start date']):
+                                inp_loc.fill("Immediately (within 1-2 weeks)")
+                            elif any(k in cnt_text for k in ['why', 'interest', 'motivated']):
+                                inp_loc.fill(get_tailored_pitch(company, title, app_type, category))
                             else:
                                 inp_loc.fill("Yes")
 
                     # 3. Check for unchecked required checkboxes
-                    for chk_loc in e_cnt.locator('input[type="checkbox"]').all():
+                    for chk_loc in target_cnt.locator('input[type="checkbox"]').all():
                         if chk_loc.is_visible() and not chk_loc.is_checked():
                             try:
                                 chk_loc.check(timeout=800)
                             except Exception:
                                 pass
+
+                # Sweep all unselected React-Select comboboxes on the page
+                for unsel in page.locator('.select__control:has-text("Select..."), div[role="combobox"]:has-text("Select..."), .select__placeholder:has-text("Select...")').all():
+                    try:
+                        fw_el = unsel.locator('xpath=ancestor::div[contains(@class, "field") or contains(@class, "select")][1]').first
+                        fw_text = fw_el.inner_text().lower() if (fw_el.count() > 0 and fw_el.is_visible()) else ''
+                        if any(k in fw_text for k in ['sponsorship', 'visa', 'require sponsorship', 'require visa']):
+                            fill_greenhouse_combobox(page, unsel, "No")
+                        elif any(k in fw_text for k in ['country', 'location']):
+                            fill_greenhouse_combobox(page, unsel, "India")
+                        elif any(k in fw_text for k in ['working rights', 'authorized', 'authorization', 'work permit']):
+                            fill_greenhouse_combobox(page, unsel, "Yes")
+                        else:
+                            fill_greenhouse_combobox(page, unsel, "Yes")
+                    except Exception:
+                        pass
 
                 # Re-click submit
                 re_sub = page.locator('button[type="submit"]:visible, input[type="submit"]:visible, button:has-text("Submit application"):visible').last
@@ -1550,6 +1612,7 @@ def apply_greenhouse(page, item):
                     page.wait_for_timeout(3000)
             except Exception as e_heal:
                 print(f"[-] Auto-heal note: {e_heal}")
+
 
         # Check if submission is confirmed
         current_url = page.url.lower()
@@ -1637,6 +1700,15 @@ def apply_lever(page, item):
 
     page.wait_for_timeout(2000)
 
+    # Dismiss any sticky cookie / privacy notice
+    try:
+        cookie_btn = page.locator('button:has-text("DISMISS"), button:has-text("Dismiss"), button:has-text("Accept"), button:has-text("I agree"), .cookie-consent button, .cookie-notice button').first
+        if cookie_btn.count() > 0 and cookie_btn.is_visible():
+            cookie_btn.click(timeout=1000)
+            page.wait_for_timeout(300)
+    except Exception:
+        pass
+
     page_txt = page.locator('body').inner_text().lower()
     if any(k in page_txt for k in ['no longer available', 'job has been closed', 'posting not found', '404 not found']):
         print(f"[-] Lever posting is closed or unavailable.")
@@ -1671,6 +1743,7 @@ def apply_lever(page, item):
         safe_fill_by_name("urls[LinkedIn]", CANDIDATE["linkedin"])
         safe_fill_by_name("urls[GitHub]", CANDIDATE["github"])
         safe_fill_by_name("urls[Portfolio]", CANDIDATE["portfolio"])
+        safe_fill_by_name("urls[Twitter]", "https://x.com/gurination")
         safe_fill_by_name("urls[Other]", CANDIDATE["portfolio"])
         loc_inp = page.locator('input.location-input, #location-input, input[name="location"]').first
         if loc_inp.count() > 0 and loc_inp.is_visible() and not loc_inp.input_value():
@@ -1829,7 +1902,10 @@ def apply_lever(page, item):
                 elif any(k in nm for k in ['discipline', 'major']):
                     req_inp.fill(CANDIDATE["discipline"])
                 else:
-                    req_inp.fill("Yes")
+                    if req_inp.get_attribute('type') == 'url' or 'url' in nm:
+                        req_inp.fill(CANDIDATE["portfolio"])
+                    else:
+                        req_inp.fill("Yes")
     except Exception as e:
         print(f"[-] Lever required fields note: {e}")
 
@@ -1840,6 +1916,24 @@ def apply_lever(page, item):
                 cb.check()
         except Exception:
             pass
+
+    # Clean URL fields so HTML5 validation never fails on non-URL strings like "Yes"
+    try:
+        for u_inp in page.locator('input[type="url"], input[name*="urls["], input[placeholder*="http"], input[placeholder*="url"]').all():
+            v = u_inp.input_value().strip()
+            if v and not (v.startswith('http://') or v.startswith('https://')):
+                u_inp.fill(CANDIDATE["portfolio"])
+    except Exception:
+        pass
+
+    # Dismiss any sticky cookie banner before submitting
+    try:
+        cookie_btn = page.locator('button:has-text("DISMISS"), button:has-text("Dismiss"), button:has-text("Accept"), button:has-text("I agree"), .cookie-consent button, .cookie-notice button').first
+        if cookie_btn.count() > 0 and cookie_btn.is_visible():
+            cookie_btn.click(timeout=1000)
+            page.wait_for_timeout(300)
+    except Exception:
+        pass
 
     page.wait_for_timeout(1000)
 
@@ -1865,8 +1959,17 @@ def apply_lever(page, item):
             btn.evaluate('el => el.click()')
         except Exception as e:
             print(f"[-] Lever submit click failed: {e}")
-    page.wait_for_timeout(2500)
-    solve_all_captchas(page)
+
+    # RequestSubmit fallback
+    try:
+        page.evaluate('''() => {
+            const form = document.querySelector('form#application-form, form');
+            if (form && !window.location.href.includes('/thanks')) {
+                form.requestSubmit();
+            }
+        }''')
+    except Exception:
+        pass
 
     # If hidden hcaptcha submit button exists, trigger as fallback if hcaptcha solved
     try:
@@ -1875,23 +1978,33 @@ def apply_lever(page, item):
         if h_btn.count() > 0 and h_resp:
             print("[+] Triggering verified hCaptcha submit button...")
             h_btn.evaluate('el => el.click()')
-            page.wait_for_timeout(2500)
+            page.wait_for_timeout(2000)
     except Exception:
         pass
 
-    page.wait_for_timeout(1500)
+    # Polling wait loop up to 15s (6 x 2.5s) to allow proxy SOCKS5/WARP file upload and submission
+    is_confirmed = False
+    for poll_idx in range(6):
+        page.wait_for_timeout(2500)
+        solve_all_captchas(page)
+        curr_url = page.url.lower()
+        page_text = page.locator('body').inner_text().lower()
+        if ('/thanks' in curr_url or any(m in page_text for m in [
+            'thank you for applying', 'application submitted', 'we have received your application',
+            'thanks for your interest', 'application was received', 'submitted successfully',
+            'submission complete', 'received your application'
+        ])):
+            is_confirmed = True
+            break
 
     clean_slug = re.sub(r'[^a-zA-Z0-9_]', '_', f"{company}_{title}")[:35]
     prefix = "intern" if app_type == "INTERNSHIP" else "job"
-    proof_path = f"{PROOF_DIR}/{prefix}_{clean_slug}_lever_confirmed.png"
-    page.screenshot(path=proof_path, full_page=True)
-
-    curr_url = page.url.lower()
-    page_text = page.locator('body').inner_text().lower()
-    is_confirmed = ('/thanks' in curr_url or any(m in page_text for m in [
-        'thank you for applying', 'application submitted', 'we have received your application',
-        'thanks for your interest', 'application was received', 'submitted successfully'
-    ]))
+    proof_suffix = "lever_confirmed.png" if is_confirmed else "lever_failed.png"
+    proof_path = f"{PROOF_DIR}/{prefix}_{clean_slug}_{proof_suffix}"
+    try:
+        page.screenshot(path=proof_path, full_page=True, timeout=5000)
+    except Exception:
+        pass
 
     if is_confirmed:
         print(f"🎉 CONFIRMED Lever submission for {company} - {title}!")
@@ -1909,6 +2022,7 @@ def apply_lever(page, item):
     else:
         print(f"[-] Lever submission not confirmed for {company} - {title} (URL: {curr_url})")
         return False
+
 
 def apply_ashby(page, item):
     company = re.sub('<[^<]+?>', '', item.get('company', '')).strip()
