@@ -2622,6 +2622,7 @@ def main():
 
     if args.mode in ['internships', 'all']:
         intern_sources = [
+            os.path.join(BASE_DIR, 'high_conversion_application_queue.json'),
             os.path.join(BASE_DIR, 'live_fresh_verified_roles.json'),
             os.path.join(BASE_DIR, 'github_verified_internships.json'),
             os.path.join(BASE_DIR, 'queue_500_paid_internships.json'),
@@ -2675,6 +2676,7 @@ def main():
 
     if args.mode in ['jobs', 'all']:
         job_sources = [
+            os.path.join(BASE_DIR, 'high_conversion_application_queue.json'),
             os.path.join(BASE_DIR, 'live_fresh_verified_roles.json'),
             os.path.join(BASE_DIR, 'github_verified_jobs.json'),
             os.path.join(BASE_DIR, 'vetted_global_boutique_roles.json'),
