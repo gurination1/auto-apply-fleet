@@ -28,15 +28,15 @@ if os.path.exists(DB_PATH):
     try:
         conn = sqlite3.connect(DB_PATH)
         c = conn.cursor()
-        c.execute('SELECT job_url, company, role, is_internship, application_type FROM verified_applications')
-        for url, comp, role, is_int, app_type in c.fetchall():
+        c.execute('SELECT job_url, company, role, application_type FROM verified_applications')
+        for url, comp, role, app_type in c.fetchall():
             if url:
                 applied_urls.add(url.strip().lower().split('?')[0].rstrip('/'))
             comp_clean = re.sub(r'[^a-z0-9]', '', (comp or '').lower())
             role_clean = re.sub(r'[^a-z0-9]', '', (role or '').lower())
             if comp_clean and role_clean:
                 applied_comp_roles.add((comp_clean, role_clean))
-            if is_int or app_type == 'INTERNSHIP':
+            if app_type == 'INTERNSHIP':
                 applied_intern_companies.add(comp_clean)
         conn.close()
         print(f"[+] Loaded {len(applied_urls)} applied URLs and {len(applied_comp_roles)} role pairs from DB.")

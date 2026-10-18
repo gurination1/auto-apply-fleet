@@ -27,6 +27,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   run-fleet:
@@ -157,3 +158,19 @@ jobs:
             echo "[-] Push collision detected. Retrying in $((i * 2)) seconds..."
             sleep $((i * 2))
           done
+
+  trigger-next:
+    needs: [run-fleet]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Cooldown Pause
+        run: sleep 30
+
+      - name: Self-Trigger Next Autonomous Application Cycle
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+        run: |
+          echo "[*] Fleet cycle completed. Dispatching next autonomous run via gh CLI..."
+          gh workflow run auto_apply.yml --repo "$GITHUB_REPOSITORY" -f mode=all -f limit=10 || (sleep 15 && gh workflow run auto_apply.yml --repo "$GITHUB_REPOSITORY" -f mode=all -f limit=10)
+
