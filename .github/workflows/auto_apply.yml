@@ -99,8 +99,8 @@ jobs:
           import json, os, subprocess
           path = 'live_fresh_verified_roles.json'
           if not os.path.exists(path) or len(json.load(open(path))) < 100:
-              print('[*] Role queue low; running full target harvest from 2,300+ direct ATS boards...')
-              subprocess.run(['python3', 'harvest_massive_ats_pipeline.py'], check=True)
+              print('[*] Role queue low; running pure Greenhouse & Ashby harvester across 1,950+ direct boards...')
+              subprocess.run(['python3', 'harvest_pure_greenhouse_ashby.py'], check=True)
           else:
               print(f'[+] Role queue pre-populated with {len(json.load(open(path)))} verified roles. Instant start.')
           "

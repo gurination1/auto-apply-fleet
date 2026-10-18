@@ -218,13 +218,8 @@ def is_already_confirmed(url, company, title):
     if (ck, rk) in roles:
         return True
 
-    # 3. Single internship policy: only 1 internship application per company
-    is_intern = 'intern' in rk or 'coop' in rk or 'placement' in rk
-    if is_intern and ck in company_internships:
-        return True
-
-    # 4. Fuzzy token check for full-time jobs at same company
-    if not is_intern and ck in company_jobs:
+    # 3. Fuzzy token check for roles at the same company (blocks duplicate roles at same company while allowing distinct specializations)
+    if ck in company_jobs:
         rt = get_role_tokens(title)
         if rt:
             for prev_tokens in company_jobs[ck]:
@@ -282,11 +277,9 @@ def critique_application(company, title, category=""):
         # Over-seniority (strictly junior, lower-mid, mid, intern)
         'senior', 'sr.', 'sr ', 'principal', 'staff', 'architect', 'director', 'vp', 'head of', 'manager',
         'lead', 'expert', 'specialist ii', 'engineer iii', 'engineer iv', 'engineer 3', 'engineer 4', 'swe 3', 'swe 4', 'sde 3', 'sde 4',
-        # Geographic, Citizenship & Format Knockouts
-        ' - tor', ' (tor)', 'toronto', ' - van', 'vancouver', ' - montreal', 'waterloo university',
-        'us citizen', 'security clearance', 'ts/sci', 'clearance', 'uk only', 'canada only', 'onsite only',
-        'in-office only', 'hybrid', 'on-site', 'onsite', 'in-person', 'relocation required', 'london', 'uk office',
-        'office only', 'office)', 'in-office', 'phd', 'postdoc', 'graduate intern'
+        # Strict Citizenship, Clearance & Degree Knockouts (removes accidental location traps like london/toronto)
+        'us citizen', 'security clearance', 'ts/sci', 'clearance required', 'active clearance',
+        'phd required', 'postdoc', 'graduate intern'
     ]
     for b in banned:
         if b in title_lower:
