@@ -2743,18 +2743,16 @@ def main():
         return result
 
     if args.mode == 'internships':
-        items = interleave_queues(greenhouse_interns, ashby_interns, lever_interns)
+        items = interleave_queues(greenhouse_interns, ashby_interns) or lever_interns
     elif args.mode == 'jobs':
-        items = interleave_queues(greenhouse_jobs, ashby_jobs, lever_jobs)
+        items = interleave_queues(greenhouse_jobs, ashby_jobs) or lever_jobs
     else:
         items = interleave_queues(
             greenhouse_interns,
             ashby_interns,
             greenhouse_jobs,
-            ashby_jobs,
-            lever_interns,
-            lever_jobs
-        )
+            ashby_jobs
+        ) or interleave_queues(lever_interns, lever_jobs)
 
     if args.total_workers > 1:
         items = [it for idx, it in enumerate(items) if idx % args.total_workers == (args.worker_id - 1)]
