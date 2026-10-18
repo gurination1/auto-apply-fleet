@@ -256,10 +256,15 @@ def critique_application(company, title, category=""):
         'guidance, navigation', 'guidance and control', 'spacecraft simulation', 'drone stack',
         # Robotics manipulation / motion planning / perception
         'robotics', 'robot ', 'robotic', 'manipulation', 'motion planning', 'perception engineer', 'low speed motion',
-        # Low-level languages / Unaligned Infrastructure stacks / Hardware
+        # Low-level languages / Unaligned Infrastructure stacks / Hardware / Legacy Stacks
         'c++', '(c++)', 'rust ', 'rust/', 'rust-', 'chip design', 'fpga', 'asic', 'kernel', 'firmware', 'pcb', 'hpc ',
         'gpu cluster', 'kafka', 'distributed systems', 'low latency', 'graphics engine', 'rendering engine',
         'game engine', 'unreal', 'unity engine',
+        'java ', 'java/', '(java)', 'java developer', 'java engineer', 'pega', 'salesforce', 'sap ', 'servicenow',
+        'cobol', 'dotnet', '.net', 'c#', 'c-sharp', 'abap', 'oracle apps', 'sharepoint', 'mainframe',
+        # Crowdsourced Gig Work / AI Trainers / Non-Engineering Tasks
+        'ai trainer', 'ai tutor', 'trainer project', 'freelance ai', 'annotation', 'annotator', 'data annotator',
+        'content moderator', 'content reviewer', 'prompt engineer', 'evaluator', 'tasker', 'crowdsource', 'subject matter expert',
         # IT Support / Corporate Desktop / Sysadmin
         'it support', 'it specialist', 'it engineer', 'help desk', 'helpdesk', 'desktop support', 'desktop software',
         'sysadmin', 'systems administrator', 'network engineer', 'database administrator', 'dba ',
@@ -267,7 +272,7 @@ def critique_application(company, title, category=""):
         'security', 'infosec', 'cyber', 'secops', 'vulnerability', 'soc ', 'penetration',
         # Hardware / Electrical / Embedded / Automotive
         'hardware', 'silicon', 'dft', 'analog', 'ic design', 'electronics', 'embedded',
-        'controls', 'vehicle', 'automotive', 'battery', 'mechanical', 'thermal',
+        'electrical', 'controls', 'vehicle', 'automotive', 'battery', 'mechanical', 'thermal',
         # Business / Operations / Finance / PM
         'business development', 'bizdev', 'operations', 'revops', 'user operations', 'product management',
         'product manager', 'pm intern', 'product intern', 'product strategy', 'compensation partner', 'sales',
@@ -303,6 +308,14 @@ def critique_application(company, title, category=""):
         return 10, f'Duplicate Application: Already applied to {company} for {title}.'
     if c_clean in blacklisted_companies or any(b == c_clean for b in blacklisted_companies):
         return 10, f'Company Blacklist/Rejection: {company} sent a formal rejection email. Skipping reapplication.'
+
+    LOW_TIER_COMPANIES = {
+        'invisibletechnologies', 'agency', 'outlier', 'remotasks', 'dataannotation',
+        'alignerr', 'mindrift', 'oneforma', 'welocalize', 'appen', 'telusinternational',
+        'crossover', 'bairesdev', 'turing'
+    }
+    if c_clean in LOW_TIER_COMPANIES or any(lt in c_clean for lt in LOW_TIER_COMPANIES):
+        return 20, f'Low Quality / Staffing Body Shop: {company} is a crowdsourced gig platform, not a tech product company.'
 
     # 3. PURE BACKEND PENALTY
     is_pure_backend = any(b in title_lower for b in ['backend', 'back-end', 'back end']) and not any(f in title_lower for f in ['front', 'web', 'full stack', 'fullstack', 'full-stack', 'intern', 'co-op', 'node', 'product', 'application', 'developer experience', 'dx'])
