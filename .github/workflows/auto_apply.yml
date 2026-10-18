@@ -29,6 +29,10 @@ permissions:
   contents: write
   actions: write
 
+concurrency:
+  group: auto-apply-fleet-flight
+  cancel-in-progress: false
+
 jobs:
   run-fleet:
     runs-on: ubuntu-latest
@@ -36,7 +40,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        worker: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+        worker: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
     steps:
       - name: Checkout Repository
@@ -112,8 +116,8 @@ jobs:
         run: |
           MODE="${{ github.event.inputs.mode || 'all' }}"
           LIMIT="${{ github.event.inputs.limit || '8' }}"
-          echo "[*] Executing verified submission engine: mode=$MODE limit=$LIMIT worker=${{ matrix.worker }}/24 $PROXY_ARG"
-          python3 -u run_unified_verified_engine.py --mode "$MODE" --limit "$LIMIT" --worker-id ${{ matrix.worker }} --total-workers 24 $PROXY_ARG
+          echo "[*] Executing verified submission engine: mode=$MODE limit=$LIMIT worker=${{ matrix.worker }}/12 $PROXY_ARG"
+          python3 -u run_unified_verified_engine.py --mode "$MODE" --limit "$LIMIT" --worker-id ${{ matrix.worker }} --total-workers 12 $PROXY_ARG
 
       - name: Audit Conversion Performance via IMAP Confirmation Receipts
         if: always()
@@ -171,6 +175,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
         run: |
-          echo "[*] Fleet cycle completed. Dispatching next autonomous run via gh CLI..."
-          gh workflow run auto_apply.yml --repo "$GITHUB_REPOSITORY" -f mode=all -f limit=10 || (sleep 15 && gh workflow run auto_apply.yml --repo "$GITHUB_REPOSITORY" -f mode=all -f limit=10)
+          QUEUED=$(gh run list --workflow=auto_apply.yml --status queued --json databaseId -q '.[].databaseId' 2>/dev/null | wc -l)
+          if [ "$QUEUED" -gt 0 ]; then
+            echo "[*] Already $QUEUED run(s) queued in GitHub Actions. Skipping duplicate trigger to prevent backlog."
+          else
+            echo "[*] Fleet cycle completed cleanly. Dispatching next autonomous cycle..."
+            gh workflow run auto_apply.yml --repo "$GITHUB_REPOSITORY" -f mode=all -f limit=10 || (sleep 15 && gh workflow run auto_apply.yml --repo "$GITHUB_REPOSITORY" -f mode=all -f limit=10)
+          fi
 
