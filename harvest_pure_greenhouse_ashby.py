@@ -148,9 +148,16 @@ async def fetch_greenhouse_board(session, slug, name, sem):
                     results = []
                     for j in jobs:
                         title = (j.get('title') or '').strip()
-                        apply_url = (j.get('absolute_url') or '').strip()
+                        job_id = j.get('id')
+                        if slug and job_id:
+                            apply_url = f'https://job-boards.greenhouse.io/{slug}/jobs/{job_id}'
+                        else:
+                            apply_url = (j.get('absolute_url') or '').strip()
                         loc = ((j.get('location') or {}).get('name') or '').strip()
                         if not title or not apply_url:
+                            continue
+                        
+                        if 'greenhouse.io' not in apply_url:
                             continue
                         
                         # Pre-filter keywords to avoid overhead
@@ -350,12 +357,12 @@ async def main():
             applied_comps = set(r[0].strip() for r in c.fetchall() if r[0])
             conn.close()
 
-            import random
+            import random, time
             unapplied_mega = [s for s in mega_slugs if s.lower() not in applied_comps and s.lower() not in existing_gh_slugs]
-            random.seed(42)
+            random.seed(int(time.time()))
             random.shuffle(unapplied_mega)
-            # Take 2,000 unapplied Greenhouse boards for rapid high-yield harvest
-            selected_mega = unapplied_mega[:2000]
+            # Take 3,000 unapplied Greenhouse boards for high-yield harvest
+            selected_mega = unapplied_mega[:3000]
             for s in selected_mega:
                 gh_companies.append({'name': s, 'slug': s, 'ats': 'greenhouse'})
                 existing_gh_slugs.add(s.lower())

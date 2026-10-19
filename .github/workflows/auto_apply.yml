@@ -112,6 +112,8 @@ jobs:
                   applied = set((r[0].strip(), r[1].strip()) for r in c.fetchall() if r[0] and r[1])
                   c.execute('SELECT job_url FROM verified_applications')
                   applied_urls = set(r[0].strip() for r in c.fetchall() if r[0])
+                  c.execute('SELECT url FROM checked_dead_urls')
+                  dead_urls = set(r[0].strip() for r in c.fetchall() if r[0])
                   conn.close()
                   
                   roles = json.load(open(path))
@@ -119,14 +121,14 @@ jobs:
                       u = (r.get('applyUrl') or r.get('url') or '').strip()
                       cp = (r.get('company') or '').lower().strip()
                       rl = (r.get('role') or r.get('title') or '').lower().strip()
-                      if u not in applied_urls and (cp, rl) not in applied:
+                      if u not in applied_urls and u not in dead_urls and (cp, rl) not in applied:
                           unapplied += 1
               except Exception as e:
                   print(f'[-] Error computing unapplied count: {e}')
           
           print(f'[*] Active unapplied roles in current queue: {unapplied}')
-          if unapplied < 80:
-              print('[*] Role queue low (< 80 unapplied); running mega Greenhouse & Ashby harvester across 3,900+ boards...')
+          if unapplied < 120:
+              print('[*] Role queue low (< 120 unapplied); running mega Greenhouse & Ashby harvester across 3,900+ boards...')
               subprocess.run(['python3', 'harvest_pure_greenhouse_ashby.py'], check=True)
           else:
               print(f'[+] Role queue healthy with {unapplied} unapplied verified roles. Instant start.')

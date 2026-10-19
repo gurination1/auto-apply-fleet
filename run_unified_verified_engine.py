@@ -243,8 +243,9 @@ def critique_application(company, title, category=""):
         'applied ai', 'ai engineer', 'ai developer', 'mlops', 'llmops', 'aiops', 'llm', 'data engineer',
         'data science', 'data scientist', 'analyst', 'analytics', 'bi engineer', 'data infra', 'data platform',
         'data pipeline', 'analytics engineer', 'enterprise data',
-        # Non-software / physical domain / retail / oil & gas / civil & infrastructure
+        # Non-software / physical domain / retail / oil & gas / civil & infrastructure / culinary
         'retail', 'store associate', 'cashier', 'merchandise', 'warehouse', 'oil', 'gas', 'midstream', 'drilling',
+        'recipe', 'culinary', 'chef', 'kitchen', 'food service', 'restaurant',
         'civil', 'chemical engineer', 'materials science', 'facilities engineer', 'technician',
         'highway', 'roadway', 'transportation', 'structural', 'environmental', 'geotechnical', 'surveying',
         'construction', 'cad technician', 'water resources', 'drainage', 'traffic engineer', 'urban planning',
@@ -1661,6 +1662,7 @@ def apply_greenhouse(page, item):
         return True
     else:
         print(f"[-] Status inconclusive on Greenhouse. Current URL: {current_url}")
+        mark_url_dead(url)
         return False
 
 def apply_lever(page, item):
