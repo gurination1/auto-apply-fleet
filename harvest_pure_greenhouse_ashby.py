@@ -304,35 +304,75 @@ async def main():
     simplify_roles = harvest_simplify_feeds()
 
     # 2. Company dataset
-    print("[*] Fetching ATS company board index...")
+    print("[*] Loading Greenhouse & Ashby company board directories...")
+    all_companies = []
     comps_url = "https://raw.githubusercontent.com/zshah101/Automated-List-Of-Summer-2027-and-Fall-2026-Tech-Internships/main/data/companies.json"
-    req = urllib.request.Request(comps_url, headers={'User-Agent': 'Mozilla/5.0'})
-    with urllib.request.urlopen(req, timeout=10) as r:
-        all_companies = json.loads(r.read().decode())
+    try:
+        req = urllib.request.Request(comps_url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=10) as r:
+            all_companies = json.loads(r.read().decode())
+    except Exception as e:
+        print(f"[-] Notice loading zshah101 companies: {e}")
 
     gh_companies = [c for c in all_companies if c.get('ats') == 'greenhouse']
     ash_companies = [c for c in all_companies if c.get('ats') == 'ashby']
 
-    # Merge priority companies
+    # Merge priority curated companies
     existing_gh_slugs = {c['slug'].lower() for c in gh_companies}
     existing_ash_slugs = {c['slug'].lower() for c in ash_companies}
     for hc in CURATED_HIGH_PRIORITY_COMPANIES:
         slug = hc['slug'].lower()
         if hc['ats'] == 'greenhouse' and slug not in existing_gh_slugs:
             gh_companies.insert(0, hc)
+            existing_gh_slugs.add(slug)
         elif hc['ats'] == 'ashby' and slug not in existing_ash_slugs:
             ash_companies.insert(0, hc)
+            existing_ash_slugs.add(slug)
 
-    print(f"[+] Direct ATS Boards to probe: Greenhouse={len(gh_companies)}, Ashby={len(ash_companies)} (Total={len(gh_companies)+len(ash_companies)})")
+    # 3. Load mega Greenhouse companies catalog (8,333 companies)
+    mega_path = os.path.join(BASE_DIR, 'mega_greenhouse_companies.json')
+    if not os.path.exists(mega_path):
+        try:
+            m_url = 'https://raw.githubusercontent.com/Riley-Dorrington/job-board-aggregator/main/data/greenhouse_companies.json'
+            urllib.request.urlretrieve(m_url, mega_path)
+        except Exception:
+            pass
 
-    sem = asyncio.Semaphore(40)
-    conn_tcp = aiohttp.TCPConnector(limit=50, ttl_dns_cache=300)
+    if os.path.exists(mega_path):
+        try:
+            with open(mega_path) as mf:
+                mega_slugs = json.load(mf)
+            
+            # Filter against already confirmed companies in SQLite
+            conn = sqlite3.connect(DB_PATH)
+            c = conn.cursor()
+            c.execute('SELECT DISTINCT lower(company) FROM verified_applications')
+            applied_comps = set(r[0].strip() for r in c.fetchall() if r[0])
+            conn.close()
+
+            import random
+            unapplied_mega = [s for s in mega_slugs if s.lower() not in applied_comps and s.lower() not in existing_gh_slugs]
+            random.seed(42)
+            random.shuffle(unapplied_mega)
+            # Take 2,000 unapplied Greenhouse boards for rapid high-yield harvest
+            selected_mega = unapplied_mega[:2000]
+            for s in selected_mega:
+                gh_companies.append({'name': s, 'slug': s, 'ats': 'greenhouse'})
+                existing_gh_slugs.add(s.lower())
+            print(f"[+] Injected {len(selected_mega)} fresh unapplied Greenhouse company boards from mega catalog (Total available: {len(unapplied_mega)}).")
+        except Exception as e:
+            print(f"[-] Mega catalog load note: {e}")
+
+    print(f"[+] Total Direct ATS Boards to probe: Greenhouse={len(gh_companies)}, Ashby={len(ash_companies)} (Aggregate={len(gh_companies)+len(ash_companies)})")
+
+    sem = asyncio.Semaphore(70)
+    conn_tcp = aiohttp.TCPConnector(limit=100, ttl_dns_cache=300)
     async with aiohttp.ClientSession(connector=conn_tcp) as session:
-        print("[*] Dispatching parallel API scans across Greenhouse boards...")
+        print(f"[*] Dispatching parallel scans across {len(gh_companies)} Greenhouse boards...")
         gh_tasks = [fetch_greenhouse_board(session, c['slug'], c.get('name', c['slug']), sem) for c in gh_companies]
         gh_responses = await asyncio.gather(*gh_tasks)
 
-        print("[*] Dispatching parallel API scans across Ashby boards...")
+        print(f"[*] Dispatching parallel scans across {len(ash_companies)} Ashby boards...")
         ash_tasks = [fetch_ashby_board(session, c['slug'], c.get('name', c['slug']), sem) for c in ash_companies]
         ash_responses = await asyncio.gather(*ash_tasks)
 

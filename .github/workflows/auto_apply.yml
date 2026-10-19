@@ -100,13 +100,36 @@ jobs:
       - name: Refresh Fresh Role Queues
         run: |
           python3 -c "
-          import json, os, subprocess
+          import json, os, subprocess, sqlite3
+          
           path = 'live_fresh_verified_roles.json'
-          if not os.path.exists(path) or len(json.load(open(path))) < 100:
-              print('[*] Role queue low; running pure Greenhouse & Ashby harvester across 1,950+ direct boards...')
+          unapplied = 0
+          if os.path.exists(path) and os.path.exists('verified_job_applications.db'):
+              try:
+                  conn = sqlite3.connect('verified_job_applications.db')
+                  c = conn.cursor()
+                  c.execute('SELECT lower(company), lower(role) FROM verified_applications')
+                  applied = set((r[0].strip(), r[1].strip()) for r in c.fetchall() if r[0] and r[1])
+                  c.execute('SELECT job_url FROM verified_applications')
+                  applied_urls = set(r[0].strip() for r in c.fetchall() if r[0])
+                  conn.close()
+                  
+                  roles = json.load(open(path))
+                  for r in roles:
+                      u = (r.get('applyUrl') or r.get('url') or '').strip()
+                      cp = (r.get('company') or '').lower().strip()
+                      rl = (r.get('role') or r.get('title') or '').lower().strip()
+                      if u not in applied_urls and (cp, rl) not in applied:
+                          unapplied += 1
+              except Exception as e:
+                  print(f'[-] Error computing unapplied count: {e}')
+          
+          print(f'[*] Active unapplied roles in current queue: {unapplied}')
+          if unapplied < 80:
+              print('[*] Role queue low (< 80 unapplied); running mega Greenhouse & Ashby harvester across 3,900+ boards...')
               subprocess.run(['python3', 'harvest_pure_greenhouse_ashby.py'], check=True)
           else:
-              print(f'[+] Role queue pre-populated with {len(json.load(open(path)))} verified roles. Instant start.')
+              print(f'[+] Role queue healthy with {unapplied} unapplied verified roles. Instant start.')
           "
 
       - name: Run Unified Verified Application Engine
