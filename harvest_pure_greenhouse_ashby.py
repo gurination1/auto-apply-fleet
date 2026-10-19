@@ -43,10 +43,13 @@ HEADERS = {
 INTERN_KEYWORDS = ['intern', 'internship', 'co-op', 'coop', 'apprentice', 'fellowship', 'campus', 'student', 'graduate program', 'entry level', 'new grad']
 
 TARGET_SWE_KEYWORDS = [
-    'software engineer', 'software developer', 'frontend', 'front end', 'web developer',
-    'full stack', 'fullstack', 'full-stack', 'react', 'next.js', 'typescript', 'javascript',
+    'software engineer', 'software developer', 'frontend', 'front end', 'front-end', 'web developer',
+    'web engineer', 'full stack', 'fullstack', 'full-stack', 'react', 'next.js', 'typescript', 'javascript',
     'python', 'automation', 'agent', 'solutions engineer', 'product engineer', 'cloud engineer',
-    'developer', 'systems engineer', 'application engineer', 'platform engineer'
+    'developer', 'systems engineer', 'application engineer', 'platform engineer', 'forward deployed',
+    'integration engineer', 'qa engineer', 'test engineer', 'sdet', 'devops', 'site reliability', 'sre',
+    'infrastructure engineer', 'tools engineer', 'workflow engineer', 'member of technical staff',
+    'graduate engineer', 'early career', 'associate engineer', 'associate developer', 'swe', 'sde'
 ]
 
 CURATED_HIGH_PRIORITY_COMPANIES = [
@@ -99,6 +102,23 @@ CURATED_HIGH_PRIORITY_COMPANIES = [
     {'name': 'Greptile', 'slug': 'greptile', 'ats': 'ashby'},
     {'name': 'Eight Sleep', 'slug': 'eightsleep', 'ats': 'ashby'},
     {'name': 'Tessera Labs', 'slug': 'tessera-labs', 'ats': 'ashby'},
+    {'name': 'Base Power', 'slug': 'base-power', 'ats': 'ashby'},
+    {'name': 'Scale AI', 'slug': 'scaleai', 'ats': 'greenhouse'},
+    {'name': 'Modal Labs', 'slug': 'modal', 'ats': 'ashby'},
+    {'name': 'LangChain', 'slug': 'langchain', 'ats': 'ashby'},
+    {'name': 'Render', 'slug': 'render', 'ats': 'ashby'},
+    {'name': 'Resend', 'slug': 'resend', 'ats': 'ashby'},
+    {'name': 'LaunchDarkly', 'slug': 'launchdarkly', 'ats': 'greenhouse'},
+    {'name': 'Warp', 'slug': 'warp', 'ats': 'ashby'},
+    {'name': 'Cockroach Labs', 'slug': 'cockroachlabs', 'ats': 'greenhouse'},
+    {'name': 'Databricks', 'slug': 'databricks', 'ats': 'greenhouse'},
+    {'name': 'Cloudflare', 'slug': 'cloudflare', 'ats': 'greenhouse'},
+    {'name': 'Brex', 'slug': 'brex', 'ats': 'greenhouse'},
+    {'name': 'Robinhood', 'slug': 'robinhood', 'ats': 'greenhouse'},
+    {'name': 'Gusto', 'slug': 'gusto', 'ats': 'greenhouse'},
+    {'name': 'Chime', 'slug': 'chime', 'ats': 'greenhouse'},
+    {'name': 'Checkr', 'slug': 'checkr', 'ats': 'greenhouse'},
+    {'name': 'Watershed', 'slug': 'watershed', 'ats': 'ashby'},
 ]
 
 def get_location_priority(role_item):
