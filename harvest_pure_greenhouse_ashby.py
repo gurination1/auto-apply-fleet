@@ -46,6 +46,7 @@ TARGET_SWE_KEYWORDS = [
     'software engineer', 'software developer', 'frontend', 'front end', 'front-end', 'web developer',
     'web engineer', 'full stack', 'fullstack', 'full-stack', 'react', 'next.js', 'typescript', 'javascript',
     'python', 'automation', 'agent', 'solutions engineer', 'product engineer', 'cloud engineer',
+    'ai engineer', 'ai automation', 'ai agent', 'applied ai', 'ai developer', 'ai solutions', 'generative ai', 'genai', 'llm',
     'developer', 'systems engineer', 'application engineer', 'platform engineer', 'forward deployed',
     'integration engineer', 'qa engineer', 'test engineer', 'sdet', 'devops', 'site reliability', 'sre',
     'infrastructure engineer', 'tools engineer', 'workflow engineer', 'member of technical staff',

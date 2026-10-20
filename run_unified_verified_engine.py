@@ -236,11 +236,10 @@ def critique_application(company, title, category=""):
     
     # 1. STRICT PURGE OF MACHINE LEARNING, HARDWARE, LOW-LEVEL, C++, ROBOTICS & OVER-SENIORITY
     banned = [
-        # AI / ML Research / Theoretical Math / Data Science
+        # AI / ML Research / Theoretical Math / Pure Data Science (Zero Builders)
         'machine learning', 'ml ', '/ml', 'deep learning', 'ai research', 'research intern', 'research engineer',
-        'researcher', 'scientist', 'foundation model', 'reinforcement learning', 'robot learning', 'computer vision',
-        'nlp research', 'computational', 'plasma', 'physics', 'algorithmic research', 'ai intern', 'ai evaluation',
-        'applied ai', 'ai engineer', 'ai developer', 'mlops', 'llmops', 'aiops', 'llm', 'data engineer',
+        'researcher', 'scientist', 'applied scientist', 'foundation model pretraining', 'reinforcement learning', 'robot learning', 'computer vision',
+        'nlp research', 'computational', 'plasma', 'physics', 'algorithmic research', 'data engineer',
         'data science', 'data scientist', 'analyst', 'analytics', 'bi engineer', 'data infra', 'data platform',
         'data pipeline', 'analytics engineer', 'enterprise data',
         # Non-software / physical domain / retail / oil & gas / civil & infrastructure / culinary
@@ -322,11 +321,11 @@ def critique_application(company, title, category=""):
 
     # 4. MANDATORY SOFTWARE BUILDER RELEVANCE CHECK (ZERO NON-SOFTWARE PASS-THROUGH)
     has_software_context = bool(re.search(
-        r'\b(software|developer|frontend|front-end|web|fullstack|full-stack|full stack|application|react|next\.js|python|cloud|devops|automation|qa engineer|test engineer|programmer|coder|product engineer|solutions engineer|forward deployed|integration engineer|member of technical staff)\b',
+        r'\b(software|developer|frontend|front-end|web|fullstack|full-stack|full stack|application|react|next\.js|python|cloud|devops|automation|ai automation|ai engineer|applied ai|ai developer|ai agent|agentic|qa engineer|test engineer|programmer|coder|product engineer|solutions engineer|forward deployed|integration engineer|member of technical staff)\b',
         title_lower
     )) or bool(re.search(r'\b(ui|ux)\b', title_lower)) or (
         bool(re.search(r'\b(intern|internship|co-op|coop|apprentice|campus|fellowship)\b', title_lower)) and
-        bool(re.search(r'\b(software|swe|sde|web|frontend|front-end|fullstack|full-stack|full stack|developer|dev|programmer|coding|code|cloud|devops|platform|automation|qa|test|systems engineer)\b', title_lower))
+        bool(re.search(r'\b(software|swe|sde|web|frontend|front-end|fullstack|full-stack|full stack|developer|dev|programmer|coding|code|cloud|devops|platform|automation|ai|agent|qa|test|systems engineer)\b', title_lower))
     )
 
     if not has_software_context:
@@ -335,15 +334,19 @@ def critique_application(company, title, category=""):
     score = 70
     strengths = []
     # 5. CANDIDATE SWEET-SPOT CALIBRATION (B.Sc. Software Systems & Automation, React/TypeScript/Python/Node)
-    if re.search(r'\b(ui|ux|frontend|react|next\.js)\b', title_lower) or any(k in title_lower for k in ['front end', 'front-end', 'web developer', 'full stack', 'full-stack', 'fullstack', 'product engineer', 'dx', 'developer experience']):
+    if re.search(r'\b(ui|ux|frontend|react|next\.js)\b', title_lower) or any(k in title_lower for k in [
+        'front end', 'front-end', 'web developer', 'full stack', 'full-stack', 'fullstack',
+        'product engineer', 'dx', 'developer experience', 'ai automation', 'ai engineer',
+        'ai developer', 'ai agent', 'applied ai', 'agentic', 'workflow automation', 'voice ai'
+    ]):
         score = 98
-        strengths.append('Sweet-spot match: Master resume optimized for React/Next.js/TypeScript/Full-Stack Web (99.5 ATS score).')
+        strengths.append('Sweet-spot match: Master resume optimized for React/Next.js/Full-Stack Web & AI Agent/Automation engineering.')
     elif re.search(r'\b(intern|internship|co-op|coop|apprentice|campus|junior|jr|associate|early career|software engineer i|new grad|entry level)\b', title_lower):
         score = 96
         strengths.append('Optimal career level: Entry-level/Intern/Junior software role perfectly tailored for 2nd-year undergraduate candidate.')
-    elif any(k in title_lower for k in ['agent', 'automation', 'cloud', 'qa', 'workflow', 'voice', 'realtime', 'solutions', 'forward deployed']):
-        score = 92
-        strengths.append('Builder fit: Proven Playwright automation, Docker, WebSockets, and GitHub Actions CI/CD.')
+    elif any(k in title_lower for k in ['agent', 'automation', 'cloud', 'qa', 'workflow', 'voice', 'realtime', 'solutions', 'forward deployed', 'llm', 'genai']):
+        score = 95
+        strengths.append('Builder fit: Proven Autonomous Agent fleets (yt-auto), Playwright automation, Voice AI, Docker, and GitHub Actions CI/CD.')
     elif any(k in title_lower for k in ['software engineer', 'software developer', 'application engineer', 'product engineer', 'member of technical staff']):
         score = 85
         strengths.append('General software engineering builder match: Proven TypeScript/Python/React/Node stack on GitHub.')

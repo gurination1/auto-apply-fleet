@@ -42,12 +42,19 @@ Only apply to roles where the candidate's actual code, GitHub repos, and live pl
    - `Software Engineer Intern / Co-op / Junior / Mid`
    - `Software Developer Intern / Co-op / Junior / Mid`
    - `Application Developer Intern / Junior`
-3. **Automation & Cloud Systems:**
+3. **AI Automation & Agent Systems (Top Builder Sweet Spot):**
+   - `AI Automation Engineer Intern / Junior / Mid`
+   - `AI Agent Engineer Intern / Junior / Mid`
+   - `Applied AI Software Engineer Intern / Junior / Mid`
+   - `AI Solutions Engineer / Forward Deployed AI Engineer`
+   - `Workflow Automation Engineer / Generative AI Application Developer`
+   - `Voice AI & Conversational Pipeline Engineer`
+4. **Cloud Automation & Systems:**
    - `Automation Engineer Intern / Junior`
    - `QA / Test Automation Engineer Intern / Junior`
    - `Cloud / DevOps Engineer Intern` (Automation-focused)
    - `Backend Software Engineer Intern / Junior` (Python / Node.js / APIs)
-4. **Allowed Seniority:**
+5. **Allowed Seniority:**
    - `Intern`, `Co-op`, `Junior`, `Associate`, `Lower-Mid`, `Mid-level`.
 
 ---
