@@ -278,10 +278,12 @@ def critique_application(company, title, category=""):
         'recruiting', 'coordinator', 'marketing', 'finance', 'private equity', 'trading', 'quant', 'banking',
         'investment', 'talent', 'human resources', 'people', 'legal', 'compliance', 'tax', 'accounting', 'fellow',
         # Over-seniority (strictly junior, lower-mid, mid, intern)
-        'senior', 'sr.', 'sr ', 'principal', 'staff', 'architect', 'director', 'vp', 'head of', 'manager',
+        'senior', 'sênior', 'pleno', 'sr.', 'sr ', 'principal', 'staff', 'architect', 'director', 'vp', 'head of', 'manager',
         'lead', 'expert', 'specialist ii', 'engineer iii', 'engineer iv', 'engineer 3', 'engineer 4', 'swe 3', 'swe 4', 'sde 3', 'sde 4',
-        # Strict Citizenship, Clearance & Degree Knockouts (removes accidental location traps like london/toronto)
-        'us citizen', 'security clearance', 'ts/sci', 'clearance required', 'active clearance',
+        # Non-English / Foreign Language Postings
+        'engenheiro', 'engenheira', 'desenvolvedor', 'desenvolvedora', 'desarrollador', 'desarrolladora',
+        # Strict Citizenship, Clearance & Degree Knockouts
+        'us citizen', 'security clearance', 'ts/sci', 'clearance required', 'active clearance', '(secret)', 'secret clearance', 'polygraph', 'public trust',
         'phd required', 'postdoc', 'graduate intern'
     ]
     for b in banned:
