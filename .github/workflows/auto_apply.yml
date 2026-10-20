@@ -58,7 +58,7 @@ jobs:
       - name: Install Python Dependencies
         run: |
           pip install --upgrade pip
-          pip install playwright playwright-stealth beautifulsoup4 "requests[socks]" pysocks
+          pip install playwright playwright-stealth beautifulsoup4 "requests[socks]" pysocks aiohttp
 
       - name: Install Playwright Browsers & OS Dependencies
         run: |
@@ -129,7 +129,10 @@ jobs:
           print(f'[*] Active unapplied roles in current queue: {unapplied}')
           if unapplied < 120:
               print('[*] Role queue low (< 120 unapplied); running mega Greenhouse & Ashby harvester across 3,900+ boards...')
-              subprocess.run(['python3', 'harvest_pure_greenhouse_ashby.py'], check=True)
+              try:
+                  subprocess.run(['python3', 'harvest_pure_greenhouse_ashby.py'], check=True)
+              except Exception as e:
+                  print(f'[-] Harvester notice: {e}. Continuing with current roles.')
           else:
               print(f'[+] Role queue healthy with {unapplied} unapplied verified roles. Instant start.')
           "
